@@ -1,0 +1,82 @@
+﻿<UserControl 
+  x:Class="TrainTracker.MainPage"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation" 
+  xmlns:uriMapper="clr-namespace:System.Windows.Navigation;assembly=System.Windows.Controls.Navigation"
+  xmlns:dataControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit" 
+  xmlns:controls="clr-namespace:TrainTracker.Controls" 
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+  mc:Ignorable="d" d:DesignWidth="835" d:DesignHeight="480">
+
+  <Grid>
+
+        <controls:TiledBackground SourceUri="/TrainTracker;component/Images/backgroundtexture.png" />
+        <Image Source="/TrainTracker;component/Images/backgroundshadow.png" Stretch="Fill" />
+
+        <Border x:Name="BackgroundBorder" Style="{StaticResource BackgroundBorderStyle}" MaxWidth="Infinity" />
+
+        <Border x:Name="LinksBorder" Style="{StaticResource NavLinksBorderStyle}" />
+        
+        <Border x:Name="loginContainer" Style="{StaticResource LoginContainerStyle}" MaxWidth="Infinity">
+            <!-- LoginStatus will be added here in code behind. This is required for the designer view to work -->
+        </Border>
+        
+        <Grid x:Name="LayoutRoot" Style="{StaticResource LayoutRootGridStyle}" MaxWidth="Infinity" Height="Auto" Margin="1,0,0,0" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="38" />
+                <RowDefinition Height="93" />
+                <RowDefinition Height="64*" />
+            </Grid.RowDefinitions>        
+
+      
+
+        <StackPanel x:Name="LinksStackPanel" Style="{StaticResource LinksStackPanelStyle}" Margin="0,0,0,84" Grid.RowSpan="2">
+            <HyperlinkButton x:Name="Link1" Style="{StaticResource LinkStyle}" 
+                                NavigateUri="/Home" TargetName="ContentFrame" Content="{Binding Path=ApplicationStrings.HomePageTitle, Source={StaticResource ResourceWrapper}}"/>
+                <!--Rectangle x:Name="Divider1" Style="{StaticResource DividerStyle}"/-->
+
+                <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" Visibility="Collapsed"
+                   NavigateUri="/TrainTrackerMain" TargetName="ContentFrame" Content="Train Tracker"/>
+
+                <!--Rectangle x:Name="Divider2" Style="{StaticResource DividerStyle}"/-->
+            
+                <HyperlinkButton x:Name="Link4" Style="{StaticResource LinkStyle}" Visibility="Collapsed"
+                   NavigateUri="/Reports" TargetName="ContentFrame" Content="Reports"/>
+                
+            <HyperlinkButton x:Name="Link5" Style="{StaticResource LinkStyle}" Visibility="Collapsed"
+                   NavigateUri="/Setup" TargetName="ContentFrame" Content="Setup"/>
+
+
+                <HyperlinkButton x:Name="Link2" Style="{StaticResource LinkStyle}" 
+                                NavigateUri="/About" TargetName="ContentFrame" Content="{Binding Path=ApplicationStrings.AboutPageTitle, Source={StaticResource ResourceWrapper}}"/>
+
+
+
+
+            </StackPanel>
+
+    <Border x:Name="BrandingBorder" Style="{StaticResource NavBrandingBorderStyle}" Grid.Row="1" Margin="1,37,0,0" Height="56" Width="260">
+        <StackPanel x:Name="BrandingStackPanel" Style="{StaticResource NavBrandingStackPanelStyle}">
+                    <Image Height="49" Width="92" Source="Assets/Resources/Images/logo.png" Stretch="UniformToFill" Margin="6,1,0,0" />
+                    <TextBlock x:Name="ApplicationNameTextBlock" Style="{StaticResource ApplicationNameStyle}" 
+            Text="{Binding ApplicationStrings.ApplicationName, Source={StaticResource ResourceWrapper}}" Margin="10,17,0,0" Foreground="Black" />
+                </StackPanel>
+    </Border>
+
+    <Border x:Name="ContentBorder" Style="{StaticResource NavContentBorderStyle}" Grid.Row="2" Margin="0,0,0,1">
+        <navigation:Frame x:Name="ContentFrame" Style="{StaticResource ContentFrameStyle}" 
+                    Source="/Home" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed" HorizontalAlignment="Stretch" Padding="0">
+            <navigation:Frame.UriMapper>
+                <uriMapper:UriMapper>
+                    <uriMapper:UriMapping Uri="" MappedUri="/Views/Home.xaml"/>
+                    <uriMapper:UriMapping Uri="/{pageName}" MappedUri="/Views/{pageName}.xaml"/>
+                </uriMapper:UriMapper>
+            </navigation:Frame.UriMapper>
+        </navigation:Frame>
+    </Border>
+
+  </Grid>
+ </Grid>
+
+</UserControl>

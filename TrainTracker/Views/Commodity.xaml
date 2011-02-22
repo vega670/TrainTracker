@@ -1,0 +1,60 @@
+﻿<navigation:Page x:Class="TrainTracker.Views.Commodity" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="653" d:DesignHeight="466"
+           Title="Commodity Page" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:my="clr-namespace:TrainTracker.Web.Models" xmlns:my1="clr-namespace:TrainTracker.Web.Services" xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit">
+    <Grid Name="LayoutRoot" Width="652" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <sdk:TabControl Height="468" HorizontalAlignment="Left" Margin="0,-2,0,0" Name="tabControl1" VerticalAlignment="Top" Width="652">
+            <sdk:TabItem Header="Commodities" Name="tabItem1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45*" />
+                        <RowDefinition Height="17*" />
+                        <RowDefinition Height="220*" />
+                        <RowDefinition Height="28*" />
+                        <RowDefinition Height="19*" />
+                        <RowDefinition Height="48*" />
+                        <RowDefinition Height="50*" />
+                    </Grid.RowDefinitions>
+                    <sdk:GridSplitter IsEnabled="False" Grid.Row="1" Height="15" HorizontalAlignment="Stretch" Margin="6,0,0,0" Name="separator4" VerticalAlignment="Top" />
+                    <StackPanel HorizontalAlignment="Stretch" Name="stackPanel3" Orientation="Horizontal" VerticalAlignment="Stretch">
+                        <TextBlock Height="22" Margin="6,0,1,0" Name="textBlock2" Text="Commodity:" Width="68" />
+                        <TextBox Background="DarkGray" Height="29" Margin="4" Name="comFilter" Width="120" />
+                        <Button Content="Search" FontSize="10" Height="28" Name="comSearch" Width="81" Click="comSearch_Click" />
+                    </StackPanel>
+                    <sdk:DataPager Source="{Binding Data, ElementName=commodityDomainDataSource}" Grid.Row="3" Height="26" HorizontalAlignment="Stretch" Margin="14,2,6,0" Name="dataPager2" PageSize="10" VerticalAlignment="Top" />
+                    <StackPanel FlowDirection="RightToLeft" Grid.Row="5" HorizontalAlignment="Stretch" Margin="6,4,0,0" Name="stackPanel4" Orientation="Horizontal" VerticalAlignment="Top">
+                        <Button Content="Save" FontSize="10" Height="28" Margin="4" Name="comSave" Width="81" IsEnabled="False" Click="comSave_Click" />
+                        <Button Content="Cancel" FontSize="10" Height="28" MinWidth="4" Name="comCancel" Width="81" IsEnabled="False" Click="comCancel_Click" />
+                        <Button Content="New" FontSize="10" Height="28" Margin="4" Name="comNew" Width="81" Click="newCom_Click" />
+                    </StackPanel>
+                    <sdk:GridSplitter IsEnabled="False" Grid.Row="4" Height="15" HorizontalAlignment="Stretch" Margin="6,0,0,0" Name="gridSplitter1" VerticalAlignment="Top" />
+                    <riaControls:DomainDataSource AutoLoad="False" PageSize="10" LoadSize="10" d:DesignData="{d:DesignInstance my:Commodity, CreateList=true}" Height="0" LoadedData="commodityDomainDataSource_LoadedData" Name="commodityDomainDataSource" QueryName="GetCommoditiesQuery" Width="0" SubmittedChanges="DomainDataSource_SubmittedChanges" >
+                        <riaControls:DomainDataSource.DomainContext>
+                            <my1:RailServeDS />
+                        </riaControls:DomainDataSource.DomainContext>
+                        <riaControls:DomainDataSource.FilterDescriptors>
+                            <riaControls:FilterDescriptor IgnoredValue="" Operator="StartsWith" PropertyPath="CommodityName" Value="{Binding ElementName=comFilter, Path=Text}" />
+                        </riaControls:DomainDataSource.FilterDescriptors>
+                        <riaControls:DomainDataSource.SortDescriptors>
+                            <riaControls:SortDescriptor Direction="Ascending" PropertyPath="CommodityName" />
+                        </riaControls:DomainDataSource.SortDescriptors>
+                    </riaControls:DomainDataSource>
+                    <sdk:DataGrid AutoGenerateColumns="False" Grid.Row="2" HorizontalAlignment="Stretch" ItemsSource="{Binding ElementName=commodityDomainDataSource, Path=Data}" Margin="6,4,6,0" Name="commodityDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" VerticalAlignment="Stretch" CellEditEnded="commodityDataGrid_CellEditEnded">
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTextColumn x:Name="commodityIDColumn" Binding="{Binding Path=CommodityID, Mode=OneWay}" Header="Commodity ID" IsReadOnly="True" Width="SizeToHeader" />
+                            <sdk:DataGridTextColumn x:Name="commodityCodeColumn" Binding="{Binding Path=CommodityCode}" Header="Commodity Code" Width="150" />
+                            <sdk:DataGridTextColumn x:Name="commodityNameColumn" Binding="{Binding Path=CommodityName}" Header="Commodity Name" Width="160" />
+                            <sdk:DataGridTextColumn x:Name="commentsColumn" Binding="{Binding Path=Comments}" Header="Comments" Width="230" />
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+                    <toolkit:BusyIndicator Height="65" HorizontalAlignment="Left" IsBusy="{Binding ElementName=commodityDomainDataSource, Path=DomainContext.IsLoading}" Margin="227,86,0,0" Name="busyIndicator3" VerticalAlignment="Top" Width="151" Grid.Row="2" />
+                </Grid>
+            </sdk:TabItem>
+        </sdk:TabControl>
+    </Grid>
+</navigation:Page>

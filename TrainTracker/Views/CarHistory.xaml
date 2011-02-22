@@ -1,0 +1,23 @@
+﻿<controls:ChildWindow x:Class="TrainTracker.Views.CarHistory"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Width="595" Height="389" 
+           Title="CarHistory">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="281*" />
+            <RowDefinition Height="21*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="35" HorizontalAlignment="Right" Grid.Row="2" />
+        <Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="35" HorizontalAlignment="Right" Margin="0,0,79,0" Grid.Row="2" />
+        <controls:TabControl Height="281" HorizontalAlignment="Left" Name="tabControl1" VerticalAlignment="Top" Width="571">
+            <controls:TabItem Header="tabItem1" Name="tabItem1">
+                <Grid />
+            </controls:TabItem>
+        </controls:TabControl>
+        <controls:GridSplitter Height="15" HorizontalAlignment="Stretch" IsEnabled="False" Margin="0,4,0,0" Name="separator4" VerticalAlignment="Top" Grid.Row="1" />
+    </Grid>
+</controls:ChildWindow>

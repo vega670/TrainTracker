@@ -1,0 +1,163 @@
+﻿<navigation:Page x:Class="TrainTracker.Views.RailYard" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="653" d:DesignHeight="467"
+           Title="RailYard Page" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:my="clr-namespace:TrainTracker.Web.Models" xmlns:my1="clr-namespace:TrainTracker.Web.Services" xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit">
+    <Grid Name="LayoutRoot" Width="654" HorizontalAlignment="Left">
+        <sdk:TabControl Height="468" HorizontalAlignment="Left" Name="tabControl1" VerticalAlignment="Top" Width="652">
+            <sdk:TabItem Header="Yards" Name="tabItem1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45*" />
+                        <RowDefinition Height="17*" />
+                        <RowDefinition Height="220*" />
+                        <RowDefinition Height="26*" />
+                        <RowDefinition Height="15*" />
+                        <RowDefinition Height="41*" />
+                        <RowDefinition Height="63*" />
+                    </Grid.RowDefinitions>
+                    <sdk:GridSplitter IsEnabled="False" Grid.Row="1" Height="15" HorizontalAlignment="Stretch" Margin="6,0,0,0" Name="separator4" VerticalAlignment="Top" />
+                    <StackPanel HorizontalAlignment="Stretch" Name="stackPanel3" Orientation="Horizontal" VerticalAlignment="Stretch" Margin="6,0,0,0">
+                        <TextBlock Height="22" Margin="6,0,1,0" Name="textBlock2" Text="Yard:" Width="52" />
+                        <TextBox Background="DarkGray" Height="29" Margin="4" Name="yardFilter" Width="120" />
+                        <Button Content="Search" FontSize="10" Height="28" Name="yardSearch" Width="81" Click="yardSearch_Click" />
+                    </StackPanel>
+
+                    <sdk:DataPager Source="{Binding Data, ElementName=railYardDomainDataSource}" Grid.Row="3" Height="26" HorizontalAlignment="Stretch" Margin="6,0,14,0" Name="dataPager2" PageSize="10" VerticalAlignment="Top" />
+                    <StackPanel FlowDirection="RightToLeft" Grid.Row="5" HorizontalAlignment="Stretch" Margin="6,0,0,0" Name="stackPanel4" Orientation="Horizontal" VerticalAlignment="Top">
+                        <Button Content="Save" FontSize="10" Height="28" Margin="4" Name="yardSave" Width="81" Click="yardSave_Click" IsEnabled="False" />
+                        <Button Content="Cancel" FontSize="10" Height="28" MinWidth="4" Name="yardCancel" Width="81" Click="yardCancel_Click" IsEnabled="False" />
+                        <Button Content="New" FontSize="10" Height="28" Margin="4" Name="yardNew" Width="81" Click="yardNew_Click" />
+                    </StackPanel>
+
+                    <sdk:GridSplitter IsEnabled="False" Grid.Row="4" Height="15" HorizontalAlignment="Stretch" Margin="6,0,0,0" Name="gridSplitter1" VerticalAlignment="Top" />
+                    <riaControls:DomainDataSource AutoLoad="False" PageSize="10" LoadSize="10" d:DesignData="{d:DesignInstance my:RailYard, CreateList=true}" Height="0" LoadedData="railYardDomainDataSource_LoadedData" Name="railYardDomainDataSource" QueryName="GetRailYardsQuery" Width="0" SubmittedChanges="DomainDataSource_SubmittedChanges" >
+                        <riaControls:DomainDataSource.DomainContext>
+                            <my1:RailServeDS />
+                        </riaControls:DomainDataSource.DomainContext>
+                        <riaControls:DomainDataSource.FilterDescriptors>
+                            <riaControls:FilterDescriptor IgnoredValue="" Operator="StartsWith" PropertyPath="YardName" Value="{Binding ElementName=yardFilter, Path=Text}" />
+                        </riaControls:DomainDataSource.FilterDescriptors>
+                        <riaControls:DomainDataSource.SortDescriptors>
+                            <riaControls:SortDescriptor Direction="Ascending" PropertyPath="YardName" />
+                        </riaControls:DomainDataSource.SortDescriptors>
+                    </riaControls:DomainDataSource>
+                    <sdk:DataGrid AutoGenerateColumns="False" Grid.Row="2" HorizontalAlignment="Stretch" ItemsSource="{Binding ElementName=railYardDomainDataSource, Path=Data}" Margin="6,4,0,0" Name="railYardDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" VerticalAlignment="Stretch" CellEditEnded="railYardDataGrid_CellEditEnded">
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTextColumn x:Name="yardIDColumn" Binding="{Binding Path=YardID, Mode=OneWay}" Header="Yard ID" IsReadOnly="True" Width="SizeToHeader" />
+                            <sdk:DataGridTextColumn x:Name="yardCodeColumn" Binding="{Binding Path=YardCode}" Header="Yard Code" Width="120" />
+                            <sdk:DataGridTextColumn x:Name="yardNameColumn" Binding="{Binding Path=YardName}" Header="Yard Name" Width="200" />
+                            <sdk:DataGridTextColumn x:Name="streetColumn" Binding="{Binding Path=Street}" Header="Street" Width="200" />
+                            <sdk:DataGridTextColumn x:Name="cityColumn" Binding="{Binding Path=City}" Header="City" Width="120" />
+                            <sdk:DataGridTextColumn x:Name="stateColumn" Binding="{Binding Path=State}" Header="State" Width="100" />
+                            <sdk:DataGridTextColumn x:Name="zipColumn" Binding="{Binding Path=Zip}" Header="Zip" Width="100" />
+                            <sdk:DataGridTextColumn x:Name="countyColumn" Binding="{Binding Path=County}" Header="County" Width="100" />
+                            <sdk:DataGridTextColumn x:Name="phoneColumn" Binding="{Binding Path=Phone}" Header="Phone" Width="100" />
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+                    <toolkit:BusyIndicator Height="65" HorizontalAlignment="Left" IsBusy="{Binding ElementName=railYardDomainDataSource, Path=DomainContext.IsLoading}" Margin="244,106,0,0" Name="busyIndicator2" VerticalAlignment="Top" Width="151" Grid.Row="2" />
+                </Grid>
+            </sdk:TabItem>
+            <sdk:TabItem Header="Tracks" Name="tabItem2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45*" />
+                        <RowDefinition Height="17*" />
+                        <RowDefinition Height="220*" />
+                        <RowDefinition Height="26*" />
+                        <RowDefinition Height="15*" />
+                        <RowDefinition Height="41*" />
+                        <RowDefinition Height="63*" />
+                    </Grid.RowDefinitions>
+                    <sdk:GridSplitter IsEnabled="False" Grid.Row="1" Height="15" HorizontalAlignment="Stretch" Margin="4,0,0,0" Name="separator5" VerticalAlignment="Top" />
+                    <StackPanel HorizontalAlignment="Stretch" Name="stackPanel1" Orientation="Horizontal" VerticalAlignment="Stretch" Margin="6,0,0,0">
+                        <TextBlock Height="22" Margin="4,0,1,0" Name="textBlock1" Text="Track:" Width="42" />
+                        <TextBox Background="DarkGray" Height="28" Margin="4" Name="trackFilter" Width="120" />
+                        <Button Content="Search" FontSize="10" Height="28" Name="trackSearch" Width="81" Click="trackSearch_Click" />
+                    </StackPanel>
+
+                    <sdk:DataPager Source="{Binding Data, ElementName=trackDomainDataSource}"  Grid.Row="3" Height="26" HorizontalAlignment="Stretch" Margin="6,0,0,0" Name="dataPager1" PageSize="10" VerticalAlignment="Top" />
+                    <StackPanel FlowDirection="RightToLeft" Grid.Row="5" HorizontalAlignment="Stretch" Margin="6,0,0,0" Name="stackPanel2" Orientation="Horizontal" VerticalAlignment="Top">
+                        <Button Content="Save" FontSize="10" Height="28" Margin="4" Name="trackSave" Width="81" Click="trackSave_Click" IsEnabled="False" />
+                        <Button Content="Cancel" FontSize="10" Height="28" MinWidth="4" Name="trackCancel" Width="81" Click="trackCancel_Click" IsEnabled="False" />
+                        <Button Content="New" FontSize="10" Height="28" Margin="4" Name="trackNew" Width="81" Click="trackNew_Click" />
+                    </StackPanel>
+                    <sdk:GridSplitter IsEnabled="False" Grid.Row="4" Height="15" HorizontalAlignment="Stretch" Margin="6,0,0,0" Name="gridSplitter2" VerticalAlignment="Top" />
+                    <riaControls:DomainDataSource AutoLoad="False" PageSize="10" LoadSize="10" d:DesignData="{d:DesignInstance my:Track, CreateList=true}" Height="0" LoadedData="trackDomainDataSource_LoadedData" Name="trackDomainDataSource" QueryName="GetTracksQuery" Width="0" SubmittedChanges="DomainDataSource_SubmittedChanges" >
+                        <riaControls:DomainDataSource.DomainContext>
+                            <my1:RailServeDS />
+                        </riaControls:DomainDataSource.DomainContext>
+                        <riaControls:DomainDataSource.FilterDescriptors>
+                            <riaControls:FilterDescriptor IgnoredValue="" Operator="StartsWith" PropertyPath="Track1" Value="{Binding ElementName=trackFilter, Path=Text}" />
+                        </riaControls:DomainDataSource.FilterDescriptors>
+                        <riaControls:DomainDataSource.SortDescriptors>
+                            <riaControls:SortDescriptor Direction="Ascending" PropertyPath="Track1" />
+                        </riaControls:DomainDataSource.SortDescriptors>
+                    </riaControls:DomainDataSource>
+                    <sdk:DataGrid AutoGenerateColumns="False" Grid.Row="2" HorizontalAlignment="Stretch" ItemsSource="{Binding ElementName=trackDomainDataSource, Path=Data}" Name="trackDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" VerticalAlignment="Stretch" Margin="6,0,0,0" CellEditEnded="trackDataGrid_CellEditEnded">
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTextColumn x:Name="trackIDColumn" Binding="{Binding Path=TrackID, Mode=OneWay}" Header="Track ID" IsReadOnly="True" Width="SizeToHeader" />
+                            <sdk:DataGridTextColumn x:Name="track1Column" Binding="{Binding Path=Track1}" Header="Name" Width="200" />
+                            <sdk:DataGridTextColumn x:Name="lengthColumn" Binding="{Binding Path=Length}" Header="Length" Width="SizeToHeader" />
+                            <sdk:DataGridTextColumn x:Name="maxCarsColumn" Binding="{Binding Path=MaxCars}" Header="Max Cars" Width="SizeToHeader" />
+                            <sdk:DataGridTextColumn x:Name="yardIdColumn1" Binding="{Binding Path=YardId}" Header="Yard Id" Width="SizeToHeader" />
+                            <sdk:DataGridTextColumn Binding="{Binding Path=RailYard}" Header="RailYard" />
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+                    <toolkit:BusyIndicator Height="65" HorizontalAlignment="Left" IsBusy="{Binding ElementName=trackDomainDataSource, Path=DomainContext.IsLoading}" Margin="257,119,0,0" Name="busyIndicator1" VerticalAlignment="Top" Width="151" Grid.Row="2" />
+                </Grid>
+            </sdk:TabItem>
+            <sdk:TabItem Header="Activities" Name="tabItem3">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45*" />
+                        <RowDefinition Height="17*" />
+                        <RowDefinition Height="220*" />
+                        <RowDefinition Height="26*" />
+                        <RowDefinition Height="15*" />
+                        <RowDefinition Height="42*" />
+                        <RowDefinition Height="62*" />
+                    </Grid.RowDefinitions>
+                    <sdk:GridSplitter IsEnabled="False" Grid.Row="1" Height="15" HorizontalAlignment="Stretch" Margin="4,0,0,0" Name="separator3" VerticalAlignment="Top" />
+                    <StackPanel HorizontalAlignment="Stretch" Name="stackPanel5" Orientation="Horizontal" VerticalAlignment="Stretch" Margin="6,0,0,0">
+                        <TextBlock Height="22" Margin="4,0,1,0" Name="textBlock3" Text="Activity:" Width="50" />
+                        <TextBox Background="DarkGray" Height="29" Margin="4" Name="actFilter" Width="120" />
+                        <Button Content="Search" FontSize="10" Height="28" Name="actSearch" Width="81" Click="actSearch_Click" />
+                    </StackPanel>
+
+                    <sdk:DataPager Source="{Binding Data, ElementName=activityDomainDataSource}" Grid.Row="3" Height="26" HorizontalAlignment="Stretch" Margin="6,0,14,0" Name="dataPager3" PageSize="10" VerticalAlignment="Top" />
+                    <StackPanel FlowDirection="RightToLeft" Grid.Row="5" HorizontalAlignment="Stretch" Margin="4,0,2,0" Name="stackPanel6" Orientation="Horizontal" VerticalAlignment="Top">
+                        <Button Content="Save" FontSize="10" Height="28" Margin="4" Name="actSave" Width="81" Click="actSave_Click" IsEnabled="False" />
+                        <Button Content="Cancel" FontSize="10" Height="28" MinWidth="4" Name="actCancel" Width="81" Click="actCancel_Click" IsEnabled="False" />
+                        <Button Content="New" FontSize="10" Height="28" Margin="4" Name="actNew" Width="81" Click="actNew_Click" />
+                    </StackPanel>
+
+                    <sdk:GridSplitter IsEnabled="False" Grid.Row="4" Height="15" HorizontalAlignment="Stretch" Margin="6,0,0,0" Name="gridSplitter3" VerticalAlignment="Top" />
+                    <riaControls:DomainDataSource AutoLoad="False" PageSize="10" LoadSize="10" d:DesignData="{d:DesignInstance my:Activity, CreateList=true}" Height="0" LoadedData="activityDomainDataSource_LoadedData" Name="activityDomainDataSource" QueryName="GetActivitiesQuery" Width="0" SubmittedChanges="DomainDataSource_SubmittedChanges" >
+                        <riaControls:DomainDataSource.DomainContext>
+                            <my1:RailServeDS />
+                        </riaControls:DomainDataSource.DomainContext>
+                        <riaControls:DomainDataSource.FilterDescriptors>
+                            <riaControls:FilterDescriptor IgnoredValue="" Operator="StartsWith" PropertyPath="ActivityName" Value="{Binding ElementName=actFilter, Path=Text}" />
+                        </riaControls:DomainDataSource.FilterDescriptors>
+                        <riaControls:DomainDataSource.SortDescriptors>
+                            <riaControls:SortDescriptor Direction="Ascending" PropertyPath="ActivityName" />
+                        </riaControls:DomainDataSource.SortDescriptors>
+                    </riaControls:DomainDataSource>
+                    <sdk:DataGrid AutoGenerateColumns="False" Grid.Row="2" HorizontalAlignment="Stretch" ItemsSource="{Binding ElementName=activityDomainDataSource, Path=Data}" Margin="6,0,0,0" Name="activityDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" VerticalAlignment="Stretch" CellEditEnded="activityDataGrid_CellEditEnded">
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTextColumn x:Name="activityIdColumn" Binding="{Binding Path=ActivityId, Mode=OneWay}" Header="Activity Id" IsReadOnly="True" Width="SizeToHeader" />
+                            <sdk:DataGridTextColumn x:Name="activityCodeColumn" Binding="{Binding Path=ActivityCode}" Header="Activity Code" Width="200" />
+                            <sdk:DataGridTextColumn x:Name="activityNameColumn" Binding="{Binding Path=ActivityName}" Header="Activity Name" Width="270" />
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+                    <toolkit:BusyIndicator Height="65" HorizontalAlignment="Left" IsBusy="{Binding ElementName=activityDomainDataSource, Path=DomainContext.IsLoading}" Margin="233,101,0,0" Name="busyIndicator3" VerticalAlignment="Top" Width="151" Grid.Row="2" />
+                </Grid>
+            </sdk:TabItem>
+        </sdk:TabControl>
+    </Grid>
+</navigation:Page>
