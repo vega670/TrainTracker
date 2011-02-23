@@ -206,7 +206,7 @@ namespace TrainTracker.Web.Services
             return this.ObjectContext.RailCarCurrentStatus;
         }
         public IQueryable<RailCarCurrentStatu> GetRailCarCurrentStatusById(int yard)
-        {
+        {            
             return this.ObjectContext.RailCarCurrentStatus.Include("CarLoadStatu").Include("Commodity").Include("HistoryType").Include("RailCar").Include("RailYard").Include("Track").Where(y => y.YardID == yard);
         }
 
@@ -326,7 +326,7 @@ namespace TrainTracker.Web.Services
         {
             return this.ObjectContext.RailYards;
         }
-
+        
         public void InsertRailYard(RailYard railYard)
         {
             if ((railYard.EntityState != EntityState.Detached))
@@ -394,7 +394,7 @@ namespace TrainTracker.Web.Services
         // To support paging you will need to add ordering to the 'Tracks' query.
         public IQueryable<Track> GetTracks()
         {
-            return this.ObjectContext.Tracks;
+            return this.ObjectContext.Tracks.Include("RailYard");
         }
         public IQueryable<Track> GetTracksByYardID(int yard)
         {

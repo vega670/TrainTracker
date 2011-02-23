@@ -498,7 +498,7 @@ namespace TrainTracker.Web.Models
             public EntityCollection<RailCarCurrentStatu> RailCarCurrentStatus { get; set; }
 
             public EntityCollection<RailCarHistory> RailCarHistories { get; set; }
-
+            [Include]
             public RailYard RailYard { get; set; }
 
             public string Track1 { get; set; }

@@ -26,13 +26,13 @@
                         <TextBox Background="DarkGray" Height="28" Margin="4" Name="carFilter" Width="120" />
                         <Button Content="Search" FontSize="10" Height="28" Name="carSearch" Width="81" Click="carSearch_Click" />
                     </StackPanel>
-                    <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:RailCarType, CreateList=true}" Height="0" LoadedData="railCarTypeDomainDataSource_LoadedData" Margin="0,0,640,39" Name="domainDataSource1" QueryName="GetRailCarTypesQuery" Width="0">
+                    <riaControls:DomainDataSource AutoLoad="true" PageSize="10" LoadSize="10" d:DesignData="{d:DesignInstance my1:RailCarType, CreateList=true}" Height="0" LoadedData="railCarTypeDomainDataSource_LoadedData" Margin="0,0,640,39" Name="domainDataSource1" QueryName="GetRailCarTypesQuery" Width="0">
                         <riaControls:DomainDataSource.DomainContext>
                             <my:RailServeDS />
                         </riaControls:DomainDataSource.DomainContext>
                     </riaControls:DomainDataSource>
                     <sdk:DataPager Source="{Binding Data, ElementName=railCarDomainDataSource}" Grid.Row="3" Height="26" HorizontalAlignment="Stretch" Margin="6,5,6,0" Name="dataPager2" PageSize="10" VerticalAlignment="Top" />
-                    <riaControls:DomainDataSource AutoLoad="False" PageSize="10" LoadSize="10" d:DesignData="{d:DesignInstance my1:RailCar, CreateList=true}" Height="0" LoadedData="railCarDomainDataSource_LoadedData" Name="railCarDomainDataSource" QueryName="GetRailCarsQuery" Width="0" SubmittedChanges="DomainDataSource_SubmittedChanges">
+                    <riaControls:DomainDataSource AutoLoad="true" PageSize="10" LoadSize="10" d:DesignData="{d:DesignInstance my1:RailCar, CreateList=true}" Height="0" LoadedData="railCarDomainDataSource_LoadedData" Name="railCarDomainDataSource" QueryName="GetRailCarsQuery" Width="0" SubmittedChanges="DomainDataSource_SubmittedChanges">
                         <riaControls:DomainDataSource.DomainContext>
                             <my:RailServeDS />
                         </riaControls:DomainDataSource.DomainContext>
@@ -50,7 +50,7 @@
                         <Button Content="New" FontSize="10" Height="28" Margin="4" Name="carNew" Width="81" Click="carNew_Click" />
                     </StackPanel>
                     <toolkit:BusyIndicator Height="65" HorizontalAlignment="Left" IsBusy="{Binding ElementName=railCarDomainDataSource, Path=DomainContext.IsLoading}" Margin="223,93,0,0" Name="busyIndicator3" VerticalAlignment="Top" Width="151" Grid.Row="2" />
-                    <sdk:DataGrid AutoGenerateColumns="False" Grid.Row="2" Height="216" HorizontalAlignment="Left" ItemsSource="{Binding ElementName=railCarDomainDataSource, Path=Data}" Margin="6,0,0,0" Name="railCarDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" VerticalAlignment="Top" Width="628" CellEditEnded="railCarDataGrid_CellEditEnded">
+                    <sdk:DataGrid AutoGenerateColumns="true" Grid.Row="2" Height="216" HorizontalAlignment="Left" ItemsSource="{Binding ElementName=railCarDomainDataSource, Path=Data}" Margin="6,0,0,0" Name="railCarDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" VerticalAlignment="Top" Width="628" CellEditEnded="railCarDataGrid_CellEditEnded">
                         <sdk:DataGrid.Columns>
                             <sdk:DataGridTextColumn x:Name="carIDColumn" Binding="{Binding Path=CarID, Mode=OneWay}" Header="Car ID" IsReadOnly="True" Width="SizeToHeader" />
                             <sdk:DataGridTextColumn x:Name="numberColumn" Binding="{Binding Path=Number}" Header="Number" Width="180" />
@@ -59,7 +59,6 @@
                             <sdk:DataGridTextColumn x:Name="ownerColumn" Binding="{Binding Path=Owner}" Header="Owner" Width="200" />
                         </sdk:DataGrid.Columns>
                     </sdk:DataGrid>
-                    <TextBlock Height="31" HorizontalAlignment="Left" Margin="296,-36,0,0" Name="warning" Text="" VerticalAlignment="Top" Width="211" />
                 </Grid>
             </sdk:TabItem>
             <sdk:TabItem Name="typeSearch" Width="81" Height="28" Header="Types">
@@ -79,7 +78,7 @@
                         <TextBox Height="29" Name="typeFilter" Width="120" Margin="4" Background="DarkGray" />
                         <Button Content="Search" Height="28" Name="button1" Width="81" FontSize="10" Click="typeSearch_Click" />
                     </StackPanel>
-                    <riaControls:DomainDataSource AutoLoad="False" PageSize="10" LoadSize="10" d:DesignData="{d:DesignInstance my1:RailCarType, CreateList=true}" Height="0" LoadedData="railCarTypeDomainDataSource_LoadedData" Name="railCarTypeDomainDataSource" QueryName="GetRailCarTypesQuery" Width="0" Margin="0,0,640,39" SubmittedChanges="DomainDataSource_SubmittedChanges">
+                    <riaControls:DomainDataSource AutoLoad="True" PageSize="10" LoadSize="10" d:DesignData="{d:DesignInstance my1:RailCarType, CreateList=true}" Height="0" LoadedData="railCarTypeDomainDataSource_LoadedData" Name="railCarTypeDomainDataSource" QueryName="GetRailCarTypesQuery" Width="0" Margin="0,0,640,39" SubmittedChanges="DomainDataSource_SubmittedChanges">
                         <riaControls:DomainDataSource.DomainContext>
                             <my:RailServeDS />
                         </riaControls:DomainDataSource.DomainContext>
@@ -124,7 +123,7 @@
                         <TextBox Background="DarkGray" Height="29" Margin="4" Name="statusFilter" Width="120" />
                         <Button Content="Search" FontSize="10" Height="28" Name="statusSearch" Width="81" Click="statusSearch_Click" />
                     </StackPanel>
-                    <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:RailCarType, CreateList=true}" Height="0" LoadedData="railCarTypeDomainDataSource_LoadedData" Margin="0,0,640,39" Name="domainDataSource2" QueryName="GetRailCarTypesQuery" Width="0">
+                    <riaControls:DomainDataSource AutoLoad="true" PageSize="10" LoadSize="10" d:DesignData="{d:DesignInstance my1:RailCarType, CreateList=true}" Height="0" LoadedData="railCarTypeDomainDataSource_LoadedData" Margin="0,0,640,39" Name="domainDataSource2" QueryName="GetRailCarTypesQuery" Width="0">
                         <riaControls:DomainDataSource.DomainContext>
                             <my:RailServeDS />
                         </riaControls:DomainDataSource.DomainContext>
@@ -135,7 +134,7 @@
                         <Button Content="Cancel" FontSize="10" Height="28" MinWidth="4" Name="statusCancel" Width="81" Click="statusCancel_Click" IsEnabled="False" />
                         <Button Content="New" FontSize="10" Height="28" Margin="4" Name="statusNew" Width="81" Click="statusNew_Click" />
                     </StackPanel>
-                    <riaControls:DomainDataSource AutoLoad="False" PageSize="10" LoadSize="10" d:DesignData="{d:DesignInstance my1:CarLoadStatu, CreateList=true}" Height="0" LoadedData="carLoadStatuDomainDataSource_LoadedData" Name="carLoadStatuDomainDataSource" QueryName="GetCarLoadStatusQuery" Width="0" SubmittedChanges="DomainDataSource_SubmittedChanges">
+                    <riaControls:DomainDataSource AutoLoad="true" PageSize="10" LoadSize="10" d:DesignData="{d:DesignInstance my1:CarLoadStatu, CreateList=true}" Height="0" LoadedData="carLoadStatuDomainDataSource_LoadedData" Name="carLoadStatuDomainDataSource" QueryName="GetCarLoadStatusQuery" Width="0" SubmittedChanges="DomainDataSource_SubmittedChanges">
                         <riaControls:DomainDataSource.DomainContext>
                             <my:RailServeDS />
                         </riaControls:DomainDataSource.DomainContext>

@@ -40,8 +40,7 @@ namespace TrainTracker.Views
                 System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
                 e.MarkErrorAsHandled();
             }
-        }      
-
+        } 
         private void yardSelector_Click(object sender, RoutedEventArgs e)
         {
             var selectedYard = comboBox1.SelectedItem as TrainTracker.Web.Models.RailYard;
@@ -51,8 +50,7 @@ namespace TrainTracker.Views
             if (yardID != 0)
             {
                 receiveCar.IsEnabled = true;
-                yardStatus.IsEnabled = true;
-             
+                yardStatus.IsEnabled = true;             
             }
         }
 

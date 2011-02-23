@@ -71,7 +71,6 @@ namespace TrainTracker.Views
         #region Car
         private void carSearch_Click(object sender, RoutedEventArgs e)
         {
-            warning.Text = "";
             this.railCarDomainDataSource.Clear();
             this.railCarDomainDataSource.Load();
             carSave.IsEnabled = false;
@@ -80,11 +79,6 @@ namespace TrainTracker.Views
         }
         private void carNew_Click(object sender, RoutedEventArgs e)
         {
-            if (railCarDomainDataSource.DataView.IsEmpty)
-            {
-                warning.Text = "Perform Minor Search First";
-                return;
-            } 
             carNew.IsEnabled = false;
             var car = new TrainTracker.Web.Models.RailCar();          
             railCarDomainDataSource.DataView.Add(car);
@@ -139,10 +133,6 @@ namespace TrainTracker.Views
         }
         private void typeNew_Click(object sender, RoutedEventArgs e)
         {
-            if (railCarTypeDomainDataSource.DataView.Count == 0)
-            {
-                return;
-            } 
             typeNew.IsEnabled = false;
             var type = new TrainTracker.Web.Models.RailCarType();
             railCarTypeDomainDataSource.DataView.Add(type);
@@ -189,10 +179,6 @@ namespace TrainTracker.Views
         }
         private void statusNew_Click(object sender, RoutedEventArgs e)
         {
-            if (carLoadStatuDomainDataSource.DataView.Count == 0)
-            {
-                return;
-            }    
             statusNew.IsEnabled = false;
             var status = new TrainTracker.Web.Models.CarLoadStatu();
                 carLoadStatuDomainDataSource.DataView.Add(status);
@@ -239,6 +225,16 @@ namespace TrainTracker.Views
             }
         }
         #endregion
+
+        private void railCarCurrentStatuDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
+        {
+
+            if (e.HasError)
+            {
+                System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
+                e.MarkErrorAsHandled();
+            }
+        }
 
     }
 }

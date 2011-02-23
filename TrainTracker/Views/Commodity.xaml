@@ -33,7 +33,7 @@
                         <Button Content="New" FontSize="10" Height="28" Margin="4" Name="comNew" Width="81" Click="newCom_Click" />
                     </StackPanel>
                     <sdk:GridSplitter IsEnabled="False" Grid.Row="4" Height="15" HorizontalAlignment="Stretch" Margin="6,0,0,0" Name="gridSplitter1" VerticalAlignment="Top" />
-                    <riaControls:DomainDataSource AutoLoad="False" PageSize="10" LoadSize="10" d:DesignData="{d:DesignInstance my:Commodity, CreateList=true}" Height="0" LoadedData="commodityDomainDataSource_LoadedData" Name="commodityDomainDataSource" QueryName="GetCommoditiesQuery" Width="0" SubmittedChanges="DomainDataSource_SubmittedChanges" >
+                    <riaControls:DomainDataSource AutoLoad="True" PageSize="10" LoadSize="10" d:DesignData="{d:DesignInstance my:Commodity, CreateList=true}" Height="0" LoadedData="commodityDomainDataSource_LoadedData" Name="commodityDomainDataSource" QueryName="GetCommoditiesQuery" Width="0" SubmittedChanges="DomainDataSource_SubmittedChanges" >
                         <riaControls:DomainDataSource.DomainContext>
                             <my1:RailServeDS />
                         </riaControls:DomainDataSource.DomainContext>

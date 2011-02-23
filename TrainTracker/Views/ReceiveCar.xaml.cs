@@ -42,8 +42,10 @@ namespace TrainTracker.Views
         #region Package and Validate Current Status
         private void save_Click(object sender, RoutedEventArgs e)
         {
+            Random key = new Random();
             var context = new RailServeDS();
             var currentStatus = new RailCarCurrentStatu();
+            currentStatus.CurrentStatusID = key.Next(0, 99999999);
             var selectedAct = act.SelectedItem as TrainTracker.Web.Models.Activity;
             var selectedTrack = track.SelectedItem as TrainTracker.Web.Models.Track;
             var selectedStatus = load.SelectedItem as TrainTracker.Web.Models.CarLoadStatu;
@@ -61,6 +63,8 @@ namespace TrainTracker.Views
             currentStatus.StatusId = selectedStatus.StatusID;
             currentStatus.CommodityId = selectedComm.CommodityID;
             currentStatus.CarID = selectedCar.CarID;
+            currentStatus.PrimaryUser = WebContext.Current.User.ToString();
+           
             int sp;
             if (Int32.TryParse(spot.Text, out sp))
                   currentStatus.Spot = sp; 
@@ -86,7 +90,7 @@ namespace TrainTracker.Views
             currentStatus.Supplier = supplier.Text;
             currentStatus.Comments = comments.Text;
             currentStatus.HistoryTypeId = 1;
-          
+           // context.currentstatus_set(currentStatus);
            railCarCurrentStatuDomainDataSource.DataView.Add(currentStatus);
             if (railCarCurrentStatuDomainDataSource.HasChanges)
             {
@@ -181,6 +185,16 @@ namespace TrainTracker.Views
         }
 
         private void railCarCurrentStatuDomainDataSource_LoadedData_2(object sender, LoadedDataEventArgs e)
+        {
+
+            if (e.HasError)
+            {
+                System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
+                e.MarkErrorAsHandled();
+            }
+        }
+
+        private void trackDomainDataSource1_LoadedData(object sender, LoadedDataEventArgs e)
         {
 
             if (e.HasError)
