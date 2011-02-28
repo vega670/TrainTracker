@@ -22,7 +22,7 @@
                         <RowDefinition Height="195*" />
                         <RowDefinition Height="16*" />
                     </Grid.RowDefinitions>
-                    <ComboBox DisplayMemberPath="Number" Height="26" HorizontalAlignment="Left" ItemsSource="{Binding ElementName=railCarDomainDataSource, Path=Data}" Margin="96,6,0,0" Name="car" VerticalAlignment="Top" Width="110" />
+                    <ComboBox DisplayMemberPath="Number" Height="26" HorizontalAlignment="Left" ItemsSource="{Binding ElementName=railCarDomainDataSource, Path=Data}" Margin="96,6,0,0" Name="car" VerticalAlignment="Top" Width="163" />
                     <TextBlock Height="28" HorizontalAlignment="Left" Margin="12,6,0,0" Name="textBlock1" Text="Select Car:" VerticalAlignment="Top" Width="68" />
                     <controls:DatePicker Background="DarkGray" Height="26" HorizontalAlignment="Left" Margin="96,16,0,0" Name="date" VerticalAlignment="Top" Width="110" Grid.Row="1" />
                     <toolkit:TimePicker Background="DarkGray" Height="26" HorizontalAlignment="Left" Margin="307,14,0,0" Name="time" VerticalAlignment="Top" Width="110" Grid.Row="1">
@@ -30,16 +30,14 @@
                             <toolkit:CustomTimeFormat Format="HH:mm" />
                         </toolkit:TimePicker.Format>
                     </toolkit:TimePicker>
-                    <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:RailCar, CreateList=true}" Height="0" LoadedData="railCarDomainDataSource_LoadedData" Margin="0,0,376,35" Name="railCarDomainDataSource" QueryName="GetRailCarsQuery" Width="0">
+                    <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:RailCar, CreateList=true}" Height="0" LoadedData="data_LoadedData" Margin="0,0,376,35" Name="railCarDomainDataSource" QueryName="GetRailCarsQuery" Width="0">
                         <riaControls:DomainDataSource.DomainContext>
                             <my:RailServeDS />
                         </riaControls:DomainDataSource.DomainContext>
                     </riaControls:DomainDataSource>
                     <controls:GridSplitter Height="15" HorizontalAlignment="Stretch" IsEnabled="False" Margin="-2,3,1,0" Name="separator4" VerticalAlignment="Top" Grid.Row="2" />
                     <TextBlock Height="32" HorizontalAlignment="Left" Margin="12,16,0,0" Name="textBlock2" Text="Received In Yard:" TextWrapping="Wrap" VerticalAlignment="Top" Width="78" Grid.Row="1" />
-                    <TextBlock Height="28" HorizontalAlignment="Left" Margin="226,6,0,0" Name="textBlock3" Text="Select Track:" VerticalAlignment="Top" Width="75" />
-                    <ComboBox DisplayMemberPath="Track1" Height="26" HorizontalAlignment="Left" ItemsSource="{Binding ElementName=trackDomainDataSource, Path=Data}" Margin="307,6,0,0" Name="track" VerticalAlignment="Top" Width="110" />
-                    <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:Track, CreateList=true}" Height="0" LoadedData="trackDomainDataSource_LoadedData" Name="trackDomainDataSource" QueryName="GetTracksByYardID" Width="0" Margin="0,0,436,35">
+                    <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:Track, CreateList=true}" Height="0" LoadedData="data_LoadedData" Name="trackDomainDataSource" QueryName="GetTracksByYardID" Width="0" Margin="0,0,436,35">
                         <riaControls:DomainDataSource.DomainContext>
                             <my:RailServeDS />
                         </riaControls:DomainDataSource.DomainContext>
@@ -50,11 +48,9 @@
                             <riaControls:SortDescriptor Direction="Ascending" PropertyPath="Track1" />
                         </riaControls:DomainDataSource.SortDescriptors>
                     </riaControls:DomainDataSource>
-                    <TextBlock Height="28" HorizontalAlignment="Left" Margin="423,6,0,0" Name="textBlock5" Text="Spot:" VerticalAlignment="Top" Width="33" />
-                    <TextBox Background="DarkGray" Height="28" Margin="462,6,24,1" Name="spot" />
                     <TextBlock Height="28" HorizontalAlignment="Left" Margin="12,20,0,0" Name="textBlock4" Text="Load Status:" VerticalAlignment="Top" Width="68" Grid.Row="2" />
                     <ComboBox DisplayMemberPath="StatusName" Height="26" HorizontalAlignment="Left" Margin="96,22,0,0" Name="load" VerticalAlignment="Top" Width="110" ItemsSource="{Binding ElementName=carLoadStatuDomainDataSource, Path=Data}" Grid.Row="2" />
-                    <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:CarLoadStatu, CreateList=true}" Height="0" LoadedData="carLoadStatuDomainDataSource_LoadedData" Name="carLoadStatuDomainDataSource" QueryName="GetCarLoadStatusQuery" Width="0">
+                    <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:CarLoadStatu, CreateList=true}" Height="0" LoadedData="data_LoadedData" Name="carLoadStatuDomainDataSource" QueryName="GetCarLoadStatusQuery" Width="0">
                         <riaControls:DomainDataSource.DomainContext>
                             <my:RailServeDS />
                         </riaControls:DomainDataSource.DomainContext>
@@ -64,7 +60,7 @@
                     </riaControls:DomainDataSource>
                     <TextBlock Height="28" HorizontalAlignment="Left" Margin="226,20,0,0" Name="textBlock6" Text="Commodity:" VerticalAlignment="Top" Width="68" Grid.Row="2" />
                     <ComboBox DisplayMemberPath="CommodityName" Grid.Row="2" Height="26" HorizontalAlignment="Left" Margin="307,22,0,0" Name="comm" VerticalAlignment="Top" Width="205" ItemsSource="{Binding ElementName=commodityDomainDataSource, Path=Data}" />
-                    <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:Commodity, CreateList=true}" Height="0" LoadedData="commodityDomainDataSource_LoadedData" Name="commodityDomainDataSource" QueryName="GetCommoditiesQuery" Width="0">
+                    <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:Commodity, CreateList=true}" Height="0" LoadedData="data_LoadedData" Name="commodityDomainDataSource" QueryName="GetCommoditiesQuery" Width="0">
                         <riaControls:DomainDataSource.DomainContext>
                             <my:RailServeDS />
                         </riaControls:DomainDataSource.DomainContext>
@@ -84,7 +80,7 @@
                     <controls:GridSplitter Height="15" HorizontalAlignment="Stretch" IsEnabled="False" Margin="1,4,1,0" Name="gridSplitter3" VerticalAlignment="Top" Grid.Row="5" />
                     <TextBlock Height="24" HorizontalAlignment="Left" Margin="12,7,0,0" Name="textBlock11" Text="Activity:" VerticalAlignment="Top" Width="68" Grid.Row="4" />
                     <ComboBox DisplayMemberPath="ActivityName" Grid.Row="4" Height="26" HorizontalAlignment="Left" Margin="96,7,0,0" Name="act" VerticalAlignment="Top" Width="110" ItemsSource="{Binding ElementName=activityDomainDataSource, Path=Data}" />
-                    <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:Activity, CreateList=true}" Height="0" LoadedData="activityDomainDataSource_LoadedData" Name="activityDomainDataSource" QueryName="GetActivitiesQuery" Width="0">
+                    <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:Activity, CreateList=true}" Height="0" LoadedData="data_LoadedData" Name="activityDomainDataSource" QueryName="GetActivitiesQuery" Width="0">
                         <riaControls:DomainDataSource.DomainContext>
                             <my:RailServeDS />
                         </riaControls:DomainDataSource.DomainContext>
@@ -94,6 +90,7 @@
                     </riaControls:DomainDataSource>
                     <TextBox Background="DarkGray" Height="28" Margin="307,7,27,39" Name="textBox1" Grid.Row="4" Text="" />
                     <TextBlock Height="28" HorizontalAlignment="Left" Margin="226,13,0,0" Name="textBlock12" Text="Company:" VerticalAlignment="Top" Width="68" Grid.Row="4" />
+                    <CheckBox Content="Calculate Demurrage" Height="16" HorizontalAlignment="Left" Margin="307,11,0,0" Name="checkBox1" VerticalAlignment="Top" />
                 </Grid>
             </controls:TabItem>
             <controls:TabItem Header="Future Use" Name="tabItem2">
@@ -103,7 +100,7 @@
         <Button Click="save_Click" Content="Save" HorizontalAlignment="Right" Margin="0,4,90,12" Name="save" Width="81" Height="26" Grid.Row="1" />
         <Button Click="CancelButton_Click" Content="Exit" HorizontalAlignment="Right" Margin="0,4,5,12" Name="CancelButton" Width="81" Height="26" Grid.Row="1" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="15,4,0,0" Name="yardBox" Text="" VerticalAlignment="Top" Width="57" Grid.Row="1" />
-        <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:RailCarCurrentStatu, CreateList=true}" Height="0" LoadedData="railCarCurrentStatuDomainDataSource_LoadedData_2" Name="railCarCurrentStatuDomainDataSource" QueryName="GetRailCarCurrentStatusById" Width="0">
+        <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:RailCarCurrentStatu, CreateList=true}" Height="0" LoadedData="data_LoadedData" Name="railCarCurrentStatuDomainDataSource" QueryName="GetRailCarCurrentStatusById" SubmittedChanges="DomainDataSource_SubmittedChanges" Width="0">
             <riaControls:DomainDataSource.DomainContext>
                 <my:RailServeDS />
             </riaControls:DomainDataSource.DomainContext>

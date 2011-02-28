@@ -206,8 +206,17 @@ namespace TrainTracker.Web.Services
             return this.ObjectContext.RailCarCurrentStatus;
         }
         public IQueryable<RailCarCurrentStatu> GetRailCarCurrentStatusById(int yard)
-        {            
+        {
             return this.ObjectContext.RailCarCurrentStatus.Include("CarLoadStatu").Include("Commodity").Include("HistoryType").Include("RailCar").Include("RailYard").Include("Track").Where(y => y.YardID == yard);
+        }
+        public IQueryable<RailCarCurrentStatu> GetUnassginedRailCarCurrentStatus(int yard)
+        {
+            return this.ObjectContext.RailCarCurrentStatus.Include("CarLoadStatu").Include("Commodity").Include("HistoryType").Include("RailCar").Include("RailYard").Include("Track").Where(y => y.YardID == yard && y.TrackId == null);
+        }
+        [Invoke]
+        public int GetRailCarCurrentStatusCountYard(int yard, int car)
+        {
+            return this.ObjectContext.RailCarCurrentStatus.Where(y => y.YardID == yard && y.CarID ==car && y.ShipDate == null).Count();
         }
 
 
@@ -244,7 +253,7 @@ namespace TrainTracker.Web.Services
             }
             else
             {
-                this.ObjectContext.sp_car_currentstatus_set(railCarCurrentStatu.CarID, railCarCurrentStatu.YardID, railCarCurrentStatu.HistoryTypeId, railCarCurrentStatu.ActivityId, railCarCurrentStatu.TrackId, railCarCurrentStatu.Spot, railCarCurrentStatu.StatusId, railCarCurrentStatu.CommodityId, railCarCurrentStatu.Comments, railCarCurrentStatu.Company, railCarCurrentStatu.Supplier, railCarCurrentStatu.Weight, railCarCurrentStatu.ReceiptDate, railCarCurrentStatu.ReceiptTime, railCarCurrentStatu.ShipDate, railCarCurrentStatu.ShipTime, railCarCurrentStatu.PrimaryUser, railCarCurrentStatu.SecondaryUser);            
+                this.ObjectContext.sp_car_currentstatus_set(railCarCurrentStatu.CarID, railCarCurrentStatu.YardID, railCarCurrentStatu.HistoryTypeId, railCarCurrentStatu.ActivityId, railCarCurrentStatu.TrackId, railCarCurrentStatu.Spot, railCarCurrentStatu.StatusId, railCarCurrentStatu.CommodityId, railCarCurrentStatu.Comments, railCarCurrentStatu.Company, railCarCurrentStatu.Supplier, railCarCurrentStatu.Weight, railCarCurrentStatu.ReceiptDate, railCarCurrentStatu.ReceiptTime, railCarCurrentStatu.ShipDate, railCarCurrentStatu.ShipTime, railCarCurrentStatu.PrimaryUser, railCarCurrentStatu.SecondaryUser, railCarCurrentStatu.Demurrage);            
             }
              }        
 

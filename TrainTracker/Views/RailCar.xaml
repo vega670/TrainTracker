@@ -50,13 +50,12 @@
                         <Button Content="New" FontSize="10" Height="28" Margin="4" Name="carNew" Width="81" Click="carNew_Click" />
                     </StackPanel>
                     <toolkit:BusyIndicator Height="65" HorizontalAlignment="Left" IsBusy="{Binding ElementName=railCarDomainDataSource, Path=DomainContext.IsLoading}" Margin="223,93,0,0" Name="busyIndicator3" VerticalAlignment="Top" Width="151" Grid.Row="2" />
-                    <sdk:DataGrid AutoGenerateColumns="true" Grid.Row="2" Height="216" HorizontalAlignment="Left" ItemsSource="{Binding ElementName=railCarDomainDataSource, Path=Data}" Margin="6,0,0,0" Name="railCarDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" VerticalAlignment="Top" Width="628" CellEditEnded="railCarDataGrid_CellEditEnded">
+                    <sdk:DataGrid AutoGenerateColumns="False" Grid.Row="2" Height="216" HorizontalAlignment="Left" ItemsSource="{Binding ElementName=railCarDomainDataSource, Path=Data}" Margin="6,0,0,0" Name="railCarDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" VerticalAlignment="Top" Width="628" CellEditEnded="railCarDataGrid_CellEditEnded">
                         <sdk:DataGrid.Columns>
                             <sdk:DataGridTextColumn x:Name="carIDColumn" Binding="{Binding Path=CarID, Mode=OneWay}" Header="Car ID" IsReadOnly="True" Width="SizeToHeader" />
-                            <sdk:DataGridTextColumn x:Name="numberColumn" Binding="{Binding Path=Number}" Header="Number" Width="180" />
+                            <sdk:DataGridTextColumn Binding="{Binding Path=Number}" Header="Number" Width="170" />
                             <sdk:DataGridTextColumn x:Name="typeColumn1" Binding="{Binding Path=RailCarType.Type}" Header="Type" Width="120" />
-                            <sdk:DataGridCheckBoxColumn x:Name="demurrageColumn" Binding="{Binding Path=Demurrage}" Header="Demurrage" Width="SizeToHeader" />
-                            <sdk:DataGridTextColumn x:Name="ownerColumn" Binding="{Binding Path=Owner}" Header="Owner" Width="200" />
+                            <sdk:DataGridTextColumn Binding="{Binding Path=Owner}" Header="Owner" Width="190" />
                         </sdk:DataGrid.Columns>
                     </sdk:DataGrid>
                 </Grid>

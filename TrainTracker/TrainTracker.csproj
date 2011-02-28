@@ -51,6 +51,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SilverlightControls">
+      <HintPath>..\..\..\..\..\Desktop\SilverlightColorPicker_Code\SilverlightControls\Bin\Debug\SilverlightControls.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows" />
@@ -110,6 +113,10 @@
       <DependentUpon>ErrorResources.resx</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Models\AutoScroller.cs" />
+    <Compile Include="Views\Car.xaml.cs">
+      <DependentUpon>Car.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\LoginInfo.cs" />
     <Compile Include="Models\NavMenu.cs" />
     <Compile Include="Models\UserExtensions.cs" />
@@ -177,6 +184,12 @@
     <Compile Include="Views\Setup.xaml.cs">
       <DependentUpon>Setup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TrackMarker.xaml.cs">
+      <DependentUpon>TrackMarker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TrackSelector.xaml.cs">
+      <DependentUpon>TrackSelector.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TrainTrackerMain.xaml.cs">
       <DependentUpon>TrainTrackerMain.xaml</DependentUpon>
     </Compile>
@@ -217,6 +230,10 @@
     <Page Include="Controls\BusyIndicator.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Car.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CarHistory.xaml">
       <SubType>Designer</SubType>
@@ -281,6 +298,14 @@
     <Page Include="Views\Setup.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TrackMarker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TrackSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\TrainTrackerMain.xaml">
       <SubType>Designer</SubType>

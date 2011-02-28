@@ -104,11 +104,24 @@
                     <sdk:DataGrid AutoGenerateColumns="False" Grid.Row="2" HorizontalAlignment="Stretch" ItemsSource="{Binding ElementName=trackDomainDataSource, Path=Data}" Name="trackDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" VerticalAlignment="Stretch" Margin="6,0,0,0" CellEditEnded="trackDataGrid_CellEditEnded">
                         <sdk:DataGrid.Columns>
                             <sdk:DataGridTextColumn x:Name="trackIDColumn" Binding="{Binding Path=TrackID, Mode=OneWay}" Header="Track ID" IsReadOnly="True" Width="SizeToHeader" />
-                            <sdk:DataGridTextColumn x:Name="track1Column" Binding="{Binding Path=Track1}" Header="Name" Width="200" />
+                            <sdk:DataGridTextColumn x:Name="track1Column" Binding="{Binding Path=Track1}" Header="Track Name" Width="200" />
                             <sdk:DataGridTextColumn x:Name="lengthColumn" Binding="{Binding Path=Length}" Header="Length" Width="SizeToHeader" />
                             <sdk:DataGridTextColumn x:Name="maxCarsColumn" Binding="{Binding Path=MaxCars}" Header="Max Cars" Width="SizeToHeader" />
-                            <sdk:DataGridTextColumn x:Name="yardIdColumn1" Binding="{Binding Path=RailYard.YardName}" Header="Yard" Width="SizeToHeader" />
-                           
+                            <!--sdk:DataGridTextColumn x:Name="yardIdColumn1" Binding="{Binding Path=RailYard.YardName}" Header="Yard" Width="145" /-->
+                            <sdk:DataGridTemplateColumn x:Name="o_ObjectTypeColumn" Header="Yard" Width="150">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding RailYard.YardName}" />
+                                    </DataTemplate>
+                                    </sdk:DataGridTemplateColumn.CellTemplate>
+                                    <sdk:DataGridTemplateColumn.CellEditingTemplate>                                    
+                                    <DataTemplate>
+                                        <ComboBox Height="28" Name="comboBox1" Width="130" Margin="4" ItemsSource="{Binding  Path=RailYard.YardId}" DisplayMemberPath="RailYard.YardId" >
+                                        </ComboBox>
+                                    </DataTemplate>
+                                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                            </sdk:DataGridTemplateColumn>
+
                         </sdk:DataGrid.Columns>
                     </sdk:DataGrid>
                     <toolkit:BusyIndicator Height="65" HorizontalAlignment="Left" IsBusy="{Binding ElementName=trackDomainDataSource, Path=DomainContext.IsLoading}" Margin="257,119,0,0" Name="busyIndicator1" VerticalAlignment="Top" Width="151" Grid.Row="2" />
