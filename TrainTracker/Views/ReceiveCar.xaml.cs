@@ -11,6 +11,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using TrainTracker.Web.Services;
 using TrainTracker.Web.Models;
+using System.ServiceModel.DomainServices.Client;
 
 namespace TrainTracker.Views
 {
@@ -40,66 +41,74 @@ namespace TrainTracker.Views
         }
 
         #region Package and Validate Current Status
+       
         private void save_Click(object sender, RoutedEventArgs e)
         {
-            var context = new RailServeDS();
-            var currentStatus = new RailCarCurrentStatu();
-            var selectedAct = act.SelectedItem as TrainTracker.Web.Models.Activity;
-            var selectedTrack = track.SelectedItem as TrainTracker.Web.Models.Track;
-            var selectedStatus = load.SelectedItem as TrainTracker.Web.Models.CarLoadStatu;
-            var selectedComm = comm.SelectedItem as TrainTracker.Web.Models.Commodity;
             var selectedCar = car.SelectedItem as TrainTracker.Web.Models.RailCar;
-
-            currentStatus.YardID = yardID;
-            currentStatus.ActivityId = selectedAct.ActivityId;
-            if (track.SelectedIndex == -1)
+            var context = new RailServeDS();
+            InvokeOperation<int> InvokeOp = context.GetRailCarCurrentStatusCountYard(yardID, selectedCar.CarID);
+            InvokeOp.Completed += (ss, ee) =>
             {
-                MessageBox.Show("Invalid Track");
-                return;
-            }
-            currentStatus.TrackId = selectedTrack.TrackID;
-            currentStatus.StatusId = selectedStatus.StatusID;
-            currentStatus.CommodityId = selectedComm.CommodityID;
-            currentStatus.CarID = selectedCar.CarID;
-            int sp;
-            if (Int32.TryParse(spot.Text, out sp))
-                  currentStatus.Spot = sp; 
-            else
-            {
-                MessageBox.Show("Spot is a required Numeric field");
-                return;
-             }
-            currentStatus.ReceiptDate = date.DisplayDate;
-            currentStatus.ReceiptTime = (DateTime)time.Value;
-            
-            if(weight.Text != null || weight.Text !="")
-            {
-                int we;
-                if (Int32.TryParse(weight.Text, out we))
-                  currentStatus.Weight = we; 
+                int carInYard = InvokeOp.Value;
+                if(carInYard > 0)
+                {
+                    MessageBox.Show("Car " + selectedCar.Number + " is already in your yard");
+                        return;
+                }
                 else
                 {
-                    MessageBox.Show("Weight is not a valid Numeric field");
-                    return;
+                      Random key = new Random();
+            
+                var currentStatus = new RailCarCurrentStatu();
+                currentStatus.CurrentStatusID = key.Next(0, 99999999);
+                var selectedAct = act.SelectedItem as TrainTracker.Web.Models.Activity;
+                var selectedStatus = load.SelectedItem as TrainTracker.Web.Models.CarLoadStatu;
+                var selectedComm = comm.SelectedItem as TrainTracker.Web.Models.Commodity;
+           
+
+                currentStatus.YardID = yardID;
+                currentStatus.ActivityId = selectedAct.ActivityId;
+               
+                currentStatus.StatusId = selectedStatus.StatusID;
+                currentStatus.CommodityId = selectedComm.CommodityID;
+                currentStatus.CarID = selectedCar.CarID;
+                currentStatus.PrimaryUser = WebContext.Current.User.ToString();
+                currentStatus.TrackId = null;
+                currentStatus.Demurrage = checkBox1.IsChecked;
+                currentStatus.X = 0;
+                currentStatus.Y = 0;              
+                currentStatus.ReceiptDate = date.DisplayDate;
+                currentStatus.ReceiptTime = (DateTime)time.Value;
+            
+                if(weight.Text != null || weight.Text !="")
+                {
+                    int we;
+                    if (Int32.TryParse(weight.Text, out we))
+                      currentStatus.Weight = we; 
+                    else
+                    {
+                        MessageBox.Show("Weight is not a valid Numeric field");
+                        return;
+                     }
                  }
-             }
-            currentStatus.Supplier = supplier.Text;
-            currentStatus.Comments = comments.Text;
-            currentStatus.HistoryTypeId = 1;
-          
-           railCarCurrentStatuDomainDataSource.DataView.Add(currentStatus);
-            if (railCarCurrentStatuDomainDataSource.HasChanges)
-            {
-                railCarCurrentStatuDomainDataSource.SubmitChanges();
-                MessageBox.Show("Car: " +selectedCar.Number + " is now is your yard!");
-             }
+                currentStatus.Supplier = supplier.Text;
+                currentStatus.Comments = comments.Text;
+                currentStatus.HistoryTypeId = 1;          
+                railCarCurrentStatuDomainDataSource.DataView.Add(currentStatus);
+                if (railCarCurrentStatuDomainDataSource.HasChanges)
+                {
+                    railCarCurrentStatuDomainDataSource.SubmitChanges();
+                    MessageBox.Show("Car: " +selectedCar.Number + " is now is your yard!");
+                 }
+               }
+           };
         }
         #endregion
 
         #region Data Load Error Handling
 
 
-        private void railCarDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
+        private void data_LoadedData(object sender, LoadedDataEventArgs e)
         {
 
             if (e.HasError)
@@ -108,46 +117,7 @@ namespace TrainTracker.Views
                 e.MarkErrorAsHandled();
             }
         }
-        private void trackDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
-        {
-
-            if (e.HasError)
-            {
-                System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
-                e.MarkErrorAsHandled();
-            }
-        }
-
-        private void carLoadStatuDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
-        {
-
-            if (e.HasError)
-            {
-                System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
-                e.MarkErrorAsHandled();
-            }
-        }
-
-        private void commodityDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
-        {
-
-            if (e.HasError)
-            {
-                System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
-                e.MarkErrorAsHandled();
-            }
-        }
-
-        private void activityDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
-        {
-
-            if (e.HasError)
-            {
-                System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
-                e.MarkErrorAsHandled();
-            }
-        }
-
+        
         private void DomainDataSource_SubmittedChanges(object sender, SubmittedChangesEventArgs e)
         {
             if (e.HasError)
@@ -156,39 +126,9 @@ namespace TrainTracker.Views
                 e.MarkErrorAsHandled();
             }
         }
-
         
         #endregion
-
-        private void railCarCurrentStatuDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
-        {
-
-            if (e.HasError)
-            {
-                System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
-                e.MarkErrorAsHandled();
-            }
-        }
-
-        private void railCarCurrentStatuDomainDataSource_LoadedData_1(object sender, LoadedDataEventArgs e)
-        {
-
-            if (e.HasError)
-            {
-                System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
-                e.MarkErrorAsHandled();
-            }
-        }
-
-        private void railCarCurrentStatuDomainDataSource_LoadedData_2(object sender, LoadedDataEventArgs e)
-        {
-
-            if (e.HasError)
-            {
-                System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
-                e.MarkErrorAsHandled();
-            }
-        }
+        
     }
 }
 

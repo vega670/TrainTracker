@@ -57,7 +57,7 @@ namespace TrainTracker.Views
 
         private void trackDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
         {
-
+            
             if (e.HasError)
             {
                 System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
@@ -200,6 +200,12 @@ namespace TrainTracker.Views
         }
 
         #endregion
+
+        private void comboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           // var yard = comboBox1.SelectedItem as TrainTracker.Web.Models.RailYard;
+          //  yardBox.Text = yard.YardID.ToString();
+        }
 
               
     }

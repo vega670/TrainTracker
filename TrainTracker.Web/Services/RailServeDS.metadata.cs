@@ -178,8 +178,6 @@ namespace TrainTracker.Web.Models
 
             public int CarID { get; set; }
 
-            public Nullable<bool> Demurrage { get; set; }
-
             public string Number { get; set; }
 
             public string Owner { get; set; }
@@ -372,7 +370,7 @@ namespace TrainTracker.Web.Models
             }
 
             public Nullable<int> Length { get; set; }
-             [Include]
+             
             public EntityCollection<RailCar> RailCars { get; set; }
            
             public string Type { get; set; }
@@ -420,7 +418,7 @@ namespace TrainTracker.Web.Models
             public string State { get; set; }
 
             public string Street { get; set; }
-             [Include]
+             
             public EntityCollection<Track> Tracks { get; set; }
 
             public string YardCode { get; set; }
@@ -498,13 +496,13 @@ namespace TrainTracker.Web.Models
             public EntityCollection<RailCarCurrentStatu> RailCarCurrentStatus { get; set; }
 
             public EntityCollection<RailCarHistory> RailCarHistories { get; set; }
-
+            [Include]
             public RailYard RailYard { get; set; }
 
             public string Track1 { get; set; }
 
             public int TrackID { get; set; }
-
+            
             public Nullable<int> YardId { get; set; }
         }
     }

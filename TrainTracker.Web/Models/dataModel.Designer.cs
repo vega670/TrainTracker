@@ -378,7 +378,8 @@ namespace TrainTracker.Web.Models
         /// <param name="shipTime">No Metadata Documentation available.</param>
         /// <param name="primaryUser">No Metadata Documentation available.</param>
         /// <param name="secondaryUser">No Metadata Documentation available.</param>
-        public ObjectResult<RailCarCurrentStatu> sp_car_currentstatus_set(Nullable<global::System.Int32> carID, Nullable<global::System.Int32> yardID, Nullable<global::System.Int32> historyTypeID, Nullable<global::System.Int32> activityId, Nullable<global::System.Int32> trackId, Nullable<global::System.Int32> spot, Nullable<global::System.Int32> statusId, Nullable<global::System.Int32> commodityId, global::System.String comments, global::System.String company, global::System.String supplier, Nullable<global::System.Int32> weight, Nullable<global::System.DateTime> receiptDate, Nullable<global::System.DateTime> receiptTime, Nullable<global::System.DateTime> shipDate, Nullable<global::System.DateTime> shipTime, global::System.String primaryUser, global::System.String secondaryUser)
+        /// <param name="demurrage">No Metadata Documentation available.</param>
+        public ObjectResult<RailCarCurrentStatu> sp_car_currentstatus_set(Nullable<global::System.Int32> carID, Nullable<global::System.Int32> yardID, Nullable<global::System.Int32> historyTypeID, Nullable<global::System.Int32> activityId, Nullable<global::System.Int32> trackId, Nullable<global::System.Int32> spot, Nullable<global::System.Int32> statusId, Nullable<global::System.Int32> commodityId, global::System.String comments, global::System.String company, global::System.String supplier, Nullable<global::System.Int32> weight, Nullable<global::System.DateTime> receiptDate, Nullable<global::System.DateTime> receiptTime, Nullable<global::System.DateTime> shipDate, Nullable<global::System.DateTime> shipTime, global::System.String primaryUser, global::System.String secondaryUser, Nullable<global::System.Boolean> demurrage)
         {
             ObjectParameter carIDParameter;
             if (carID.HasValue)
@@ -560,7 +561,17 @@ namespace TrainTracker.Web.Models
                 secondaryUserParameter = new ObjectParameter("SecondaryUser", typeof(global::System.String));
             }
     
-            return base.ExecuteFunction<RailCarCurrentStatu>("sp_car_currentstatus_set", carIDParameter, yardIDParameter, historyTypeIDParameter, activityIdParameter, trackIdParameter, spotParameter, statusIdParameter, commodityIdParameter, commentsParameter, companyParameter, supplierParameter, weightParameter, receiptDateParameter, receiptTimeParameter, shipDateParameter, shipTimeParameter, primaryUserParameter, secondaryUserParameter);
+            ObjectParameter demurrageParameter;
+            if (demurrage.HasValue)
+            {
+                demurrageParameter = new ObjectParameter("Demurrage", demurrage);
+            }
+            else
+            {
+                demurrageParameter = new ObjectParameter("Demurrage", typeof(global::System.Boolean));
+            }
+    
+            return base.ExecuteFunction<RailCarCurrentStatu>("sp_car_currentstatus_set", carIDParameter, yardIDParameter, historyTypeIDParameter, activityIdParameter, trackIdParameter, spotParameter, statusIdParameter, commodityIdParameter, commentsParameter, companyParameter, supplierParameter, weightParameter, receiptDateParameter, receiptTimeParameter, shipDateParameter, shipTimeParameter, primaryUserParameter, secondaryUserParameter, demurrageParameter);
         }
         /// <summary>
         /// No Metadata Documentation available.
@@ -584,7 +595,8 @@ namespace TrainTracker.Web.Models
         /// <param name="shipTime">No Metadata Documentation available.</param>
         /// <param name="primaryUser">No Metadata Documentation available.</param>
         /// <param name="secondaryUser">No Metadata Documentation available.</param>
-        public ObjectResult<RailCarCurrentStatu> sp_car_currentstatus_set(Nullable<global::System.Int32> carID, Nullable<global::System.Int32> yardID, Nullable<global::System.Int32> historyTypeID, Nullable<global::System.Int32> activityId, Nullable<global::System.Int32> trackId, Nullable<global::System.Int32> spot, Nullable<global::System.Int32> statusId, Nullable<global::System.Int32> commodityId, global::System.String comments, global::System.String company, global::System.String supplier, Nullable<global::System.Int32> weight, Nullable<global::System.DateTime> receiptDate, Nullable<global::System.DateTime> receiptTime, Nullable<global::System.DateTime> shipDate, Nullable<global::System.DateTime> shipTime, global::System.String primaryUser, global::System.String secondaryUser, MergeOption mergeOption)
+        /// <param name="demurrage">No Metadata Documentation available.</param>
+        public ObjectResult<RailCarCurrentStatu> sp_car_currentstatus_set(Nullable<global::System.Int32> carID, Nullable<global::System.Int32> yardID, Nullable<global::System.Int32> historyTypeID, Nullable<global::System.Int32> activityId, Nullable<global::System.Int32> trackId, Nullable<global::System.Int32> spot, Nullable<global::System.Int32> statusId, Nullable<global::System.Int32> commodityId, global::System.String comments, global::System.String company, global::System.String supplier, Nullable<global::System.Int32> weight, Nullable<global::System.DateTime> receiptDate, Nullable<global::System.DateTime> receiptTime, Nullable<global::System.DateTime> shipDate, Nullable<global::System.DateTime> shipTime, global::System.String primaryUser, global::System.String secondaryUser, Nullable<global::System.Boolean> demurrage, MergeOption mergeOption)
         {
             ObjectParameter carIDParameter;
             if (carID.HasValue)
@@ -766,7 +778,17 @@ namespace TrainTracker.Web.Models
                 secondaryUserParameter = new ObjectParameter("SecondaryUser", typeof(global::System.String));
             }
     
-            return base.ExecuteFunction<RailCarCurrentStatu>("sp_car_currentstatus_set", mergeOption, carIDParameter, yardIDParameter, historyTypeIDParameter, activityIdParameter, trackIdParameter, spotParameter, statusIdParameter, commodityIdParameter, commentsParameter, companyParameter, supplierParameter, weightParameter, receiptDateParameter, receiptTimeParameter, shipDateParameter, shipTimeParameter, primaryUserParameter, secondaryUserParameter);
+            ObjectParameter demurrageParameter;
+            if (demurrage.HasValue)
+            {
+                demurrageParameter = new ObjectParameter("Demurrage", demurrage);
+            }
+            else
+            {
+                demurrageParameter = new ObjectParameter("Demurrage", typeof(global::System.Boolean));
+            }
+    
+            return base.ExecuteFunction<RailCarCurrentStatu>("sp_car_currentstatus_set", mergeOption, carIDParameter, yardIDParameter, historyTypeIDParameter, activityIdParameter, trackIdParameter, spotParameter, statusIdParameter, commodityIdParameter, commentsParameter, companyParameter, supplierParameter, weightParameter, receiptDateParameter, receiptTimeParameter, shipDateParameter, shipTimeParameter, primaryUserParameter, secondaryUserParameter, demurrageParameter);
         }
     
         /// <summary>
@@ -1613,30 +1635,6 @@ namespace TrainTracker.Web.Models
         private global::System.String _Owner;
         partial void OnOwnerChanging(global::System.String value);
         partial void OnOwnerChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> Demurrage
-        {
-            get
-            {
-                return _Demurrage;
-            }
-            set
-            {
-                OnDemurrageChanging(value);
-                ReportPropertyChanging("Demurrage");
-                _Demurrage = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Demurrage");
-                OnDemurrageChanged();
-            }
-        }
-        private Nullable<global::System.Boolean> _Demurrage;
-        partial void OnDemurrageChanging(Nullable<global::System.Boolean> value);
-        partial void OnDemurrageChanged();
 
         #endregion
     
@@ -2215,6 +2213,78 @@ namespace TrainTracker.Web.Models
         private global::System.Int32 _HistoryTypeId;
         partial void OnHistoryTypeIdChanging(global::System.Int32 value);
         partial void OnHistoryTypeIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> Demurrage
+        {
+            get
+            {
+                return _Demurrage;
+            }
+            set
+            {
+                OnDemurrageChanging(value);
+                ReportPropertyChanging("Demurrage");
+                _Demurrage = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Demurrage");
+                OnDemurrageChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _Demurrage;
+        partial void OnDemurrageChanging(Nullable<global::System.Boolean> value);
+        partial void OnDemurrageChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> X
+        {
+            get
+            {
+                return _X;
+            }
+            set
+            {
+                OnXChanging(value);
+                ReportPropertyChanging("X");
+                _X = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("X");
+                OnXChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _X;
+        partial void OnXChanging(Nullable<global::System.Int32> value);
+        partial void OnXChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Y
+        {
+            get
+            {
+                return _Y;
+            }
+            set
+            {
+                OnYChanging(value);
+                ReportPropertyChanging("Y");
+                _Y = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Y");
+                OnYChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Y;
+        partial void OnYChanging(Nullable<global::System.Int32> value);
+        partial void OnYChanged();
 
         #endregion
     
@@ -2977,6 +3047,30 @@ namespace TrainTracker.Web.Models
         private global::System.Int32 _HistoryTypeId;
         partial void OnHistoryTypeIdChanging(global::System.Int32 value);
         partial void OnHistoryTypeIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> Demurrage
+        {
+            get
+            {
+                return _Demurrage;
+            }
+            set
+            {
+                OnDemurrageChanging(value);
+                ReportPropertyChanging("Demurrage");
+                _Demurrage = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Demurrage");
+                OnDemurrageChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _Demurrage;
+        partial void OnDemurrageChanging(Nullable<global::System.Boolean> value);
+        partial void OnDemurrageChanged();
 
         #endregion
     

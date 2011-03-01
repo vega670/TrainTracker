@@ -209,6 +209,15 @@ namespace TrainTracker.Web.Services
         {
             return this.ObjectContext.RailCarCurrentStatus.Include("CarLoadStatu").Include("Commodity").Include("HistoryType").Include("RailCar").Include("RailYard").Include("Track").Where(y => y.YardID == yard);
         }
+        public IQueryable<RailCarCurrentStatu> GetUnassginedRailCarCurrentStatus(int yard)
+        {
+            return this.ObjectContext.RailCarCurrentStatus.Include("CarLoadStatu").Include("Commodity").Include("HistoryType").Include("RailCar").Include("RailYard").Include("Track").Where(y => y.YardID == yard && y.TrackId == null);
+        }
+        [Invoke]
+        public int GetRailCarCurrentStatusCountYard(int yard, int car)
+        {
+            return this.ObjectContext.RailCarCurrentStatus.Where(y => y.YardID == yard && y.CarID ==car && y.ShipDate == null).Count();
+        }
 
 
         public void InsertRailCarCurrentStatu(RailCarCurrentStatu railCarCurrentStatu)
@@ -244,7 +253,7 @@ namespace TrainTracker.Web.Services
             }
             else
             {
-                this.ObjectContext.sp_car_currentstatus_set(railCarCurrentStatu.CarID, railCarCurrentStatu.YardID, railCarCurrentStatu.HistoryTypeId, railCarCurrentStatu.ActivityId, railCarCurrentStatu.TrackId, railCarCurrentStatu.Spot, railCarCurrentStatu.StatusId, railCarCurrentStatu.CommodityId, railCarCurrentStatu.Comments, railCarCurrentStatu.Company, railCarCurrentStatu.Supplier, railCarCurrentStatu.Weight, railCarCurrentStatu.ReceiptDate, railCarCurrentStatu.ReceiptTime, railCarCurrentStatu.ShipDate, railCarCurrentStatu.ShipTime, railCarCurrentStatu.PrimaryUser, railCarCurrentStatu.SecondaryUser);            
+                this.ObjectContext.sp_car_currentstatus_set(railCarCurrentStatu.CarID, railCarCurrentStatu.YardID, railCarCurrentStatu.HistoryTypeId, railCarCurrentStatu.ActivityId, railCarCurrentStatu.TrackId, railCarCurrentStatu.Spot, railCarCurrentStatu.StatusId, railCarCurrentStatu.CommodityId, railCarCurrentStatu.Comments, railCarCurrentStatu.Company, railCarCurrentStatu.Supplier, railCarCurrentStatu.Weight, railCarCurrentStatu.ReceiptDate, railCarCurrentStatu.ReceiptTime, railCarCurrentStatu.ShipDate, railCarCurrentStatu.ShipTime, railCarCurrentStatu.PrimaryUser, railCarCurrentStatu.SecondaryUser, railCarCurrentStatu.Demurrage);            
             }
              }        
 
@@ -326,7 +335,7 @@ namespace TrainTracker.Web.Services
         {
             return this.ObjectContext.RailYards;
         }
-
+        
         public void InsertRailYard(RailYard railYard)
         {
             if ((railYard.EntityState != EntityState.Detached))
@@ -394,7 +403,7 @@ namespace TrainTracker.Web.Services
         // To support paging you will need to add ordering to the 'Tracks' query.
         public IQueryable<Track> GetTracks()
         {
-            return this.ObjectContext.Tracks;
+            return this.ObjectContext.Tracks.Include("RailYard");
         }
         public IQueryable<Track> GetTracksByYardID(int yard)
         {

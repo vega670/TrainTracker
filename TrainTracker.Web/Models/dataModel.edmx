@@ -130,7 +130,6 @@
           <Property Name="Number" Type="varchar" Nullable="false" MaxLength="10" />
           <Property Name="Type" Type="int" />
           <Property Name="Owner" Type="nchar" MaxLength="50" />
-          <Property Name="Demurrage" Type="bit" />
         </EntityType>
         <EntityType Name="RailCarCurrentStatus">
           <Key>
@@ -155,6 +154,9 @@
           <Property Name="PrimaryUser" Type="varchar" MaxLength="40" />
           <Property Name="SecondaryUser" Type="varchar" MaxLength="40" />
           <Property Name="HistoryTypeId" Type="int" Nullable="false" />
+          <Property Name="Demurrage" Type="bit" />
+          <Property Name="X" Type="int" />
+          <Property Name="Y" Type="int" />
         </EntityType>
         <EntityType Name="RailCarHistory">
           <Key>
@@ -179,6 +181,7 @@
           <Property Name="PrimaryUser" Type="varchar" MaxLength="40" />
           <Property Name="SecondaryUser" Type="varchar" MaxLength="40" />
           <Property Name="HistoryTypeId" Type="int" Nullable="false" />
+          <Property Name="Demurrage" Type="bit" />
         </EntityType>
         <EntityType Name="RailCarType">
           <Key>
@@ -436,8 +439,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="sp_car_currentstatus_get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="CarId" Type="int" Mode="In" />
+        <Function Name="sp_activity_set" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ActivityName" Type="varchar" Mode="In" />
+          <Parameter Name="ActivityCode" Type="varchar" Mode="In" />
         </Function>
         <Function Name="sp_car_currentstatus_set" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CarID" Type="int" Mode="In" />
@@ -458,9 +462,7 @@
           <Parameter Name="ShipTime" Type="datetime" Mode="In" />
           <Parameter Name="PrimaryUser" Type="varchar" Mode="In" />
           <Parameter Name="SecondaryUser" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="sp_yard_currentstatus_get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="YardId" Type="int" Mode="In" />
+          <Parameter Name="Demurrage" Type="bit" Mode="In" />
         </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -569,6 +571,7 @@
             <Parameter Name="ShipTime" Mode="In" Type="DateTime" />
             <Parameter Name="PrimaryUser" Mode="In" Type="String" />
             <Parameter Name="SecondaryUser" Mode="In" Type="String" />
+            <Parameter Name="Demurrage" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="sp_car_currentstatus_get" EntitySet="RailCarCurrentStatus" ReturnType="Collection(RailServe_dataModel.RailCarCurrentStatu)">
             <Parameter Name="CarId" Mode="In" Type="Int32" />
@@ -626,7 +629,6 @@
           <Property Name="Number" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
           <Property Name="Type" Type="Int32" />
           <Property Name="Owner" Type="String" MaxLength="50" Unicode="true" FixedLength="true" />
-          <Property Name="Demurrage" Type="Boolean" />
           <NavigationProperty Name="RailCarType" Relationship="RailServe_dataModel.FK__RailCar__Type__7A672E12" FromRole="RailCar" ToRole="RailCarType" />
           <NavigationProperty Name="RailCarCurrentStatus" Relationship="RailServe_dataModel.FK__RailCarCu__CarID__4C6B5938" FromRole="RailCar" ToRole="RailCarCurrentStatus" />
           <NavigationProperty Name="RailCarHistories" Relationship="RailServe_dataModel.FK__RailCarHi__CarID__41EDCAC5" FromRole="RailCar" ToRole="RailCarHistory" />
@@ -661,6 +663,9 @@
           <NavigationProperty Name="RailCar" Relationship="RailServe_dataModel.FK__RailCarCu__CarID__4C6B5938" FromRole="RailCarCurrentStatus" ToRole="RailCar" />
           <NavigationProperty Name="Track" Relationship="RailServe_dataModel.FK__RailCarCu__Track__503BEA1C" FromRole="RailCarCurrentStatus" ToRole="Track" />
           <NavigationProperty Name="RailYard" Relationship="RailServe_dataModel.FK__RailCarCu__YardI__51300E55" FromRole="RailCarCurrentStatus" ToRole="RailYard" />
+          <Property Type="Boolean" Name="Demurrage" />
+          <Property Type="Int32" Name="X" />
+          <Property Type="Int32" Name="Y" />
         </EntityType>
         <EntityType Name="RailCarHistory">
           <Key>
@@ -692,6 +697,7 @@
           <NavigationProperty Name="RailCar" Relationship="RailServe_dataModel.FK__RailCarHi__CarID__41EDCAC5" FromRole="RailCarHistory" ToRole="RailCar" />
           <NavigationProperty Name="Track" Relationship="RailServe_dataModel.FK__RailCarHi__Track__44CA3770" FromRole="RailCarHistory" ToRole="Track" />
           <NavigationProperty Name="RailYard" Relationship="RailServe_dataModel.FK__RailCarHi__YardI__45BE5BA9" FromRole="RailCarHistory" ToRole="RailYard" />
+          <Property Type="Boolean" Name="Demurrage" />
         </EntityType>
         <EntityType Name="RailCarType">
           <Key>
@@ -990,11 +996,13 @@
             <ScalarProperty Name="Number" ColumnName="Number" />
             <ScalarProperty Name="Type" ColumnName="Type" />
             <ScalarProperty Name="Owner" ColumnName="Owner" />
-            <ScalarProperty Name="Demurrage" ColumnName="Demurrage" />
           </MappingFragment></EntityTypeMapping>
             </EntitySetMapping>
           <EntitySetMapping Name="RailCarCurrentStatus"><EntityTypeMapping TypeName="RailServe_dataModel.RailCarCurrentStatu"><MappingFragment StoreEntitySet="RailCarCurrentStatus">
-            <ScalarProperty Name="CurrentStatusID" ColumnName="CurrentStatusID" />
+            <ScalarProperty Name="Y" ColumnName="Y" />
+                <ScalarProperty Name="X" ColumnName="X" />
+                <ScalarProperty Name="Demurrage" ColumnName="Demurrage" />
+                <ScalarProperty Name="CurrentStatusID" ColumnName="CurrentStatusID" />
             <ScalarProperty Name="CarID" ColumnName="CarID" />
             <ScalarProperty Name="YardID" ColumnName="YardID" />
             <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
@@ -1017,6 +1025,7 @@
             <EntityTypeMapping TypeName="RailServe_dataModel.RailCarCurrentStatu">
               <ModificationFunctionMapping>
                 <InsertFunction FunctionName="RailServe_dataModel.Store.sp_car_currentstatus_set">
+                  <ScalarProperty Name="Demurrage" ParameterName="Demurrage" />
                   <ScalarProperty Name="HistoryTypeId" ParameterName="HistoryTypeID" />
                   <ScalarProperty Name="SecondaryUser" ParameterName="SecondaryUser" />
                   <ScalarProperty Name="PrimaryUser" ParameterName="PrimaryUser" />
@@ -1040,7 +1049,8 @@
             </EntityTypeMapping>
             </EntitySetMapping>
           <EntitySetMapping Name="RailCarHistories"><EntityTypeMapping TypeName="RailServe_dataModel.RailCarHistory"><MappingFragment StoreEntitySet="RailCarHistory">
-            <ScalarProperty Name="HistoryID" ColumnName="HistoryID" />
+            <ScalarProperty Name="Demurrage" ColumnName="Demurrage" />
+                <ScalarProperty Name="HistoryID" ColumnName="HistoryID" />
             <ScalarProperty Name="CarID" ColumnName="CarID" />
             <ScalarProperty Name="YardID" ColumnName="YardID" />
             <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
@@ -1090,9 +1100,7 @@
             <ScalarProperty Name="Length" ColumnName="Length" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_car_currentstatus_set" FunctionName="RailServe_dataModel.Store.sp_car_currentstatus_set" />
-          <FunctionImportMapping FunctionImportName="sp_car_currentstatus_get" FunctionName="RailServe_dataModel.Store.sp_car_currentstatus_get" />
-          <FunctionImportMapping FunctionImportName="sp_yard_currentstatus_get" FunctionName="RailServe_dataModel.Store.sp_yard_currentstatus_get" />
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
@@ -1115,9 +1123,9 @@
       <Diagram Name="dataModel" ZoomLevel="66">
         <EntityTypeShape EntityType="RailServe_dataModel.Activity" Width="1.5" PointX="0.75" PointY="6.125" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="RailServe_dataModel.CarLoadStatu" Width="1.5" PointX="3" PointY="13.75" Height="1.9802864583333317" IsExpanded="true" />
-        <EntityTypeShape EntityType="RailServe_dataModel.Commodity" Width="1.5" PointX="3" PointY="16.375" Height="2.172587890624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="RailServe_dataModel.Commodity" Width="1.5" PointX="1.125" PointY="16.25" Height="2.172587890624996" IsExpanded="true" />
         <EntityTypeShape EntityType="RailServe_dataModel.HistoryType" Width="1.5" PointX="3" PointY="19.375" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="RailServe_dataModel.RailCar" Width="1.5" PointX="3" PointY="21.875" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="RailServe_dataModel.RailCar" Width="1.5" PointX="3" PointY="21.875" Height="2.3648893229166674" IsExpanded="true" />
         <EntityTypeShape EntityType="RailServe_dataModel.RailCarCurrentStatu" Width="1.5" PointX="5.25" PointY="16.125" Height="6.0186165364583317" IsExpanded="true" />
         <EntityTypeShape EntityType="RailServe_dataModel.RailCarHistory" Width="1.5" PointX="8.25" PointY="16.125" Height="6.0186165364583317" IsExpanded="true" />
         <EntityTypeShape EntityType="RailServe_dataModel.RailCarType" Width="1.5" PointX="0.75" PointY="22.25" Height="1.7879850260416674" IsExpanded="true" />
@@ -1128,15 +1136,15 @@
           <ConnectorPoint PointX="2.25" PointY="7.2112939453125" />
           <ConnectorPoint PointX="3.6666666666666665" PointY="7.2112939453124989" />
           <ConnectorPoint PointX="3.8333333333333335" PointY="7.2112939453125" />
-          <ConnectorPoint PointX="6" PointY="7.2112939453125" />
-          <ConnectorPoint PointX="6" PointY="16.125" />
+          <ConnectorPoint PointX="6.20312625" PointY="7.2112939453125" />
+          <ConnectorPoint PointX="6.20312625" PointY="16.125" />
         </AssociationConnector>
         <AssociationConnector Association="RailServe_dataModel.FK__RailCarHi__Activ__40F9A68C" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="7.78569341796875" />
           <ConnectorPoint PointX="3.6666666666666665" PointY="7.7856934179687487" />
           <ConnectorPoint PointX="3.8333333333333335" PointY="7.78569341796875" />
-          <ConnectorPoint PointX="5.916666666666667" PointY="7.7856934179687487" />
-          <ConnectorPoint PointX="6.083333333333333" PointY="7.78569341796875" />
+          <ConnectorPoint PointX="6.1197929166666674" PointY="7.7856934179687487" />
+          <ConnectorPoint PointX="6.2864595833333334" PointY="7.78569341796875" />
           <ConnectorPoint PointX="9" PointY="7.78569341796875" />
           <ConnectorPoint PointX="9" PointY="16.125" />
         </AssociationConnector>
@@ -1146,92 +1154,103 @@
           <ConnectorPoint PointX="3.75" PointY="10.25" />
         </AssociationConnector>
         <AssociationConnector Association="RailServe_dataModel.FK__RailCarCu__Statu__4F47C5E3" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="14.740143229166666" />
-          <ConnectorPoint PointX="5.5937475" PointY="14.740143229166666" />
-          <ConnectorPoint PointX="5.5937475" PointY="16.125" />
+          <ConnectorPoint PointX="4.5" PointY="14.476981171875" />
+          <ConnectorPoint PointX="5.695310625" PointY="14.476981171875" />
+          <ConnectorPoint PointX="5.695310625" PointY="16.125" />
         </AssociationConnector>
         <AssociationConnector Association="RailServe_dataModel.FK__RailCarHi__Statu__43D61337" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="15.266467343749998" />
-          <ConnectorPoint PointX="5.5104141666666671" PointY="15.266467343749998" />
-          <ConnectorPoint PointX="5.6770808333333331" PointY="15.266467343749998" />
-          <ConnectorPoint PointX="5.916666666666667" PointY="15.266467343749998" />
-          <ConnectorPoint PointX="6.083333333333333" PointY="15.266467343749998" />
-          <ConnectorPoint PointX="8.5937475" PointY="15.266467343749998" />
-          <ConnectorPoint PointX="8.5937475" PointY="16.125" />
+          <ConnectorPoint PointX="4.5" PointY="15.134886315104165" />
+          <ConnectorPoint PointX="5.6119772916666673" PointY="15.134886315104165" />
+          <ConnectorPoint PointX="5.7786439583333333" PointY="15.134886315104165" />
+          <ConnectorPoint PointX="6.1197929166666674" PointY="15.134886315104165" />
+          <ConnectorPoint PointX="6.2864595833333334" PointY="15.134886315104165" />
+          <ConnectorPoint PointX="6.4244822916666671" PointY="15.134886315104165" />
+          <ConnectorPoint PointX="6.5911489583333331" PointY="15.134886315104165" />
+          <ConnectorPoint PointX="8.625" PointY="15.134886315104165" />
+          <ConnectorPoint PointX="8.625" PointY="16.125" />
         </AssociationConnector>
         <AssociationConnector Association="RailServe_dataModel.FK__RailCarCu__Commo__4D5F7D71" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="17.461293945312498" />
-          <ConnectorPoint PointX="4.979166666666667" PointY="17.461293945312498" />
-          <ConnectorPoint PointX="5.145833333333333" PointY="17.461293945312498" />
-          <ConnectorPoint PointX="5.25" PointY="17.461293945312498" />
+          <ConnectorPoint PointX="2.625" PointY="17.336293945312498" />
+          <ConnectorPoint PointX="2.7916666666666665" PointY="17.336293945312498" />
+          <ConnectorPoint PointX="2.9583333333333335" PointY="17.336293945312498" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="17.336293945312498" />
+          <ConnectorPoint PointX="5.020833333333333" PointY="17.336293945312498" />
+          <ConnectorPoint PointX="5.25" PointY="17.336293945312498" />
         </AssociationConnector>
         <AssociationConnector Association="RailServe_dataModel.FK__RailCarHi__Commo__42E1EEFE" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="18.547587890624996" />
-          <ConnectorPoint PointX="4.875" PointY="18.922587890624996" />
-          <ConnectorPoint PointX="4.875" PointY="22.518616536458332" />
-          <ConnectorPoint PointX="5.5104141666666671" PointY="22.518616536458332" />
-          <ConnectorPoint PointX="5.6770808333333331" PointY="22.518616536458332" />
-          <ConnectorPoint PointX="5.916666666666667" PointY="22.518616536458332" />
-          <ConnectorPoint PointX="6.083333333333333" PointY="22.518616536458332" />
-          <ConnectorPoint PointX="7.875" PointY="22.518616536458332" />
-          <ConnectorPoint PointX="8.25" PointY="22.143616536458332" />
+          <ConnectorPoint PointX="2.625" PointY="16.761894972656251" />
+          <ConnectorPoint PointX="2.7916666666666665" PointY="16.761894972656251" />
+          <ConnectorPoint PointX="2.9583333333333335" PointY="16.761894972656251" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="16.761894972656251" />
+          <ConnectorPoint PointX="5.020833333333333" PointY="16.761894972656251" />
+          <ConnectorPoint PointX="5.125" PointY="16.761894972656251" />
+          <ConnectorPoint PointX="5.125" PointY="15.875" />
+          <ConnectorPoint PointX="5.6119772916666673" PointY="15.875" />
+          <ConnectorPoint PointX="5.7786439583333333" PointY="15.875" />
+          <ConnectorPoint PointX="6.1197929166666674" PointY="15.875" />
+          <ConnectorPoint PointX="6.2864595833333334" PointY="15.875" />
+          <ConnectorPoint PointX="6.4244822916666671" PointY="15.875" />
+          <ConnectorPoint PointX="6.5911489583333331" PointY="15.875" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="15.875" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="15.875" />
+          <ConnectorPoint PointX="8.5416666666666661" PointY="15.875" />
+          <ConnectorPoint PointX="8.7083333333333339" PointY="15.875" />
+          <ConnectorPoint PointX="8.9166666666666661" PointY="15.875" />
+          <ConnectorPoint PointX="9.0833333333333339" PointY="15.875" />
+          <ConnectorPoint PointX="9.20312625" PointY="15.875" />
+          <ConnectorPoint PointX="9.20312625" PointY="16.125" />
         </AssociationConnector>
         <AssociationConnector Association="RailServe_dataModel.FK__RailCarCu__Histo__4E53A1AA" ManuallyRouted="false">
           <ConnectorPoint PointX="4.5" PointY="20.268992513020834" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="20.268992513020834" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="20.268992513020834" />
           <ConnectorPoint PointX="5.25" PointY="20.268992513020834" />
         </AssociationConnector>
         <AssociationConnector Association="RailServe_dataModel.FK__RailCarHi__Histo__46B27FE2" ManuallyRouted="false">
           <ConnectorPoint PointX="4.5" PointY="19.438460538461534" />
-          <ConnectorPoint PointX="4.8160744349011209" PointY="19.122386103560412" />
-          <ConnectorPoint PointX="4.9339255650988791" PointY="19.004534973362656" />
-          <ConnectorPoint PointX="5.0625" PointY="18.875960538461534" />
-          <ConnectorPoint PointX="5.0625" PointY="15.75" />
-          <ConnectorPoint PointX="5.5104141666666671" PointY="15.75" />
-          <ConnectorPoint PointX="5.6770808333333331" PointY="15.75" />
-          <ConnectorPoint PointX="5.916666666666667" PointY="15.75" />
-          <ConnectorPoint PointX="6.083333333333333" PointY="15.75" />
+          <ConnectorPoint PointX="4.9375" PointY="19.000960538461534" />
+          <ConnectorPoint PointX="4.9375" PointY="15.75" />
+          <ConnectorPoint PointX="5.6119772916666673" PointY="15.75" />
+          <ConnectorPoint PointX="5.7786439583333333" PointY="15.75" />
+          <ConnectorPoint PointX="6.1197929166666674" PointY="15.75" />
+          <ConnectorPoint PointX="6.2864595833333334" PointY="15.75" />
+          <ConnectorPoint PointX="6.4244822916666671" PointY="15.75" />
+          <ConnectorPoint PointX="6.5911489583333331" PointY="15.75" />
           <ConnectorPoint PointX="7.875" PointY="15.75" />
           <ConnectorPoint PointX="8.25" PointY="16.125" />
         </AssociationConnector>
         <AssociationConnector Association="RailServe_dataModel.FK__RailCar__Type__7A672E12" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="23.143992513020834" />
-          <ConnectorPoint PointX="2.5416666666666665" PointY="23.143992513020834" />
-          <ConnectorPoint PointX="2.7083333333333335" PointY="23.143992513020834" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="23.143992513020834" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="23.143992513020834" />
           <ConnectorPoint PointX="3" PointY="23.143992513020834" />
         </AssociationConnector>
         <AssociationConnector Association="RailServe_dataModel.FK__RailCarCu__CarID__4C6B5938" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="23.475403645833332" />
-          <ConnectorPoint PointX="5.5104141666666671" PointY="23.475403645833332" />
-          <ConnectorPoint PointX="5.6770808333333331" PointY="23.475403645833332" />
-          <ConnectorPoint PointX="6" PointY="23.475403645833332" />
-          <ConnectorPoint PointX="6" PointY="22.143616536458332" />
+          <ConnectorPoint PointX="4.5" PointY="22.105458984375" />
+          <ConnectorPoint PointX="5.25" PointY="22.105458984375" />
         </AssociationConnector>
         <AssociationConnector Association="RailServe_dataModel.FK__RailCarHi__CarID__41EDCAC5" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="22.965757591145831" />
-          <ConnectorPoint PointX="5.5104141666666671" PointY="22.965757591145831" />
-          <ConnectorPoint PointX="5.6770808333333331" PointY="22.965757591145831" />
-          <ConnectorPoint PointX="5.916666666666667" PointY="22.965757591145831" />
-          <ConnectorPoint PointX="6.083333333333333" PointY="22.965757591145831" />
-          <ConnectorPoint PointX="8.5572929166666665" PointY="22.965757591145831" />
-          <ConnectorPoint PointX="8.7239595833333343" PointY="22.965757591145831" />
-          <ConnectorPoint PointX="9.0312525" PointY="22.965757591145831" />
-          <ConnectorPoint PointX="9.0312525" PointY="22.143616536458332" />
+          <ConnectorPoint PointX="4.5" PointY="23.048625109755243" />
+          <ConnectorPoint PointX="5.5104141666666671" PointY="23.048625109755243" />
+          <ConnectorPoint PointX="5.6770808333333331" PointY="23.048625109755243" />
+          <ConnectorPoint PointX="6.1197929166666674" PointY="23.048625109755243" />
+          <ConnectorPoint PointX="6.2864595833333334" PointY="23.048625109755243" />
+          <ConnectorPoint PointX="8.5572929166666665" PointY="23.048625109755243" />
+          <ConnectorPoint PointX="8.7239595833333343" PointY="23.048625109755243" />
+          <ConnectorPoint PointX="9.226565625" PointY="23.048625109755243" />
+          <ConnectorPoint PointX="9.226565625" PointY="22.143616536458332" />
         </AssociationConnector>
         <AssociationConnector Association="RailServe_dataModel.FK__RailCarCu__Track__503BEA1C" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="27.403595377604166" />
-          <ConnectorPoint PointX="5.5937475" PointY="27.403595377604166" />
-          <ConnectorPoint PointX="5.5937475" PointY="22.143616536458332" />
+          <ConnectorPoint PointX="4.5" PointY="27.738870472005207" />
+          <ConnectorPoint PointX="6" PointY="27.738870472005207" />
+          <ConnectorPoint PointX="6" PointY="22.335917968750003" />
         </AssociationConnector>
         <AssociationConnector Association="RailServe_dataModel.FK__RailCarCu__YardI__51300E55" ManuallyRouted="false">
-          <ConnectorPoint PointX="1.5" PointY="12.893697916666667" />
-          <ConnectorPoint PointX="1.5" PointY="18.961293945312498" />
-          <ConnectorPoint PointX="2.5416666666666665" PointY="18.961293945312498" />
-          <ConnectorPoint PointX="2.7083333333333335" PointY="18.961293945312498" />
-          <ConnectorPoint PointX="4.8938332598157031" PointY="18.961293945312498" />
-          <ConnectorPoint PointX="5.0604999264823691" PointY="18.961293945312498" />
-          <ConnectorPoint PointX="5.25" PointY="18.961293945312498" />
+          <ConnectorPoint PointX="2.25" PointY="12.561989687499999" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="12.561989687499999" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="12.561989687499999" />
+          <ConnectorPoint PointX="6.1197929166666674" PointY="12.561989687499999" />
+          <ConnectorPoint PointX="6.2864595833333334" PointY="12.561989687499999" />
+          <ConnectorPoint PointX="6.507815625" PointY="12.561989687499999" />
+          <ConnectorPoint PointX="6.507815625" PointY="16.125" />
         </AssociationConnector>
         <AssociationConnector Association="RailServe_dataModel.FK__RailCarHi__Track__44CA3770" ManuallyRouted="false">
           <ConnectorPoint PointX="4.5" PointY="26.73304518880208" />
@@ -1256,10 +1275,15 @@
           <ConnectorPoint PointX="3" PointY="11.240143229166666" />
         </AssociationConnector>
         <AssociationConnector Association="RailServe_dataModel.FK__Track__YardId__46E78A0C" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.2499999999999996" PointY="12.893697916666667" />
-          <ConnectorPoint PointX="2.625" PointY="13.268697916666667" />
-          <ConnectorPoint PointX="2.625" PointY="27.403595377604166" />
-          <ConnectorPoint PointX="3" PointY="27.403595377604166" />
+          <ConnectorPoint PointX="2.25" PointY="11.17161984375" />
+          <ConnectorPoint PointX="2.75" PointY="11.17161984375" />
+          <ConnectorPoint PointX="2.75" PointY="16" />
+          <ConnectorPoint PointX="2.875" PointY="16" />
+          <ConnectorPoint PointX="2.875" PointY="19.125" />
+          <ConnectorPoint PointX="2.75" PointY="19.125" />
+          <ConnectorPoint PointX="2.75" PointY="25.75" />
+          <ConnectorPoint PointX="3.75" PointY="25.75" />
+          <ConnectorPoint PointX="3.75" PointY="26.125" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

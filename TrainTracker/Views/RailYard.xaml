@@ -35,7 +35,7 @@
                     </StackPanel>
 
                     <sdk:GridSplitter IsEnabled="False" Grid.Row="4" Height="15" HorizontalAlignment="Stretch" Margin="6,0,0,0" Name="gridSplitter1" VerticalAlignment="Top" />
-                    <riaControls:DomainDataSource AutoLoad="False" PageSize="10" LoadSize="10" d:DesignData="{d:DesignInstance my:RailYard, CreateList=true}" Height="0" LoadedData="railYardDomainDataSource_LoadedData" Name="railYardDomainDataSource" QueryName="GetRailYardsQuery" Width="0" SubmittedChanges="DomainDataSource_SubmittedChanges" >
+                    <riaControls:DomainDataSource AutoLoad="True" PageSize="10" LoadSize="10" d:DesignData="{d:DesignInstance my:RailYard, CreateList=true}" Height="0" LoadedData="railYardDomainDataSource_LoadedData" Name="railYardDomainDataSource" QueryName="GetRailYardsQuery" Width="0" SubmittedChanges="DomainDataSource_SubmittedChanges" >
                         <riaControls:DomainDataSource.DomainContext>
                             <my1:RailServeDS />
                         </riaControls:DomainDataSource.DomainContext>
@@ -75,7 +75,7 @@
                     </Grid.RowDefinitions>
                     <sdk:GridSplitter IsEnabled="False" Grid.Row="1" Height="15" HorizontalAlignment="Stretch" Margin="4,0,0,0" Name="separator5" VerticalAlignment="Top" />
                     <StackPanel HorizontalAlignment="Stretch" Name="stackPanel1" Orientation="Horizontal" VerticalAlignment="Stretch" Margin="6,0,0,0">
-                        <TextBlock Height="22" Margin="4,0,1,0" Name="textBlock1" Text="Track:" Width="42" />
+                        <TextBlock Height="22" Margin="4,0,1,0" Name="textBlock1" Text="Yard:" Width="42" />
                         <TextBox Background="DarkGray" Height="28" Margin="4" Name="trackFilter" Width="120" />
                         <Button Content="Search" FontSize="10" Height="28" Name="trackSearch" Width="81" Click="trackSearch_Click" />
                     </StackPanel>
@@ -87,25 +87,41 @@
                         <Button Content="New" FontSize="10" Height="28" Margin="4" Name="trackNew" Width="81" Click="trackNew_Click" />
                     </StackPanel>
                     <sdk:GridSplitter IsEnabled="False" Grid.Row="4" Height="15" HorizontalAlignment="Stretch" Margin="6,0,0,0" Name="gridSplitter2" VerticalAlignment="Top" />
-                    <riaControls:DomainDataSource AutoLoad="False" PageSize="10" LoadSize="10" d:DesignData="{d:DesignInstance my:Track, CreateList=true}" Height="0" LoadedData="trackDomainDataSource_LoadedData" Name="trackDomainDataSource" QueryName="GetTracksQuery" Width="0" SubmittedChanges="DomainDataSource_SubmittedChanges" >
+                    <riaControls:DomainDataSource AutoLoad="True" PageSize="10" LoadSize="10" d:DesignData="{d:DesignInstance my:Track, CreateList=true}" Height="0" LoadedData="trackDomainDataSource_LoadedData" Name="trackDomainDataSource" QueryName="GetTracksQuery" Width="0" SubmittedChanges="DomainDataSource_SubmittedChanges" >
                         <riaControls:DomainDataSource.DomainContext>
                             <my1:RailServeDS />
                         </riaControls:DomainDataSource.DomainContext>
                         <riaControls:DomainDataSource.FilterDescriptors>
-                            <riaControls:FilterDescriptor IgnoredValue="" Operator="StartsWith" PropertyPath="Track1" Value="{Binding ElementName=trackFilter, Path=Text}" />
+                            <riaControls:FilterDescriptor IgnoredValue="" Operator="StartsWith" PropertyPath="RailYard.YardName" Value="{Binding ElementName=trackFilter, Path=Text}" />
                         </riaControls:DomainDataSource.FilterDescriptors>
+                        <riaControls:DomainDataSource.GroupDescriptors>
+                            <riaControls:GroupDescriptor PropertyPath="RailYard.YardName" />
+                        </riaControls:DomainDataSource.GroupDescriptors>
                         <riaControls:DomainDataSource.SortDescriptors>
-                            <riaControls:SortDescriptor Direction="Ascending" PropertyPath="Track1" />
+                            <riaControls:SortDescriptor Direction="Ascending" PropertyPath="RailYard.YardName" />
                         </riaControls:DomainDataSource.SortDescriptors>
                     </riaControls:DomainDataSource>
                     <sdk:DataGrid AutoGenerateColumns="False" Grid.Row="2" HorizontalAlignment="Stretch" ItemsSource="{Binding ElementName=trackDomainDataSource, Path=Data}" Name="trackDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" VerticalAlignment="Stretch" Margin="6,0,0,0" CellEditEnded="trackDataGrid_CellEditEnded">
                         <sdk:DataGrid.Columns>
                             <sdk:DataGridTextColumn x:Name="trackIDColumn" Binding="{Binding Path=TrackID, Mode=OneWay}" Header="Track ID" IsReadOnly="True" Width="SizeToHeader" />
-                            <sdk:DataGridTextColumn x:Name="track1Column" Binding="{Binding Path=Track1}" Header="Name" Width="200" />
+                            <sdk:DataGridTextColumn x:Name="track1Column" Binding="{Binding Path=Track1}" Header="Track Name" Width="200" />
                             <sdk:DataGridTextColumn x:Name="lengthColumn" Binding="{Binding Path=Length}" Header="Length" Width="SizeToHeader" />
                             <sdk:DataGridTextColumn x:Name="maxCarsColumn" Binding="{Binding Path=MaxCars}" Header="Max Cars" Width="SizeToHeader" />
-                            <sdk:DataGridTextColumn x:Name="yardIdColumn1" Binding="{Binding Path=YardId}" Header="Yard Id" Width="SizeToHeader" />
-                            <sdk:DataGridTextColumn Binding="{Binding Path=RailYard}" Header="RailYard" />
+                            <!--sdk:DataGridTextColumn x:Name="yardIdColumn1" Binding="{Binding Path=RailYard.YardName}" Header="Yard" Width="145" /-->
+                            <sdk:DataGridTemplateColumn x:Name="o_ObjectTypeColumn" Header="Yard" Width="150">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding RailYard.YardName}" />
+                                    </DataTemplate>
+                                    </sdk:DataGridTemplateColumn.CellTemplate>
+                                    <sdk:DataGridTemplateColumn.CellEditingTemplate>                                    
+                                    <DataTemplate>
+                                        <ComboBox Height="28" Name="comboBox1" Width="130" Margin="4" ItemsSource="{Binding  Path=RailYard.YardId}" DisplayMemberPath="RailYard.YardId" >
+                                        </ComboBox>
+                                    </DataTemplate>
+                                    </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                            </sdk:DataGridTemplateColumn>
+
                         </sdk:DataGrid.Columns>
                     </sdk:DataGrid>
                     <toolkit:BusyIndicator Height="65" HorizontalAlignment="Left" IsBusy="{Binding ElementName=trackDomainDataSource, Path=DomainContext.IsLoading}" Margin="257,119,0,0" Name="busyIndicator1" VerticalAlignment="Top" Width="151" Grid.Row="2" />
@@ -137,7 +153,7 @@
                     </StackPanel>
 
                     <sdk:GridSplitter IsEnabled="False" Grid.Row="4" Height="15" HorizontalAlignment="Stretch" Margin="6,0,0,0" Name="gridSplitter3" VerticalAlignment="Top" />
-                    <riaControls:DomainDataSource AutoLoad="False" PageSize="10" LoadSize="10" d:DesignData="{d:DesignInstance my:Activity, CreateList=true}" Height="0" LoadedData="activityDomainDataSource_LoadedData" Name="activityDomainDataSource" QueryName="GetActivitiesQuery" Width="0" SubmittedChanges="DomainDataSource_SubmittedChanges" >
+                    <riaControls:DomainDataSource AutoLoad="True" PageSize="10" LoadSize="10" d:DesignData="{d:DesignInstance my:Activity, CreateList=true}" Height="0" LoadedData="activityDomainDataSource_LoadedData" Name="activityDomainDataSource" QueryName="GetActivitiesQuery" Width="0" SubmittedChanges="DomainDataSource_SubmittedChanges" >
                         <riaControls:DomainDataSource.DomainContext>
                             <my1:RailServeDS />
                         </riaControls:DomainDataSource.DomainContext>
