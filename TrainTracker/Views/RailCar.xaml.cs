@@ -29,14 +29,7 @@ namespace TrainTracker.Views
         }
         #region Data Load
 
-        private void DomainDataSource_SubmittedChanges(object sender, SubmittedChangesEventArgs e)
-        {
-            if (e.HasError)
-            {
-                MessageBox.Show(string.Format("Submit Failed: {0}", e.Error.Message));
-                e.MarkErrorAsHandled();
-            }
-        }
+        
         private void railCarTypeDomainDataSource_LoadedData(object sender, System.Windows.Controls.LoadedDataEventArgs e)
         {
 
@@ -71,38 +64,32 @@ namespace TrainTracker.Views
         #region Car
         private void carSearch_Click(object sender, RoutedEventArgs e)
         {
-            this.railCarDomainDataSource.Clear();
-            this.railCarDomainDataSource.Load();
-            carSave.IsEnabled = false;
             carNew.IsEnabled = true;
             carCancel.IsEnabled = false;
+            carFilter.IsEnabled = true;
+            this.railCarDomainDataSource.Clear();
+            this.railCarDomainDataSource.Load();           
         }
         private void carNew_Click(object sender, RoutedEventArgs e)
         {
             carNew.IsEnabled = false;
-            var car = new TrainTracker.Web.Models.RailCar();          
-            railCarDomainDataSource.DataView.Add(car);
-          //  ShowChildWindow(0);
+            var car = new TrainTracker.Web.Models.RailCar();
+            railCarTypeDomainDataSource.DataView.Add(car);
             carSave.IsEnabled = true;
             carCancel.IsEnabled = true;
+            carFilter.IsEnabled = false;
         }
         private void carSave_Click(object sender, RoutedEventArgs e)
         {
             if (this.railCarDomainDataSource.HasChanges)
             {
-                try
-                {
-                    this.railCarDomainDataSource.SubmitChanges();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                this.railCarDomainDataSource.SubmitChanges();
             }
             carSave.IsEnabled = false;
             carCancel.IsEnabled = false;
             carNew.IsEnabled = true;
             carCancel.IsEnabled = false;
+            carFilter.IsEnabled = true;
         }
 
         private void carCancel_Click(object sender, RoutedEventArgs e)
@@ -111,6 +98,7 @@ namespace TrainTracker.Views
             carSave.IsEnabled = false;
             carCancel.IsEnabled = false;
             carNew.IsEnabled = true;
+            carFilter.IsEnabled = true;
         }
 
         private void railCarDataGrid_CellEditEnded(object sender, DataGridCellEditEndedEventArgs e)
@@ -118,8 +106,15 @@ namespace TrainTracker.Views
             carSave.IsEnabled = true;
             carNew.IsEnabled = false;
         }
-      
-
+        private void CarDomainDataSource_SubmittedChanges(object sender, SubmittedChangesEventArgs e)
+        {
+            if (e.HasError)
+            {
+                MessageBox.Show("Submit Failed: Data Input Errors Appear In RED");
+                e.MarkErrorAsHandled();
+                railCarDomainDataSource.RejectChanges();
+            }
+        }
         #endregion
 
         #region Car Type
@@ -136,9 +131,9 @@ namespace TrainTracker.Views
             typeNew.IsEnabled = false;
             var type = new TrainTracker.Web.Models.RailCarType();
             railCarTypeDomainDataSource.DataView.Add(type);
-            //ShowChildWindow(0);
             typeSave.IsEnabled = true;
             typeCancel.IsEnabled = true;
+            typeFilter.IsEnabled = false;
         }
         private void typeSave_Click(object sender, RoutedEventArgs e)
         {
@@ -150,6 +145,7 @@ namespace TrainTracker.Views
             typeCancel.IsEnabled = false;
             typeNew.IsEnabled = true;
             typeCancel.IsEnabled = false;
+            typeFilter.IsEnabled = true;
         }
 
         private void typeCancel_Click(object sender, RoutedEventArgs e)
@@ -158,12 +154,22 @@ namespace TrainTracker.Views
             typeSave.IsEnabled = false;
             typeCancel.IsEnabled = false;
             typeNew.IsEnabled = true;
+            typeFilter.IsEnabled = true;
         }
      
         private void railCarTypeDataGrid_CellEditEnded(object sender, DataGridCellEditEndedEventArgs e)
         {
             typeSave.IsEnabled = true;
             typeNew.IsEnabled = false;
+        }
+        private void TypeDomainDataSource_SubmittedChanges(object sender, SubmittedChangesEventArgs e)
+        {
+            if (e.HasError)
+            {
+                MessageBox.Show("Submit Failed: Data Input Errors Appear In RED");
+                e.MarkErrorAsHandled();
+                railCarTypeDomainDataSource.RejectChanges();
+            }
         }
 
         #endregion
@@ -176,15 +182,17 @@ namespace TrainTracker.Views
             statusSave.IsEnabled = false;
             statusNew.IsEnabled = true;
             statusCancel.IsEnabled = false;
+           
         }
         private void statusNew_Click(object sender, RoutedEventArgs e)
         {
             statusNew.IsEnabled = false;
             var status = new TrainTracker.Web.Models.CarLoadStatu();
                 carLoadStatuDomainDataSource.DataView.Add(status);
-            //ShowChildWindow(0);
             statusSave.IsEnabled = true;
             statusCancel.IsEnabled = true;
+            statusFilter.IsEnabled = false;
+
         }
         private void statusSave_Click(object sender, RoutedEventArgs e)
         {
@@ -196,6 +204,7 @@ namespace TrainTracker.Views
             statusCancel.IsEnabled = false;
             statusNew.IsEnabled = true;
             statusCancel.IsEnabled = false;
+            statusFilter.IsEnabled = true;
         }
 
         private void statusCancel_Click(object sender, RoutedEventArgs e)
@@ -204,27 +213,26 @@ namespace TrainTracker.Views
              statusSave.IsEnabled = false;
             statusCancel.IsEnabled = false;
             statusNew.IsEnabled = true;
+            statusFilter.IsEnabled = true;
+
         }
         private void carLoadStatuDataGrid_CellEditEnded(object sender, DataGridCellEditEndedEventArgs e)
         {
             statusSave.IsEnabled = true;
             statusNew.IsEnabled = false;
         }
-        #endregion     
 
-        #region Child Window for new entry
-        private void ShowChildWindow(int x)
+        private void LoadDomainDataSource_SubmittedChanges(object sender, SubmittedChangesEventArgs e)
         {
-            if (x == 0)
+            if (e.HasError)
             {
-                var newCar = new TrainTracker.Web.Models.RailCar();
-                var item = new NewEntry();
-               // item.AddData(newCar);
-                item.Show();
-                railCarDomainDataSource.DataView.Add(newCar);
+                MessageBox.Show("Submit Failed: Data Input Errors Appear In RED");
+                e.MarkErrorAsHandled();
+                carLoadStatuDomainDataSource.RejectChanges();
             }
         }
-        #endregion
+        #endregion     
+
 
         private void railCarCurrentStatuDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
         {

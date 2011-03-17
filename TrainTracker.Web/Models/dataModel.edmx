@@ -6,98 +6,111 @@
     <edmx:StorageModels>
     <Schema Namespace="RailServe_dataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="RailServe_dataModelStoreContainer">
-          <EntitySet Name="Activity" EntityType="RailServe_dataModel.Store.Activity" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CarLoadStatus" EntityType="RailServe_dataModel.Store.CarLoadStatus" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Commodity" EntityType="RailServe_dataModel.Store.Commodity" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Department" EntityType="RailServe_dataModel.Store.Department" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="HistoryType" EntityType="RailServe_dataModel.Store.HistoryType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Location" EntityType="RailServe_dataModel.Store.Location" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RailCar" EntityType="RailServe_dataModel.Store.RailCar" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RailCarCurrentStatus" EntityType="RailServe_dataModel.Store.RailCarCurrentStatus" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RailCarHistory" EntityType="RailServe_dataModel.Store.RailCarHistory" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RailCarType" EntityType="RailServe_dataModel.Store.RailCarType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RailYard" EntityType="RailServe_dataModel.Store.RailYard" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="RailYard_Activities" EntityType="RailServe_dataModel.Store.RailYard_Activities" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Track" EntityType="RailServe_dataModel.Store.Track" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK__RailCar__Type__7A672E12" Association="RailServe_dataModel.Store.FK__RailCar__Type__7A672E12">
+          <EntitySet Name="TrackType" EntityType="RailServe_dataModel.Store.TrackType" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__Commodity__Locat__5629CD9C" Association="RailServe_dataModel.Store.FK__Commodity__Locat__5629CD9C">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Commodity" EntitySet="Commodity" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Departmen__Locat__5812160E" Association="RailServe_dataModel.Store.FK__Departmen__Locat__5812160E">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Department" EntitySet="Department" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RailCar__Type__3A81B327" Association="RailServe_dataModel.Store.FK__RailCar__Type__3A81B327">
             <End Role="RailCarType" EntitySet="RailCarType" />
             <End Role="RailCar" EntitySet="RailCar" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCarCu__Activ__4B7734FF" Association="RailServe_dataModel.Store.FK__RailCarCu__Activ__4B7734FF">
-            <End Role="Activity" EntitySet="Activity" />
-            <End Role="RailCarCurrentStatus" EntitySet="RailCarCurrentStatus" />
-          </AssociationSet>
-          <AssociationSet Name="FK__RailCarCu__CarID__4C6B5938" Association="RailServe_dataModel.Store.FK__RailCarCu__CarID__4C6B5938">
+          <AssociationSet Name="FK__RailCarCu__CarID__3C69FB99" Association="RailServe_dataModel.Store.FK__RailCarCu__CarID__3C69FB99">
             <End Role="RailCar" EntitySet="RailCar" />
             <End Role="RailCarCurrentStatus" EntitySet="RailCarCurrentStatus" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCarCu__Commo__4D5F7D71" Association="RailServe_dataModel.Store.FK__RailCarCu__Commo__4D5F7D71">
+          <AssociationSet Name="FK__RailCarCu__Commo__3D5E1FD2" Association="RailServe_dataModel.Store.FK__RailCarCu__Commo__3D5E1FD2">
             <End Role="Commodity" EntitySet="Commodity" />
             <End Role="RailCarCurrentStatus" EntitySet="RailCarCurrentStatus" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCarCu__Histo__4E53A1AA" Association="RailServe_dataModel.Store.FK__RailCarCu__Histo__4E53A1AA">
+          <AssociationSet Name="FK__RailCarCu__Depar__3B75D760" Association="RailServe_dataModel.Store.FK__RailCarCu__Depar__3B75D760">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="RailCarCurrentStatus" EntitySet="RailCarCurrentStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RailCarCu__Histo__3E52440B" Association="RailServe_dataModel.Store.FK__RailCarCu__Histo__3E52440B">
             <End Role="HistoryType" EntitySet="HistoryType" />
             <End Role="RailCarCurrentStatus" EntitySet="RailCarCurrentStatus" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCarCu__Statu__4F47C5E3" Association="RailServe_dataModel.Store.FK__RailCarCu__Statu__4F47C5E3">
+          <AssociationSet Name="FK__RailCarCu__Locat__5441852A" Association="RailServe_dataModel.Store.FK__RailCarCu__Locat__5441852A">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="RailCarCurrentStatus" EntitySet="RailCarCurrentStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RailCarCu__Statu__3F466844" Association="RailServe_dataModel.Store.FK__RailCarCu__Statu__3F466844">
             <End Role="CarLoadStatus" EntitySet="CarLoadStatus" />
             <End Role="RailCarCurrentStatus" EntitySet="RailCarCurrentStatus" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCarCu__Track__503BEA1C" Association="RailServe_dataModel.Store.FK__RailCarCu__Track__503BEA1C">
+          <AssociationSet Name="FK__RailCarCu__Track__403A8C7D" Association="RailServe_dataModel.Store.FK__RailCarCu__Track__403A8C7D">
             <End Role="Track" EntitySet="Track" />
             <End Role="RailCarCurrentStatus" EntitySet="RailCarCurrentStatus" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCarCu__YardI__51300E55" Association="RailServe_dataModel.Store.FK__RailCarCu__YardI__51300E55">
+          <AssociationSet Name="FK__RailCarCu__YardI__412EB0B6" Association="RailServe_dataModel.Store.FK__RailCarCu__YardI__412EB0B6">
             <End Role="RailYard" EntitySet="RailYard" />
             <End Role="RailCarCurrentStatus" EntitySet="RailCarCurrentStatus" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCarHi__Activ__40F9A68C" Association="RailServe_dataModel.Store.FK__RailCarHi__Activ__40F9A68C">
-            <End Role="Activity" EntitySet="Activity" />
-            <End Role="RailCarHistory" EntitySet="RailCarHistory" />
-          </AssociationSet>
-          <AssociationSet Name="FK__RailCarHi__CarID__41EDCAC5" Association="RailServe_dataModel.Store.FK__RailCarHi__CarID__41EDCAC5">
+          <AssociationSet Name="FK__RailCarHi__CarID__4316F928" Association="RailServe_dataModel.Store.FK__RailCarHi__CarID__4316F928">
             <End Role="RailCar" EntitySet="RailCar" />
             <End Role="RailCarHistory" EntitySet="RailCarHistory" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCarHi__Commo__42E1EEFE" Association="RailServe_dataModel.Store.FK__RailCarHi__Commo__42E1EEFE">
+          <AssociationSet Name="FK__RailCarHi__Commo__440B1D61" Association="RailServe_dataModel.Store.FK__RailCarHi__Commo__440B1D61">
             <End Role="Commodity" EntitySet="Commodity" />
             <End Role="RailCarHistory" EntitySet="RailCarHistory" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCarHi__Histo__46B27FE2" Association="RailServe_dataModel.Store.FK__RailCarHi__Histo__46B27FE2">
+          <AssociationSet Name="FK__RailCarHi__Depar__4222D4EF" Association="RailServe_dataModel.Store.FK__RailCarHi__Depar__4222D4EF">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="RailCarHistory" EntitySet="RailCarHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RailCarHi__Histo__44FF419A" Association="RailServe_dataModel.Store.FK__RailCarHi__Histo__44FF419A">
             <End Role="HistoryType" EntitySet="HistoryType" />
             <End Role="RailCarHistory" EntitySet="RailCarHistory" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCarHi__Statu__43D61337" Association="RailServe_dataModel.Store.FK__RailCarHi__Statu__43D61337">
+          <AssociationSet Name="FK__RailCarHi__Locat__5535A963" Association="RailServe_dataModel.Store.FK__RailCarHi__Locat__5535A963">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="RailCarHistory" EntitySet="RailCarHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RailCarHi__Statu__45F365D3" Association="RailServe_dataModel.Store.FK__RailCarHi__Statu__45F365D3">
             <End Role="CarLoadStatus" EntitySet="CarLoadStatus" />
             <End Role="RailCarHistory" EntitySet="RailCarHistory" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCarHi__Track__44CA3770" Association="RailServe_dataModel.Store.FK__RailCarHi__Track__44CA3770">
+          <AssociationSet Name="FK__RailCarHi__Track__46E78A0C" Association="RailServe_dataModel.Store.FK__RailCarHi__Track__46E78A0C">
             <End Role="Track" EntitySet="Track" />
             <End Role="RailCarHistory" EntitySet="RailCarHistory" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCarHi__YardI__45BE5BA9" Association="RailServe_dataModel.Store.FK__RailCarHi__YardI__45BE5BA9">
+          <AssociationSet Name="FK__RailCarHi__YardI__47DBAE45" Association="RailServe_dataModel.Store.FK__RailCarHi__YardI__47DBAE45">
             <End Role="RailYard" EntitySet="RailYard" />
             <End Role="RailCarHistory" EntitySet="RailCarHistory" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailYard___Activ__2F10007B" Association="RailServe_dataModel.Store.FK__RailYard___Activ__2F10007B">
-            <End Role="Activity" EntitySet="Activity" />
-            <End Role="RailYard_Activities" EntitySet="RailYard_Activities" />
-          </AssociationSet>
-          <AssociationSet Name="FK__RailYard___YardI__2E1BDC42" Association="RailServe_dataModel.Store.FK__RailYard___YardI__2E1BDC42">
+          <AssociationSet Name="FK__RailYard__Locati__571DF1D5" Association="RailServe_dataModel.Store.FK__RailYard__Locati__571DF1D5">
+            <End Role="Location" EntitySet="Location" />
             <End Role="RailYard" EntitySet="RailYard" />
-            <End Role="RailYard_Activities" EntitySet="RailYard_Activities" />
           </AssociationSet>
-          <AssociationSet Name="FK__Track__YardId__46E78A0C" Association="RailServe_dataModel.Store.FK__Track__YardId__46E78A0C">
+          <AssociationSet Name="FK__Track__LocationI__6A30C649" Association="RailServe_dataModel.Store.FK__Track__LocationI__6A30C649">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Track" EntitySet="Track" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Track__TypeID__4AB81AF0" Association="RailServe_dataModel.Store.FK__Track__TypeID__4AB81AF0">
+            <End Role="TrackType" EntitySet="TrackType" />
+            <End Role="Track" EntitySet="Track" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Track__YardId__48CFD27E" Association="RailServe_dataModel.Store.FK__Track__YardId__48CFD27E">
             <End Role="RailYard" EntitySet="RailYard" />
             <End Role="Track" EntitySet="Track" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Activity">
-          <Key>
-            <PropertyRef Name="ActivityId" />
-          </Key>
-          <Property Name="ActivityId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="ActivityName" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="ActivityCode" Type="varchar" Nullable="false" MaxLength="25" />
-        </EntityType>
         <EntityType Name="CarLoadStatus">
           <Key>
             <PropertyRef Name="StatusID" />
@@ -113,7 +126,16 @@
           <Property Name="CommodityID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CommodityCode" Type="varchar" Nullable="false" MaxLength="10" />
           <Property Name="CommodityName" Type="varchar" Nullable="false" MaxLength="40" />
-          <Property Name="Comments" Type="varchar" MaxLength="100" />
+          <Property Name="LocationID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="DepartmentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentCode" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="DepartmentName" Type="varchar" Nullable="false" MaxLength="40" />
+          <Property Name="LocationID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="HistoryType">
           <Key>
@@ -121,6 +143,20 @@
           </Key>
           <Property Name="HistoryTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="HistoryType" Type="varchar" Nullable="false" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LocationCode" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="LocationName" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Street" Type="varchar" MaxLength="40" />
+          <Property Name="City" Type="varchar" MaxLength="20" />
+          <Property Name="State" Type="varchar" MaxLength="20" />
+          <Property Name="Zip" Type="int" />
+          <Property Name="County" Type="varchar" MaxLength="20" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="RailCar">
           <Key>
@@ -138,13 +174,12 @@
           <Property Name="CurrentStatusID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CarID" Type="int" Nullable="false" />
           <Property Name="YardID" Type="int" Nullable="false" />
-          <Property Name="ActivityId" Type="int" />
+          <Property Name="DepartmentId" Type="int" Nullable="false" />
           <Property Name="TrackId" Type="int" />
           <Property Name="Spot" Type="int" />
           <Property Name="StatusId" Type="int" />
           <Property Name="CommodityId" Type="int" />
           <Property Name="Comments" Type="varchar" MaxLength="250" />
-          <Property Name="Company" Type="varchar" MaxLength="40" />
           <Property Name="Supplier" Type="varchar" MaxLength="40" />
           <Property Name="Weight" Type="int" />
           <Property Name="ReceiptDate" Type="datetime" />
@@ -155,8 +190,10 @@
           <Property Name="SecondaryUser" Type="varchar" MaxLength="40" />
           <Property Name="HistoryTypeId" Type="int" Nullable="false" />
           <Property Name="Demurrage" Type="bit" />
-          <Property Name="X" Type="int" />
-          <Property Name="Y" Type="int" />
+          <Property Name="LocationID" Type="int" />
+          <Property Name="MovementDate" Type="datetime" />
+          <Property Name="DemurrageDays" Type="int" />
+          <Property Name="Company" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="RailCarHistory">
           <Key>
@@ -165,13 +202,12 @@
           <Property Name="HistoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CarID" Type="int" Nullable="false" />
           <Property Name="YardID" Type="int" Nullable="false" />
-          <Property Name="ActivityId" Type="int" />
+          <Property Name="DepartmentId" Type="int" Nullable="false" />
           <Property Name="TrackId" Type="int" />
           <Property Name="Spot" Type="int" />
           <Property Name="StatusId" Type="int" />
           <Property Name="CommodityId" Type="int" />
           <Property Name="Comments" Type="varchar" MaxLength="250" />
-          <Property Name="Company" Type="varchar" MaxLength="40" />
           <Property Name="Supplier" Type="varchar" MaxLength="40" />
           <Property Name="Weight" Type="int" />
           <Property Name="ReceiptDate" Type="datetime" />
@@ -182,6 +218,10 @@
           <Property Name="SecondaryUser" Type="varchar" MaxLength="40" />
           <Property Name="HistoryTypeId" Type="int" Nullable="false" />
           <Property Name="Demurrage" Type="bit" />
+          <Property Name="LocationID" Type="int" />
+          <Property Name="MovementDate" Type="datetime" />
+          <Property Name="DemurrageDays" Type="int" />
+          <Property Name="Company" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="RailCarType">
           <Key>
@@ -189,7 +229,8 @@
           </Key>
           <Property Name="TypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Type" Type="varchar" Nullable="false" MaxLength="40" />
-          <Property Name="Length" Type="int" />
+          <Property Name="Length" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="TypeCode" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="RailYard">
           <Key>
@@ -198,20 +239,7 @@
           <Property Name="YardID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="YardCode" Type="varchar" Nullable="false" MaxLength="25" />
           <Property Name="YardName" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="Street" Type="varchar" MaxLength="40" />
-          <Property Name="City" Type="varchar" MaxLength="20" />
-          <Property Name="State" Type="varchar" MaxLength="2" />
-          <Property Name="Zip" Type="int" />
-          <Property Name="County" Type="varchar" MaxLength="20" />
-          <Property Name="Phone" Type="varchar" MaxLength="15" />
-        </EntityType>
-        <EntityType Name="RailYard_Activities">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="YardID" Type="int" />
-          <Property Name="ActivityID" Type="int" />
+          <Property Name="LocationID" Type="int" />
         </EntityType>
         <EntityType Name="Track">
           <Key>
@@ -222,8 +250,43 @@
           <Property Name="MaxCars" Type="int" />
           <Property Name="YardId" Type="int" />
           <Property Name="Length" Type="int" />
+          <Property Name="TypeID" Type="int" Nullable="false" />
+          <Property Name="TrackCode" Type="varchar" MaxLength="20" />
+          <Property Name="LocationID" Type="int" />
         </EntityType>
-        <Association Name="FK__RailCar__Type__7A672E12">
+        <EntityType Name="TrackType">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Name="TypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TypeCode" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="TypeName" Type="varchar" Nullable="false" MaxLength="40" />
+        </EntityType>
+        <Association Name="FK__Commodity__Locat__5629CD9C">
+          <End Role="Location" Type="RailServe_dataModel.Store.Location" Multiplicity="1" />
+          <End Role="Commodity" Type="RailServe_dataModel.Store.Commodity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Commodity">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Departmen__Locat__5812160E">
+          <End Role="Location" Type="RailServe_dataModel.Store.Location" Multiplicity="1" />
+          <End Role="Department" Type="RailServe_dataModel.Store.Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Department">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RailCar__Type__3A81B327">
           <End Role="RailCarType" Type="RailServe_dataModel.Store.RailCarType" Multiplicity="0..1" />
           <End Role="RailCar" Type="RailServe_dataModel.Store.RailCar" Multiplicity="*" />
           <ReferentialConstraint>
@@ -235,19 +298,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCarCu__Activ__4B7734FF">
-          <End Role="Activity" Type="RailServe_dataModel.Store.Activity" Multiplicity="0..1" />
-          <End Role="RailCarCurrentStatus" Type="RailServe_dataModel.Store.RailCarCurrentStatus" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Activity">
-              <PropertyRef Name="ActivityId" />
-            </Principal>
-            <Dependent Role="RailCarCurrentStatus">
-              <PropertyRef Name="ActivityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__RailCarCu__CarID__4C6B5938">
+        <Association Name="FK__RailCarCu__CarID__3C69FB99">
           <End Role="RailCar" Type="RailServe_dataModel.Store.RailCar" Multiplicity="1" />
           <End Role="RailCarCurrentStatus" Type="RailServe_dataModel.Store.RailCarCurrentStatus" Multiplicity="*" />
           <ReferentialConstraint>
@@ -259,7 +310,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCarCu__Commo__4D5F7D71">
+        <Association Name="FK__RailCarCu__Commo__3D5E1FD2">
           <End Role="Commodity" Type="RailServe_dataModel.Store.Commodity" Multiplicity="0..1" />
           <End Role="RailCarCurrentStatus" Type="RailServe_dataModel.Store.RailCarCurrentStatus" Multiplicity="*" />
           <ReferentialConstraint>
@@ -271,7 +322,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCarCu__Histo__4E53A1AA">
+        <Association Name="FK__RailCarCu__Depar__3B75D760">
+          <End Role="Department" Type="RailServe_dataModel.Store.Department" Multiplicity="1" />
+          <End Role="RailCarCurrentStatus" Type="RailServe_dataModel.Store.RailCarCurrentStatus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DepartmentID" />
+            </Principal>
+            <Dependent Role="RailCarCurrentStatus">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RailCarCu__Histo__3E52440B">
           <End Role="HistoryType" Type="RailServe_dataModel.Store.HistoryType" Multiplicity="1" />
           <End Role="RailCarCurrentStatus" Type="RailServe_dataModel.Store.RailCarCurrentStatus" Multiplicity="*" />
           <ReferentialConstraint>
@@ -283,7 +346,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCarCu__Statu__4F47C5E3">
+        <Association Name="FK__RailCarCu__Locat__5441852A">
+          <End Role="Location" Type="RailServe_dataModel.Store.Location" Multiplicity="0..1" />
+          <End Role="RailCarCurrentStatus" Type="RailServe_dataModel.Store.RailCarCurrentStatus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="RailCarCurrentStatus">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RailCarCu__Statu__3F466844">
           <End Role="CarLoadStatus" Type="RailServe_dataModel.Store.CarLoadStatus" Multiplicity="0..1" />
           <End Role="RailCarCurrentStatus" Type="RailServe_dataModel.Store.RailCarCurrentStatus" Multiplicity="*" />
           <ReferentialConstraint>
@@ -295,7 +370,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCarCu__Track__503BEA1C">
+        <Association Name="FK__RailCarCu__Track__403A8C7D">
           <End Role="Track" Type="RailServe_dataModel.Store.Track" Multiplicity="0..1" />
           <End Role="RailCarCurrentStatus" Type="RailServe_dataModel.Store.RailCarCurrentStatus" Multiplicity="*" />
           <ReferentialConstraint>
@@ -307,7 +382,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCarCu__YardI__51300E55">
+        <Association Name="FK__RailCarCu__YardI__412EB0B6">
           <End Role="RailYard" Type="RailServe_dataModel.Store.RailYard" Multiplicity="1" />
           <End Role="RailCarCurrentStatus" Type="RailServe_dataModel.Store.RailCarCurrentStatus" Multiplicity="*" />
           <ReferentialConstraint>
@@ -319,19 +394,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCarHi__Activ__40F9A68C">
-          <End Role="Activity" Type="RailServe_dataModel.Store.Activity" Multiplicity="0..1" />
-          <End Role="RailCarHistory" Type="RailServe_dataModel.Store.RailCarHistory" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Activity">
-              <PropertyRef Name="ActivityId" />
-            </Principal>
-            <Dependent Role="RailCarHistory">
-              <PropertyRef Name="ActivityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__RailCarHi__CarID__41EDCAC5">
+        <Association Name="FK__RailCarHi__CarID__4316F928">
           <End Role="RailCar" Type="RailServe_dataModel.Store.RailCar" Multiplicity="1" />
           <End Role="RailCarHistory" Type="RailServe_dataModel.Store.RailCarHistory" Multiplicity="*" />
           <ReferentialConstraint>
@@ -343,7 +406,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCarHi__Commo__42E1EEFE">
+        <Association Name="FK__RailCarHi__Commo__440B1D61">
           <End Role="Commodity" Type="RailServe_dataModel.Store.Commodity" Multiplicity="0..1" />
           <End Role="RailCarHistory" Type="RailServe_dataModel.Store.RailCarHistory" Multiplicity="*" />
           <ReferentialConstraint>
@@ -355,7 +418,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCarHi__Histo__46B27FE2">
+        <Association Name="FK__RailCarHi__Depar__4222D4EF">
+          <End Role="Department" Type="RailServe_dataModel.Store.Department" Multiplicity="1" />
+          <End Role="RailCarHistory" Type="RailServe_dataModel.Store.RailCarHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DepartmentID" />
+            </Principal>
+            <Dependent Role="RailCarHistory">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RailCarHi__Histo__44FF419A">
           <End Role="HistoryType" Type="RailServe_dataModel.Store.HistoryType" Multiplicity="1" />
           <End Role="RailCarHistory" Type="RailServe_dataModel.Store.RailCarHistory" Multiplicity="*" />
           <ReferentialConstraint>
@@ -367,7 +442,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCarHi__Statu__43D61337">
+        <Association Name="FK__RailCarHi__Locat__5535A963">
+          <End Role="Location" Type="RailServe_dataModel.Store.Location" Multiplicity="0..1" />
+          <End Role="RailCarHistory" Type="RailServe_dataModel.Store.RailCarHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="RailCarHistory">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RailCarHi__Statu__45F365D3">
           <End Role="CarLoadStatus" Type="RailServe_dataModel.Store.CarLoadStatus" Multiplicity="0..1" />
           <End Role="RailCarHistory" Type="RailServe_dataModel.Store.RailCarHistory" Multiplicity="*" />
           <ReferentialConstraint>
@@ -379,7 +466,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCarHi__Track__44CA3770">
+        <Association Name="FK__RailCarHi__Track__46E78A0C">
           <End Role="Track" Type="RailServe_dataModel.Store.Track" Multiplicity="0..1" />
           <End Role="RailCarHistory" Type="RailServe_dataModel.Store.RailCarHistory" Multiplicity="*" />
           <ReferentialConstraint>
@@ -391,7 +478,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCarHi__YardI__45BE5BA9">
+        <Association Name="FK__RailCarHi__YardI__47DBAE45">
           <End Role="RailYard" Type="RailServe_dataModel.Store.RailYard" Multiplicity="1" />
           <End Role="RailCarHistory" Type="RailServe_dataModel.Store.RailCarHistory" Multiplicity="*" />
           <ReferentialConstraint>
@@ -403,31 +490,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailYard___Activ__2F10007B">
-          <End Role="Activity" Type="RailServe_dataModel.Store.Activity" Multiplicity="0..1" />
-          <End Role="RailYard_Activities" Type="RailServe_dataModel.Store.RailYard_Activities" Multiplicity="*" />
+        <Association Name="FK__RailYard__Locati__571DF1D5">
+          <End Role="Location" Type="RailServe_dataModel.Store.Location" Multiplicity="0..1" />
+          <End Role="RailYard" Type="RailServe_dataModel.Store.RailYard" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Activity">
-              <PropertyRef Name="ActivityId" />
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
             </Principal>
-            <Dependent Role="RailYard_Activities">
-              <PropertyRef Name="ActivityID" />
+            <Dependent Role="RailYard">
+              <PropertyRef Name="LocationID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailYard___YardI__2E1BDC42">
-          <End Role="RailYard" Type="RailServe_dataModel.Store.RailYard" Multiplicity="0..1" />
-          <End Role="RailYard_Activities" Type="RailServe_dataModel.Store.RailYard_Activities" Multiplicity="*" />
+        <Association Name="FK__Track__LocationI__6A30C649">
+          <End Role="Location" Type="RailServe_dataModel.Store.Location" Multiplicity="0..1" />
+          <End Role="Track" Type="RailServe_dataModel.Store.Track" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="RailYard">
-              <PropertyRef Name="YardID" />
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
             </Principal>
-            <Dependent Role="RailYard_Activities">
-              <PropertyRef Name="YardID" />
+            <Dependent Role="Track">
+              <PropertyRef Name="LocationID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Track__YardId__46E78A0C">
+        <Association Name="FK__Track__TypeID__4AB81AF0">
+          <End Role="TrackType" Type="RailServe_dataModel.Store.TrackType" Multiplicity="1" />
+          <End Role="Track" Type="RailServe_dataModel.Store.Track" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrackType">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="Track">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Track__YardId__48CFD27E">
           <End Role="RailYard" Type="RailServe_dataModel.Store.RailYard" Multiplicity="0..1" />
           <End Role="Track" Type="RailServe_dataModel.Store.Track" Multiplicity="*" />
           <ReferentialConstraint>
@@ -439,15 +538,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="sp_activity_set" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="ActivityName" Type="varchar" Mode="In" />
-          <Parameter Name="ActivityCode" Type="varchar" Mode="In" />
-        </Function>
         <Function Name="sp_car_currentstatus_set" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CarID" Type="int" Mode="In" />
           <Parameter Name="YardID" Type="int" Mode="In" />
+          <Parameter Name="LocationID" Type="int" Mode="In" />
           <Parameter Name="HistoryTypeID" Type="int" Mode="In" />
-          <Parameter Name="ActivityId" Type="int" Mode="In" />
+          <Parameter Name="DepartmentId" Type="int" Mode="In" />
           <Parameter Name="TrackId" Type="int" Mode="In" />
           <Parameter Name="Spot" Type="int" Mode="In" />
           <Parameter Name="StatusId" Type="int" Mode="In" />
@@ -460,137 +556,122 @@
           <Parameter Name="ReceiptTime" Type="datetime" Mode="In" />
           <Parameter Name="ShipDate" Type="datetime" Mode="In" />
           <Parameter Name="ShipTime" Type="datetime" Mode="In" />
+          <Parameter Name="MovementDate" Type="datetime" Mode="In" />
           <Parameter Name="PrimaryUser" Type="varchar" Mode="In" />
           <Parameter Name="SecondaryUser" Type="varchar" Mode="In" />
           <Parameter Name="Demurrage" Type="bit" Mode="In" />
+          <Parameter Name="DemurrageDays" Type="int" Mode="In" />
         </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RailServe_dataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="RailServe_dataEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Activities" EntityType="RailServe_dataModel.Activity" />
+        <EntityContainer Name="RailServe_dataEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CarLoadStatus" EntityType="RailServe_dataModel.CarLoadStatu" />
           <EntitySet Name="Commodities" EntityType="RailServe_dataModel.Commodity" />
+          <EntitySet Name="Departments" EntityType="RailServe_dataModel.Department" />
           <EntitySet Name="HistoryTypes" EntityType="RailServe_dataModel.HistoryType" />
+          <EntitySet Name="Locations" EntityType="RailServe_dataModel.Location" />
           <EntitySet Name="RailCars" EntityType="RailServe_dataModel.RailCar" />
           <EntitySet Name="RailCarCurrentStatus" EntityType="RailServe_dataModel.RailCarCurrentStatu" />
           <EntitySet Name="RailCarHistories" EntityType="RailServe_dataModel.RailCarHistory" />
           <EntitySet Name="RailCarTypes" EntityType="RailServe_dataModel.RailCarType" />
           <EntitySet Name="RailYards" EntityType="RailServe_dataModel.RailYard" />
-          <EntitySet Name="RailYard_Activities" EntityType="RailServe_dataModel.RailYard_Activities" />
           <EntitySet Name="Tracks" EntityType="RailServe_dataModel.Track" />
-          <AssociationSet Name="FK__RailCarCu__Activ__4B7734FF" Association="RailServe_dataModel.FK__RailCarCu__Activ__4B7734FF">
-            <End Role="Activity" EntitySet="Activities" />
-            <End Role="RailCarCurrentStatus" EntitySet="RailCarCurrentStatus" />
-          </AssociationSet>
-          <AssociationSet Name="FK__RailCarHi__Activ__40F9A68C" Association="RailServe_dataModel.FK__RailCarHi__Activ__40F9A68C">
-            <End Role="Activity" EntitySet="Activities" />
-            <End Role="RailCarHistory" EntitySet="RailCarHistories" />
-          </AssociationSet>
-          <AssociationSet Name="FK__RailYard___Activ__2F10007B" Association="RailServe_dataModel.FK__RailYard___Activ__2F10007B">
-            <End Role="Activity" EntitySet="Activities" />
-            <End Role="RailYard_Activities" EntitySet="RailYard_Activities" />
-          </AssociationSet>
-          <AssociationSet Name="FK__RailCarCu__Statu__4F47C5E3" Association="RailServe_dataModel.FK__RailCarCu__Statu__4F47C5E3">
+          <EntitySet Name="TrackTypes" EntityType="RailServe_dataModel.TrackType" />
+          <AssociationSet Name="FK__RailCarCu__Statu__3F466844" Association="RailServe_dataModel.FK__RailCarCu__Statu__3F466844">
             <End Role="CarLoadStatus" EntitySet="CarLoadStatus" />
             <End Role="RailCarCurrentStatus" EntitySet="RailCarCurrentStatus" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCarHi__Statu__43D61337" Association="RailServe_dataModel.FK__RailCarHi__Statu__43D61337">
+          <AssociationSet Name="FK__RailCarHi__Statu__45F365D3" Association="RailServe_dataModel.FK__RailCarHi__Statu__45F365D3">
             <End Role="CarLoadStatus" EntitySet="CarLoadStatus" />
             <End Role="RailCarHistory" EntitySet="RailCarHistories" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCarCu__Commo__4D5F7D71" Association="RailServe_dataModel.FK__RailCarCu__Commo__4D5F7D71">
+          <AssociationSet Name="FK__Commodity__Locat__5629CD9C" Association="RailServe_dataModel.FK__Commodity__Locat__5629CD9C">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Commodity" EntitySet="Commodities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RailCarCu__Commo__3D5E1FD2" Association="RailServe_dataModel.FK__RailCarCu__Commo__3D5E1FD2">
             <End Role="Commodity" EntitySet="Commodities" />
             <End Role="RailCarCurrentStatus" EntitySet="RailCarCurrentStatus" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCarHi__Commo__42E1EEFE" Association="RailServe_dataModel.FK__RailCarHi__Commo__42E1EEFE">
+          <AssociationSet Name="FK__RailCarHi__Commo__440B1D61" Association="RailServe_dataModel.FK__RailCarHi__Commo__440B1D61">
             <End Role="Commodity" EntitySet="Commodities" />
             <End Role="RailCarHistory" EntitySet="RailCarHistories" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCarCu__Histo__4E53A1AA" Association="RailServe_dataModel.FK__RailCarCu__Histo__4E53A1AA">
+          <AssociationSet Name="FK__Departmen__Locat__5812160E" Association="RailServe_dataModel.FK__Departmen__Locat__5812160E">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Department" EntitySet="Departments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RailCarCu__Depar__3B75D760" Association="RailServe_dataModel.FK__RailCarCu__Depar__3B75D760">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="RailCarCurrentStatus" EntitySet="RailCarCurrentStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RailCarHi__Depar__4222D4EF" Association="RailServe_dataModel.FK__RailCarHi__Depar__4222D4EF">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="RailCarHistory" EntitySet="RailCarHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RailCarCu__Histo__3E52440B" Association="RailServe_dataModel.FK__RailCarCu__Histo__3E52440B">
             <End Role="HistoryType" EntitySet="HistoryTypes" />
             <End Role="RailCarCurrentStatus" EntitySet="RailCarCurrentStatus" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCarHi__Histo__46B27FE2" Association="RailServe_dataModel.FK__RailCarHi__Histo__46B27FE2">
+          <AssociationSet Name="FK__RailCarHi__Histo__44FF419A" Association="RailServe_dataModel.FK__RailCarHi__Histo__44FF419A">
             <End Role="HistoryType" EntitySet="HistoryTypes" />
             <End Role="RailCarHistory" EntitySet="RailCarHistories" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCar__Type__7A672E12" Association="RailServe_dataModel.FK__RailCar__Type__7A672E12">
+          <AssociationSet Name="FK__RailCarCu__Locat__5441852A" Association="RailServe_dataModel.FK__RailCarCu__Locat__5441852A">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="RailCarCurrentStatus" EntitySet="RailCarCurrentStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RailCarHi__Locat__5535A963" Association="RailServe_dataModel.FK__RailCarHi__Locat__5535A963">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="RailCarHistory" EntitySet="RailCarHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RailYard__Locati__571DF1D5" Association="RailServe_dataModel.FK__RailYard__Locati__571DF1D5">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="RailYard" EntitySet="RailYards" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RailCar__Type__3A81B327" Association="RailServe_dataModel.FK__RailCar__Type__3A81B327">
             <End Role="RailCarType" EntitySet="RailCarTypes" />
             <End Role="RailCar" EntitySet="RailCars" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCarCu__CarID__4C6B5938" Association="RailServe_dataModel.FK__RailCarCu__CarID__4C6B5938">
+          <AssociationSet Name="FK__RailCarCu__CarID__3C69FB99" Association="RailServe_dataModel.FK__RailCarCu__CarID__3C69FB99">
             <End Role="RailCar" EntitySet="RailCars" />
             <End Role="RailCarCurrentStatus" EntitySet="RailCarCurrentStatus" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCarHi__CarID__41EDCAC5" Association="RailServe_dataModel.FK__RailCarHi__CarID__41EDCAC5">
+          <AssociationSet Name="FK__RailCarHi__CarID__4316F928" Association="RailServe_dataModel.FK__RailCarHi__CarID__4316F928">
             <End Role="RailCar" EntitySet="RailCars" />
             <End Role="RailCarHistory" EntitySet="RailCarHistories" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCarCu__Track__503BEA1C" Association="RailServe_dataModel.FK__RailCarCu__Track__503BEA1C">
+          <AssociationSet Name="FK__RailCarCu__Track__403A8C7D" Association="RailServe_dataModel.FK__RailCarCu__Track__403A8C7D">
             <End Role="Track" EntitySet="Tracks" />
             <End Role="RailCarCurrentStatus" EntitySet="RailCarCurrentStatus" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCarCu__YardI__51300E55" Association="RailServe_dataModel.FK__RailCarCu__YardI__51300E55">
+          <AssociationSet Name="FK__RailCarCu__YardI__412EB0B6" Association="RailServe_dataModel.FK__RailCarCu__YardI__412EB0B6">
             <End Role="RailYard" EntitySet="RailYards" />
             <End Role="RailCarCurrentStatus" EntitySet="RailCarCurrentStatus" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCarHi__Track__44CA3770" Association="RailServe_dataModel.FK__RailCarHi__Track__44CA3770">
+          <AssociationSet Name="FK__RailCarHi__Track__46E78A0C" Association="RailServe_dataModel.FK__RailCarHi__Track__46E78A0C">
             <End Role="Track" EntitySet="Tracks" />
             <End Role="RailCarHistory" EntitySet="RailCarHistories" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailCarHi__YardI__45BE5BA9" Association="RailServe_dataModel.FK__RailCarHi__YardI__45BE5BA9">
+          <AssociationSet Name="FK__RailCarHi__YardI__47DBAE45" Association="RailServe_dataModel.FK__RailCarHi__YardI__47DBAE45">
             <End Role="RailYard" EntitySet="RailYards" />
             <End Role="RailCarHistory" EntitySet="RailCarHistories" />
           </AssociationSet>
-          <AssociationSet Name="FK__RailYard___YardI__2E1BDC42" Association="RailServe_dataModel.FK__RailYard___YardI__2E1BDC42">
-            <End Role="RailYard" EntitySet="RailYards" />
-            <End Role="RailYard_Activities" EntitySet="RailYard_Activities" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Track__YardId__46E78A0C" Association="RailServe_dataModel.FK__Track__YardId__46E78A0C">
+          <AssociationSet Name="FK__Track__YardId__48CFD27E" Association="RailServe_dataModel.FK__Track__YardId__48CFD27E">
             <End Role="RailYard" EntitySet="RailYards" />
             <End Role="Track" EntitySet="Tracks" />
           </AssociationSet>
-          <FunctionImport Name="sp_car_currentstatus_set" EntitySet="RailCarCurrentStatus" ReturnType="Collection(RailServe_dataModel.RailCarCurrentStatu)">
-            <Parameter Name="CarID" Mode="In" Type="Int32" />
-            <Parameter Name="YardID" Mode="In" Type="Int32" />
-            <Parameter Name="HistoryTypeID" Mode="In" Type="Int32" />
-            <Parameter Name="ActivityId" Mode="In" Type="Int32" />
-            <Parameter Name="TrackId" Mode="In" Type="Int32" />
-            <Parameter Name="Spot" Mode="In" Type="Int32" />
-            <Parameter Name="StatusId" Mode="In" Type="Int32" />
-            <Parameter Name="CommodityId" Mode="In" Type="Int32" />
-            <Parameter Name="Comments" Mode="In" Type="String" />
-            <Parameter Name="Company" Mode="In" Type="String" />
-            <Parameter Name="Supplier" Mode="In" Type="String" />
-            <Parameter Name="Weight" Mode="In" Type="Int32" />
-            <Parameter Name="ReceiptDate" Mode="In" Type="DateTime" />
-            <Parameter Name="ReceiptTime" Mode="In" Type="DateTime" />
-            <Parameter Name="ShipDate" Mode="In" Type="DateTime" />
-            <Parameter Name="ShipTime" Mode="In" Type="DateTime" />
-            <Parameter Name="PrimaryUser" Mode="In" Type="String" />
-            <Parameter Name="SecondaryUser" Mode="In" Type="String" />
-            <Parameter Name="Demurrage" Mode="In" Type="Boolean" />
-          </FunctionImport>
-          <FunctionImport Name="sp_car_currentstatus_get" EntitySet="RailCarCurrentStatus" ReturnType="Collection(RailServe_dataModel.RailCarCurrentStatu)">
-            <Parameter Name="CarId" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_yard_currentstatus_get" EntitySet="RailCarCurrentStatus" ReturnType="Collection(RailServe_dataModel.RailCarCurrentStatu)">
-            <Parameter Name="YardId" Mode="In" Type="Int32" />
-          </FunctionImport>
+          <AssociationSet Name="FK__Track__TypeID__4AB81AF0" Association="RailServe_dataModel.FK__Track__TypeID__4AB81AF0">
+            <End Role="TrackType" EntitySet="TrackTypes" />
+            <End Role="Track" EntitySet="Tracks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Track__LocationI__6A30C649" Association="RailServe_dataModel.FK__Track__LocationI__6A30C649">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Track" EntitySet="Tracks" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Activity">
-          <Key>
-            <PropertyRef Name="ActivityId" />
-          </Key>
-          <Property Name="ActivityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ActivityName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="ActivityCode" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="RailCarCurrentStatus" Relationship="RailServe_dataModel.FK__RailCarCu__Activ__4B7734FF" FromRole="Activity" ToRole="RailCarCurrentStatus" />
-          <NavigationProperty Name="RailCarHistories" Relationship="RailServe_dataModel.FK__RailCarHi__Activ__40F9A68C" FromRole="Activity" ToRole="RailCarHistory" />
-          <NavigationProperty Name="RailYard_Activities" Relationship="RailServe_dataModel.FK__RailYard___Activ__2F10007B" FromRole="Activity" ToRole="RailYard_Activities" />
-        </EntityType>
         <EntityType Name="CarLoadStatu">
           <Key>
             <PropertyRef Name="StatusID" />
@@ -598,8 +679,8 @@
           <Property Name="StatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StatusCode" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
           <Property Name="StatusName" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="RailCarCurrentStatus" Relationship="RailServe_dataModel.FK__RailCarCu__Statu__4F47C5E3" FromRole="CarLoadStatus" ToRole="RailCarCurrentStatus" />
-          <NavigationProperty Name="RailCarHistories" Relationship="RailServe_dataModel.FK__RailCarHi__Statu__43D61337" FromRole="CarLoadStatus" ToRole="RailCarHistory" />
+          <NavigationProperty Name="RailCarCurrentStatus" Relationship="RailServe_dataModel.FK__RailCarCu__Statu__3F466844" FromRole="CarLoadStatus" ToRole="RailCarCurrentStatus" />
+          <NavigationProperty Name="RailCarHistories" Relationship="RailServe_dataModel.FK__RailCarHi__Statu__45F365D3" FromRole="CarLoadStatus" ToRole="RailCarHistory" />
         </EntityType>
         <EntityType Name="Commodity">
           <Key>
@@ -608,9 +689,22 @@
           <Property Name="CommodityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CommodityCode" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
           <Property Name="CommodityName" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
-          <Property Name="Comments" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="RailCarCurrentStatus" Relationship="RailServe_dataModel.FK__RailCarCu__Commo__4D5F7D71" FromRole="Commodity" ToRole="RailCarCurrentStatus" />
-          <NavigationProperty Name="RailCarHistories" Relationship="RailServe_dataModel.FK__RailCarHi__Commo__42E1EEFE" FromRole="Commodity" ToRole="RailCarHistory" />
+          <Property Name="LocationID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Location" Relationship="RailServe_dataModel.FK__Commodity__Locat__5629CD9C" FromRole="Commodity" ToRole="Location" />
+          <NavigationProperty Name="RailCarCurrentStatus" Relationship="RailServe_dataModel.FK__RailCarCu__Commo__3D5E1FD2" FromRole="Commodity" ToRole="RailCarCurrentStatus" />
+          <NavigationProperty Name="RailCarHistories" Relationship="RailServe_dataModel.FK__RailCarHi__Commo__440B1D61" FromRole="Commodity" ToRole="RailCarHistory" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="DepartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentCode" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="DepartmentName" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="LocationID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Location" Relationship="RailServe_dataModel.FK__Departmen__Locat__5812160E" FromRole="Department" ToRole="Location" />
+          <NavigationProperty Name="RailCarCurrentStatus" Relationship="RailServe_dataModel.FK__RailCarCu__Depar__3B75D760" FromRole="Department" ToRole="RailCarCurrentStatus" />
+          <NavigationProperty Name="RailCarHistories" Relationship="RailServe_dataModel.FK__RailCarHi__Depar__4222D4EF" FromRole="Department" ToRole="RailCarHistory" />
         </EntityType>
         <EntityType Name="HistoryType">
           <Key>
@@ -618,8 +712,28 @@
           </Key>
           <Property Name="HistoryTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="HistoryType1" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="RailCarCurrentStatus" Relationship="RailServe_dataModel.FK__RailCarCu__Histo__4E53A1AA" FromRole="HistoryType" ToRole="RailCarCurrentStatus" />
-          <NavigationProperty Name="RailCarHistories" Relationship="RailServe_dataModel.FK__RailCarHi__Histo__46B27FE2" FromRole="HistoryType" ToRole="RailCarHistory" />
+          <NavigationProperty Name="RailCarCurrentStatus" Relationship="RailServe_dataModel.FK__RailCarCu__Histo__3E52440B" FromRole="HistoryType" ToRole="RailCarCurrentStatus" />
+          <NavigationProperty Name="RailCarHistories" Relationship="RailServe_dataModel.FK__RailCarHi__Histo__44FF419A" FromRole="HistoryType" ToRole="RailCarHistory" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocationCode" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="LocationName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Street" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="State" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Zip" Type="Int32" />
+          <Property Name="County" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Commodities" Relationship="RailServe_dataModel.FK__Commodity__Locat__5629CD9C" FromRole="Location" ToRole="Commodity" />
+          <NavigationProperty Name="Departments" Relationship="RailServe_dataModel.FK__Departmen__Locat__5812160E" FromRole="Location" ToRole="Department" />
+          <NavigationProperty Name="RailCarCurrentStatus" Relationship="RailServe_dataModel.FK__RailCarCu__Locat__5441852A" FromRole="Location" ToRole="RailCarCurrentStatus" />
+          <NavigationProperty Name="RailCarHistories" Relationship="RailServe_dataModel.FK__RailCarHi__Locat__5535A963" FromRole="Location" ToRole="RailCarHistory" />
+          <NavigationProperty Name="RailYards" Relationship="RailServe_dataModel.FK__RailYard__Locati__571DF1D5" FromRole="Location" ToRole="RailYard" />
+          <NavigationProperty Name="Tracks" Relationship="RailServe_dataModel.FK__Track__LocationI__6A30C649" FromRole="Location" ToRole="Track" />
         </EntityType>
         <EntityType Name="RailCar">
           <Key>
@@ -629,9 +743,9 @@
           <Property Name="Number" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
           <Property Name="Type" Type="Int32" />
           <Property Name="Owner" Type="String" MaxLength="50" Unicode="true" FixedLength="true" />
-          <NavigationProperty Name="RailCarType" Relationship="RailServe_dataModel.FK__RailCar__Type__7A672E12" FromRole="RailCar" ToRole="RailCarType" />
-          <NavigationProperty Name="RailCarCurrentStatus" Relationship="RailServe_dataModel.FK__RailCarCu__CarID__4C6B5938" FromRole="RailCar" ToRole="RailCarCurrentStatus" />
-          <NavigationProperty Name="RailCarHistories" Relationship="RailServe_dataModel.FK__RailCarHi__CarID__41EDCAC5" FromRole="RailCar" ToRole="RailCarHistory" />
+          <NavigationProperty Name="RailCarType" Relationship="RailServe_dataModel.FK__RailCar__Type__3A81B327" FromRole="RailCar" ToRole="RailCarType" />
+          <NavigationProperty Name="RailCarCurrentStatus" Relationship="RailServe_dataModel.FK__RailCarCu__CarID__3C69FB99" FromRole="RailCar" ToRole="RailCarCurrentStatus" />
+          <NavigationProperty Name="RailCarHistories" Relationship="RailServe_dataModel.FK__RailCarHi__CarID__4316F928" FromRole="RailCar" ToRole="RailCarHistory" />
         </EntityType>
         <EntityType Name="RailCarCurrentStatu">
           <Key>
@@ -640,13 +754,12 @@
           <Property Name="CurrentStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CarID" Type="Int32" Nullable="false" />
           <Property Name="YardID" Type="Int32" Nullable="false" />
-          <Property Name="ActivityId" Type="Int32" />
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" />
           <Property Name="TrackId" Type="Int32" />
           <Property Name="Spot" Type="Int32" />
           <Property Name="StatusId" Type="Int32" />
           <Property Name="CommodityId" Type="Int32" />
           <Property Name="Comments" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
-          <Property Name="Company" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
           <Property Name="Supplier" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
           <Property Name="Weight" Type="Int32" />
           <Property Name="ReceiptDate" Type="DateTime" />
@@ -656,16 +769,19 @@
           <Property Name="PrimaryUser" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
           <Property Name="SecondaryUser" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
           <Property Name="HistoryTypeId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Activity" Relationship="RailServe_dataModel.FK__RailCarCu__Activ__4B7734FF" FromRole="RailCarCurrentStatus" ToRole="Activity" />
-          <NavigationProperty Name="CarLoadStatu" Relationship="RailServe_dataModel.FK__RailCarCu__Statu__4F47C5E3" FromRole="RailCarCurrentStatus" ToRole="CarLoadStatus" />
-          <NavigationProperty Name="Commodity" Relationship="RailServe_dataModel.FK__RailCarCu__Commo__4D5F7D71" FromRole="RailCarCurrentStatus" ToRole="Commodity" />
-          <NavigationProperty Name="HistoryType" Relationship="RailServe_dataModel.FK__RailCarCu__Histo__4E53A1AA" FromRole="RailCarCurrentStatus" ToRole="HistoryType" />
-          <NavigationProperty Name="RailCar" Relationship="RailServe_dataModel.FK__RailCarCu__CarID__4C6B5938" FromRole="RailCarCurrentStatus" ToRole="RailCar" />
-          <NavigationProperty Name="Track" Relationship="RailServe_dataModel.FK__RailCarCu__Track__503BEA1C" FromRole="RailCarCurrentStatus" ToRole="Track" />
-          <NavigationProperty Name="RailYard" Relationship="RailServe_dataModel.FK__RailCarCu__YardI__51300E55" FromRole="RailCarCurrentStatus" ToRole="RailYard" />
-          <Property Type="Boolean" Name="Demurrage" />
-          <Property Type="Int32" Name="X" />
-          <Property Type="Int32" Name="Y" />
+          <Property Name="Demurrage" Type="Boolean" />
+          <Property Name="LocationID" Type="Int32" />
+          <NavigationProperty Name="CarLoadStatu" Relationship="RailServe_dataModel.FK__RailCarCu__Statu__3F466844" FromRole="RailCarCurrentStatus" ToRole="CarLoadStatus" />
+          <NavigationProperty Name="Commodity" Relationship="RailServe_dataModel.FK__RailCarCu__Commo__3D5E1FD2" FromRole="RailCarCurrentStatus" ToRole="Commodity" />
+          <NavigationProperty Name="Department" Relationship="RailServe_dataModel.FK__RailCarCu__Depar__3B75D760" FromRole="RailCarCurrentStatus" ToRole="Department" />
+          <NavigationProperty Name="HistoryType" Relationship="RailServe_dataModel.FK__RailCarCu__Histo__3E52440B" FromRole="RailCarCurrentStatus" ToRole="HistoryType" />
+          <NavigationProperty Name="Location" Relationship="RailServe_dataModel.FK__RailCarCu__Locat__5441852A" FromRole="RailCarCurrentStatus" ToRole="Location" />
+          <NavigationProperty Name="RailCar" Relationship="RailServe_dataModel.FK__RailCarCu__CarID__3C69FB99" FromRole="RailCarCurrentStatus" ToRole="RailCar" />
+          <NavigationProperty Name="Track" Relationship="RailServe_dataModel.FK__RailCarCu__Track__403A8C7D" FromRole="RailCarCurrentStatus" ToRole="Track" />
+          <NavigationProperty Name="RailYard" Relationship="RailServe_dataModel.FK__RailCarCu__YardI__412EB0B6" FromRole="RailCarCurrentStatus" ToRole="RailYard" />
+          <Property Type="DateTime" Name="MovementDate" />
+          <Property Type="Int32" Name="DemurrageDays" />
+          <Property Type="String" Name="Company" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="RailCarHistory">
           <Key>
@@ -674,13 +790,12 @@
           <Property Name="HistoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CarID" Type="Int32" Nullable="false" />
           <Property Name="YardID" Type="Int32" Nullable="false" />
-          <Property Name="ActivityId" Type="Int32" />
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" />
           <Property Name="TrackId" Type="Int32" />
           <Property Name="Spot" Type="Int32" />
           <Property Name="StatusId" Type="Int32" />
           <Property Name="CommodityId" Type="Int32" />
           <Property Name="Comments" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
-          <Property Name="Company" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
           <Property Name="Supplier" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
           <Property Name="Weight" Type="Int32" />
           <Property Name="ReceiptDate" Type="DateTime" />
@@ -690,14 +805,19 @@
           <Property Name="PrimaryUser" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
           <Property Name="SecondaryUser" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
           <Property Name="HistoryTypeId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Activity" Relationship="RailServe_dataModel.FK__RailCarHi__Activ__40F9A68C" FromRole="RailCarHistory" ToRole="Activity" />
-          <NavigationProperty Name="CarLoadStatu" Relationship="RailServe_dataModel.FK__RailCarHi__Statu__43D61337" FromRole="RailCarHistory" ToRole="CarLoadStatus" />
-          <NavigationProperty Name="Commodity" Relationship="RailServe_dataModel.FK__RailCarHi__Commo__42E1EEFE" FromRole="RailCarHistory" ToRole="Commodity" />
-          <NavigationProperty Name="HistoryType" Relationship="RailServe_dataModel.FK__RailCarHi__Histo__46B27FE2" FromRole="RailCarHistory" ToRole="HistoryType" />
-          <NavigationProperty Name="RailCar" Relationship="RailServe_dataModel.FK__RailCarHi__CarID__41EDCAC5" FromRole="RailCarHistory" ToRole="RailCar" />
-          <NavigationProperty Name="Track" Relationship="RailServe_dataModel.FK__RailCarHi__Track__44CA3770" FromRole="RailCarHistory" ToRole="Track" />
-          <NavigationProperty Name="RailYard" Relationship="RailServe_dataModel.FK__RailCarHi__YardI__45BE5BA9" FromRole="RailCarHistory" ToRole="RailYard" />
-          <Property Type="Boolean" Name="Demurrage" />
+          <Property Name="Demurrage" Type="Boolean" />
+          <Property Name="LocationID" Type="Int32" />
+          <NavigationProperty Name="CarLoadStatu" Relationship="RailServe_dataModel.FK__RailCarHi__Statu__45F365D3" FromRole="RailCarHistory" ToRole="CarLoadStatus" />
+          <NavigationProperty Name="Commodity" Relationship="RailServe_dataModel.FK__RailCarHi__Commo__440B1D61" FromRole="RailCarHistory" ToRole="Commodity" />
+          <NavigationProperty Name="Department" Relationship="RailServe_dataModel.FK__RailCarHi__Depar__4222D4EF" FromRole="RailCarHistory" ToRole="Department" />
+          <NavigationProperty Name="HistoryType" Relationship="RailServe_dataModel.FK__RailCarHi__Histo__44FF419A" FromRole="RailCarHistory" ToRole="HistoryType" />
+          <NavigationProperty Name="Location" Relationship="RailServe_dataModel.FK__RailCarHi__Locat__5535A963" FromRole="RailCarHistory" ToRole="Location" />
+          <NavigationProperty Name="RailCar" Relationship="RailServe_dataModel.FK__RailCarHi__CarID__4316F928" FromRole="RailCarHistory" ToRole="RailCar" />
+          <NavigationProperty Name="Track" Relationship="RailServe_dataModel.FK__RailCarHi__Track__46E78A0C" FromRole="RailCarHistory" ToRole="Track" />
+          <NavigationProperty Name="RailYard" Relationship="RailServe_dataModel.FK__RailCarHi__YardI__47DBAE45" FromRole="RailCarHistory" ToRole="RailYard" />
+          <Property Type="DateTime" Name="MovementDate" />
+          <Property Type="Int32" Name="DemurrageDays" />
+          <Property Type="String" Name="Company" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="RailCarType">
           <Key>
@@ -705,8 +825,9 @@
           </Key>
           <Property Name="TypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Type" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
-          <Property Name="Length" Type="Int32" />
-          <NavigationProperty Name="RailCars" Relationship="RailServe_dataModel.FK__RailCar__Type__7A672E12" FromRole="RailCarType" ToRole="RailCar" />
+          <Property Name="Length" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="TypeCode" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="RailCars" Relationship="RailServe_dataModel.FK__RailCar__Type__3A81B327" FromRole="RailCarType" ToRole="RailCar" />
         </EntityType>
         <EntityType Name="RailYard">
           <Key>
@@ -715,26 +836,11 @@
           <Property Name="YardID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="YardCode" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
           <Property Name="YardName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="Street" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
-          <Property Name="City" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="State" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
-          <Property Name="Zip" Type="Int32" />
-          <Property Name="County" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="Phone" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="RailCarCurrentStatus" Relationship="RailServe_dataModel.FK__RailCarCu__YardI__51300E55" FromRole="RailYard" ToRole="RailCarCurrentStatus" />
-          <NavigationProperty Name="RailCarHistories" Relationship="RailServe_dataModel.FK__RailCarHi__YardI__45BE5BA9" FromRole="RailYard" ToRole="RailCarHistory" />
-          <NavigationProperty Name="RailYard_Activities" Relationship="RailServe_dataModel.FK__RailYard___YardI__2E1BDC42" FromRole="RailYard" ToRole="RailYard_Activities" />
-          <NavigationProperty Name="Tracks" Relationship="RailServe_dataModel.FK__Track__YardId__46E78A0C" FromRole="RailYard" ToRole="Track" />
-        </EntityType>
-        <EntityType Name="RailYard_Activities">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="YardID" Type="Int32" />
-          <Property Name="ActivityID" Type="Int32" />
-          <NavigationProperty Name="Activity" Relationship="RailServe_dataModel.FK__RailYard___Activ__2F10007B" FromRole="RailYard_Activities" ToRole="Activity" />
-          <NavigationProperty Name="RailYard" Relationship="RailServe_dataModel.FK__RailYard___YardI__2E1BDC42" FromRole="RailYard_Activities" ToRole="RailYard" />
+          <Property Name="LocationID" Type="Int32" />
+          <NavigationProperty Name="Location" Relationship="RailServe_dataModel.FK__RailYard__Locati__571DF1D5" FromRole="RailYard" ToRole="Location" />
+          <NavigationProperty Name="RailCarCurrentStatus" Relationship="RailServe_dataModel.FK__RailCarCu__YardI__412EB0B6" FromRole="RailYard" ToRole="RailCarCurrentStatus" />
+          <NavigationProperty Name="RailCarHistories" Relationship="RailServe_dataModel.FK__RailCarHi__YardI__47DBAE45" FromRole="RailYard" ToRole="RailCarHistory" />
+          <NavigationProperty Name="Tracks" Relationship="RailServe_dataModel.FK__Track__YardId__48CFD27E" FromRole="RailYard" ToRole="Track" />
         </EntityType>
         <EntityType Name="Track">
           <Key>
@@ -745,47 +851,25 @@
           <Property Name="MaxCars" Type="Int32" />
           <Property Name="YardId" Type="Int32" />
           <Property Name="Length" Type="Int32" />
-          <NavigationProperty Name="RailCarCurrentStatus" Relationship="RailServe_dataModel.FK__RailCarCu__Track__503BEA1C" FromRole="Track" ToRole="RailCarCurrentStatus" />
-          <NavigationProperty Name="RailCarHistories" Relationship="RailServe_dataModel.FK__RailCarHi__Track__44CA3770" FromRole="Track" ToRole="RailCarHistory" />
-          <NavigationProperty Name="RailYard" Relationship="RailServe_dataModel.FK__Track__YardId__46E78A0C" FromRole="Track" ToRole="RailYard" />
+          <Property Name="TypeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RailCarCurrentStatus" Relationship="RailServe_dataModel.FK__RailCarCu__Track__403A8C7D" FromRole="Track" ToRole="RailCarCurrentStatus" />
+          <NavigationProperty Name="RailCarHistories" Relationship="RailServe_dataModel.FK__RailCarHi__Track__46E78A0C" FromRole="Track" ToRole="RailCarHistory" />
+          <NavigationProperty Name="RailYard" Relationship="RailServe_dataModel.FK__Track__YardId__48CFD27E" FromRole="Track" ToRole="RailYard" />
+          <NavigationProperty Name="TrackType" Relationship="RailServe_dataModel.FK__Track__TypeID__4AB81AF0" FromRole="Track" ToRole="TrackType" />
+          <Property Type="String" Name="TrackCode" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="LocationID" />
+          <NavigationProperty Name="Location" Relationship="RailServe_dataModel.FK__Track__LocationI__6A30C649" FromRole="Track" ToRole="Location" />
         </EntityType>
-        <Association Name="FK__RailCarCu__Activ__4B7734FF">
-          <End Role="Activity" Type="RailServe_dataModel.Activity" Multiplicity="0..1" />
-          <End Role="RailCarCurrentStatus" Type="RailServe_dataModel.RailCarCurrentStatu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Activity">
-              <PropertyRef Name="ActivityId" />
-            </Principal>
-            <Dependent Role="RailCarCurrentStatus">
-              <PropertyRef Name="ActivityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__RailCarHi__Activ__40F9A68C">
-          <End Role="Activity" Type="RailServe_dataModel.Activity" Multiplicity="0..1" />
-          <End Role="RailCarHistory" Type="RailServe_dataModel.RailCarHistory" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Activity">
-              <PropertyRef Name="ActivityId" />
-            </Principal>
-            <Dependent Role="RailCarHistory">
-              <PropertyRef Name="ActivityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__RailYard___Activ__2F10007B">
-          <End Role="Activity" Type="RailServe_dataModel.Activity" Multiplicity="0..1" />
-          <End Role="RailYard_Activities" Type="RailServe_dataModel.RailYard_Activities" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Activity">
-              <PropertyRef Name="ActivityId" />
-            </Principal>
-            <Dependent Role="RailYard_Activities">
-              <PropertyRef Name="ActivityID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__RailCarCu__Statu__4F47C5E3">
+        <EntityType Name="TrackType">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Name="TypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeCode" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="TypeName" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Tracks" Relationship="RailServe_dataModel.FK__Track__TypeID__4AB81AF0" FromRole="TrackType" ToRole="Track" />
+        </EntityType>
+        <Association Name="FK__RailCarCu__Statu__3F466844">
           <End Role="CarLoadStatus" Type="RailServe_dataModel.CarLoadStatu" Multiplicity="0..1" />
           <End Role="RailCarCurrentStatus" Type="RailServe_dataModel.RailCarCurrentStatu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -797,7 +881,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCarHi__Statu__43D61337">
+        <Association Name="FK__RailCarHi__Statu__45F365D3">
           <End Role="CarLoadStatus" Type="RailServe_dataModel.CarLoadStatu" Multiplicity="0..1" />
           <End Role="RailCarHistory" Type="RailServe_dataModel.RailCarHistory" Multiplicity="*" />
           <ReferentialConstraint>
@@ -809,7 +893,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCarCu__Commo__4D5F7D71">
+        <Association Name="FK__Commodity__Locat__5629CD9C">
+          <End Role="Location" Type="RailServe_dataModel.Location" Multiplicity="1" />
+          <End Role="Commodity" Type="RailServe_dataModel.Commodity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Commodity">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RailCarCu__Commo__3D5E1FD2">
           <End Role="Commodity" Type="RailServe_dataModel.Commodity" Multiplicity="0..1" />
           <End Role="RailCarCurrentStatus" Type="RailServe_dataModel.RailCarCurrentStatu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -821,7 +917,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCarHi__Commo__42E1EEFE">
+        <Association Name="FK__RailCarHi__Commo__440B1D61">
           <End Role="Commodity" Type="RailServe_dataModel.Commodity" Multiplicity="0..1" />
           <End Role="RailCarHistory" Type="RailServe_dataModel.RailCarHistory" Multiplicity="*" />
           <ReferentialConstraint>
@@ -833,7 +929,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCarCu__Histo__4E53A1AA">
+        <Association Name="FK__Departmen__Locat__5812160E">
+          <End Role="Location" Type="RailServe_dataModel.Location" Multiplicity="1" />
+          <End Role="Department" Type="RailServe_dataModel.Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Department">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RailCarCu__Depar__3B75D760">
+          <End Role="Department" Type="RailServe_dataModel.Department" Multiplicity="1" />
+          <End Role="RailCarCurrentStatus" Type="RailServe_dataModel.RailCarCurrentStatu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DepartmentID" />
+            </Principal>
+            <Dependent Role="RailCarCurrentStatus">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RailCarHi__Depar__4222D4EF">
+          <End Role="Department" Type="RailServe_dataModel.Department" Multiplicity="1" />
+          <End Role="RailCarHistory" Type="RailServe_dataModel.RailCarHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DepartmentID" />
+            </Principal>
+            <Dependent Role="RailCarHistory">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RailCarCu__Histo__3E52440B">
           <End Role="HistoryType" Type="RailServe_dataModel.HistoryType" Multiplicity="1" />
           <End Role="RailCarCurrentStatus" Type="RailServe_dataModel.RailCarCurrentStatu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -845,7 +977,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCarHi__Histo__46B27FE2">
+        <Association Name="FK__RailCarHi__Histo__44FF419A">
           <End Role="HistoryType" Type="RailServe_dataModel.HistoryType" Multiplicity="1" />
           <End Role="RailCarHistory" Type="RailServe_dataModel.RailCarHistory" Multiplicity="*" />
           <ReferentialConstraint>
@@ -857,7 +989,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCar__Type__7A672E12">
+        <Association Name="FK__RailCarCu__Locat__5441852A">
+          <End Role="Location" Type="RailServe_dataModel.Location" Multiplicity="0..1" />
+          <End Role="RailCarCurrentStatus" Type="RailServe_dataModel.RailCarCurrentStatu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="RailCarCurrentStatus">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RailCarHi__Locat__5535A963">
+          <End Role="Location" Type="RailServe_dataModel.Location" Multiplicity="0..1" />
+          <End Role="RailCarHistory" Type="RailServe_dataModel.RailCarHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="RailCarHistory">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RailYard__Locati__571DF1D5">
+          <End Role="Location" Type="RailServe_dataModel.Location" Multiplicity="0..1" />
+          <End Role="RailYard" Type="RailServe_dataModel.RailYard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="RailYard">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RailCar__Type__3A81B327">
           <End Role="RailCarType" Type="RailServe_dataModel.RailCarType" Multiplicity="0..1" />
           <End Role="RailCar" Type="RailServe_dataModel.RailCar" Multiplicity="*" />
           <ReferentialConstraint>
@@ -869,7 +1037,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCarCu__CarID__4C6B5938">
+        <Association Name="FK__RailCarCu__CarID__3C69FB99">
           <End Role="RailCar" Type="RailServe_dataModel.RailCar" Multiplicity="1" />
           <End Role="RailCarCurrentStatus" Type="RailServe_dataModel.RailCarCurrentStatu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -881,7 +1049,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCarHi__CarID__41EDCAC5">
+        <Association Name="FK__RailCarHi__CarID__4316F928">
           <End Role="RailCar" Type="RailServe_dataModel.RailCar" Multiplicity="1" />
           <End Role="RailCarHistory" Type="RailServe_dataModel.RailCarHistory" Multiplicity="*" />
           <ReferentialConstraint>
@@ -893,7 +1061,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCarCu__Track__503BEA1C">
+        <Association Name="FK__RailCarCu__Track__403A8C7D">
           <End Role="Track" Type="RailServe_dataModel.Track" Multiplicity="0..1" />
           <End Role="RailCarCurrentStatus" Type="RailServe_dataModel.RailCarCurrentStatu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -905,7 +1073,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCarCu__YardI__51300E55">
+        <Association Name="FK__RailCarCu__YardI__412EB0B6">
           <End Role="RailYard" Type="RailServe_dataModel.RailYard" Multiplicity="1" />
           <End Role="RailCarCurrentStatus" Type="RailServe_dataModel.RailCarCurrentStatu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -917,7 +1085,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCarHi__Track__44CA3770">
+        <Association Name="FK__RailCarHi__Track__46E78A0C">
           <End Role="Track" Type="RailServe_dataModel.Track" Multiplicity="0..1" />
           <End Role="RailCarHistory" Type="RailServe_dataModel.RailCarHistory" Multiplicity="*" />
           <ReferentialConstraint>
@@ -929,7 +1097,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailCarHi__YardI__45BE5BA9">
+        <Association Name="FK__RailCarHi__YardI__47DBAE45">
           <End Role="RailYard" Type="RailServe_dataModel.RailYard" Multiplicity="1" />
           <End Role="RailCarHistory" Type="RailServe_dataModel.RailCarHistory" Multiplicity="*" />
           <ReferentialConstraint>
@@ -941,19 +1109,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RailYard___YardI__2E1BDC42">
-          <End Role="RailYard" Type="RailServe_dataModel.RailYard" Multiplicity="0..1" />
-          <End Role="RailYard_Activities" Type="RailServe_dataModel.RailYard_Activities" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RailYard">
-              <PropertyRef Name="YardID" />
-            </Principal>
-            <Dependent Role="RailYard_Activities">
-              <PropertyRef Name="YardID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Track__YardId__46E78A0C">
+        <Association Name="FK__Track__YardId__48CFD27E">
           <End Role="RailYard" Type="RailServe_dataModel.RailYard" Multiplicity="0..1" />
           <End Role="Track" Type="RailServe_dataModel.Track" Multiplicity="*" />
           <ReferentialConstraint>
@@ -965,17 +1121,36 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Track__TypeID__4AB81AF0">
+          <End Role="TrackType" Type="RailServe_dataModel.TrackType" Multiplicity="1" />
+          <End Role="Track" Type="RailServe_dataModel.Track" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrackType">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="Track">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Track__LocationI__6A30C649">
+          <End Type="RailServe_dataModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="RailServe_dataModel.Track" Role="Track" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Track">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="RailServe_dataModelStoreContainer" CdmEntityContainer="RailServe_dataEntities1">
-          <EntitySetMapping Name="Activities"><EntityTypeMapping TypeName="RailServe_dataModel.Activity"><MappingFragment StoreEntitySet="Activity">
-            <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
-            <ScalarProperty Name="ActivityName" ColumnName="ActivityName" />
-            <ScalarProperty Name="ActivityCode" ColumnName="ActivityCode" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        <EntityContainerMapping StorageEntityContainer="RailServe_dataModelStoreContainer" CdmEntityContainer="RailServe_dataEntities3">
           <EntitySetMapping Name="CarLoadStatus"><EntityTypeMapping TypeName="RailServe_dataModel.CarLoadStatu"><MappingFragment StoreEntitySet="CarLoadStatus">
             <ScalarProperty Name="StatusID" ColumnName="StatusID" />
             <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
@@ -985,33 +1160,48 @@
             <ScalarProperty Name="CommodityID" ColumnName="CommodityID" />
             <ScalarProperty Name="CommodityCode" ColumnName="CommodityCode" />
             <ScalarProperty Name="CommodityName" ColumnName="CommodityName" />
-            <ScalarProperty Name="Comments" ColumnName="Comments" />
+            <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Departments"><EntityTypeMapping TypeName="RailServe_dataModel.Department"><MappingFragment StoreEntitySet="Department">
+            <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+            <ScalarProperty Name="DepartmentCode" ColumnName="DepartmentCode" />
+            <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+            <ScalarProperty Name="LocationID" ColumnName="LocationID" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="HistoryTypes"><EntityTypeMapping TypeName="RailServe_dataModel.HistoryType"><MappingFragment StoreEntitySet="HistoryType">
             <ScalarProperty Name="HistoryTypeID" ColumnName="HistoryTypeID" />
             <ScalarProperty Name="HistoryType1" ColumnName="HistoryType" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Locations"><EntityTypeMapping TypeName="RailServe_dataModel.Location"><MappingFragment StoreEntitySet="Location">
+            <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+            <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+            <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+            <ScalarProperty Name="Street" ColumnName="Street" />
+            <ScalarProperty Name="City" ColumnName="City" />
+            <ScalarProperty Name="State" ColumnName="State" />
+            <ScalarProperty Name="Zip" ColumnName="Zip" />
+            <ScalarProperty Name="County" ColumnName="County" />
+            <ScalarProperty Name="Phone" ColumnName="Phone" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="RailCars"><EntityTypeMapping TypeName="RailServe_dataModel.RailCar"><MappingFragment StoreEntitySet="RailCar">
             <ScalarProperty Name="CarID" ColumnName="CarID" />
             <ScalarProperty Name="Number" ColumnName="Number" />
             <ScalarProperty Name="Type" ColumnName="Type" />
             <ScalarProperty Name="Owner" ColumnName="Owner" />
-          </MappingFragment></EntityTypeMapping>
-            </EntitySetMapping>
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="RailCarCurrentStatus"><EntityTypeMapping TypeName="RailServe_dataModel.RailCarCurrentStatu"><MappingFragment StoreEntitySet="RailCarCurrentStatus">
-            <ScalarProperty Name="Y" ColumnName="Y" />
-                <ScalarProperty Name="X" ColumnName="X" />
-                <ScalarProperty Name="Demurrage" ColumnName="Demurrage" />
+            <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="DemurrageDays" ColumnName="DemurrageDays" />
+                <ScalarProperty Name="MovementDate" ColumnName="MovementDate" />
                 <ScalarProperty Name="CurrentStatusID" ColumnName="CurrentStatusID" />
             <ScalarProperty Name="CarID" ColumnName="CarID" />
             <ScalarProperty Name="YardID" ColumnName="YardID" />
-            <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+            <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
             <ScalarProperty Name="TrackId" ColumnName="TrackId" />
             <ScalarProperty Name="Spot" ColumnName="Spot" />
             <ScalarProperty Name="StatusId" ColumnName="StatusId" />
             <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
             <ScalarProperty Name="Comments" ColumnName="Comments" />
-            <ScalarProperty Name="Company" ColumnName="Company" />
             <ScalarProperty Name="Supplier" ColumnName="Supplier" />
             <ScalarProperty Name="Weight" ColumnName="Weight" />
             <ScalarProperty Name="ReceiptDate" ColumnName="ReceiptDate" />
@@ -1021,12 +1211,18 @@
             <ScalarProperty Name="PrimaryUser" ColumnName="PrimaryUser" />
             <ScalarProperty Name="SecondaryUser" ColumnName="SecondaryUser" />
             <ScalarProperty Name="HistoryTypeId" ColumnName="HistoryTypeId" />
+            <ScalarProperty Name="Demurrage" ColumnName="Demurrage" />
+            <ScalarProperty Name="LocationID" ColumnName="LocationID" />
           </MappingFragment></EntityTypeMapping>
             <EntityTypeMapping TypeName="RailServe_dataModel.RailCarCurrentStatu">
               <ModificationFunctionMapping>
                 <InsertFunction FunctionName="RailServe_dataModel.Store.sp_car_currentstatus_set">
-                  <ScalarProperty Name="Demurrage" ParameterName="Demurrage" />
+                  <ScalarProperty Name="Company" ParameterName="Company" />
+                  <ScalarProperty Name="DemurrageDays" ParameterName="DemurrageDays" />
+                  <ScalarProperty Name="MovementDate" ParameterName="MovementDate" />
+                  <ScalarProperty Name="LocationID" ParameterName="LocationID" />
                   <ScalarProperty Name="HistoryTypeId" ParameterName="HistoryTypeID" />
+                  <ScalarProperty Name="Demurrage" ParameterName="Demurrage" />
                   <ScalarProperty Name="SecondaryUser" ParameterName="SecondaryUser" />
                   <ScalarProperty Name="PrimaryUser" ParameterName="PrimaryUser" />
                   <ScalarProperty Name="ShipTime" ParameterName="ShipTime" />
@@ -1035,31 +1231,54 @@
                   <ScalarProperty Name="ReceiptDate" ParameterName="ReceiptDate" />
                   <ScalarProperty Name="Weight" ParameterName="Weight" />
                   <ScalarProperty Name="Supplier" ParameterName="Supplier" />
-                  <ScalarProperty Name="Company" ParameterName="Company" />
                   <ScalarProperty Name="Comments" ParameterName="Comments" />
                   <ScalarProperty Name="CommodityId" ParameterName="CommodityId" />
                   <ScalarProperty Name="StatusId" ParameterName="StatusId" />
                   <ScalarProperty Name="Spot" ParameterName="Spot" />
                   <ScalarProperty Name="TrackId" ParameterName="TrackId" />
-                  <ScalarProperty Name="ActivityId" ParameterName="ActivityId" />
+                  <ScalarProperty Name="DepartmentId" ParameterName="DepartmentId" />
                   <ScalarProperty Name="YardID" ParameterName="YardID" />
                   <ScalarProperty Name="CarID" ParameterName="CarID" />
                 </InsertFunction>
+                <UpdateFunction FunctionName="RailServe_dataModel.Store.sp_car_currentstatus_set">
+                  <ScalarProperty Name="Company" ParameterName="Company" Version="Current" />
+                  <ScalarProperty Name="HistoryTypeId" ParameterName="HistoryTypeID" Version="Current" />
+                  <ScalarProperty Name="DemurrageDays" ParameterName="DemurrageDays" Version="Current" />
+                  <ScalarProperty Name="Demurrage" ParameterName="Demurrage" Version="Current" />
+                  <ScalarProperty Name="SecondaryUser" ParameterName="SecondaryUser" Version="Current" />
+                  <ScalarProperty Name="PrimaryUser" ParameterName="PrimaryUser" Version="Current" />
+                  <ScalarProperty Name="MovementDate" ParameterName="MovementDate" Version="Current" />
+                  <ScalarProperty Name="ShipTime" ParameterName="ShipTime" Version="Current" />
+                  <ScalarProperty Name="ShipDate" ParameterName="ShipDate" Version="Current" />
+                  <ScalarProperty Name="ReceiptTime" ParameterName="ReceiptTime" Version="Current" />
+                  <ScalarProperty Name="ReceiptDate" ParameterName="ReceiptDate" Version="Current" />
+                  <ScalarProperty Name="Weight" ParameterName="Weight" Version="Current" />
+                  <ScalarProperty Name="Supplier" ParameterName="Supplier" Version="Current" />
+                  <ScalarProperty Name="Comments" ParameterName="Comments" Version="Current" />
+                  <ScalarProperty Name="CommodityId" ParameterName="CommodityId" Version="Current" />
+                  <ScalarProperty Name="StatusId" ParameterName="StatusId" Version="Current" />
+                  <ScalarProperty Name="Spot" ParameterName="Spot" Version="Current" />
+                  <ScalarProperty Name="TrackId" ParameterName="TrackId" Version="Current" />
+                  <ScalarProperty Name="DepartmentId" ParameterName="DepartmentId" Version="Current" />
+                  <ScalarProperty Name="LocationID" ParameterName="LocationID" Version="Current" />
+                  <ScalarProperty Name="YardID" ParameterName="YardID" Version="Current" />
+                  <ScalarProperty Name="CarID" ParameterName="CarID" Version="Current" />
+                </UpdateFunction>
               </ModificationFunctionMapping>
-            </EntityTypeMapping>
-            </EntitySetMapping>
+            </EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="RailCarHistories"><EntityTypeMapping TypeName="RailServe_dataModel.RailCarHistory"><MappingFragment StoreEntitySet="RailCarHistory">
-            <ScalarProperty Name="Demurrage" ColumnName="Demurrage" />
+            <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="DemurrageDays" ColumnName="DemurrageDays" />
+                <ScalarProperty Name="MovementDate" ColumnName="MovementDate" />
                 <ScalarProperty Name="HistoryID" ColumnName="HistoryID" />
             <ScalarProperty Name="CarID" ColumnName="CarID" />
             <ScalarProperty Name="YardID" ColumnName="YardID" />
-            <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+            <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
             <ScalarProperty Name="TrackId" ColumnName="TrackId" />
             <ScalarProperty Name="Spot" ColumnName="Spot" />
             <ScalarProperty Name="StatusId" ColumnName="StatusId" />
             <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
             <ScalarProperty Name="Comments" ColumnName="Comments" />
-            <ScalarProperty Name="Company" ColumnName="Company" />
             <ScalarProperty Name="Supplier" ColumnName="Supplier" />
             <ScalarProperty Name="Weight" ColumnName="Weight" />
             <ScalarProperty Name="ReceiptDate" ColumnName="ReceiptDate" />
@@ -1069,38 +1288,37 @@
             <ScalarProperty Name="PrimaryUser" ColumnName="PrimaryUser" />
             <ScalarProperty Name="SecondaryUser" ColumnName="SecondaryUser" />
             <ScalarProperty Name="HistoryTypeId" ColumnName="HistoryTypeId" />
+            <ScalarProperty Name="Demurrage" ColumnName="Demurrage" />
+            <ScalarProperty Name="LocationID" ColumnName="LocationID" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="RailCarTypes"><EntityTypeMapping TypeName="RailServe_dataModel.RailCarType"><MappingFragment StoreEntitySet="RailCarType">
             <ScalarProperty Name="TypeID" ColumnName="TypeID" />
             <ScalarProperty Name="Type" ColumnName="Type" />
             <ScalarProperty Name="Length" ColumnName="Length" />
-          </MappingFragment></EntityTypeMapping>
-            </EntitySetMapping>
+            <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="RailYards"><EntityTypeMapping TypeName="RailServe_dataModel.RailYard"><MappingFragment StoreEntitySet="RailYard">
             <ScalarProperty Name="YardID" ColumnName="YardID" />
             <ScalarProperty Name="YardCode" ColumnName="YardCode" />
             <ScalarProperty Name="YardName" ColumnName="YardName" />
-            <ScalarProperty Name="Street" ColumnName="Street" />
-            <ScalarProperty Name="City" ColumnName="City" />
-            <ScalarProperty Name="State" ColumnName="State" />
-            <ScalarProperty Name="Zip" ColumnName="Zip" />
-            <ScalarProperty Name="County" ColumnName="County" />
-            <ScalarProperty Name="Phone" ColumnName="Phone" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="RailYard_Activities"><EntityTypeMapping TypeName="RailServe_dataModel.RailYard_Activities"><MappingFragment StoreEntitySet="RailYard_Activities">
-            <ScalarProperty Name="ID" ColumnName="ID" />
-            <ScalarProperty Name="YardID" ColumnName="YardID" />
-            <ScalarProperty Name="ActivityID" ColumnName="ActivityID" />
+            <ScalarProperty Name="LocationID" ColumnName="LocationID" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Tracks"><EntityTypeMapping TypeName="RailServe_dataModel.Track"><MappingFragment StoreEntitySet="Track">
-            <ScalarProperty Name="TrackID" ColumnName="TrackID" />
+            <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="TrackCode" ColumnName="TrackCode" />
+                <ScalarProperty Name="TrackID" ColumnName="TrackID" />
             <ScalarProperty Name="Track1" ColumnName="Track" />
             <ScalarProperty Name="MaxCars" ColumnName="MaxCars" />
             <ScalarProperty Name="YardId" ColumnName="YardId" />
             <ScalarProperty Name="Length" ColumnName="Length" />
+            <ScalarProperty Name="TypeID" ColumnName="TypeID" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_car_currentstatus_set" FunctionName="RailServe_dataModel.Store.sp_car_currentstatus_set" />
-          </EntityContainerMapping>
+          <EntitySetMapping Name="TrackTypes"><EntityTypeMapping TypeName="RailServe_dataModel.TrackType"><MappingFragment StoreEntitySet="TrackType">
+            <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+            <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+            <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
@@ -1120,170 +1338,185 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="dataModel" ZoomLevel="66">
-        <EntityTypeShape EntityType="RailServe_dataModel.Activity" Width="1.5" PointX="0.75" PointY="6.125" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="RailServe_dataModel.CarLoadStatu" Width="1.5" PointX="3" PointY="13.75" Height="1.9802864583333317" IsExpanded="true" />
-        <EntityTypeShape EntityType="RailServe_dataModel.Commodity" Width="1.5" PointX="1.125" PointY="16.25" Height="2.172587890624996" IsExpanded="true" />
-        <EntityTypeShape EntityType="RailServe_dataModel.HistoryType" Width="1.5" PointX="3" PointY="19.375" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="RailServe_dataModel.RailCar" Width="1.5" PointX="3" PointY="21.875" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="RailServe_dataModel.RailCarCurrentStatu" Width="1.5" PointX="5.25" PointY="16.125" Height="6.0186165364583317" IsExpanded="true" />
-        <EntityTypeShape EntityType="RailServe_dataModel.RailCarHistory" Width="1.5" PointX="8.25" PointY="16.125" Height="6.0186165364583317" IsExpanded="true" />
-        <EntityTypeShape EntityType="RailServe_dataModel.RailCarType" Width="1.5" PointX="0.75" PointY="22.25" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="RailServe_dataModel.RailYard" Width="1.5" PointX="0.75" PointY="9.375" Height="3.5186979166666674" IsExpanded="true" />
-        <EntityTypeShape EntityType="RailServe_dataModel.RailYard_Activities" Width="1.5" PointX="3" PointY="10.25" Height="1.9802864583333317" IsExpanded="true" />
-        <EntityTypeShape EntityType="RailServe_dataModel.Track" Width="1.5" PointX="3" PointY="26.125" Height="2.5571907552083317" IsExpanded="true" />
-        <AssociationConnector Association="RailServe_dataModel.FK__RailCarCu__Activ__4B7734FF" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="7.2112939453125" />
-          <ConnectorPoint PointX="3.6666666666666665" PointY="7.2112939453124989" />
-          <ConnectorPoint PointX="3.8333333333333335" PointY="7.2112939453125" />
-          <ConnectorPoint PointX="6.20312625" PointY="7.2112939453125" />
-          <ConnectorPoint PointX="6.20312625" PointY="16.125" />
+      <Diagram Name="DataModel">
+        <EntityTypeShape EntityType="RailServe_dataModel.CarLoadStatu" Width="1.5" PointX="3" PointY="4" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="RailServe_dataModel.Commodity" Width="1.5" PointX="3" PointY="7.625" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="RailServe_dataModel.Department" Width="1.5" PointX="3" PointY="10.75" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="RailServe_dataModel.HistoryType" Width="1.5" PointX="3" PointY="17.625" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="RailServe_dataModel.Location" Width="1.5" PointX="0.75" PointY="10.125" Height="3.7109993489583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="RailServe_dataModel.RailCar" Width="1.5" PointX="3" PointY="20.25" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="RailServe_dataModel.RailCarCurrentStatu" Width="1.5" PointX="5.25" PointY="8.875" Height="6.4032194010416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="RailServe_dataModel.RailCarHistory" Width="1.5" PointX="8.25" PointY="8.875" Height="6.4032194010416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="RailServe_dataModel.RailCarType" Width="1.5" PointX="0.75" PointY="20.375" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="RailServe_dataModel.RailYard" Width="1.5" PointX="3" PointY="13.875" Height="2.5571907552083335" IsExpanded="true" />
+        <EntityTypeShape EntityType="RailServe_dataModel.Track" Width="1.5" PointX="5.25" PointY="16.625" Height="2.9417936197916745" IsExpanded="true" />
+        <EntityTypeShape EntityType="RailServe_dataModel.TrackType" Width="1.5" PointX="3" PointY="24.25" Height="1.7879850260416745" IsExpanded="true" />
+        <AssociationConnector Association="RailServe_dataModel.FK__RailCarCu__Statu__3F466844" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="4.9901432291666667" />
+          <ConnectorPoint PointX="6" PointY="4.9901432291666667" />
+          <ConnectorPoint PointX="6" PointY="8.875" />
         </AssociationConnector>
-        <AssociationConnector Association="RailServe_dataModel.FK__RailCarHi__Activ__40F9A68C" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="7.78569341796875" />
-          <ConnectorPoint PointX="3.6666666666666665" PointY="7.7856934179687487" />
-          <ConnectorPoint PointX="3.8333333333333335" PointY="7.78569341796875" />
-          <ConnectorPoint PointX="6.1197929166666674" PointY="7.7856934179687487" />
-          <ConnectorPoint PointX="6.2864595833333334" PointY="7.78569341796875" />
-          <ConnectorPoint PointX="9" PointY="7.78569341796875" />
-          <ConnectorPoint PointX="9" PointY="16.125" />
+        <AssociationConnector Association="RailServe_dataModel.FK__RailCarHi__Statu__45F365D3" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="5.51646734375" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="5.5164673437499987" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="5.51646734375" />
+          <ConnectorPoint PointX="8.593748" PointY="5.51646734375" />
+          <ConnectorPoint PointX="8.593748" PointY="8.875" />
         </AssociationConnector>
-        <AssociationConnector Association="RailServe_dataModel.FK__RailYard___Activ__2F10007B" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="6.63689447265625" />
-          <ConnectorPoint PointX="3.75" PointY="6.63689447265625" />
-          <ConnectorPoint PointX="3.75" PointY="10.25" />
+        <AssociationConnector Association="RailServe_dataModel.FK__Commodity__Locat__5629CD9C" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="10.125" />
+          <ConnectorPoint PointX="1.5" PointY="8.8074446614583337" />
+          <ConnectorPoint PointX="3" PointY="8.8074446614583337" />
         </AssociationConnector>
-        <AssociationConnector Association="RailServe_dataModel.FK__RailCarCu__Statu__4F47C5E3" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="14.476981171875" />
-          <ConnectorPoint PointX="5.695310625" PointY="14.476981171875" />
-          <ConnectorPoint PointX="5.695310625" PointY="16.125" />
+        <AssociationConnector Association="RailServe_dataModel.FK__RailCarCu__Commo__3D5E1FD2" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="9.4324446614583337" />
+          <ConnectorPoint PointX="4.916666666666667" PointY="9.4324446614583337" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="9.4324446614583337" />
+          <ConnectorPoint PointX="5.25" PointY="9.4324446614583337" />
         </AssociationConnector>
-        <AssociationConnector Association="RailServe_dataModel.FK__RailCarHi__Statu__43D61337" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="15.134886315104165" />
-          <ConnectorPoint PointX="5.6119772916666673" PointY="15.134886315104165" />
-          <ConnectorPoint PointX="5.7786439583333333" PointY="15.134886315104165" />
-          <ConnectorPoint PointX="6.1197929166666674" PointY="15.134886315104165" />
-          <ConnectorPoint PointX="6.2864595833333334" PointY="15.134886315104165" />
-          <ConnectorPoint PointX="6.4244822916666671" PointY="15.134886315104165" />
-          <ConnectorPoint PointX="6.5911489583333331" PointY="15.134886315104165" />
-          <ConnectorPoint PointX="8.625" PointY="15.134886315104165" />
-          <ConnectorPoint PointX="8.625" PointY="16.125" />
+        <AssociationConnector Association="RailServe_dataModel.FK__RailCarHi__Commo__440B1D61" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="8.2187475000000063" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="8.2187475000000063" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="8.2187475000000063" />
+          <ConnectorPoint PointX="8.5104146666666658" PointY="8.2187475000000063" />
+          <ConnectorPoint PointX="8.6770813333333336" PointY="8.2187475000000063" />
+          <ConnectorPoint PointX="9" PointY="8.2187475000000063" />
+          <ConnectorPoint PointX="9" PointY="8.875" />
         </AssociationConnector>
-        <AssociationConnector Association="RailServe_dataModel.FK__RailCarCu__Commo__4D5F7D71" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.625" PointY="17.336293945312498" />
-          <ConnectorPoint PointX="2.7916666666666665" PointY="17.336293945312498" />
-          <ConnectorPoint PointX="2.9583333333333335" PointY="17.336293945312498" />
-          <ConnectorPoint PointX="4.854166666666667" PointY="17.336293945312498" />
-          <ConnectorPoint PointX="5.020833333333333" PointY="17.336293945312498" />
-          <ConnectorPoint PointX="5.25" PointY="17.336293945312498" />
+        <AssociationConnector Association="RailServe_dataModel.FK__Departmen__Locat__5812160E" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="11.770237002604167" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="11.770237002604167" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="11.770237002604167" />
+          <ConnectorPoint PointX="3" PointY="11.770237002604167" />
         </AssociationConnector>
-        <AssociationConnector Association="RailServe_dataModel.FK__RailCarHi__Commo__42E1EEFE" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.625" PointY="16.761894972656251" />
-          <ConnectorPoint PointX="2.7916666666666665" PointY="16.761894972656251" />
-          <ConnectorPoint PointX="2.9583333333333335" PointY="16.761894972656251" />
-          <ConnectorPoint PointX="4.854166666666667" PointY="16.761894972656251" />
-          <ConnectorPoint PointX="5.020833333333333" PointY="16.761894972656251" />
-          <ConnectorPoint PointX="5.125" PointY="16.761894972656251" />
-          <ConnectorPoint PointX="5.125" PointY="15.875" />
-          <ConnectorPoint PointX="5.6119772916666673" PointY="15.875" />
-          <ConnectorPoint PointX="5.7786439583333333" PointY="15.875" />
-          <ConnectorPoint PointX="6.1197929166666674" PointY="15.875" />
-          <ConnectorPoint PointX="6.2864595833333334" PointY="15.875" />
-          <ConnectorPoint PointX="6.4244822916666671" PointY="15.875" />
-          <ConnectorPoint PointX="6.5911489583333331" PointY="15.875" />
-          <ConnectorPoint PointX="7.916666666666667" PointY="15.875" />
-          <ConnectorPoint PointX="8.0833333333333339" PointY="15.875" />
-          <ConnectorPoint PointX="8.5416666666666661" PointY="15.875" />
-          <ConnectorPoint PointX="8.7083333333333339" PointY="15.875" />
-          <ConnectorPoint PointX="8.9166666666666661" PointY="15.875" />
-          <ConnectorPoint PointX="9.0833333333333339" PointY="15.875" />
-          <ConnectorPoint PointX="9.20312625" PointY="15.875" />
-          <ConnectorPoint PointX="9.20312625" PointY="16.125" />
+        <AssociationConnector Association="RailServe_dataModel.FK__RailCarCu__Depar__3B75D760" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="11.932444661458334" />
+          <ConnectorPoint PointX="5.25" PointY="11.932444661458334" />
         </AssociationConnector>
-        <AssociationConnector Association="RailServe_dataModel.FK__RailCarCu__Histo__4E53A1AA" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="20.268992513020834" />
-          <ConnectorPoint PointX="5.25" PointY="20.268992513020834" />
+        <AssociationConnector Association="RailServe_dataModel.FK__RailCarHi__Depar__4222D4EF" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="13.114889322916667" />
+          <ConnectorPoint PointX="4.875" PointY="13.489889322916667" />
+          <ConnectorPoint PointX="4.875" PointY="15.653219401041667" />
+          <ConnectorPoint PointX="4.979166666666667" PointY="15.653219401041666" />
+          <ConnectorPoint PointX="5.239583333333333" PointY="15.653219401041667" />
+          <ConnectorPoint PointX="5.9484955897435894" PointY="15.653219401041667" />
+          <ConnectorPoint PointX="6.1151622564102555" PointY="15.653219401041667" />
+          <ConnectorPoint PointX="7.8507692307692309" PointY="15.653219401041667" />
+          <ConnectorPoint PointX="8.25" PointY="15.253988631810898" />
         </AssociationConnector>
-        <AssociationConnector Association="RailServe_dataModel.FK__RailCarHi__Histo__46B27FE2" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="19.438460538461534" />
-          <ConnectorPoint PointX="4.9375" PointY="19.000960538461534" />
-          <ConnectorPoint PointX="4.9375" PointY="15.75" />
-          <ConnectorPoint PointX="5.6119772916666673" PointY="15.75" />
-          <ConnectorPoint PointX="5.7786439583333333" PointY="15.75" />
-          <ConnectorPoint PointX="6.1197929166666674" PointY="15.75" />
-          <ConnectorPoint PointX="6.2864595833333334" PointY="15.75" />
-          <ConnectorPoint PointX="6.4244822916666671" PointY="15.75" />
-          <ConnectorPoint PointX="6.5911489583333331" PointY="15.75" />
-          <ConnectorPoint PointX="7.875" PointY="15.75" />
-          <ConnectorPoint PointX="8.25" PointY="16.125" />
+        <AssociationConnector Association="RailServe_dataModel.FK__RailCarCu__Histo__3E52440B" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.47576923076923" PointY="17.625" />
+          <ConnectorPoint PointX="4.9202411015677878" PointY="17.180528129201445" />
+          <ConnectorPoint PointX="5.0380922317655461" PointY="17.062676999003688" />
+          <ConnectorPoint PointX="5.0625" PointY="17.038269230769231" />
+          <ConnectorPoint PointX="5.0625" PointY="13.636584031249996" />
+          <ConnectorPoint PointX="5.25" PointY="13.636584031249996" />
         </AssociationConnector>
-        <AssociationConnector Association="RailServe_dataModel.FK__RailCar__Type__7A672E12" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="23.143992513020834" />
-          <ConnectorPoint PointX="2.6666666666666665" PointY="23.143992513020834" />
-          <ConnectorPoint PointX="2.8333333333333335" PointY="23.143992513020834" />
-          <ConnectorPoint PointX="3" PointY="23.143992513020834" />
+        <AssociationConnector Association="RailServe_dataModel.FK__RailCarHi__Histo__44FF419A" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="17.682691307692306" />
+          <ConnectorPoint PointX="4.979166666666667" PointY="17.213941307692306" />
+          <ConnectorPoint PointX="4.979166666666667" PointY="15.903219401041667" />
+          <ConnectorPoint PointX="5.072916666666667" PointY="15.903219401041667" />
+          <ConnectorPoint PointX="5.239583333333333" PointY="15.903219401041667" />
+          <ConnectorPoint PointX="5.9484955897435894" PointY="15.903219401041667" />
+          <ConnectorPoint PointX="6.1151622564102555" PointY="15.903219401041667" />
+          <ConnectorPoint PointX="7.6503836153846159" PointY="15.903219401041667" />
+          <ConnectorPoint PointX="8.2753836153846159" PointY="15.278219401041667" />
         </AssociationConnector>
-        <AssociationConnector Association="RailServe_dataModel.FK__RailCarCu__CarID__4C6B5938" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="22.105458984375" />
-          <ConnectorPoint PointX="5.25" PointY="22.105458984375" />
+        <AssociationConnector Association="RailServe_dataModel.FK__RailCarCu__Locat__5441852A" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="10.3125" />
+          <ConnectorPoint PointX="4.916666666666667" PointY="10.3125" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="10.3125" />
+          <ConnectorPoint PointX="5.25" PointY="10.3125" />
         </AssociationConnector>
-        <AssociationConnector Association="RailServe_dataModel.FK__RailCarHi__CarID__41EDCAC5" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="23.048625109755243" />
-          <ConnectorPoint PointX="5.5104141666666671" PointY="23.048625109755243" />
-          <ConnectorPoint PointX="5.6770808333333331" PointY="23.048625109755243" />
-          <ConnectorPoint PointX="6.1197929166666674" PointY="23.048625109755243" />
-          <ConnectorPoint PointX="6.2864595833333334" PointY="23.048625109755243" />
-          <ConnectorPoint PointX="8.5572929166666665" PointY="23.048625109755243" />
-          <ConnectorPoint PointX="8.7239595833333343" PointY="23.048625109755243" />
-          <ConnectorPoint PointX="9.226565625" PointY="23.048625109755243" />
-          <ConnectorPoint PointX="9.226565625" PointY="22.143616536458332" />
+        <AssociationConnector Association="RailServe_dataModel.FK__RailCarHi__Locat__5535A963" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="12.930520891927085" />
+          <ConnectorPoint PointX="2.75" PointY="12.930520891927085" />
+          <ConnectorPoint PointX="2.75" PointY="10.5" />
+          <ConnectorPoint PointX="5" PointY="10.5" />
+          <ConnectorPoint PointX="5" PointY="8.625" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="8.625" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="8.625" />
+          <ConnectorPoint PointX="8.5104146666666658" PointY="8.625" />
+          <ConnectorPoint PointX="8.6770813333333336" PointY="8.625" />
+          <ConnectorPoint PointX="9" PointY="8.625" />
+          <ConnectorPoint PointX="9" PointY="8.875" />
         </AssociationConnector>
-        <AssociationConnector Association="RailServe_dataModel.FK__RailCarCu__Track__503BEA1C" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="27.738870472005207" />
-          <ConnectorPoint PointX="6" PointY="27.738870472005207" />
-          <ConnectorPoint PointX="6" PointY="22.335917968750003" />
+        <AssociationConnector Association="RailServe_dataModel.FK__RailYard__Locati__571DF1D5" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="14.02830078125" />
+          <ConnectorPoint PointX="1.5" PointY="15.230246268229166" />
+          <ConnectorPoint PointX="1.8229191666666667" PointY="15.230246268229166" />
+          <ConnectorPoint PointX="1.9895858333333332" PointY="15.230246268229166" />
+          <ConnectorPoint PointX="3" PointY="15.230246268229166" />
         </AssociationConnector>
-        <AssociationConnector Association="RailServe_dataModel.FK__RailCarCu__YardI__51300E55" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="12.561989687499999" />
-          <ConnectorPoint PointX="2.6666666666666665" PointY="12.561989687499999" />
-          <ConnectorPoint PointX="2.8333333333333335" PointY="12.561989687499999" />
-          <ConnectorPoint PointX="6.1197929166666674" PointY="12.561989687499999" />
-          <ConnectorPoint PointX="6.2864595833333334" PointY="12.561989687499999" />
-          <ConnectorPoint PointX="6.507815625" PointY="12.561989687499999" />
-          <ConnectorPoint PointX="6.507815625" PointY="16.125" />
+        <AssociationConnector Association="RailServe_dataModel.FK__RailCar__Type__3A81B327" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="21.365143229166666" />
+          <ConnectorPoint PointX="3" PointY="21.365143229166666" />
         </AssociationConnector>
-        <AssociationConnector Association="RailServe_dataModel.FK__RailCarHi__Track__44CA3770" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="26.73304518880208" />
-          <ConnectorPoint PointX="5.5104141666666671" PointY="26.73304518880208" />
-          <ConnectorPoint PointX="5.6770808333333331" PointY="26.73304518880208" />
-          <ConnectorPoint PointX="8.64062625" PointY="26.73304518880208" />
-          <ConnectorPoint PointX="8.64062625" PointY="22.143616536458332" />
+        <AssociationConnector Association="RailServe_dataModel.FK__RailCarCu__CarID__3C69FB99" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="20.282306692307689" />
+          <ConnectorPoint PointX="5.15625" PointY="19.626056692307689" />
+          <ConnectorPoint PointX="5.15625" PointY="14.488653716145826" />
+          <ConnectorPoint PointX="5.25" PointY="14.488653716145826" />
         </AssociationConnector>
-        <AssociationConnector Association="RailServe_dataModel.FK__RailCarHi__YardI__45BE5BA9" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="9.78125" />
-          <ConnectorPoint PointX="3.6666666666666665" PointY="9.78125" />
-          <ConnectorPoint PointX="3.8333333333333335" PointY="9.78125" />
-          <ConnectorPoint PointX="5.916666666666667" PointY="9.78125" />
-          <ConnectorPoint PointX="6.083333333333333" PointY="9.78125" />
-          <ConnectorPoint PointX="8.9166666666666661" PointY="9.78125" />
-          <ConnectorPoint PointX="9.0833333333333339" PointY="9.78125" />
-          <ConnectorPoint PointX="9.4062525" PointY="9.78125" />
-          <ConnectorPoint PointX="9.4062525" PointY="16.125" />
+        <AssociationConnector Association="RailServe_dataModel.FK__RailCarHi__CarID__4316F928" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="21.479850507612177" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="21.479850507612177" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="21.479850507612177" />
+          <ConnectorPoint PointX="9.043944307692307" PointY="21.479850507612177" />
+          <ConnectorPoint PointX="9.043944307692307" PointY="15.278219401041667" />
         </AssociationConnector>
-        <AssociationConnector Association="RailServe_dataModel.FK__RailYard___YardI__2E1BDC42" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="11.240143229166666" />
-          <ConnectorPoint PointX="3" PointY="11.240143229166666" />
+        <AssociationConnector Association="RailServe_dataModel.FK__RailCarCu__Track__403A8C7D" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.0318289230769224" PointY="16.625" />
+          <ConnectorPoint PointX="6.0318289230769224" PointY="15.278219401041667" />
         </AssociationConnector>
-        <AssociationConnector Association="RailServe_dataModel.FK__Track__YardId__46E78A0C" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="11.17161984375" />
-          <ConnectorPoint PointX="2.75" PointY="11.17161984375" />
-          <ConnectorPoint PointX="2.75" PointY="16" />
-          <ConnectorPoint PointX="2.875" PointY="16" />
-          <ConnectorPoint PointX="2.875" PointY="19.125" />
-          <ConnectorPoint PointX="2.75" PointY="19.125" />
-          <ConnectorPoint PointX="2.75" PointY="25.75" />
-          <ConnectorPoint PointX="3.75" PointY="25.75" />
-          <ConnectorPoint PointX="3.75" PointY="26.125" />
+        <AssociationConnector Association="RailServe_dataModel.FK__RailCarCu__YardI__412EB0B6" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="14.945936558593747" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="14.945936558593747" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="14.945936558593747" />
+          <ConnectorPoint PointX="4.979166666666667" PointY="14.945936558593745" />
+          <ConnectorPoint PointX="5.239583333333333" PointY="14.945936558593747" />
+          <ConnectorPoint PointX="5.25" PointY="14.945936558593747" />
+        </AssociationConnector>
+        <AssociationConnector Association="RailServe_dataModel.FK__RailCarHi__Track__46E78A0C" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="18.384348958333334" />
+          <ConnectorPoint PointX="8.6596639615384614" PointY="18.384348958333334" />
+          <ConnectorPoint PointX="8.6596639615384614" PointY="15.278219401041667" />
+        </AssociationConnector>
+        <AssociationConnector Association="RailServe_dataModel.FK__RailCarHi__YardI__47DBAE45" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="16.167705078125" />
+          <ConnectorPoint PointX="4.8958333333333339" PointY="16.167705078125" />
+          <ConnectorPoint PointX="5.2395833333333339" PointY="16.167705078125" />
+          <ConnectorPoint PointX="5.9484955897435894" PointY="16.167705078125" />
+          <ConnectorPoint PointX="6.1151622564102555" PointY="16.167705078125" />
+          <ConnectorPoint PointX="8.5763306282051275" PointY="16.167705078125" />
+          <ConnectorPoint PointX="8.7429972948717953" PointY="16.167705078125" />
+          <ConnectorPoint PointX="8.960610974358973" PointY="16.167705078125" />
+          <ConnectorPoint PointX="9.12727764102564" PointY="16.167705078125" />
+          <ConnectorPoint PointX="9.4282246538461543" PointY="16.167705078125" />
+          <ConnectorPoint PointX="9.4282246538461543" PointY="15.278219401041667" />
+        </AssociationConnector>
+        <AssociationConnector Association="RailServe_dataModel.FK__Track__YardId__48CFD27E" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5000000000000018" PointY="16.432190755208332" />
+          <ConnectorPoint PointX="4.875" PointY="16.807190755208332" />
+          <ConnectorPoint PointX="4.875" PointY="16.248847153846153" />
+          <ConnectorPoint PointX="4.9202411015677887" PointY="16.294088255413943" />
+          <ConnectorPoint PointX="5.21517556509888" PointY="16.589022718945035" />
+          <ConnectorPoint PointX="5.2511528461538459" PointY="16.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="RailServe_dataModel.FK__Track__TypeID__4AB81AF0" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="25.143992513020837" />
+          <ConnectorPoint PointX="6" PointY="25.143992513020837" />
+          <ConnectorPoint PointX="6" PointY="20.143697916666667" />
+        </AssociationConnector>
+        <AssociationConnector Association="RailServe_dataModel.FK__Track__LocationI__6A30C649" >
+          <ConnectorPoint PointX="1.9062525" PointY="14.02830078125" />
+          <ConnectorPoint PointX="1.9062525" PointY="17.09375" />
+          <ConnectorPoint PointX="4.8958333333333339" PointY="17.09375" />
+          <ConnectorPoint PointX="5.0625" PointY="17.09375" />
+          <ConnectorPoint PointX="5.072916666666667" PointY="17.09375" />
+          <ConnectorPoint PointX="5.239583333333333" PointY="17.09375" />
+          <ConnectorPoint PointX="5.25" PointY="17.09375" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

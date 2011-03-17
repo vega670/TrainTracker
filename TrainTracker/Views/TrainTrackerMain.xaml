@@ -3,145 +3,172 @@
            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:local="clr-namespace:TrainTracker.Views;assembly=TrainTracker" 
            mc:Ignorable="d"
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
-           d:DesignWidth="748" d:DesignHeight="480"
-           Title="TrainTrackerMain Page" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:my="clr-namespace:TrainTracker.Web.Services" xmlns:my1="clr-namespace:TrainTracker.Web.Models" xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
-    <Grid x:Name="LayoutRoot">
+           d:DesignWidth="1144" d:DesignHeight="540"
+           Title="TrainTrackerMain Page" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:my="clr-namespace:TrainTracker.Web.Services" xmlns:my1="clr-namespace:TrainTracker.Web.Models" xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" xmlns:tool="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit" >
+   
+    
+    <Grid x:Name="LayoutRoot" VerticalAlignment="Stretch">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="163*" />
-            <ColumnDefinition Width="585*" />
+            <ColumnDefinition Width="151*" />
+            <ColumnDefinition Width="748*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="56*" />
-            <RowDefinition Height="424*" />
+            <RowDefinition Height="65*" />
+            <RowDefinition Height="30*" />
+            <RowDefinition Height="445*" />
         </Grid.RowDefinitions>
-        <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:RailYard, CreateList=true}" Height="0" LoadedData="railYardDomainDataSource_LoadedData" Name="railYardDomainDataSource" QueryName="GetRailYardsQuery" Width="0" Margin="0,0,163,56">
+        <sdk:GridSplitter Height="Auto" HorizontalAlignment="Left" Name="gridSplitter2" VerticalAlignment="Stretch" Width="22" IsEnabled="False" Grid.Column="1" Margin="0,4,0,-6" Grid.Row="1" Grid.RowSpan="2" />
+        <Grid Grid.Row="1" HorizontalAlignment="Stretch" Margin="4,4,0,0" Name="grid1" VerticalAlignment="Stretch" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="26*" />
+                <RowDefinition Height="445*" />
+            </Grid.RowDefinitions>
+            <toolkit:Accordion HorizontalAlignment="Stretch" Name="accordion1" VerticalAlignment="Stretch" ItemsSource="{Binding ElementName=railYardDomainDataSource, Path=Data}" SelectionChanged="LoadTrackData" SelectionMode="ZeroOrOne" SelectionSequence="CollapseBeforeExpand" Margin="0,5,0,0" Grid.Row="1" TabIndex="1">
+                <toolkit:Accordion.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding YardName}" FontSize="10" />
+                    </DataTemplate>
+                </toolkit:Accordion.ItemTemplate>
+                <toolkit:Accordion.ContentTemplate>
+                    <DataTemplate>
+                        <ListBox ItemsSource="{Binding ElementName=trackDomainDataSource, Path=Data}" HorizontalContentAlignment="Stretch" Name="yardList" VerticalAlignment="Stretch"  BorderThickness="0" Background="{StaticResource MouseOverSelectionBrush}" MouseLeftButtonUp="yardList_MouseLeftButtonDown">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Track1}" TextWrapping="NoWrap" FontSize="10">
+                                    <ToolTipService.ToolTip>
+                                        <Border BorderBrush="Black" BorderThickness="2" Height="138" HorizontalAlignment="Left" Name="border1" VerticalAlignment="Top" Width="217">
+                                            <Grid Height="136" Name="grid2" Width="212">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="90*" />
+                                                    <ColumnDefinition Width="122*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="29*" />
+                                                    <RowDefinition Height="24*" />
+                                                    <RowDefinition Height="18*" />
+                                                    <RowDefinition Height="17*" />
+                                                    <RowDefinition Height="48*" />
+                                                </Grid.RowDefinitions>
+                                                <Border BorderBrush="Silver" BorderThickness="1" Height="29" HorizontalAlignment="Left" Margin="0,-1,0,0" Name="border2" VerticalAlignment="Top" Width="212" Background="{StaticResource ControlBackgroundNormalOrange}" CornerRadius="3" Grid.ColumnSpan="2">
+                                                    <TextBlock Height="20" Name="textBlock1" Text="{Binding Track1}" TextAlignment="Center" FontSize="9" FontWeight="Bold" />
+                                                </Border>
+                                                <TextBlock Grid.Row="1" FontWeight="Bold" Height="16" HorizontalAlignment="Left" Margin="5,8,0,0" Name="textBlock2" Text="Type:" VerticalAlignment="Top" Width="79" FontSize="9" />
+                                                <TextBlock FontWeight="Normal" Height="16" HorizontalAlignment="Left" Name="textBlock3" Text="{Binding TrackType.TypeName}" VerticalAlignment="Top" Width="121" Grid.Column="1" Grid.Row="1" FontSize="9" Margin="0,8,0,0" />
+                                                <TextBlock FontSize="9" FontWeight="Bold" Height="16" HorizontalAlignment="Left" Margin="5,0,0,0" Name="textBlock4" Text="Yard:" VerticalAlignment="Top" Width="79" Grid.Row="2" />
+                                                <TextBlock FontSize="9" FontWeight="Normal" Grid.Column="1" Height="16" HorizontalAlignment="Left" Name="textBlock5" Text="{Binding RailYard.YardName}" VerticalAlignment="Top" Width="121" Grid.Row="2" />
+                                                <TextBlock FontSize="9" FontWeight="Bold" Height="16" HorizontalAlignment="Left" Margin="6,0,0,0" Name="textBlock6" Text="Length:" VerticalAlignment="Top" Width="79" Grid.Row="3" />
+                                                <TextBlock FontSize="9" FontWeight="Normal" Grid.Column="1" Height="16" HorizontalAlignment="Left" Name="textBlock7" Text="{Binding Length}" VerticalAlignment="Top" Width="121" Grid.Row="3" />
+                                                <TextBlock FontSize="9" FontWeight="Bold" Height="16" HorizontalAlignment="Left" Margin="5,1,0,0" Name="textBlock8" Text="Max Cars:" VerticalAlignment="Top" Width="79" Grid.Row="4" />
+                                                <TextBlock FontSize="9" FontWeight="Normal" Height="16" HorizontalAlignment="Left" Margin="0,1,0,0" Name="textBlock9" Text="{Binding MaxCars}" VerticalAlignment="Top" Width="121" Grid.Row="4" Grid.Column="1" />
+                                            </Grid>
+                                        </Border>
+                                    </ToolTipService.ToolTip>
+                                   </TextBlock>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </DataTemplate>
+                </toolkit:Accordion.ContentTemplate>
+            </toolkit:Accordion>
+            <toolkit:BusyIndicator Height="88" HorizontalAlignment="Left" IsBusy="{Binding ElementName=trackDomainDataSource, Path=DomainContext.IsLoading}" Margin="0,157,0,0" Name="busyIndicator1" VerticalAlignment="Top" Width="187" Grid.Row="1" />
+            <toolkit:BusyIndicator Height="88" HorizontalAlignment="Left" IsBusy="{Binding ElementName=railYardDomainDataSource, Path=DomainContext.IsLoading}" Margin="0,60,0,0" Name="busyIndicator2" VerticalAlignment="Top" Width="187" Grid.Row="1" />
+            <TextBlock Height="23" HorizontalAlignment="Stretch" Name="textBlock1" Text="Track Selector" VerticalAlignment="Top" TextAlignment="Center" FontWeight="Bold" Margin="6,0,0,0" />
+            <TextBlock Height="23" Margin="2,2,178,1" Name="yard" Text="" />
+        </Grid>
+        <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:Location, CreateList=true}" Height="0" LoadedData="locationDomainDataSource_LoadedData" Name="locationDomainDataSource" QueryName="GetLocationsQuery" Width="0" Margin="0,0,151,65">
             <riaControls:DomainDataSource.DomainContext>
                 <my:RailServeDS />
             </riaControls:DomainDataSource.DomainContext>
             <riaControls:DomainDataSource.SortDescriptors>
-                <riaControls:SortDescriptor Direction="Ascending" PropertyPath="YardName" />
+                <riaControls:SortDescriptor PropertyPath="LocationName" Direction="Ascending" />
             </riaControls:DomainDataSource.SortDescriptors>
         </riaControls:DomainDataSource>
-        <StackPanel Height="44" HorizontalAlignment="Stretch" Margin="0,12,550,0" Name="stackPanel1" VerticalAlignment="Top" Orientation="Horizontal" Grid.ColumnSpan="2">
-            <ComboBox Height="28" Name="comboBox1" Width="177" Margin="4" ItemsSource="{Binding ElementName=railYardDomainDataSource, Path=Data}" DisplayMemberPath="YardName" SelectionChanged="comboBox1_SelectionChanged" SelectedIndex="-1" />
-        </StackPanel>
-        <ScrollViewer Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" Name="scrollViewer1" VerticalAlignment="Stretch" HorizontalScrollBarVisibility="Visible" Margin="21,6,0,0">
-            <Canvas Height="2400" Name="yard" Width="2500" MouseLeftButtonDown="yard_MouseLeftButtonDown" Background="{StaticResource DisabledBorderBrush}">
-                <Rectangle Canvas.Left="11" Canvas.Top="29" Height="713" Name="rectangle1" Stroke="Black" StrokeThickness="1" Width="116" />
-                <TextBlock Canvas.Left="11" Canvas.Top="9" Height="19" Name="textBlock1" Text="Unassigned" Width="116" TextAlignment="Center" />
-            </Canvas>
-        </ScrollViewer>
-        <sdk:GridSplitter Grid.ColumnSpan="2" Height="15" HorizontalAlignment="Stretch" IsEnabled="False" Margin="4,0,6,0" Name="gridSplitter1" VerticalAlignment="Top" />
-        <StackPanel Grid.Column="1" Height="44" HorizontalAlignment="Right" Margin="0,12,0,0" Name="stackPanel2" VerticalAlignment="Top" Width="515" Orientation="Horizontal" FlowDirection="RightToLeft">
-            <Button Content="Receive Car" FlowDirection="LeftToRight" Height="28" HorizontalContentAlignment="Center" Name="receiveCar" Width="112" Margin="4" Click="receiveCar_Click" IsEnabled="True" />
-            <Button Content="View Yard" Height="28" Name="yardSelector" Width="112" Click="yardSelector_Click" Margin="4" />
-            <ToggleButton Height="28" Name="newTrack" Width="112" Content="New Track" Margin="4" Checked="newTrack_Checked" Unchecked="newTrack_Unchecked" />
-            <Button Content="Undo" Height="29" Name="undo" Width="75" Visibility="Collapsed" Click="undo_Click" />
-        </StackPanel>
-        <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:RailCarCurrentStatu, CreateList=true}" Height="0" LoadedData="railCarCurrentStatuDomainDataSource_LoadedData" Name="railCarCurrentStatuDomainDataSource" QueryName="GetRailCarCurrentStatusById" Width="0" Margin="0,0,163,56">
+        <riaControls:DomainDataSource AutoLoad="False" d:DesignData="{d:DesignInstance my1:Track, CreateList=true}" Height="0" LoadedData="trackDomainDataSource_LoadedData" Name="trackDomainDataSource" QueryName="GetTracksByYard" Width="0" Margin="0,0,151,65">
             <riaControls:DomainDataSource.DomainContext>
                 <my:RailServeDS />
             </riaControls:DomainDataSource.DomainContext>
             <riaControls:DomainDataSource.QueryParameters>
-                <riaControls:Parameter ParameterName="yard" Value="{Binding ElementName=yardBox, Path=Text}" />
+                <riaControls:Parameter ParameterName="yard" Value="{Binding ElementName=yard, Path=Text}" />
             </riaControls:DomainDataSource.QueryParameters>
-           
+            <riaControls:DomainDataSource.SortDescriptors>
+                <riaControls:SortDescriptor PropertyPath="Track1" Direction="Ascending" />
+            </riaControls:DomainDataSource.SortDescriptors>            
         </riaControls:DomainDataSource>
-        <sdk:GridSplitter Grid.Row="1" Grid.Column="1" Height="Auto" HorizontalAlignment="Left" Margin="1,0,0,0" Name="gridSplitter2" VerticalAlignment="Stretch" Width="22" />
-        <sdk:GridSplitter Height="9" HorizontalAlignment="Stretch" IsEnabled="False" Margin="4,54,4,0" Name="gridSplitter3" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.RowSpan="2" />
-        <Grid Grid.Row="1" HorizontalAlignment="Stretch" Margin="4,0,0,0" Name="grid1" VerticalAlignment="Stretch">
+        <Grid Grid.ColumnSpan="2" Height="69" HorizontalAlignment="Stretch" Margin="4,0,0,0" Name="grid4" VerticalAlignment="Top" Width="Auto" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="176*" />
+                <ColumnDefinition Width="719*" />
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="341*" />
-                <RowDefinition Height="83*" />
+                <RowDefinition Height="17*" />
+                <RowDefinition Height="32*" />
+                <RowDefinition Height="20*" />
             </Grid.RowDefinitions>
-            <toolkit:Expander Header="Yard Status" HorizontalAlignment="Stretch" Margin="1,6,-1,0" Name="expander1" VerticalAlignment="Top" Width="Auto" Height="Auto" IsExpanded="True">
-                <Grid Height="Auto" HorizontalAlignment="Stretch" Name="grid2" VerticalAlignment="Stretch" Width="Auto">
-                    <TextBlock Height="9" HorizontalAlignment="Left" Name="yardBox" Text="7" VerticalAlignment="Top" Visibility="Collapsed" Width="28" />
-                    <riaControls:DomainDataSource AutoLoad="true" d:DesignData="{d:DesignInstance my1:RailCarCurrentStatu, CreateList=true}" Height="0" LoadedData="railCarCurrentStatuDomainDataSource1_LoadedData" Name="railCarCurrentStatuDomainDataSource1" QueryName="GetRailCarCurrentStatusById" Width="0">
-                        <riaControls:DomainDataSource.DomainContext>
-                            <my:RailServeDS />
-                        </riaControls:DomainDataSource.DomainContext>
-                        <riaControls:DomainDataSource.GroupDescriptors>
-                            <riaControls:GroupDescriptor PropertyPath="Track.Track1" />
-                        </riaControls:DomainDataSource.GroupDescriptors>
-                        <riaControls:DomainDataSource.QueryParameters>
-                            <riaControls:Parameter ParameterName="yard" Value="{Binding ElementName=yardBox, Path=Text}" />
-                        </riaControls:DomainDataSource.QueryParameters>
-                        <riaControls:DomainDataSource.SortDescriptors>
-                            <riaControls:SortDescriptor Direction="Ascending" PropertyPath="Spot" />
-                        </riaControls:DomainDataSource.SortDescriptors>
-                    </riaControls:DomainDataSource>
-                    <sdk:DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Stretch" IsReadOnly="True" ItemsSource="{Binding ElementName=railCarCurrentStatuDomainDataSource1, Path=Data}" Margin="0,6,0,0" Name="railCarCurrentStatuDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" VerticalAlignment="Stretch" Width="Auto">
-                        <sdk:DataGrid.Columns>
-                            <sdk:DataGridTextColumn x:Name="carIDColumn" Binding="{Binding Path=RailCar.Number}" Header="Car" Width="180" />
-                            <sdk:DataGridTextColumn x:Name="spotColumn" Binding="{Binding Path=Spot}" Header="Spot" Width="SizeToHeader" />
-                            <sdk:DataGridTextColumn x:Name="commentsColumn" Binding="{Binding Path=Comments}" Header="Comments" Width="SizeToHeader" />
-                            <sdk:DataGridTextColumn x:Name="statusIdColumn" Binding="{Binding Path=CarLoadStatu.StatusName}" Header="Status" Width="SizeToHeader" />
-                            <sdk:DataGridTextColumn x:Name="activityIdColumn" Binding="{Binding Path=Activity.ActivityName}" Header="Activity" Width="SizeToHeader" />
-                            <sdk:DataGridTextColumn x:Name="commodityIdColumn" Binding="{Binding Path=Commodity.CommodityName}" Header="Commodity" Width="SizeToHeader" />
-                            <sdk:DataGridTextColumn x:Name="companyColumn" Binding="{Binding Path=Company}" Header="Company" Width="SizeToHeader" />
-                            <sdk:DataGridTextColumn x:Name="trackIdColumn" Binding="{Binding Path=Track.Track1}" Header="Track" Width="SizeToHeader" />
-                            <sdk:DataGridTextColumn x:Name="yardIDColumn" Binding="{Binding Path=RailYard.YardName}" Header="Yard" Width="SizeToHeader" />
-                            <sdk:DataGridTextColumn x:Name="supplierColumn" Binding="{Binding Path=Supplier}" Header="Supplier" Width="SizeToHeader" />
-                            <sdk:DataGridTextColumn x:Name="weightColumn" Binding="{Binding Path=Weight}" Header="Weight" Width="SizeToHeader" />
-                            <sdk:DataGridTextColumn x:Name="primaryUserColumn" Binding="{Binding Path=PrimaryUser}" Header="Primary User" Width="SizeToHeader" />
-                            <sdk:DataGridTextColumn x:Name="secondaryUserColumn" Binding="{Binding Path=SecondaryUser}" Header="Secondary User" Width="SizeToHeader" />
-                            <sdk:DataGridTemplateColumn x:Name="receiptDateColumn" Header="Receipt Date" Width="SizeToHeader">
-                                <sdk:DataGridTemplateColumn.CellEditingTemplate>
-                                    <DataTemplate>
-                                        <sdk:DatePicker SelectedDate="{Binding Path=ReceiptDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, TargetNullValue=''}" />
-                                    </DataTemplate>
-                                </sdk:DataGridTemplateColumn.CellEditingTemplate>
-                                <sdk:DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding Path=ReceiptDate, StringFormat=\{0:d\}}" />
-                                    </DataTemplate>
-                                </sdk:DataGridTemplateColumn.CellTemplate>
-                            </sdk:DataGridTemplateColumn>
-                            <sdk:DataGridTemplateColumn x:Name="receiptTimeColumn" Header="Receipt Time" Width="SizeToHeader">
-                                <sdk:DataGridTemplateColumn.CellEditingTemplate>
-                                    <DataTemplate>
-                                        <sdk:DatePicker SelectedDate="{Binding Path=ReceiptTime, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, TargetNullValue=''}" />
-                                    </DataTemplate>
-                                </sdk:DataGridTemplateColumn.CellEditingTemplate>
-                                <sdk:DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding Path=ReceiptTime, StringFormat=\{0:t\}}" />
-                                    </DataTemplate>
-                                </sdk:DataGridTemplateColumn.CellTemplate>
-                            </sdk:DataGridTemplateColumn>
-                            <sdk:DataGridTemplateColumn x:Name="shipDateColumn" Header="Ship Date" Width="SizeToHeader">
-                                <sdk:DataGridTemplateColumn.CellEditingTemplate>
-                                    <DataTemplate>
-                                        <sdk:DatePicker SelectedDate="{Binding Path=ShipDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, TargetNullValue=''}" />
-                                    </DataTemplate>
-                                </sdk:DataGridTemplateColumn.CellEditingTemplate>
-                                <sdk:DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding Path=ShipDate, StringFormat=\{0:d\}}" />
-                                    </DataTemplate>
-                                </sdk:DataGridTemplateColumn.CellTemplate>
-                            </sdk:DataGridTemplateColumn>
-                            <sdk:DataGridTemplateColumn x:Name="shipTimeColumn" Header="Ship Time" Width="SizeToHeader">
-                                <sdk:DataGridTemplateColumn.CellEditingTemplate>
-                                    <DataTemplate>
-                                        <sdk:DatePicker SelectedDate="{Binding Path=ShipTime, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, TargetNullValue=''}" />
-                                    </DataTemplate>
-                                </sdk:DataGridTemplateColumn.CellEditingTemplate>
-                                <sdk:DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding Path=ShipTime, StringFormat=\{0:t\}}" />
-                                    </DataTemplate>
-                                </sdk:DataGridTemplateColumn.CellTemplate>
-                            </sdk:DataGridTemplateColumn>
-                        </sdk:DataGrid.Columns>
-                    </sdk:DataGrid>
-                    <toolkit:BusyIndicator Height="65" HorizontalAlignment="Left" IsBusy="{Binding ElementName=railCarCurrentStatuDomainDataSource1, Path=DomainContext.IsLoading}" Margin="6,49,0,0" Name="busyIndicator2" VerticalAlignment="Top" Width="145" />
-                </Grid>
-            </toolkit:Expander>
-            <TextBlock Height="72" HorizontalAlignment="Left" Margin="6,5,0,0" Name="infoText" Text="" VerticalAlignment="Top" Width="147" Grid.Row="1" TextWrapping="Wrap" />
+            <sdk:GridSplitter Height="15" HorizontalAlignment="Stretch" IsEnabled="False" Margin="0,0,6,0" Name="gridSplitter1" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+            <StackPanel Grid.RowSpan="2" Height="37" HorizontalAlignment="Stretch" Margin="0,10,7,0" Name="stackPanel1" Orientation="Horizontal" VerticalAlignment="Top">
+                <ComboBox DisplayMemberPath="LocationName" Height="28" ItemsSource="{Binding ElementName=locationDomainDataSource, Path=Data}" Margin="4" Name="locationComboBox1" SelectionChanged="locationComboBox1_SelectionChanged" Width="142" />
+            </StackPanel>
+            <StackPanel FlowDirection="RightToLeft" Grid.RowSpan="2" Height="37" HorizontalAlignment="Right" Margin="0,10,6,0" Name="stackPanel2" Orientation="Horizontal" VerticalAlignment="Top" Width="292" Grid.Column="1">
+                <Button Content="Receive Car" FlowDirection="LeftToRight" Height="28" HorizontalContentAlignment="Center" IsEnabled="False" Margin="4" Name="receiveCar" Style="{StaticResource GreenButton}" Width="112" Click="receiveCar_Click" />
+            </StackPanel>
+            <sdk:GridSplitter Grid.ColumnSpan="2" Height="15" HorizontalAlignment="Stretch" IsEnabled="False" Margin="0,1,6,0" Name="gridSplitter3" VerticalAlignment="Top" Grid.Row="2" />
+            <StackPanel Grid.Column="1" Height="37" HorizontalAlignment="Left" Name="stackPanel3" VerticalAlignment="Top" Width="549" Orientation="Horizontal" Margin="0,10,0,0" Grid.RowSpan="2">
+                <Button Click="commodities_Click" Content="Commodities" Height="28" Name="commodities" Width="112" Margin="4" IsEnabled="False" />
+                <Button Click="newTrack_Click" Content="Tracks" Height="28" Name="newTrack" Width="112" Margin="4" IsEnabled="False" />
+                <Button  Content="Yards" Height="28" IsEnabled="False" Name="yards" Width="112" Margin="4" Click="yards_Click" />
+                <Button  Content="Departments" Height="28" IsEnabled="False" Name="departments" Width="112" Click="departments_Click" />
+                <CheckBox Content="Edit Mode" Height="16" Name="checkBox1" Margin="4" Checked="checkBox1_Checked" Unchecked="checkBox1_Unchecked" />
+            </StackPanel>
         </Grid>
+        <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:RailYard, CreateList=true}" Height="0" LoadedData="railYardDomainDataSource_LoadedData" Name="railYardDomainDataSource" QueryName="GetRailYardsByLocation" Width="0">
+            <riaControls:DomainDataSource.DomainContext>
+                <my:RailServeDS />
+            </riaControls:DomainDataSource.DomainContext>
+              <riaControls:DomainDataSource.QueryParameters>
+                <riaControls:Parameter ParameterName="location" Value="{Binding ElementName=locationComboBox1, Path=SelectedItem.LocationID}" />
+            </riaControls:DomainDataSource.QueryParameters>
+        </riaControls:DomainDataSource>
+        <Grid Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" Margin="29,0,0,0" Name="trackGrid" VerticalAlignment="Stretch" Visibility="Visible">
+            <Grid.ColumnDefinitions>
+                
+                <ColumnDefinition Width="333*" />
+                <ColumnDefinition Width="63*" />
+                <ColumnDefinition Width="333*" />
+                <ColumnDefinition Width="63*" />
+                <ColumnDefinition Width="333*" />
+                <ColumnDefinition Width="63*" />
+                <ColumnDefinition Width="333*" />
+                <ColumnDefinition Width="63*" />
+                <ColumnDefinition Width="333*" />
+                <ColumnDefinition Width="63*" />
+                <ColumnDefinition Width="333*" />
+                <ColumnDefinition Width="63*" />
+                <ColumnDefinition Width="333*" />
+                <ColumnDefinition Width="63*" />
+                <ColumnDefinition Width="333*" />
+                <ColumnDefinition Width="63*" />
+                
+            </Grid.ColumnDefinitions>
+            <local:TrackModule HorizontalContentAlignment="Stretch" x:Name="trackSpace1"  VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" >
+             </local:TrackModule>
+            <local:TrackModule HorizontalContentAlignment="Stretch" x:Name="trackSpace2"  VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2">
+            </local:TrackModule>
+            <local:TrackModule HorizontalContentAlignment="Stretch" x:Name="trackSpace3"  VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="4">
+            </local:TrackModule>
+            <local:TrackModule HorizontalContentAlignment="Stretch" x:Name="trackSpace4"  VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="6">
+            </local:TrackModule>
+            <local:TrackModule HorizontalContentAlignment="Stretch" x:Name="trackSpace5"  VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="8">
+            </local:TrackModule>
+            <local:TrackModule HorizontalContentAlignment="Stretch" x:Name="trackSpace6"  VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="10">
+            </local:TrackModule>
+            <local:TrackModule HorizontalContentAlignment="Stretch" x:Name="trackSpace7"  VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="12">
+            </local:TrackModule>
+            <local:TrackModule HorizontalContentAlignment="Stretch" x:Name="trackSpace8"  VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="14">
+            </local:TrackModule>
+        </Grid>       
+        <TextBlock FontWeight="Bold" Height="25" HorizontalAlignment="Stretch" Margin="29,4,0,0" Name="textBlock2" Text="Tracks" TextAlignment="Center" VerticalAlignment="Top" Width="Auto" Grid.Column="1" Grid.Row="1" FontSize="16" />
     </Grid>
 </navigation:Page>

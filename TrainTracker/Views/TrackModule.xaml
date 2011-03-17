@@ -1,0 +1,147 @@
+﻿<UserControl x:Class="TrainTracker.Views.TrackModule"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:my="clr-namespace:TrainTracker.Web.Services" xmlns:my1="clr-namespace:TrainTracker.Web.Models" xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" xmlns:tool="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit" 
+    mc:Ignorable="d"
+    d:DesignHeight="456" d:DesignWidth="104">
+    <UserControl.Resources>
+        <DataTemplate x:Key="ItemTemplate">
+            <StackPanel Orientation="Vertical">
+                <Image Source="{Binding RailCarImage}" HorizontalAlignment="Center" />
+                <TextBlock Text="{Binding RailCar.Number}">
+                     <ToolTipService.ToolTip >
+                                <Border BorderBrush="Black" BorderThickness="2" Height="138" HorizontalAlignment="Left" Name="border1" VerticalAlignment="Top" Width="217">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="/TrainTracker;component/Images/backgroundtexture.png" />
+                                    </Border.Background>
+                                    <Grid Height="136" Name="grid2" Width="212">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="90*" />
+                                            <ColumnDefinition Width="90*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="1*" />
+                                            <RowDefinition Height="1*" />
+                                            <RowDefinition Height="1*" />
+                                            <RowDefinition Height="1*" />
+                                            <RowDefinition Height="1*" />
+                                            <RowDefinition Height="1*" />
+                                            <RowDefinition Height="1*" />
+                                        </Grid.RowDefinitions>
+                                        <Border BorderBrush="Silver" BorderThickness="1" Height="29" HorizontalAlignment="Left" Margin="0,-1,0,0" Name="border2" VerticalAlignment="Top" Width="212" Background="{StaticResource ControlBackgroundNormalOrange}" CornerRadius="3" Grid.ColumnSpan="2">
+                                            <TextBlock Height="20" Name="textBlock1" Text="{Binding Path=RailCar.Number}" TextAlignment="Center" FontSize="10" FontWeight="Bold" />
+                                        </Border>
+                                        <TextBlock Grid.Row="1" FontWeight="Bold"  HorizontalAlignment="Left" Name="textBlock12" Text="Car Type:" VerticalAlignment="Top" FontSize="9" Margin="3,8,0,0" />
+                                        <TextBlock FontWeight="Normal"  HorizontalAlignment="Left" Name="textBlock14" Text="{Binding RailCar.RailCarType.Type}" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" FontSize="9" Margin="3,8,0,0" />
+
+                                        <TextBlock Grid.Row="2" FontWeight="Bold" HorizontalAlignment="Left"  Name="textBlock2" Text="Yard:" VerticalAlignment="Top" FontSize="9" Margin="3" />
+                                        <TextBlock FontWeight="Normal"  HorizontalAlignment="Left" Name="textBlock3" Text="{Binding RailYard.YardName}" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" FontSize="9" Margin="3"  />
+                                        
+                                        <TextBlock FontSize="9" FontWeight="Bold"  HorizontalAlignment="Left" Name="textBlock4" Text="Days in Yard:" VerticalAlignment="Top" Grid.Row="3" Margin="3"/>
+                                        <TextBlock FontSize="9" FontWeight="Normal" Grid.Column="1" HorizontalAlignment="Left" Name="textBlock5" Text="{Binding DemurrageDays}" VerticalAlignment="Top" Grid.Row="3" Margin="3"/>
+                                        
+                                        <TextBlock FontSize="9" FontWeight="Bold"  HorizontalAlignment="Left" Name="textBlock6" Text="Spot:" VerticalAlignment="Top" Grid.Row="4" Margin="3" />
+                                        <TextBlock FontSize="9" FontWeight="Normal" Grid.Column="1" HorizontalAlignment="Left" Name="textBlock7" Text="{Binding Spot}" VerticalAlignment="Top" Grid.Row="4"  Margin="3"/>
+                                        
+                                         <Button Content="Details" Grid.Row="5" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+                                    </Grid>
+                                </Border>
+                            </ToolTipService.ToolTip>
+                </TextBlock>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="54*" />
+            <RowDefinition Height="6*" />
+            <RowDefinition Height="396*" />
+        </Grid.RowDefinitions>
+       
+        <tool:ListBoxDragDropTarget AllowDrop="true" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.Row="2" Drop="ListBoxDragDropTarget_Drop">
+            <ListBox x:Name="carList" SelectionMode="Multiple" ItemTemplate="{StaticResource ItemTemplate}" ItemsSource="{Binding RailCarCurrentStatu}" Height="Auto" Background="{StaticResource MouseOverSelectionBrush}" >
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical">                            
+                        </StackPanel>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </tool:ListBoxDragDropTarget>
+        <Border BorderBrush="Silver" BorderThickness="2" HorizontalAlignment="Stretch" Name="border3" VerticalAlignment="Stretch" Width="Auto">
+            <Border.Background>
+                <ImageBrush ImageSource="/TrainTracker;component/Images/backgroundtexture.png" />
+            </Border.Background>
+            <Grid Height="Auto" Name="grid1" Width="Auto">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24*" />
+                    <RowDefinition Height="26*" />
+                </Grid.RowDefinitions>
+                <Button Content="Button" Style="{StaticResource OrangeButton}" Grid.Row="1" Height="15" HorizontalAlignment="Right" Margin="0,7,6,0" Name="close" VerticalAlignment="Top" Width="15" Click="close_Click">
+                    <ToolTipService.ToolTip>
+                        <ToolTip Content="Close Track"></ToolTip>
+                    </ToolTipService.ToolTip>
+                </Button>
+                 <TextBlock Text="{Binding Track}" TextWrapping="NoWrap" FontSize="10"  VerticalAlignment="Stretch" Width="Auto" Name="trackdata" TextAlignment="Center" FontWeight="Bold">
+                                    <ToolTipService.ToolTip>
+                                        <Border BorderBrush="Black" BorderThickness="2" Height="138" HorizontalAlignment="Left" Name="border1" VerticalAlignment="Top" Width="217"><Border.Background><ImageBrush ImageSource="/TrainTracker;component/Images/backgroundtexture.png" /></Border.Background>
+                                            <Grid Height="136" Name="grid2" Width="212">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="90*" />
+                                                    <ColumnDefinition Width="90*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="1*" />
+                                                    <RowDefinition Height="1*" />
+                                                    <RowDefinition Height="1*" />
+                                                    <RowDefinition Height="1*" />
+                                                    <RowDefinition Height="1*" />
+                                                    <RowDefinition Height="1*" />
+                                                    <RowDefinition Height="1*" />
+                                                </Grid.RowDefinitions>
+                                                <Border BorderBrush="Silver" BorderThickness="1" Height="29" HorizontalAlignment="Left" Margin="0,-1,0,0" Name="border2" VerticalAlignment="Top" Width="212" Background="{StaticResource ControlBackgroundNormalOrange}" CornerRadius="3" Grid.ColumnSpan="2">
+                                                    <TextBlock Height="20" Name="textBlock1" Text="{Binding Track}" TextAlignment="Center" FontSize="10" FontWeight="Bold" />
+                                                </Border>
+                                                <TextBlock Grid.Row="1" FontWeight="Bold"  HorizontalAlignment="Left" Name="textBlock12" Text="Track Type:" VerticalAlignment="Top" FontSize="9" Margin="3,8,0,0" />
+                                                <TextBlock FontWeight="Normal"  HorizontalAlignment="Left" Name="textBlock14" Text="{Binding TrackType}" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" FontSize="9" Margin="3,8,0,0" />
+                                                
+                                                <TextBlock Grid.Row="2" FontWeight="Bold" HorizontalAlignment="Left"  Name="textBlock2" Text="Yard:" VerticalAlignment="Top" FontSize="9" Margin="3" />
+                                                <TextBlock FontWeight="Normal"  HorizontalAlignment="Left" Name="textBlock3" Text="{Binding Yard}" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" FontSize="9" Margin="3"  />
+                                                <TextBlock FontSize="9" FontWeight="Bold"  HorizontalAlignment="Left" Name="textBlock4" Text="Max Cars:" VerticalAlignment="Top" Grid.Row="3" Margin="3"/>
+                                                <TextBlock FontSize="9" FontWeight="Normal" Grid.Column="1" HorizontalAlignment="Left" Name="textBlock5" Text="{Binding MaxCars}" VerticalAlignment="Top" Grid.Row="3" Margin="3"/>
+                                                <TextBlock FontSize="9" FontWeight="Bold"  HorizontalAlignment="Left" Name="textBlock6" Text="Car Count:" VerticalAlignment="Top" Grid.Row="4" Margin="3" />
+                                                <TextBlock FontSize="9" FontWeight="Normal" Grid.Column="1" HorizontalAlignment="Left" Name="textBlock7" Text="{Binding CarCount}" VerticalAlignment="Top" Grid.Row="4"  Margin="3"/>
+                                                <TextBlock FontSize="9" FontWeight="Bold"  HorizontalAlignment="Left" Name="textBlock8" Text="Track Length:" VerticalAlignment="Top" Grid.Row="5" Margin="3" />
+                                                <TextBlock FontSize="9" FontWeight="Normal" HorizontalAlignment="Left" Name="textBlock9" Text="{Binding Length}" VerticalAlignment="Top" Grid.Row="5" Grid.Column="1" Margin="3"/>
+                                                <TextBlock FontSize="9" FontWeight="Bold"  HorizontalAlignment="Left"  Name="textBlock10" Text="Cars Total Length:" VerticalAlignment="Top" Grid.Row="6" Margin="3" />
+                                                <TextBlock FontSize="9" FontWeight="Normal"  HorizontalAlignment="Left" Name="textBlock11" Text="{Binding ActualLength}" VerticalAlignment="Top" Grid.Row="6" Grid.Column="1" Margin="3" />
+                                            
+                                            </Grid>
+                                        </Border>
+                                    </ToolTipService.ToolTip>
+            </TextBlock>
+                <TextBlock Grid.Row="1" Height="17" HorizontalAlignment="Left" Margin="1,9,0,0" Name="trackFilter" Text="0" VerticalAlignment="Top" Width="23" Visibility="Collapsed" />
+                <riaControls:DomainDataSource AutoLoad="False" d:DesignData="{d:DesignInstance my1:RailCarCurrentStatu, CreateList=true}" Height="0" LoadedData="railCarCurrentStatuDomainDataSource_LoadedData_1" Name="railCarCurrentStatuDomainDataSource" QueryName="GetRailCarCurrentStatusByTrack" Width="0">
+                    <riaControls:DomainDataSource.DomainContext>
+                        <my:RailServeDS />
+                    </riaControls:DomainDataSource.DomainContext>
+                    <riaControls:DomainDataSource.SortDescriptors>                      
+                        <riaControls:SortDescriptor PropertyPath="Spot" Direction="Ascending" />
+                    </riaControls:DomainDataSource.SortDescriptors>
+                    <riaControls:DomainDataSource.QueryParameters>
+                        <riaControls:Parameter ParameterName="track" Value="{Binding ElementName=trackFilter, Path=Text}" />
+                    </riaControls:DomainDataSource.QueryParameters>
+
+                </riaControls:DomainDataSource>
+              
+            </Grid>
+        </Border>
+        <toolkit:BusyIndicator Height="84" HorizontalAlignment="Left" IsBusy="{Binding ElementName=railCarCurrentStatuDomainDataSource, Path=DomainContext.IsLoading}" Margin="-79,77,0,0" Name="busyIndicator1" VerticalAlignment="Top" Width="181" Grid.Row="2" />
+        <Grid.Background>
+            <ImageBrush ImageSource="/TrainTracker;component/Images/backgroundtexture.png" />
+        </Grid.Background>
+        
+    </Grid>
+</UserControl>

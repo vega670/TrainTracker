@@ -14,8 +14,8 @@
                 <ResourceDictionary Source="Assets/CoreStyles.xaml"/>
                 <ResourceDictionary Source="Assets/Styles.xaml"/>
                 <ResourceDictionary Source="Assets/SdkStyles.xaml"/>
-                <!--<ResourceDictionary Source="Assets/ToolkitStyles.xaml"/>
-                To extend this theme to include the toolkit controls:
+                <ResourceDictionary Source="Assets/ToolkitStyles.xaml"/>
+               <!-- To extend this theme to include the toolkit controls:
                 1. Install the Silverlight Toolkit for Silverlight 4
                 2. Add a Toolkit control to your project from the toolbox. This will add references to toolkit assemblies.
                 3. Change the "Build Action" for ToolkitStyles.xaml to "Page"

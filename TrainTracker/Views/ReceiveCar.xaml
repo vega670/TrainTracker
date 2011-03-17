@@ -5,13 +5,9 @@
            Width="556" Height="580" 
            Title="ReceiveCar" xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" mc:Ignorable="d" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:my="clr-namespace:TrainTracker.Web.Services" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:my1="clr-namespace:TrainTracker.Web.Models" Background="{StaticResource DisabledBrush}" BorderBrush="{StaticResource DarkBorder}" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
     <Grid Height="Auto" Name="grid1" Width="Auto">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="490*" />
-            <RowDefinition Height="42*" />
-        </Grid.RowDefinitions>
-        <controls:TabControl Height="488" HorizontalAlignment="Left" Name="tabControl1" VerticalAlignment="Top" Width="536">
-            <controls:TabItem Header="Car/Track" Name="tabItem1">
-                <Grid Height="452" Name="LayoutRoot" Width="532">
+        <controls:TabControl Height="532" HorizontalAlignment="Left" Name="tabControl1" VerticalAlignment="Top" Width="536">
+            <controls:TabItem Header="Inbound Car" Name="tabItem1">
+                <Grid Height="464" Name="LayoutRoot" Width="532">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="35*" />
                         <RowDefinition Height="48*" />
@@ -19,13 +15,12 @@
                         <RowDefinition Height="13*" />
                         <RowDefinition Height="74*" />
                         <RowDefinition Height="23*" />
-                        <RowDefinition Height="195*" />
-                        <RowDefinition Height="16*" />
+                        <RowDefinition Height="167*" />
+                        <RowDefinition Height="44*" />
                     </Grid.RowDefinitions>
-                    <ComboBox DisplayMemberPath="Number" Height="26" HorizontalAlignment="Left" ItemsSource="{Binding ElementName=railCarDomainDataSource, Path=Data}" Margin="96,6,0,0" Name="car" VerticalAlignment="Top" Width="163" />
                     <TextBlock Height="28" HorizontalAlignment="Left" Margin="12,6,0,0" Name="textBlock1" Text="Select Car:" VerticalAlignment="Top" Width="68" />
-                    <controls:DatePicker Background="DarkGray" Height="26" HorizontalAlignment="Left" Margin="96,16,0,0" Name="date" VerticalAlignment="Top" Width="110" Grid.Row="1" />
-                    <toolkit:TimePicker Background="DarkGray" Height="26" HorizontalAlignment="Left" Margin="307,14,0,0" Name="time" VerticalAlignment="Top" Width="110" Grid.Row="1">
+                    <controls:DatePicker Background="DarkGray" Height="26" HorizontalAlignment="Left" Margin="96,16,0,0" Name="date" VerticalAlignment="Top" Width="143" Grid.Row="1" TabIndex="3" />
+                    <toolkit:TimePicker Background="DarkGray" Height="26" HorizontalAlignment="Left" Margin="326,14,0,0" Name="time" VerticalAlignment="Top" Width="125" Grid.Row="1" HorizontalContentAlignment="Center" TabIndex="4">
                         <toolkit:TimePicker.Format>
                             <toolkit:CustomTimeFormat Format="HH:mm" />
                         </toolkit:TimePicker.Format>
@@ -37,19 +32,9 @@
                     </riaControls:DomainDataSource>
                     <controls:GridSplitter Height="15" HorizontalAlignment="Stretch" IsEnabled="False" Margin="-2,3,1,0" Name="separator4" VerticalAlignment="Top" Grid.Row="2" />
                     <TextBlock Height="32" HorizontalAlignment="Left" Margin="12,16,0,0" Name="textBlock2" Text="Received In Yard:" TextWrapping="Wrap" VerticalAlignment="Top" Width="78" Grid.Row="1" />
-                    <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:Track, CreateList=true}" Height="0" LoadedData="data_LoadedData" Name="trackDomainDataSource" QueryName="GetTracksByYardID" Width="0" Margin="0,0,436,35">
-                        <riaControls:DomainDataSource.DomainContext>
-                            <my:RailServeDS />
-                        </riaControls:DomainDataSource.DomainContext>
-                        <riaControls:DomainDataSource.QueryParameters>
-                            <riaControls:Parameter ParameterName="yard" Value="{Binding ElementName=yardBox, Path=Text}" />
-                        </riaControls:DomainDataSource.QueryParameters>
-                        <riaControls:DomainDataSource.SortDescriptors>
-                            <riaControls:SortDescriptor Direction="Ascending" PropertyPath="Track1" />
-                        </riaControls:DomainDataSource.SortDescriptors>
-                    </riaControls:DomainDataSource>
+                    
                     <TextBlock Height="28" HorizontalAlignment="Left" Margin="12,20,0,0" Name="textBlock4" Text="Load Status:" VerticalAlignment="Top" Width="68" Grid.Row="2" />
-                    <ComboBox DisplayMemberPath="StatusName" Height="26" HorizontalAlignment="Left" Margin="96,22,0,0" Name="load" VerticalAlignment="Top" Width="110" ItemsSource="{Binding ElementName=carLoadStatuDomainDataSource, Path=Data}" Grid.Row="2" />
+                    <ComboBox DisplayMemberPath="StatusName" Height="26" HorizontalAlignment="Left" Margin="96,22,0,0" Name="loadComboBox" VerticalAlignment="Top" Width="143" ItemsSource="{Binding ElementName=carLoadStatuDomainDataSource, Path=Data}" Grid.Row="2" TabIndex="5" />
                     <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:CarLoadStatu, CreateList=true}" Height="0" LoadedData="data_LoadedData" Name="carLoadStatuDomainDataSource" QueryName="GetCarLoadStatusQuery" Width="0">
                         <riaControls:DomainDataSource.DomainContext>
                             <my:RailServeDS />
@@ -58,55 +43,128 @@
                             <riaControls:SortDescriptor Direction="Ascending" PropertyPath="StatusName" />
                         </riaControls:DomainDataSource.SortDescriptors>
                     </riaControls:DomainDataSource>
-                    <TextBlock Height="28" HorizontalAlignment="Left" Margin="226,20,0,0" Name="textBlock6" Text="Commodity:" VerticalAlignment="Top" Width="68" Grid.Row="2" />
-                    <ComboBox DisplayMemberPath="CommodityName" Grid.Row="2" Height="26" HorizontalAlignment="Left" Margin="307,22,0,0" Name="comm" VerticalAlignment="Top" Width="205" ItemsSource="{Binding ElementName=commodityDomainDataSource, Path=Data}" />
-                    <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:Commodity, CreateList=true}" Height="0" LoadedData="data_LoadedData" Name="commodityDomainDataSource" QueryName="GetCommoditiesQuery" Width="0">
+                    <TextBlock Height="28" HorizontalAlignment="Left" Margin="255,22,0,0" Name="textBlock6" Text="Commodity:" VerticalAlignment="Top" Width="68" Grid.Row="2" Grid.RowSpan="2" />
+                    <ComboBox DisplayMemberPath="CommodityName" Grid.Row="2" Height="26" HorizontalAlignment="Left" Margin="329,22,0,0" Name="commComboBox" VerticalAlignment="Top" Width="176" ItemsSource="{Binding ElementName=commodityDomainDataSource, Path=Data}" TabIndex="6" />
+                    <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:Commodity, CreateList=true}" Height="0" LoadedData="data_LoadedData" Name="commodityDomainDataSource" QueryName="GetCommoditiesByLocation" Width="0">
                         <riaControls:DomainDataSource.DomainContext>
                             <my:RailServeDS />
                         </riaControls:DomainDataSource.DomainContext>
+                        <riaControls:DomainDataSource.QueryParameters>
+                            <riaControls:Parameter ParameterName="location" Value="{Binding ElementName=locationBox, Path=Text}" />
+                        </riaControls:DomainDataSource.QueryParameters>
                         <riaControls:DomainDataSource.SortDescriptors>
-                            <riaControls:SortDescriptor Direction="Ascending" PropertyPath="CommodityName" />
+                            <riaControls:SortDescriptor PropertyPath="CommodityName" Direction="Ascending" />
                         </riaControls:DomainDataSource.SortDescriptors>
                     </riaControls:DomainDataSource>
                     <controls:GridSplitter Height="15" HorizontalAlignment="Stretch" IsEnabled="False" Margin="0,2,2,0" Name="gridSplitter1" VerticalAlignment="Top" Grid.Row="3" Grid.RowSpan="2" />
-                    <TextBox Grid.Row="6" Height="169" HorizontalAlignment="Left" Margin="12,26,0,0" Name="comments" VerticalAlignment="Top" Width="500" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" />
-                    <TextBlock Height="19" HorizontalAlignment="Left" Margin="12,0,0,0" Name="textBlock7" Text="Comments:" VerticalAlignment="Top" Width="78" Grid.Row="6" />
-                    <controls:GridSplitter Height="15" HorizontalAlignment="Stretch" IsEnabled="False" Margin="7,0,-5,0" Name="gridSplitter2" VerticalAlignment="Top" Grid.Row="7" />
-                    <TextBox Background="DarkGray" Margin="96,44,326,2" Name="weight" Grid.Row="4" />
+                    <TextBlock Height="19" HorizontalAlignment="Left" Margin="9,35,0,0" Name="textBlock7" Text="Comments:" VerticalAlignment="Top" Width="75" Grid.Row="6" />
+                    <controls:GridSplitter Height="15" HorizontalAlignment="Stretch" IsEnabled="False" Margin="2,3,0,0" Name="gridSplitter2" VerticalAlignment="Top" Grid.Row="7" />
+                    <TextBox Background="DarkGray" Margin="96,44,293,2" Name="weight" Grid.Row="4" TabIndex="9" />
                     <TextBlock Height="28" HorizontalAlignment="Left" Margin="9,50,0,0" Name="textBlock8" Text="Weight:" VerticalAlignment="Top" Width="68" Grid.Row="4" Grid.RowSpan="2" />
-                    <TextBlock Height="28" HorizontalAlignment="Left" Margin="226,12,0,0" Name="textBlock9" Text="Time:" VerticalAlignment="Top" Width="33" Grid.Row="1" />
-                    <TextBox Background="DarkGray" Height="28" Margin="307,44,27,2" Name="supplier" Grid.Row="4" />
-                    <TextBlock Height="28" HorizontalAlignment="Left" Margin="226,50,0,0" Name="textBlock10" Text="Supplier:" VerticalAlignment="Top" Width="68" Grid.Row="4" Grid.RowSpan="2" />
+                    <TextBlock Height="28" HorizontalAlignment="Left" Margin="255,16,0,0" Name="textBlock9" Text="Time:" VerticalAlignment="Top" Width="33" Grid.Row="1" />
+                    <TextBox Background="DarkGray" Height="28" Margin="329,44,27,2" Name="supplier" Grid.Row="4" TabIndex="9" />
+                    <TextBlock Height="28" HorizontalAlignment="Left" Margin="255,50,0,0" Name="textBlock10" Text="Supplier:" VerticalAlignment="Top" Width="56" Grid.Row="4" Grid.RowSpan="2" />
                     <controls:GridSplitter Height="15" HorizontalAlignment="Stretch" IsEnabled="False" Margin="1,4,1,0" Name="gridSplitter3" VerticalAlignment="Top" Grid.Row="5" />
-                    <TextBlock Height="24" HorizontalAlignment="Left" Margin="12,7,0,0" Name="textBlock11" Text="Activity:" VerticalAlignment="Top" Width="68" Grid.Row="4" />
-                    <ComboBox DisplayMemberPath="ActivityName" Grid.Row="4" Height="26" HorizontalAlignment="Left" Margin="96,7,0,0" Name="act" VerticalAlignment="Top" Width="110" ItemsSource="{Binding ElementName=activityDomainDataSource, Path=Data}" />
-                    <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:Activity, CreateList=true}" Height="0" LoadedData="data_LoadedData" Name="activityDomainDataSource" QueryName="GetActivitiesQuery" Width="0">
+                    <TextBlock Height="24" HorizontalAlignment="Left" Margin="12,7,0,0" Name="textBlock11" Text="Department:" VerticalAlignment="Top" Width="68" Grid.Row="4" />
+                    <ComboBox DisplayMemberPath="DepartmentName" Grid.Row="4" Height="26" HorizontalAlignment="Left" Margin="96,7,0,0" Name="departmentComboBox" VerticalAlignment="Top" Width="143" ItemsSource="{Binding ElementName=departmentDomainDataSource, Path=Data}" TabIndex="7" />
+                    
+                    <TextBox Background="DarkGray" Height="28" Margin="96,0,27,139" Name="company" Grid.Row="6" Text="" TabIndex="10" />
+                    <TextBlock Height="28" HorizontalAlignment="Left" Margin="9,0,0,0" Name="textBlock12" Text="Company:" VerticalAlignment="Top" Width="73" Grid.Row="6" />
+                    <CheckBox Content="Calculate Demurrage" Height="16" HorizontalAlignment="Left" Margin="332,11,0,0" Name="checkBox1" VerticalAlignment="Top" TabIndex="2" />
+                    <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:Department, CreateList=true}" Height="0" LoadedData="departmentDomainDataSource_LoadedData" Name="departmentDomainDataSource" QueryName="GetDepartmentsByLocation" Width="0">
                         <riaControls:DomainDataSource.DomainContext>
                             <my:RailServeDS />
                         </riaControls:DomainDataSource.DomainContext>
+                        <riaControls:DomainDataSource.QueryParameters>
+                            <riaControls:Parameter ParameterName="location" Value="{Binding ElementName=locationBox, Path=Text}" />
+                        </riaControls:DomainDataSource.QueryParameters>
                         <riaControls:DomainDataSource.SortDescriptors>
-                            <riaControls:SortDescriptor Direction="Ascending" PropertyPath="ActivityName" />
+                            <riaControls:SortDescriptor PropertyPath="DepartmentName" Direction="Ascending" />
                         </riaControls:DomainDataSource.SortDescriptors>
                     </riaControls:DomainDataSource>
-                    <TextBox Background="DarkGray" Height="28" Margin="307,7,27,39" Name="textBox1" Grid.Row="4" Text="" />
-                    <TextBlock Height="28" HorizontalAlignment="Left" Margin="226,13,0,0" Name="textBlock12" Text="Company:" VerticalAlignment="Top" Width="68" Grid.Row="4" />
-                    <CheckBox Content="Calculate Demurrage" Height="16" HorizontalAlignment="Left" Margin="307,11,0,0" Name="checkBox1" VerticalAlignment="Top" />
+                    <TextBlock Height="28" HorizontalAlignment="Left" Margin="255,7,0,0" Name="textBlock3" Text="Track:" VerticalAlignment="Top" Width="58" Grid.Row="4" />
+                    <ComboBox DisplayMemberPath="Track1" Grid.Row="4" Height="26" HorizontalAlignment="Left" Margin="329,5,0,0" Name="trackComboBox" VerticalAlignment="Top" Width="176" ItemsSource="{Binding ElementName=trackDomainDataSource, Path=Data}" TabIndex="8" />
+                    <sdk:AutoCompleteBox MinimumPrefixLength="5" Height="28" HorizontalAlignment="Left" Margin="96,7,0,0" Name="autoCompleteBox1" VerticalAlignment="Top" Width="143" Background="DarkGray" ItemsSource="{Binding ElementName=railCarDomainDataSource, Path=Data}" ValueMemberBinding="{Binding Number}" SelectionChanged="car_SelectionChanged" TabIndex="1">
+                    <sdk:AutoCompleteBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Number}" />
+                        </DataTemplate>
+                    </sdk:AutoCompleteBox.ItemTemplate>
+                    </sdk:AutoCompleteBox>
+                    <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:Track, CreateList=true}" Height="0" LoadedData="trackDomainDataSource_LoadedData" Name="trackDomainDataSource" QueryName="GetTracksByLocation" Width="0">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <my:RailServeDS />
+                        </riaControls:DomainDataSource.DomainContext>
+                        <riaControls:DomainDataSource.QueryParameters>
+                            <riaControls:Parameter ParameterName="location" Value="{Binding ElementName=locationBox, Path=Text}" />
+                        </riaControls:DomainDataSource.QueryParameters>
+                        <riaControls:DomainDataSource.SortDescriptors>
+                            <riaControls:SortDescriptor PropertyPath="Track1" Direction="Ascending" />
+                        </riaControls:DomainDataSource.SortDescriptors>
+                    </riaControls:DomainDataSource>
+                    <TextBox Background="DarkGray" Margin="96,35,27,0" Name="comments" Text="" Grid.Row="6" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" TabIndex="11" />
+                    <Button Click="save_Click" Content="Save" HorizontalAlignment="Right" Margin="0,20,125,0" Name="save" Width="81" Height="26" Grid.Row="7" IsEnabled="False" />
+                    <Button Click="CancelButton_Click" Content="Exit" HorizontalAlignment="Right" Margin="0,20,27,0" Name="CancelButton" Width="81" Height="26" Grid.Row="7" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="6,16,0,0" Name="locationBox" Text="" VerticalAlignment="Top" Width="35" Grid.Row="7" />
                 </Grid>
             </controls:TabItem>
-            <controls:TabItem Header="Future Use" Name="tabItem2">
-                <Grid />
+            <controls:TabItem Header="New Car" Name="tabItem2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="64*" />
+                        <RowDefinition Height="26*" />
+                        <RowDefinition Height="292*" />
+                        <RowDefinition Height="30*" />
+                        <RowDefinition Height="21*" />
+                        <RowDefinition Height="58*" />
+                    </Grid.RowDefinitions>
+                    <StackPanel HorizontalAlignment="Stretch" Margin="10,10,6,1" Name="stackPanel3" Orientation="Horizontal" VerticalAlignment="Stretch">
+                        <TextBlock Height="22" Margin="6,0,1,0" Name="textBlock5" Text="Car Number: " Width="74" />
+                        <TextBox Background="DarkGray" Height="28" Margin="4" Name="carFilter" Width="101" />
+                        <Button Click="carSearch_Click" Content="Search" FontSize="10" Height="28" Name="carSearch" Width="81" Margin="4" />
+                        <TextBlock Height="22" Name="textBlock13" Text="Car Type: " Width="57" Margin="12" />
+                        <ComboBox DisplayMemberPath="Type" Height="28" Name="carTypeComboBox" Width="143" IsEnabled="False" ItemsSource="{Binding ElementName=railCarTypeDomainDataSource, Path=Data}" SelectionChanged="carTypeComboBox_SelectionChanged" />
+                    </StackPanel>
+                    <sdk:GridSplitter Height="15" HorizontalAlignment="Stretch" IsEnabled="False" Margin="0,5,-1,0" Name="gridSplitter4" VerticalAlignment="Top" Grid.Row="1" />
+                    <sdk:DataGrid AutoGenerateColumns="False" Grid.Row="2" Height="292" HorizontalAlignment="Left" ItemsSource="{Binding ElementName=railCarDomainDataSource2, Path=Data}" Name="railCarDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" VerticalAlignment="Top" Width="508" Margin="10,0,0,0" CellEditEnded="railCarDataGrid_CellEditEnded" BindingValidationError="railCarDataGrid_BindingValidationError" BeginningEdit="railCarDataGrid_BeginningEdit">
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTextColumn x:Name="carIDColumn" Binding="{Binding Path=CarID, Mode=OneWay}" Header="Car ID" IsReadOnly="True" Width="SizeToHeader" />
+                            <sdk:DataGridTextColumn x:Name="numberColumn" Binding="{Binding Path=Number}" Header="Number" Width="160" />
+                            <sdk:DataGridTextColumn x:Name="typeColumn" Binding="{Binding Path=RailCarType.Type}" Header="Type" Width="160" IsReadOnly="True" />
+                            <sdk:DataGridTextColumn x:Name="ownerColumn" Binding="{Binding Path=Owner}" Header="Owner" Width="160" />
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+                    <sdk:GridSplitter Height="15" HorizontalAlignment="Stretch" IsEnabled="False" Margin="-1,1,0,0" Name="gridSplitter5" VerticalAlignment="Top" Grid.Row="4" />
+                    <sdk:DataPager Height="30" HorizontalAlignment="Stretch" Margin="10,0,6,0" Name="dataPager3" PageSize="10" Source="{Binding Data, ElementName=railCarDomainDataSource2}" VerticalAlignment="Top" Grid.Row="3" />
+                    <Button Content="Save" FontSize="10" Height="28" IsEnabled="False" Margin="442,15,1,15" Name="carSave" Style="{StaticResource OrangeButton}" Width="81" Grid.Row="5" Click="carSave_Click" />
+                    <Button Content="Cancel" FontSize="10" Height="28" IsEnabled="False" Margin="357,15,0,15" MinWidth="4" Name="carCancel" Width="81" Grid.Row="5" HorizontalAlignment="Left" Click="carCancel_Click" />
+                    <Button Content="New" FontSize="10" Height="28" Margin="272,15,171,15" Name="carNew" Width="81" Grid.Row="5" Click="carNew_Click" />
+                    <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:RailCarType, CreateList=true}" Height="0" LoadedData="railCarTypeDomainDataSource_LoadedData" Name="railCarTypeDomainDataSource" QueryName="GetRailCarTypesQuery" Width="0">
+                        <riaControls:DomainDataSource.DomainContext>
+                            <my:RailServeDS />
+                        </riaControls:DomainDataSource.DomainContext>
+                    </riaControls:DomainDataSource>
+                </Grid>
             </controls:TabItem>
         </controls:TabControl>
-        <Button Click="save_Click" Content="Save" HorizontalAlignment="Right" Margin="0,4,90,12" Name="save" Width="81" Height="26" Grid.Row="1" />
-        <Button Click="CancelButton_Click" Content="Exit" HorizontalAlignment="Right" Margin="0,4,5,12" Name="CancelButton" Width="81" Height="26" Grid.Row="1" />
-        <TextBlock Height="23" HorizontalAlignment="Left" Margin="15,4,0,0" Name="yardBox" Text="" VerticalAlignment="Top" Width="57" Grid.Row="1" />
-        <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:RailCarCurrentStatu, CreateList=true}" Height="0" LoadedData="data_LoadedData" Name="railCarCurrentStatuDomainDataSource" QueryName="GetRailCarCurrentStatusById" SubmittedChanges="DomainDataSource_SubmittedChanges" Width="0">
+        <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:RailCarCurrentStatu, CreateList=true}" Height="0" LoadedData="data_LoadedData" Name="railCarCurrentStatuDomainDataSource" QueryName="GetRailCarCurrentStatusByLocation" SubmittedChanges="DomainDataSource_SubmittedChanges" Width="0" Margin="0,0,536,532">
             <riaControls:DomainDataSource.DomainContext>
                 <my:RailServeDS />
             </riaControls:DomainDataSource.DomainContext>
             <riaControls:DomainDataSource.QueryParameters>
-                <riaControls:Parameter ParameterName="yard" Value="{Binding ElementName=yardBox, Path=Text}" />
+                <riaControls:Parameter ParameterName="location" Value="{Binding ElementName=locationBox, Path=Text}" />
             </riaControls:DomainDataSource.QueryParameters>
+        </riaControls:DomainDataSource>
+        <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:RailCar, CreateList=true}" Height="0" LoadedData="data_LoadedData" Margin="0,0,376,35" Name="railCarDomainDataSource2" QueryName="GetRailCarsQuery" Width="0" SubmittedChanges="DomainDataSource_SubmittedChanges" >
+            <riaControls:DomainDataSource.DomainContext>
+                <my:RailServeDS />
+            </riaControls:DomainDataSource.DomainContext>
+            <riaControls:DomainDataSource.FilterDescriptors>
+                <riaControls:FilterDescriptor IgnoredValue="" Operator="StartsWith" PropertyPath="Number" Value="{Binding ElementName=carFilter, Path=Text}" />
+            </riaControls:DomainDataSource.FilterDescriptors>
+            <riaControls:DomainDataSource.SortDescriptors>
+                <riaControls:SortDescriptor Direction="Ascending" PropertyPath="Number" />
+            </riaControls:DomainDataSource.SortDescriptors>
         </riaControls:DomainDataSource>
     </Grid>
 </controls:ChildWindow>

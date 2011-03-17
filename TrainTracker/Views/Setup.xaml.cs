@@ -31,9 +31,10 @@ namespace TrainTracker.Views.Login
             //Create the menu items with links to actual page to fill content frame
             List<Models.NavMenu> menu = new List<Models.NavMenu>();
 
+            menu.Add(new Models.NavMenu { Name = "Locations", PageUrl = "/RailYard" });
             menu.Add(new Models.NavMenu { Name = "Rail Cars", PageUrl = "/RailCar" });
-            menu.Add(new Models.NavMenu { Name = "Rail Yards", PageUrl = "/RailYard" });
-            menu.Add(new Models.NavMenu { Name = "Commodities ", PageUrl = "/Commodity" });
+            menu.Add(new Models.NavMenu { Name = "Track Types", PageUrl = "/TrackType" });
+            menu.Add(new Models.NavMenu { Name = "Commodities", PageUrl = "/Commodity" });
    
             menuSelection.ItemsSource = menu;          
          }

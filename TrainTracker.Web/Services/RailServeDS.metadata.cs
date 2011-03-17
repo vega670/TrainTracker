@@ -11,43 +11,6 @@ namespace TrainTracker.Web.Models
     using System.ServiceModel.DomainServices.Server;
 
 
-    // The MetadataTypeAttribute identifies ActivityMetadata as the class
-    // that carries additional metadata for the Activity class.
-    [MetadataTypeAttribute(typeof(Activity.ActivityMetadata))]
-    public partial class Activity
-    {
-
-        // This class allows you to attach custom attributes to properties
-        // of the Activity class.
-        //
-        // For example, the following marks the Xyz property as a
-        // required property and specifies the format for valid values:
-        //    [Required]
-        //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
-        //    [StringLength(32)]
-        //    public string Xyz { get; set; }
-        internal sealed class ActivityMetadata
-        {
-
-            // Metadata classes are not meant to be instantiated.
-            private ActivityMetadata()
-            {
-            }
-
-            public string ActivityCode { get; set; }
-
-            public int ActivityId { get; set; }
-
-            public string ActivityName { get; set; }
-
-            public EntityCollection<RailCarCurrentStatu> RailCarCurrentStatus { get; set; }
-
-            public EntityCollection<RailCarHistory> RailCarHistories { get; set; }
-
-            public EntityCollection<RailYard_Activities> RailYard_Activities { get; set; }
-        }
-    }
-
     // The MetadataTypeAttribute identifies CarLoadStatuMetadata as the class
     // that carries additional metadata for the CarLoadStatu class.
     [MetadataTypeAttribute(typeof(CarLoadStatu.CarLoadStatuMetadata))]
@@ -106,13 +69,54 @@ namespace TrainTracker.Web.Models
             {
             }
 
-            public string Comments { get; set; }
-
             public string CommodityCode { get; set; }
 
             public int CommodityID { get; set; }
 
             public string CommodityName { get; set; }
+
+            public Location Location { get; set; }
+
+            public int LocationID { get; set; }
+
+            public EntityCollection<RailCarCurrentStatu> RailCarCurrentStatus { get; set; }
+
+            public EntityCollection<RailCarHistory> RailCarHistories { get; set; }
+        }
+    }
+
+    // The MetadataTypeAttribute identifies DepartmentMetadata as the class
+    // that carries additional metadata for the Department class.
+    [MetadataTypeAttribute(typeof(Department.DepartmentMetadata))]
+    public partial class Department
+    {
+
+        // This class allows you to attach custom attributes to properties
+        // of the Department class.
+        //
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
+        //    [Required]
+        //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
+        //    [StringLength(32)]
+        //    public string Xyz { get; set; }
+        internal sealed class DepartmentMetadata
+        {
+
+            // Metadata classes are not meant to be instantiated.
+            private DepartmentMetadata()
+            {
+            }
+
+            public string DepartmentCode { get; set; }
+
+            public int DepartmentID { get; set; }
+
+            public string DepartmentName { get; set; }
+
+            public Location Location { get; set; }
+
+            public int LocationID { get; set; }
 
             public EntityCollection<RailCarCurrentStatu> RailCarCurrentStatus { get; set; }
 
@@ -153,6 +157,59 @@ namespace TrainTracker.Web.Models
         }
     }
 
+    // The MetadataTypeAttribute identifies LocationMetadata as the class
+    // that carries additional metadata for the Location class.
+    [MetadataTypeAttribute(typeof(Location.LocationMetadata))]
+    public partial class Location
+    {
+
+        // This class allows you to attach custom attributes to properties
+        // of the Location class.
+        //
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
+        //    [Required]
+        //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
+        //    [StringLength(32)]
+        //    public string Xyz { get; set; }
+        internal sealed class LocationMetadata
+        {
+
+            // Metadata classes are not meant to be instantiated.
+            private LocationMetadata()
+            {
+            }
+
+            public string City { get; set; }
+
+            public EntityCollection<Commodity> Commodities { get; set; }
+
+            public string County { get; set; }
+
+            public EntityCollection<Department> Departments { get; set; }
+
+            public string LocationCode { get; set; }
+
+            public int LocationID { get; set; }
+
+            public string LocationName { get; set; }
+
+            public string Phone { get; set; }
+
+            public EntityCollection<RailCarCurrentStatu> RailCarCurrentStatus { get; set; }
+
+            public EntityCollection<RailCarHistory> RailCarHistories { get; set; }
+
+            public EntityCollection<RailYard> RailYards { get; set; }
+
+            public string State { get; set; }
+
+            public string Street { get; set; }
+
+            public Nullable<int> Zip { get; set; }
+        }
+    }
+
     // The MetadataTypeAttribute identifies RailCarMetadata as the class
     // that carries additional metadata for the RailCar class.
     [MetadataTypeAttribute(typeof(RailCar.RailCarMetadata))]
@@ -177,7 +234,8 @@ namespace TrainTracker.Web.Models
             }
 
             public int CarID { get; set; }
-
+            
+            [RegularExpression("^[A-Za-z]{2,4}[0-9]{5,8}",  ErrorMessage ="Incorrect Car Number Format")]
             public string Number { get; set; }
 
             public string Owner { get; set; }
@@ -185,7 +243,7 @@ namespace TrainTracker.Web.Models
             public EntityCollection<RailCarCurrentStatu> RailCarCurrentStatus { get; set; }
 
             public EntityCollection<RailCarHistory> RailCarHistories { get; set; }
-             [Include]
+            [Include]
             public RailCarType RailCarType { get; set; }
 
             public Nullable<int> Type { get; set; }
@@ -214,10 +272,6 @@ namespace TrainTracker.Web.Models
             private RailCarCurrentStatuMetadata()
             {
             }
-            [Include]
-            public Activity Activity { get; set; }
-
-            public Nullable<int> ActivityId { get; set; }
 
             public int CarID { get; set; }
             [Include]
@@ -229,13 +283,21 @@ namespace TrainTracker.Web.Models
 
             public Nullable<int> CommodityId { get; set; }
 
-            public string Company { get; set; }
-
             public int CurrentStatusID { get; set; }
+
+            public Nullable<bool> Demurrage { get; set; }
+            [Include]
+            public Department Department { get; set; }
+
+            public int DepartmentId { get; set; }
             [Include]
             public HistoryType HistoryType { get; set; }
 
             public int HistoryTypeId { get; set; }
+            [Include]
+            public Location Location { get; set; }
+
+            public Nullable<int> LocationID { get; set; }
 
             public string PrimaryUser { get; set; }
             [Include]
@@ -292,10 +354,6 @@ namespace TrainTracker.Web.Models
             {
             }
 
-            public Activity Activity { get; set; }
-
-            public Nullable<int> ActivityId { get; set; }
-
             public int CarID { get; set; }
 
             public CarLoadStatu CarLoadStatu { get; set; }
@@ -306,13 +364,21 @@ namespace TrainTracker.Web.Models
 
             public Nullable<int> CommodityId { get; set; }
 
-            public string Company { get; set; }
+            public Nullable<bool> Demurrage { get; set; }
+
+            public Department Department { get; set; }
+
+            public int DepartmentId { get; set; }
 
             public int HistoryID { get; set; }
 
             public HistoryType HistoryType { get; set; }
 
             public int HistoryTypeId { get; set; }
+
+            public Location Location { get; set; }
+
+            public Nullable<int> LocationID { get; set; }
 
             public string PrimaryUser { get; set; }
 
@@ -369,11 +435,13 @@ namespace TrainTracker.Web.Models
             {
             }
 
-            public Nullable<int> Length { get; set; }
-             
+            public Nullable<decimal> Length { get; set; }
+
             public EntityCollection<RailCar> RailCars { get; set; }
-           
+
             public string Type { get; set; }
+
+            public string TypeCode { get; set; }
 
             public int TypeID { get; set; }
         }
@@ -402,23 +470,14 @@ namespace TrainTracker.Web.Models
             {
             }
 
-            public string City { get; set; }
+            public Location Location { get; set; }
 
-            public string County { get; set; }
+            public Nullable<int> LocationID { get; set; }
 
-            public string Phone { get; set; }
-
-           
             public EntityCollection<RailCarCurrentStatu> RailCarCurrentStatus { get; set; }
 
             public EntityCollection<RailCarHistory> RailCarHistories { get; set; }
 
-            public EntityCollection<RailYard_Activities> RailYard_Activities { get; set; }
-
-            public string State { get; set; }
-
-            public string Street { get; set; }
-             
             public EntityCollection<Track> Tracks { get; set; }
 
             public string YardCode { get; set; }
@@ -426,43 +485,6 @@ namespace TrainTracker.Web.Models
             public int YardID { get; set; }
 
             public string YardName { get; set; }
-
-            public Nullable<int> Zip { get; set; }
-        }
-    }
-
-    // The MetadataTypeAttribute identifies RailYard_ActivitiesMetadata as the class
-    // that carries additional metadata for the RailYard_Activities class.
-    [MetadataTypeAttribute(typeof(RailYard_Activities.RailYard_ActivitiesMetadata))]
-    public partial class RailYard_Activities
-    {
-
-        // This class allows you to attach custom attributes to properties
-        // of the RailYard_Activities class.
-        //
-        // For example, the following marks the Xyz property as a
-        // required property and specifies the format for valid values:
-        //    [Required]
-        //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
-        //    [StringLength(32)]
-        //    public string Xyz { get; set; }
-        internal sealed class RailYard_ActivitiesMetadata
-        {
-
-            // Metadata classes are not meant to be instantiated.
-            private RailYard_ActivitiesMetadata()
-            {
-            }
-
-            public Activity Activity { get; set; }
-
-            public Nullable<int> ActivityID { get; set; }
-
-            public int ID { get; set; }
-
-            public RailYard RailYard { get; set; }
-
-            public Nullable<int> YardID { get; set; }
         }
     }
 
@@ -488,9 +510,9 @@ namespace TrainTracker.Web.Models
             private TrackMetadata()
             {
             }
-
+            [Required]
             public Nullable<int> Length { get; set; }
-
+            [Required]
             public Nullable<int> MaxCars { get; set; }
 
             public EntityCollection<RailCarCurrentStatu> RailCarCurrentStatus { get; set; }
@@ -498,12 +520,51 @@ namespace TrainTracker.Web.Models
             public EntityCollection<RailCarHistory> RailCarHistories { get; set; }
             [Include]
             public RailYard RailYard { get; set; }
-
+            [Required]
             public string Track1 { get; set; }
+            [Required]
+            public string TrackCode { get; set; }
 
             public int TrackID { get; set; }
-            
+            [Include]
+            public TrackType TrackType { get; set; }
+
+            public int TypeID { get; set; }
+
             public Nullable<int> YardId { get; set; }
+        }
+    }
+
+    // The MetadataTypeAttribute identifies TrackTypeMetadata as the class
+    // that carries additional metadata for the TrackType class.
+    [MetadataTypeAttribute(typeof(TrackType.TrackTypeMetadata))]
+    public partial class TrackType
+    {
+
+        // This class allows you to attach custom attributes to properties
+        // of the TrackType class.
+        //
+        // For example, the following marks the Xyz property as a
+        // required property and specifies the format for valid values:
+        //    [Required]
+        //    [RegularExpression("[A-Z][A-Za-z0-9]*")]
+        //    [StringLength(32)]
+        //    public string Xyz { get; set; }
+        internal sealed class TrackTypeMetadata
+        {
+
+            // Metadata classes are not meant to be instantiated.
+            private TrackTypeMetadata()
+            {
+            }
+
+            public EntityCollection<Track> Tracks { get; set; }
+
+            public string TypeCode { get; set; }
+
+            public int TypeID { get; set; }
+
+            public string TypeName { get; set; }
         }
     }
 }

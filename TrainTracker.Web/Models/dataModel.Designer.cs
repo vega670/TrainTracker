@@ -18,24 +18,29 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarCu__Activ__4B7734FF", "Activity", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.Activity), "RailCarCurrentStatus", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarCurrentStatu), true)]
-[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarHi__Activ__40F9A68C", "Activity", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.Activity), "RailCarHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarHistory), true)]
-[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailYard___Activ__2F10007B", "Activity", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.Activity), "RailYard_Activities", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailYard_Activities), true)]
-[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarCu__Statu__4F47C5E3", "CarLoadStatus", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.CarLoadStatu), "RailCarCurrentStatus", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarCurrentStatu), true)]
-[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarHi__Statu__43D61337", "CarLoadStatus", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.CarLoadStatu), "RailCarHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarHistory), true)]
-[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarCu__Commo__4D5F7D71", "Commodity", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.Commodity), "RailCarCurrentStatus", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarCurrentStatu), true)]
-[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarHi__Commo__42E1EEFE", "Commodity", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.Commodity), "RailCarHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarHistory), true)]
-[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarCu__Histo__4E53A1AA", "HistoryType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(TrainTracker.Web.Models.HistoryType), "RailCarCurrentStatus", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarCurrentStatu), true)]
-[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarHi__Histo__46B27FE2", "HistoryType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(TrainTracker.Web.Models.HistoryType), "RailCarHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarHistory), true)]
-[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCar__Type__7A672E12", "RailCarType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.RailCarType), "RailCar", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCar), true)]
-[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarCu__CarID__4C6B5938", "RailCar", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(TrainTracker.Web.Models.RailCar), "RailCarCurrentStatus", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarCurrentStatu), true)]
-[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarHi__CarID__41EDCAC5", "RailCar", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(TrainTracker.Web.Models.RailCar), "RailCarHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarHistory), true)]
-[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarCu__Track__503BEA1C", "Track", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.Track), "RailCarCurrentStatus", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarCurrentStatu), true)]
-[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarCu__YardI__51300E55", "RailYard", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(TrainTracker.Web.Models.RailYard), "RailCarCurrentStatus", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarCurrentStatu), true)]
-[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarHi__Track__44CA3770", "Track", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.Track), "RailCarHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarHistory), true)]
-[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarHi__YardI__45BE5BA9", "RailYard", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(TrainTracker.Web.Models.RailYard), "RailCarHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarHistory), true)]
-[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailYard___YardI__2E1BDC42", "RailYard", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.RailYard), "RailYard_Activities", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailYard_Activities), true)]
-[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__Track__YardId__46E78A0C", "RailYard", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.RailYard), "Track", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.Track), true)]
+[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarCu__Statu__3F466844", "CarLoadStatus", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.CarLoadStatu), "RailCarCurrentStatus", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarCurrentStatu), true)]
+[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarHi__Statu__45F365D3", "CarLoadStatus", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.CarLoadStatu), "RailCarHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarHistory), true)]
+[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__Commodity__Locat__5629CD9C", "Location", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(TrainTracker.Web.Models.Location), "Commodity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.Commodity), true)]
+[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarCu__Commo__3D5E1FD2", "Commodity", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.Commodity), "RailCarCurrentStatus", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarCurrentStatu), true)]
+[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarHi__Commo__440B1D61", "Commodity", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.Commodity), "RailCarHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarHistory), true)]
+[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__Departmen__Locat__5812160E", "Location", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(TrainTracker.Web.Models.Location), "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.Department), true)]
+[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarCu__Depar__3B75D760", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(TrainTracker.Web.Models.Department), "RailCarCurrentStatus", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarCurrentStatu), true)]
+[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarHi__Depar__4222D4EF", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(TrainTracker.Web.Models.Department), "RailCarHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarHistory), true)]
+[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarCu__Histo__3E52440B", "HistoryType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(TrainTracker.Web.Models.HistoryType), "RailCarCurrentStatus", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarCurrentStatu), true)]
+[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarHi__Histo__44FF419A", "HistoryType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(TrainTracker.Web.Models.HistoryType), "RailCarHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarHistory), true)]
+[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarCu__Locat__5441852A", "Location", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.Location), "RailCarCurrentStatus", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarCurrentStatu), true)]
+[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarHi__Locat__5535A963", "Location", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.Location), "RailCarHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarHistory), true)]
+[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailYard__Locati__571DF1D5", "Location", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.Location), "RailYard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailYard), true)]
+[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCar__Type__3A81B327", "RailCarType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.RailCarType), "RailCar", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCar), true)]
+[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarCu__CarID__3C69FB99", "RailCar", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(TrainTracker.Web.Models.RailCar), "RailCarCurrentStatus", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarCurrentStatu), true)]
+[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarHi__CarID__4316F928", "RailCar", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(TrainTracker.Web.Models.RailCar), "RailCarHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarHistory), true)]
+[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarCu__Track__403A8C7D", "Track", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.Track), "RailCarCurrentStatus", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarCurrentStatu), true)]
+[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarCu__YardI__412EB0B6", "RailYard", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(TrainTracker.Web.Models.RailYard), "RailCarCurrentStatus", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarCurrentStatu), true)]
+[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarHi__Track__46E78A0C", "Track", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.Track), "RailCarHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarHistory), true)]
+[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__RailCarHi__YardI__47DBAE45", "RailYard", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(TrainTracker.Web.Models.RailYard), "RailCarHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.RailCarHistory), true)]
+[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__Track__YardId__48CFD27E", "RailYard", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.RailYard), "Track", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.Track), true)]
+[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__Track__TypeID__4AB81AF0", "TrackType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(TrainTracker.Web.Models.TrackType), "Track", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.Track), true)]
+[assembly: EdmRelationshipAttribute("RailServe_dataModel", "FK__Track__LocationI__6A30C649", "Location", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(TrainTracker.Web.Models.Location), "Track", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(TrainTracker.Web.Models.Track), true)]
 
 #endregion
 
@@ -46,32 +51,32 @@ namespace TrainTracker.Web.Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class RailServe_dataEntities1 : ObjectContext
+    public partial class RailServe_dataEntities3 : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new RailServe_dataEntities1 object using the connection string found in the 'RailServe_dataEntities1' section of the application configuration file.
+        /// Initializes a new RailServe_dataEntities3 object using the connection string found in the 'RailServe_dataEntities3' section of the application configuration file.
         /// </summary>
-        public RailServe_dataEntities1() : base("name=RailServe_dataEntities1", "RailServe_dataEntities1")
+        public RailServe_dataEntities3() : base("name=RailServe_dataEntities3", "RailServe_dataEntities3")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new RailServe_dataEntities1 object.
+        /// Initialize a new RailServe_dataEntities3 object.
         /// </summary>
-        public RailServe_dataEntities1(string connectionString) : base(connectionString, "RailServe_dataEntities1")
+        public RailServe_dataEntities3(string connectionString) : base(connectionString, "RailServe_dataEntities3")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new RailServe_dataEntities1 object.
+        /// Initialize a new RailServe_dataEntities3 object.
         /// </summary>
-        public RailServe_dataEntities1(EntityConnection connection) : base(connection, "RailServe_dataEntities1")
+        public RailServe_dataEntities3(EntityConnection connection) : base(connection, "RailServe_dataEntities3")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -86,22 +91,6 @@ namespace TrainTracker.Web.Models
         #endregion
     
         #region ObjectSet Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Activity> Activities
-        {
-            get
-            {
-                if ((_Activities == null))
-                {
-                    _Activities = base.CreateObjectSet<Activity>("Activities");
-                }
-                return _Activities;
-            }
-        }
-        private ObjectSet<Activity> _Activities;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -138,6 +127,22 @@ namespace TrainTracker.Web.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<Department> Departments
+        {
+            get
+            {
+                if ((_Departments == null))
+                {
+                    _Departments = base.CreateObjectSet<Department>("Departments");
+                }
+                return _Departments;
+            }
+        }
+        private ObjectSet<Department> _Departments;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<HistoryType> HistoryTypes
         {
             get
@@ -150,6 +155,22 @@ namespace TrainTracker.Web.Models
             }
         }
         private ObjectSet<HistoryType> _HistoryTypes;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Location> Locations
+        {
+            get
+            {
+                if ((_Locations == null))
+                {
+                    _Locations = base.CreateObjectSet<Location>("Locations");
+                }
+                return _Locations;
+            }
+        }
+        private ObjectSet<Location> _Locations;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -234,22 +255,6 @@ namespace TrainTracker.Web.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<RailYard_Activities> RailYard_Activities
-        {
-            get
-            {
-                if ((_RailYard_Activities == null))
-                {
-                    _RailYard_Activities = base.CreateObjectSet<RailYard_Activities>("RailYard_Activities");
-                }
-                return _RailYard_Activities;
-            }
-        }
-        private ObjectSet<RailYard_Activities> _RailYard_Activities;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Track> Tracks
         {
             get
@@ -262,17 +267,25 @@ namespace TrainTracker.Web.Models
             }
         }
         private ObjectSet<Track> _Tracks;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<TrackType> TrackTypes
+        {
+            get
+            {
+                if ((_TrackTypes == null))
+                {
+                    _TrackTypes = base.CreateObjectSet<TrackType>("TrackTypes");
+                }
+                return _TrackTypes;
+            }
+        }
+        private ObjectSet<TrackType> _TrackTypes;
 
         #endregion
         #region AddTo Methods
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Activities EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToActivities(Activity activity)
-        {
-            base.AddObject("Activities", activity);
-        }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the CarLoadStatus EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
@@ -291,11 +304,27 @@ namespace TrainTracker.Web.Models
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the Departments EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToDepartments(Department department)
+        {
+            base.AddObject("Departments", department);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the HistoryTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToHistoryTypes(HistoryType historyType)
         {
             base.AddObject("HistoryTypes", historyType);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Locations EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToLocations(Location location)
+        {
+            base.AddObject("Locations", location);
         }
     
         /// <summary>
@@ -339,532 +368,19 @@ namespace TrainTracker.Web.Models
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the RailYard_Activities EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToRailYard_Activities(RailYard_Activities railYard_Activities)
-        {
-            base.AddObject("RailYard_Activities", railYard_Activities);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the Tracks EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToTracks(Track track)
         {
             base.AddObject("Tracks", track);
         }
-
-        #endregion
-        #region Function Imports
     
         /// <summary>
-        /// No Metadata Documentation available.
+        /// Deprecated Method for adding a new object to the TrackTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        /// <param name="carID">No Metadata Documentation available.</param>
-        /// <param name="yardID">No Metadata Documentation available.</param>
-        /// <param name="historyTypeID">No Metadata Documentation available.</param>
-        /// <param name="activityId">No Metadata Documentation available.</param>
-        /// <param name="trackId">No Metadata Documentation available.</param>
-        /// <param name="spot">No Metadata Documentation available.</param>
-        /// <param name="statusId">No Metadata Documentation available.</param>
-        /// <param name="commodityId">No Metadata Documentation available.</param>
-        /// <param name="comments">No Metadata Documentation available.</param>
-        /// <param name="company">No Metadata Documentation available.</param>
-        /// <param name="supplier">No Metadata Documentation available.</param>
-        /// <param name="weight">No Metadata Documentation available.</param>
-        /// <param name="receiptDate">No Metadata Documentation available.</param>
-        /// <param name="receiptTime">No Metadata Documentation available.</param>
-        /// <param name="shipDate">No Metadata Documentation available.</param>
-        /// <param name="shipTime">No Metadata Documentation available.</param>
-        /// <param name="primaryUser">No Metadata Documentation available.</param>
-        /// <param name="secondaryUser">No Metadata Documentation available.</param>
-        /// <param name="demurrage">No Metadata Documentation available.</param>
-        public ObjectResult<RailCarCurrentStatu> sp_car_currentstatus_set(Nullable<global::System.Int32> carID, Nullable<global::System.Int32> yardID, Nullable<global::System.Int32> historyTypeID, Nullable<global::System.Int32> activityId, Nullable<global::System.Int32> trackId, Nullable<global::System.Int32> spot, Nullable<global::System.Int32> statusId, Nullable<global::System.Int32> commodityId, global::System.String comments, global::System.String company, global::System.String supplier, Nullable<global::System.Int32> weight, Nullable<global::System.DateTime> receiptDate, Nullable<global::System.DateTime> receiptTime, Nullable<global::System.DateTime> shipDate, Nullable<global::System.DateTime> shipTime, global::System.String primaryUser, global::System.String secondaryUser, Nullable<global::System.Boolean> demurrage)
+        public void AddToTrackTypes(TrackType trackType)
         {
-            ObjectParameter carIDParameter;
-            if (carID.HasValue)
-            {
-                carIDParameter = new ObjectParameter("CarID", carID);
-            }
-            else
-            {
-                carIDParameter = new ObjectParameter("CarID", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter yardIDParameter;
-            if (yardID.HasValue)
-            {
-                yardIDParameter = new ObjectParameter("YardID", yardID);
-            }
-            else
-            {
-                yardIDParameter = new ObjectParameter("YardID", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter historyTypeIDParameter;
-            if (historyTypeID.HasValue)
-            {
-                historyTypeIDParameter = new ObjectParameter("HistoryTypeID", historyTypeID);
-            }
-            else
-            {
-                historyTypeIDParameter = new ObjectParameter("HistoryTypeID", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter activityIdParameter;
-            if (activityId.HasValue)
-            {
-                activityIdParameter = new ObjectParameter("ActivityId", activityId);
-            }
-            else
-            {
-                activityIdParameter = new ObjectParameter("ActivityId", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter trackIdParameter;
-            if (trackId.HasValue)
-            {
-                trackIdParameter = new ObjectParameter("TrackId", trackId);
-            }
-            else
-            {
-                trackIdParameter = new ObjectParameter("TrackId", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter spotParameter;
-            if (spot.HasValue)
-            {
-                spotParameter = new ObjectParameter("Spot", spot);
-            }
-            else
-            {
-                spotParameter = new ObjectParameter("Spot", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter statusIdParameter;
-            if (statusId.HasValue)
-            {
-                statusIdParameter = new ObjectParameter("StatusId", statusId);
-            }
-            else
-            {
-                statusIdParameter = new ObjectParameter("StatusId", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter commodityIdParameter;
-            if (commodityId.HasValue)
-            {
-                commodityIdParameter = new ObjectParameter("CommodityId", commodityId);
-            }
-            else
-            {
-                commodityIdParameter = new ObjectParameter("CommodityId", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter commentsParameter;
-            if (comments != null)
-            {
-                commentsParameter = new ObjectParameter("Comments", comments);
-            }
-            else
-            {
-                commentsParameter = new ObjectParameter("Comments", typeof(global::System.String));
-            }
-    
-            ObjectParameter companyParameter;
-            if (company != null)
-            {
-                companyParameter = new ObjectParameter("Company", company);
-            }
-            else
-            {
-                companyParameter = new ObjectParameter("Company", typeof(global::System.String));
-            }
-    
-            ObjectParameter supplierParameter;
-            if (supplier != null)
-            {
-                supplierParameter = new ObjectParameter("Supplier", supplier);
-            }
-            else
-            {
-                supplierParameter = new ObjectParameter("Supplier", typeof(global::System.String));
-            }
-    
-            ObjectParameter weightParameter;
-            if (weight.HasValue)
-            {
-                weightParameter = new ObjectParameter("Weight", weight);
-            }
-            else
-            {
-                weightParameter = new ObjectParameter("Weight", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter receiptDateParameter;
-            if (receiptDate.HasValue)
-            {
-                receiptDateParameter = new ObjectParameter("ReceiptDate", receiptDate);
-            }
-            else
-            {
-                receiptDateParameter = new ObjectParameter("ReceiptDate", typeof(global::System.DateTime));
-            }
-    
-            ObjectParameter receiptTimeParameter;
-            if (receiptTime.HasValue)
-            {
-                receiptTimeParameter = new ObjectParameter("ReceiptTime", receiptTime);
-            }
-            else
-            {
-                receiptTimeParameter = new ObjectParameter("ReceiptTime", typeof(global::System.DateTime));
-            }
-    
-            ObjectParameter shipDateParameter;
-            if (shipDate.HasValue)
-            {
-                shipDateParameter = new ObjectParameter("ShipDate", shipDate);
-            }
-            else
-            {
-                shipDateParameter = new ObjectParameter("ShipDate", typeof(global::System.DateTime));
-            }
-    
-            ObjectParameter shipTimeParameter;
-            if (shipTime.HasValue)
-            {
-                shipTimeParameter = new ObjectParameter("ShipTime", shipTime);
-            }
-            else
-            {
-                shipTimeParameter = new ObjectParameter("ShipTime", typeof(global::System.DateTime));
-            }
-    
-            ObjectParameter primaryUserParameter;
-            if (primaryUser != null)
-            {
-                primaryUserParameter = new ObjectParameter("PrimaryUser", primaryUser);
-            }
-            else
-            {
-                primaryUserParameter = new ObjectParameter("PrimaryUser", typeof(global::System.String));
-            }
-    
-            ObjectParameter secondaryUserParameter;
-            if (secondaryUser != null)
-            {
-                secondaryUserParameter = new ObjectParameter("SecondaryUser", secondaryUser);
-            }
-            else
-            {
-                secondaryUserParameter = new ObjectParameter("SecondaryUser", typeof(global::System.String));
-            }
-    
-            ObjectParameter demurrageParameter;
-            if (demurrage.HasValue)
-            {
-                demurrageParameter = new ObjectParameter("Demurrage", demurrage);
-            }
-            else
-            {
-                demurrageParameter = new ObjectParameter("Demurrage", typeof(global::System.Boolean));
-            }
-    
-            return base.ExecuteFunction<RailCarCurrentStatu>("sp_car_currentstatus_set", carIDParameter, yardIDParameter, historyTypeIDParameter, activityIdParameter, trackIdParameter, spotParameter, statusIdParameter, commodityIdParameter, commentsParameter, companyParameter, supplierParameter, weightParameter, receiptDateParameter, receiptTimeParameter, shipDateParameter, shipTimeParameter, primaryUserParameter, secondaryUserParameter, demurrageParameter);
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="mergeOption"></param>
-        /// <param name="carID">No Metadata Documentation available.</param>
-        /// <param name="yardID">No Metadata Documentation available.</param>
-        /// <param name="historyTypeID">No Metadata Documentation available.</param>
-        /// <param name="activityId">No Metadata Documentation available.</param>
-        /// <param name="trackId">No Metadata Documentation available.</param>
-        /// <param name="spot">No Metadata Documentation available.</param>
-        /// <param name="statusId">No Metadata Documentation available.</param>
-        /// <param name="commodityId">No Metadata Documentation available.</param>
-        /// <param name="comments">No Metadata Documentation available.</param>
-        /// <param name="company">No Metadata Documentation available.</param>
-        /// <param name="supplier">No Metadata Documentation available.</param>
-        /// <param name="weight">No Metadata Documentation available.</param>
-        /// <param name="receiptDate">No Metadata Documentation available.</param>
-        /// <param name="receiptTime">No Metadata Documentation available.</param>
-        /// <param name="shipDate">No Metadata Documentation available.</param>
-        /// <param name="shipTime">No Metadata Documentation available.</param>
-        /// <param name="primaryUser">No Metadata Documentation available.</param>
-        /// <param name="secondaryUser">No Metadata Documentation available.</param>
-        /// <param name="demurrage">No Metadata Documentation available.</param>
-        public ObjectResult<RailCarCurrentStatu> sp_car_currentstatus_set(Nullable<global::System.Int32> carID, Nullable<global::System.Int32> yardID, Nullable<global::System.Int32> historyTypeID, Nullable<global::System.Int32> activityId, Nullable<global::System.Int32> trackId, Nullable<global::System.Int32> spot, Nullable<global::System.Int32> statusId, Nullable<global::System.Int32> commodityId, global::System.String comments, global::System.String company, global::System.String supplier, Nullable<global::System.Int32> weight, Nullable<global::System.DateTime> receiptDate, Nullable<global::System.DateTime> receiptTime, Nullable<global::System.DateTime> shipDate, Nullable<global::System.DateTime> shipTime, global::System.String primaryUser, global::System.String secondaryUser, Nullable<global::System.Boolean> demurrage, MergeOption mergeOption)
-        {
-            ObjectParameter carIDParameter;
-            if (carID.HasValue)
-            {
-                carIDParameter = new ObjectParameter("CarID", carID);
-            }
-            else
-            {
-                carIDParameter = new ObjectParameter("CarID", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter yardIDParameter;
-            if (yardID.HasValue)
-            {
-                yardIDParameter = new ObjectParameter("YardID", yardID);
-            }
-            else
-            {
-                yardIDParameter = new ObjectParameter("YardID", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter historyTypeIDParameter;
-            if (historyTypeID.HasValue)
-            {
-                historyTypeIDParameter = new ObjectParameter("HistoryTypeID", historyTypeID);
-            }
-            else
-            {
-                historyTypeIDParameter = new ObjectParameter("HistoryTypeID", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter activityIdParameter;
-            if (activityId.HasValue)
-            {
-                activityIdParameter = new ObjectParameter("ActivityId", activityId);
-            }
-            else
-            {
-                activityIdParameter = new ObjectParameter("ActivityId", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter trackIdParameter;
-            if (trackId.HasValue)
-            {
-                trackIdParameter = new ObjectParameter("TrackId", trackId);
-            }
-            else
-            {
-                trackIdParameter = new ObjectParameter("TrackId", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter spotParameter;
-            if (spot.HasValue)
-            {
-                spotParameter = new ObjectParameter("Spot", spot);
-            }
-            else
-            {
-                spotParameter = new ObjectParameter("Spot", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter statusIdParameter;
-            if (statusId.HasValue)
-            {
-                statusIdParameter = new ObjectParameter("StatusId", statusId);
-            }
-            else
-            {
-                statusIdParameter = new ObjectParameter("StatusId", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter commodityIdParameter;
-            if (commodityId.HasValue)
-            {
-                commodityIdParameter = new ObjectParameter("CommodityId", commodityId);
-            }
-            else
-            {
-                commodityIdParameter = new ObjectParameter("CommodityId", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter commentsParameter;
-            if (comments != null)
-            {
-                commentsParameter = new ObjectParameter("Comments", comments);
-            }
-            else
-            {
-                commentsParameter = new ObjectParameter("Comments", typeof(global::System.String));
-            }
-    
-            ObjectParameter companyParameter;
-            if (company != null)
-            {
-                companyParameter = new ObjectParameter("Company", company);
-            }
-            else
-            {
-                companyParameter = new ObjectParameter("Company", typeof(global::System.String));
-            }
-    
-            ObjectParameter supplierParameter;
-            if (supplier != null)
-            {
-                supplierParameter = new ObjectParameter("Supplier", supplier);
-            }
-            else
-            {
-                supplierParameter = new ObjectParameter("Supplier", typeof(global::System.String));
-            }
-    
-            ObjectParameter weightParameter;
-            if (weight.HasValue)
-            {
-                weightParameter = new ObjectParameter("Weight", weight);
-            }
-            else
-            {
-                weightParameter = new ObjectParameter("Weight", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter receiptDateParameter;
-            if (receiptDate.HasValue)
-            {
-                receiptDateParameter = new ObjectParameter("ReceiptDate", receiptDate);
-            }
-            else
-            {
-                receiptDateParameter = new ObjectParameter("ReceiptDate", typeof(global::System.DateTime));
-            }
-    
-            ObjectParameter receiptTimeParameter;
-            if (receiptTime.HasValue)
-            {
-                receiptTimeParameter = new ObjectParameter("ReceiptTime", receiptTime);
-            }
-            else
-            {
-                receiptTimeParameter = new ObjectParameter("ReceiptTime", typeof(global::System.DateTime));
-            }
-    
-            ObjectParameter shipDateParameter;
-            if (shipDate.HasValue)
-            {
-                shipDateParameter = new ObjectParameter("ShipDate", shipDate);
-            }
-            else
-            {
-                shipDateParameter = new ObjectParameter("ShipDate", typeof(global::System.DateTime));
-            }
-    
-            ObjectParameter shipTimeParameter;
-            if (shipTime.HasValue)
-            {
-                shipTimeParameter = new ObjectParameter("ShipTime", shipTime);
-            }
-            else
-            {
-                shipTimeParameter = new ObjectParameter("ShipTime", typeof(global::System.DateTime));
-            }
-    
-            ObjectParameter primaryUserParameter;
-            if (primaryUser != null)
-            {
-                primaryUserParameter = new ObjectParameter("PrimaryUser", primaryUser);
-            }
-            else
-            {
-                primaryUserParameter = new ObjectParameter("PrimaryUser", typeof(global::System.String));
-            }
-    
-            ObjectParameter secondaryUserParameter;
-            if (secondaryUser != null)
-            {
-                secondaryUserParameter = new ObjectParameter("SecondaryUser", secondaryUser);
-            }
-            else
-            {
-                secondaryUserParameter = new ObjectParameter("SecondaryUser", typeof(global::System.String));
-            }
-    
-            ObjectParameter demurrageParameter;
-            if (demurrage.HasValue)
-            {
-                demurrageParameter = new ObjectParameter("Demurrage", demurrage);
-            }
-            else
-            {
-                demurrageParameter = new ObjectParameter("Demurrage", typeof(global::System.Boolean));
-            }
-    
-            return base.ExecuteFunction<RailCarCurrentStatu>("sp_car_currentstatus_set", mergeOption, carIDParameter, yardIDParameter, historyTypeIDParameter, activityIdParameter, trackIdParameter, spotParameter, statusIdParameter, commodityIdParameter, commentsParameter, companyParameter, supplierParameter, weightParameter, receiptDateParameter, receiptTimeParameter, shipDateParameter, shipTimeParameter, primaryUserParameter, secondaryUserParameter, demurrageParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="carId">No Metadata Documentation available.</param>
-        public ObjectResult<RailCarCurrentStatu> sp_car_currentstatus_get(Nullable<global::System.Int32> carId)
-        {
-            ObjectParameter carIdParameter;
-            if (carId.HasValue)
-            {
-                carIdParameter = new ObjectParameter("CarId", carId);
-            }
-            else
-            {
-                carIdParameter = new ObjectParameter("CarId", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction<RailCarCurrentStatu>("sp_car_currentstatus_get", carIdParameter);
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="mergeOption"></param>
-        /// <param name="carId">No Metadata Documentation available.</param>
-        public ObjectResult<RailCarCurrentStatu> sp_car_currentstatus_get(Nullable<global::System.Int32> carId, MergeOption mergeOption)
-        {
-            ObjectParameter carIdParameter;
-            if (carId.HasValue)
-            {
-                carIdParameter = new ObjectParameter("CarId", carId);
-            }
-            else
-            {
-                carIdParameter = new ObjectParameter("CarId", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction<RailCarCurrentStatu>("sp_car_currentstatus_get", mergeOption, carIdParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="yardId">No Metadata Documentation available.</param>
-        public ObjectResult<RailCarCurrentStatu> sp_yard_currentstatus_get(Nullable<global::System.Int32> yardId)
-        {
-            ObjectParameter yardIdParameter;
-            if (yardId.HasValue)
-            {
-                yardIdParameter = new ObjectParameter("YardId", yardId);
-            }
-            else
-            {
-                yardIdParameter = new ObjectParameter("YardId", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction<RailCarCurrentStatu>("sp_yard_currentstatus_get", yardIdParameter);
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="mergeOption"></param>
-        /// <param name="yardId">No Metadata Documentation available.</param>
-        public ObjectResult<RailCarCurrentStatu> sp_yard_currentstatus_get(Nullable<global::System.Int32> yardId, MergeOption mergeOption)
-        {
-            ObjectParameter yardIdParameter;
-            if (yardId.HasValue)
-            {
-                yardIdParameter = new ObjectParameter("YardId", yardId);
-            }
-            else
-            {
-                yardIdParameter = new ObjectParameter("YardId", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction<RailCarCurrentStatu>("sp_yard_currentstatus_get", mergeOption, yardIdParameter);
+            base.AddObject("TrackTypes", trackType);
         }
 
         #endregion
@@ -874,182 +390,6 @@ namespace TrainTracker.Web.Models
     #endregion
     
     #region Entities
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RailServe_dataModel", Name="Activity")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class Activity : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new Activity object.
-        /// </summary>
-        /// <param name="activityId">Initial value of the ActivityId property.</param>
-        /// <param name="activityName">Initial value of the ActivityName property.</param>
-        /// <param name="activityCode">Initial value of the ActivityCode property.</param>
-        public static Activity CreateActivity(global::System.Int32 activityId, global::System.String activityName, global::System.String activityCode)
-        {
-            Activity activity = new Activity();
-            activity.ActivityId = activityId;
-            activity.ActivityName = activityName;
-            activity.ActivityCode = activityCode;
-            return activity;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ActivityId
-        {
-            get
-            {
-                return _ActivityId;
-            }
-            set
-            {
-                if (_ActivityId != value)
-                {
-                    OnActivityIdChanging(value);
-                    ReportPropertyChanging("ActivityId");
-                    _ActivityId = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ActivityId");
-                    OnActivityIdChanged();
-                }
-            }
-        }
-        private global::System.Int32 _ActivityId;
-        partial void OnActivityIdChanging(global::System.Int32 value);
-        partial void OnActivityIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String ActivityName
-        {
-            get
-            {
-                return _ActivityName;
-            }
-            set
-            {
-                OnActivityNameChanging(value);
-                ReportPropertyChanging("ActivityName");
-                _ActivityName = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("ActivityName");
-                OnActivityNameChanged();
-            }
-        }
-        private global::System.String _ActivityName;
-        partial void OnActivityNameChanging(global::System.String value);
-        partial void OnActivityNameChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String ActivityCode
-        {
-            get
-            {
-                return _ActivityCode;
-            }
-            set
-            {
-                OnActivityCodeChanging(value);
-                ReportPropertyChanging("ActivityCode");
-                _ActivityCode = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("ActivityCode");
-                OnActivityCodeChanged();
-            }
-        }
-        private global::System.String _ActivityCode;
-        partial void OnActivityCodeChanging(global::System.String value);
-        partial void OnActivityCodeChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__Activ__4B7734FF", "RailCarCurrentStatus")]
-        public EntityCollection<RailCarCurrentStatu> RailCarCurrentStatus
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__Activ__4B7734FF", "RailCarCurrentStatus");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__Activ__4B7734FF", "RailCarCurrentStatus", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__Activ__40F9A68C", "RailCarHistory")]
-        public EntityCollection<RailCarHistory> RailCarHistories
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__Activ__40F9A68C", "RailCarHistory");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__Activ__40F9A68C", "RailCarHistory", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailYard___Activ__2F10007B", "RailYard_Activities")]
-        public EntityCollection<RailYard_Activities> RailYard_Activities
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailYard_Activities>("RailServe_dataModel.FK__RailYard___Activ__2F10007B", "RailYard_Activities");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailYard_Activities>("RailServe_dataModel.FK__RailYard___Activ__2F10007B", "RailYard_Activities", value);
-                }
-            }
-        }
-
-        #endregion
-    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -1164,18 +504,18 @@ namespace TrainTracker.Web.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__Statu__4F47C5E3", "RailCarCurrentStatus")]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__Statu__3F466844", "RailCarCurrentStatus")]
         public EntityCollection<RailCarCurrentStatu> RailCarCurrentStatus
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__Statu__4F47C5E3", "RailCarCurrentStatus");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__Statu__3F466844", "RailCarCurrentStatus");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__Statu__4F47C5E3", "RailCarCurrentStatus", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__Statu__3F466844", "RailCarCurrentStatus", value);
                 }
             }
         }
@@ -1186,18 +526,18 @@ namespace TrainTracker.Web.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__Statu__43D61337", "RailCarHistory")]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__Statu__45F365D3", "RailCarHistory")]
         public EntityCollection<RailCarHistory> RailCarHistories
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__Statu__43D61337", "RailCarHistory");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__Statu__45F365D3", "RailCarHistory");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__Statu__43D61337", "RailCarHistory", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__Statu__45F365D3", "RailCarHistory", value);
                 }
             }
         }
@@ -1221,12 +561,14 @@ namespace TrainTracker.Web.Models
         /// <param name="commodityID">Initial value of the CommodityID property.</param>
         /// <param name="commodityCode">Initial value of the CommodityCode property.</param>
         /// <param name="commodityName">Initial value of the CommodityName property.</param>
-        public static Commodity CreateCommodity(global::System.Int32 commodityID, global::System.String commodityCode, global::System.String commodityName)
+        /// <param name="locationID">Initial value of the LocationID property.</param>
+        public static Commodity CreateCommodity(global::System.Int32 commodityID, global::System.String commodityCode, global::System.String commodityName, global::System.Int32 locationID)
         {
             Commodity commodity = new Commodity();
             commodity.CommodityID = commodityID;
             commodity.CommodityCode = commodityCode;
             commodity.CommodityName = commodityName;
+            commodity.LocationID = locationID;
             return commodity;
         }
 
@@ -1311,26 +653,26 @@ namespace TrainTracker.Web.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Comments
+        public global::System.Int32 LocationID
         {
             get
             {
-                return _Comments;
+                return _LocationID;
             }
             set
             {
-                OnCommentsChanging(value);
-                ReportPropertyChanging("Comments");
-                _Comments = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Comments");
-                OnCommentsChanged();
+                OnLocationIDChanging(value);
+                ReportPropertyChanging("LocationID");
+                _LocationID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LocationID");
+                OnLocationIDChanged();
             }
         }
-        private global::System.String _Comments;
-        partial void OnCommentsChanging(global::System.String value);
-        partial void OnCommentsChanged();
+        private global::System.Int32 _LocationID;
+        partial void OnLocationIDChanging(global::System.Int32 value);
+        partial void OnLocationIDChanged();
 
         #endregion
     
@@ -1342,18 +684,34 @@ namespace TrainTracker.Web.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__Commo__4D5F7D71", "RailCarCurrentStatus")]
-        public EntityCollection<RailCarCurrentStatu> RailCarCurrentStatus
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__Commodity__Locat__5629CD9C", "Location")]
+        public Location Location
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__Commo__4D5F7D71", "RailCarCurrentStatus");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("RailServe_dataModel.FK__Commodity__Locat__5629CD9C", "Location").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("RailServe_dataModel.FK__Commodity__Locat__5629CD9C", "Location").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Location> LocationReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("RailServe_dataModel.FK__Commodity__Locat__5629CD9C", "Location");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__Commo__4D5F7D71", "RailCarCurrentStatus", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Location>("RailServe_dataModel.FK__Commodity__Locat__5629CD9C", "Location", value);
                 }
             }
         }
@@ -1364,18 +722,258 @@ namespace TrainTracker.Web.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__Commo__42E1EEFE", "RailCarHistory")]
-        public EntityCollection<RailCarHistory> RailCarHistories
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__Commo__3D5E1FD2", "RailCarCurrentStatus")]
+        public EntityCollection<RailCarCurrentStatu> RailCarCurrentStatus
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__Commo__42E1EEFE", "RailCarHistory");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__Commo__3D5E1FD2", "RailCarCurrentStatus");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__Commo__42E1EEFE", "RailCarHistory", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__Commo__3D5E1FD2", "RailCarCurrentStatus", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__Commo__440B1D61", "RailCarHistory")]
+        public EntityCollection<RailCarHistory> RailCarHistories
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__Commo__440B1D61", "RailCarHistory");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__Commo__440B1D61", "RailCarHistory", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="RailServe_dataModel", Name="Department")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Department : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Department object.
+        /// </summary>
+        /// <param name="departmentID">Initial value of the DepartmentID property.</param>
+        /// <param name="departmentCode">Initial value of the DepartmentCode property.</param>
+        /// <param name="departmentName">Initial value of the DepartmentName property.</param>
+        /// <param name="locationID">Initial value of the LocationID property.</param>
+        public static Department CreateDepartment(global::System.Int32 departmentID, global::System.String departmentCode, global::System.String departmentName, global::System.Int32 locationID)
+        {
+            Department department = new Department();
+            department.DepartmentID = departmentID;
+            department.DepartmentCode = departmentCode;
+            department.DepartmentName = departmentName;
+            department.LocationID = locationID;
+            return department;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DepartmentID
+        {
+            get
+            {
+                return _DepartmentID;
+            }
+            set
+            {
+                if (_DepartmentID != value)
+                {
+                    OnDepartmentIDChanging(value);
+                    ReportPropertyChanging("DepartmentID");
+                    _DepartmentID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("DepartmentID");
+                    OnDepartmentIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _DepartmentID;
+        partial void OnDepartmentIDChanging(global::System.Int32 value);
+        partial void OnDepartmentIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DepartmentCode
+        {
+            get
+            {
+                return _DepartmentCode;
+            }
+            set
+            {
+                OnDepartmentCodeChanging(value);
+                ReportPropertyChanging("DepartmentCode");
+                _DepartmentCode = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DepartmentCode");
+                OnDepartmentCodeChanged();
+            }
+        }
+        private global::System.String _DepartmentCode;
+        partial void OnDepartmentCodeChanging(global::System.String value);
+        partial void OnDepartmentCodeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DepartmentName
+        {
+            get
+            {
+                return _DepartmentName;
+            }
+            set
+            {
+                OnDepartmentNameChanging(value);
+                ReportPropertyChanging("DepartmentName");
+                _DepartmentName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DepartmentName");
+                OnDepartmentNameChanged();
+            }
+        }
+        private global::System.String _DepartmentName;
+        partial void OnDepartmentNameChanging(global::System.String value);
+        partial void OnDepartmentNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 LocationID
+        {
+            get
+            {
+                return _LocationID;
+            }
+            set
+            {
+                OnLocationIDChanging(value);
+                ReportPropertyChanging("LocationID");
+                _LocationID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LocationID");
+                OnLocationIDChanged();
+            }
+        }
+        private global::System.Int32 _LocationID;
+        partial void OnLocationIDChanging(global::System.Int32 value);
+        partial void OnLocationIDChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__Departmen__Locat__5812160E", "Location")]
+        public Location Location
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("RailServe_dataModel.FK__Departmen__Locat__5812160E", "Location").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("RailServe_dataModel.FK__Departmen__Locat__5812160E", "Location").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Location> LocationReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("RailServe_dataModel.FK__Departmen__Locat__5812160E", "Location");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Location>("RailServe_dataModel.FK__Departmen__Locat__5812160E", "Location", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__Depar__3B75D760", "RailCarCurrentStatus")]
+        public EntityCollection<RailCarCurrentStatu> RailCarCurrentStatus
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__Depar__3B75D760", "RailCarCurrentStatus");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__Depar__3B75D760", "RailCarCurrentStatus", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__Depar__4222D4EF", "RailCarHistory")]
+        public EntityCollection<RailCarHistory> RailCarHistories
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__Depar__4222D4EF", "RailCarHistory");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__Depar__4222D4EF", "RailCarHistory", value);
                 }
             }
         }
@@ -1470,18 +1068,18 @@ namespace TrainTracker.Web.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__Histo__4E53A1AA", "RailCarCurrentStatus")]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__Histo__3E52440B", "RailCarCurrentStatus")]
         public EntityCollection<RailCarCurrentStatu> RailCarCurrentStatus
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__Histo__4E53A1AA", "RailCarCurrentStatus");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__Histo__3E52440B", "RailCarCurrentStatus");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__Histo__4E53A1AA", "RailCarCurrentStatus", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__Histo__3E52440B", "RailCarCurrentStatus", value);
                 }
             }
         }
@@ -1492,18 +1090,18 @@ namespace TrainTracker.Web.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__Histo__46B27FE2", "RailCarHistory")]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__Histo__44FF419A", "RailCarHistory")]
         public EntityCollection<RailCarHistory> RailCarHistories
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__Histo__46B27FE2", "RailCarHistory");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__Histo__44FF419A", "RailCarHistory");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__Histo__46B27FE2", "RailCarHistory", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__Histo__44FF419A", "RailCarHistory", value);
                 }
             }
         }
@@ -1514,24 +1112,26 @@ namespace TrainTracker.Web.Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RailServe_dataModel", Name="RailCar")]
+    [EdmEntityTypeAttribute(NamespaceName="RailServe_dataModel", Name="Location")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class RailCar : EntityObject
+    public partial class Location : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new RailCar object.
+        /// Create a new Location object.
         /// </summary>
-        /// <param name="carID">Initial value of the CarID property.</param>
-        /// <param name="number">Initial value of the Number property.</param>
-        public static RailCar CreateRailCar(global::System.Int32 carID, global::System.String number)
+        /// <param name="locationID">Initial value of the LocationID property.</param>
+        /// <param name="locationCode">Initial value of the LocationCode property.</param>
+        /// <param name="locationName">Initial value of the LocationName property.</param>
+        public static Location CreateLocation(global::System.Int32 locationID, global::System.String locationCode, global::System.String locationName)
         {
-            RailCar railCar = new RailCar();
-            railCar.CarID = carID;
-            railCar.Number = number;
-            return railCar;
+            Location location = new Location();
+            location.LocationID = locationID;
+            location.LocationCode = locationCode;
+            location.LocationName = locationName;
+            return location;
         }
 
         #endregion
@@ -1542,2041 +1142,75 @@ namespace TrainTracker.Web.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 CarID
+        public global::System.Int32 LocationID
         {
             get
             {
-                return _CarID;
+                return _LocationID;
             }
             set
             {
-                if (_CarID != value)
+                if (_LocationID != value)
                 {
-                    OnCarIDChanging(value);
-                    ReportPropertyChanging("CarID");
-                    _CarID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("CarID");
-                    OnCarIDChanged();
+                    OnLocationIDChanging(value);
+                    ReportPropertyChanging("LocationID");
+                    _LocationID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("LocationID");
+                    OnLocationIDChanged();
                 }
             }
         }
-        private global::System.Int32 _CarID;
-        partial void OnCarIDChanging(global::System.Int32 value);
-        partial void OnCarIDChanged();
+        private global::System.Int32 _LocationID;
+        partial void OnLocationIDChanging(global::System.Int32 value);
+        partial void OnLocationIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Number
+        public global::System.String LocationCode
         {
             get
             {
-                return _Number;
+                return _LocationCode;
             }
             set
             {
-                OnNumberChanging(value);
-                ReportPropertyChanging("Number");
-                _Number = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Number");
-                OnNumberChanged();
+                OnLocationCodeChanging(value);
+                ReportPropertyChanging("LocationCode");
+                _LocationCode = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("LocationCode");
+                OnLocationCodeChanged();
             }
         }
-        private global::System.String _Number;
-        partial void OnNumberChanging(global::System.String value);
-        partial void OnNumberChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Type
-        {
-            get
-            {
-                return _Type;
-            }
-            set
-            {
-                OnTypeChanging(value);
-                ReportPropertyChanging("Type");
-                _Type = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Type");
-                OnTypeChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _Type;
-        partial void OnTypeChanging(Nullable<global::System.Int32> value);
-        partial void OnTypeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Owner
-        {
-            get
-            {
-                return _Owner;
-            }
-            set
-            {
-                OnOwnerChanging(value);
-                ReportPropertyChanging("Owner");
-                _Owner = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Owner");
-                OnOwnerChanged();
-            }
-        }
-        private global::System.String _Owner;
-        partial void OnOwnerChanging(global::System.String value);
-        partial void OnOwnerChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCar__Type__7A672E12", "RailCarType")]
-        public RailCarType RailCarType
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailCarType>("RailServe_dataModel.FK__RailCar__Type__7A672E12", "RailCarType").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailCarType>("RailServe_dataModel.FK__RailCar__Type__7A672E12", "RailCarType").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<RailCarType> RailCarTypeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailCarType>("RailServe_dataModel.FK__RailCar__Type__7A672E12", "RailCarType");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RailCarType>("RailServe_dataModel.FK__RailCar__Type__7A672E12", "RailCarType", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__CarID__4C6B5938", "RailCarCurrentStatus")]
-        public EntityCollection<RailCarCurrentStatu> RailCarCurrentStatus
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__CarID__4C6B5938", "RailCarCurrentStatus");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__CarID__4C6B5938", "RailCarCurrentStatus", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__CarID__41EDCAC5", "RailCarHistory")]
-        public EntityCollection<RailCarHistory> RailCarHistories
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__CarID__41EDCAC5", "RailCarHistory");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__CarID__41EDCAC5", "RailCarHistory", value);
-                }
-            }
-        }
-
-        #endregion
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RailServe_dataModel", Name="RailCarCurrentStatu")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class RailCarCurrentStatu : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new RailCarCurrentStatu object.
-        /// </summary>
-        /// <param name="currentStatusID">Initial value of the CurrentStatusID property.</param>
-        /// <param name="carID">Initial value of the CarID property.</param>
-        /// <param name="yardID">Initial value of the YardID property.</param>
-        /// <param name="historyTypeId">Initial value of the HistoryTypeId property.</param>
-        public static RailCarCurrentStatu CreateRailCarCurrentStatu(global::System.Int32 currentStatusID, global::System.Int32 carID, global::System.Int32 yardID, global::System.Int32 historyTypeId)
-        {
-            RailCarCurrentStatu railCarCurrentStatu = new RailCarCurrentStatu();
-            railCarCurrentStatu.CurrentStatusID = currentStatusID;
-            railCarCurrentStatu.CarID = carID;
-            railCarCurrentStatu.YardID = yardID;
-            railCarCurrentStatu.HistoryTypeId = historyTypeId;
-            return railCarCurrentStatu;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 CurrentStatusID
-        {
-            get
-            {
-                return _CurrentStatusID;
-            }
-            set
-            {
-                if (_CurrentStatusID != value)
-                {
-                    OnCurrentStatusIDChanging(value);
-                    ReportPropertyChanging("CurrentStatusID");
-                    _CurrentStatusID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("CurrentStatusID");
-                    OnCurrentStatusIDChanged();
-                }
-            }
-        }
-        private global::System.Int32 _CurrentStatusID;
-        partial void OnCurrentStatusIDChanging(global::System.Int32 value);
-        partial void OnCurrentStatusIDChanged();
+        private global::System.String _LocationCode;
+        partial void OnLocationCodeChanging(global::System.String value);
+        partial void OnLocationCodeChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 CarID
+        public global::System.String LocationName
         {
             get
             {
-                return _CarID;
+                return _LocationName;
             }
             set
             {
-                OnCarIDChanging(value);
-                ReportPropertyChanging("CarID");
-                _CarID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CarID");
-                OnCarIDChanged();
+                OnLocationNameChanging(value);
+                ReportPropertyChanging("LocationName");
+                _LocationName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("LocationName");
+                OnLocationNameChanged();
             }
         }
-        private global::System.Int32 _CarID;
-        partial void OnCarIDChanging(global::System.Int32 value);
-        partial void OnCarIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 YardID
-        {
-            get
-            {
-                return _YardID;
-            }
-            set
-            {
-                OnYardIDChanging(value);
-                ReportPropertyChanging("YardID");
-                _YardID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("YardID");
-                OnYardIDChanged();
-            }
-        }
-        private global::System.Int32 _YardID;
-        partial void OnYardIDChanging(global::System.Int32 value);
-        partial void OnYardIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> ActivityId
-        {
-            get
-            {
-                return _ActivityId;
-            }
-            set
-            {
-                OnActivityIdChanging(value);
-                ReportPropertyChanging("ActivityId");
-                _ActivityId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ActivityId");
-                OnActivityIdChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _ActivityId;
-        partial void OnActivityIdChanging(Nullable<global::System.Int32> value);
-        partial void OnActivityIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> TrackId
-        {
-            get
-            {
-                return _TrackId;
-            }
-            set
-            {
-                OnTrackIdChanging(value);
-                ReportPropertyChanging("TrackId");
-                _TrackId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("TrackId");
-                OnTrackIdChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _TrackId;
-        partial void OnTrackIdChanging(Nullable<global::System.Int32> value);
-        partial void OnTrackIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Spot
-        {
-            get
-            {
-                return _Spot;
-            }
-            set
-            {
-                OnSpotChanging(value);
-                ReportPropertyChanging("Spot");
-                _Spot = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Spot");
-                OnSpotChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _Spot;
-        partial void OnSpotChanging(Nullable<global::System.Int32> value);
-        partial void OnSpotChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> StatusId
-        {
-            get
-            {
-                return _StatusId;
-            }
-            set
-            {
-                OnStatusIdChanging(value);
-                ReportPropertyChanging("StatusId");
-                _StatusId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("StatusId");
-                OnStatusIdChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _StatusId;
-        partial void OnStatusIdChanging(Nullable<global::System.Int32> value);
-        partial void OnStatusIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> CommodityId
-        {
-            get
-            {
-                return _CommodityId;
-            }
-            set
-            {
-                OnCommodityIdChanging(value);
-                ReportPropertyChanging("CommodityId");
-                _CommodityId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CommodityId");
-                OnCommodityIdChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _CommodityId;
-        partial void OnCommodityIdChanging(Nullable<global::System.Int32> value);
-        partial void OnCommodityIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Comments
-        {
-            get
-            {
-                return _Comments;
-            }
-            set
-            {
-                OnCommentsChanging(value);
-                ReportPropertyChanging("Comments");
-                _Comments = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Comments");
-                OnCommentsChanged();
-            }
-        }
-        private global::System.String _Comments;
-        partial void OnCommentsChanging(global::System.String value);
-        partial void OnCommentsChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Company
-        {
-            get
-            {
-                return _Company;
-            }
-            set
-            {
-                OnCompanyChanging(value);
-                ReportPropertyChanging("Company");
-                _Company = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Company");
-                OnCompanyChanged();
-            }
-        }
-        private global::System.String _Company;
-        partial void OnCompanyChanging(global::System.String value);
-        partial void OnCompanyChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Supplier
-        {
-            get
-            {
-                return _Supplier;
-            }
-            set
-            {
-                OnSupplierChanging(value);
-                ReportPropertyChanging("Supplier");
-                _Supplier = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Supplier");
-                OnSupplierChanged();
-            }
-        }
-        private global::System.String _Supplier;
-        partial void OnSupplierChanging(global::System.String value);
-        partial void OnSupplierChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Weight
-        {
-            get
-            {
-                return _Weight;
-            }
-            set
-            {
-                OnWeightChanging(value);
-                ReportPropertyChanging("Weight");
-                _Weight = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Weight");
-                OnWeightChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _Weight;
-        partial void OnWeightChanging(Nullable<global::System.Int32> value);
-        partial void OnWeightChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> ReceiptDate
-        {
-            get
-            {
-                return _ReceiptDate;
-            }
-            set
-            {
-                OnReceiptDateChanging(value);
-                ReportPropertyChanging("ReceiptDate");
-                _ReceiptDate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ReceiptDate");
-                OnReceiptDateChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _ReceiptDate;
-        partial void OnReceiptDateChanging(Nullable<global::System.DateTime> value);
-        partial void OnReceiptDateChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> ReceiptTime
-        {
-            get
-            {
-                return _ReceiptTime;
-            }
-            set
-            {
-                OnReceiptTimeChanging(value);
-                ReportPropertyChanging("ReceiptTime");
-                _ReceiptTime = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ReceiptTime");
-                OnReceiptTimeChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _ReceiptTime;
-        partial void OnReceiptTimeChanging(Nullable<global::System.DateTime> value);
-        partial void OnReceiptTimeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> ShipDate
-        {
-            get
-            {
-                return _ShipDate;
-            }
-            set
-            {
-                OnShipDateChanging(value);
-                ReportPropertyChanging("ShipDate");
-                _ShipDate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ShipDate");
-                OnShipDateChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _ShipDate;
-        partial void OnShipDateChanging(Nullable<global::System.DateTime> value);
-        partial void OnShipDateChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> ShipTime
-        {
-            get
-            {
-                return _ShipTime;
-            }
-            set
-            {
-                OnShipTimeChanging(value);
-                ReportPropertyChanging("ShipTime");
-                _ShipTime = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ShipTime");
-                OnShipTimeChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _ShipTime;
-        partial void OnShipTimeChanging(Nullable<global::System.DateTime> value);
-        partial void OnShipTimeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String PrimaryUser
-        {
-            get
-            {
-                return _PrimaryUser;
-            }
-            set
-            {
-                OnPrimaryUserChanging(value);
-                ReportPropertyChanging("PrimaryUser");
-                _PrimaryUser = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("PrimaryUser");
-                OnPrimaryUserChanged();
-            }
-        }
-        private global::System.String _PrimaryUser;
-        partial void OnPrimaryUserChanging(global::System.String value);
-        partial void OnPrimaryUserChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String SecondaryUser
-        {
-            get
-            {
-                return _SecondaryUser;
-            }
-            set
-            {
-                OnSecondaryUserChanging(value);
-                ReportPropertyChanging("SecondaryUser");
-                _SecondaryUser = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("SecondaryUser");
-                OnSecondaryUserChanged();
-            }
-        }
-        private global::System.String _SecondaryUser;
-        partial void OnSecondaryUserChanging(global::System.String value);
-        partial void OnSecondaryUserChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 HistoryTypeId
-        {
-            get
-            {
-                return _HistoryTypeId;
-            }
-            set
-            {
-                OnHistoryTypeIdChanging(value);
-                ReportPropertyChanging("HistoryTypeId");
-                _HistoryTypeId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("HistoryTypeId");
-                OnHistoryTypeIdChanged();
-            }
-        }
-        private global::System.Int32 _HistoryTypeId;
-        partial void OnHistoryTypeIdChanging(global::System.Int32 value);
-        partial void OnHistoryTypeIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> Demurrage
-        {
-            get
-            {
-                return _Demurrage;
-            }
-            set
-            {
-                OnDemurrageChanging(value);
-                ReportPropertyChanging("Demurrage");
-                _Demurrage = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Demurrage");
-                OnDemurrageChanged();
-            }
-        }
-        private Nullable<global::System.Boolean> _Demurrage;
-        partial void OnDemurrageChanging(Nullable<global::System.Boolean> value);
-        partial void OnDemurrageChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> X
-        {
-            get
-            {
-                return _X;
-            }
-            set
-            {
-                OnXChanging(value);
-                ReportPropertyChanging("X");
-                _X = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("X");
-                OnXChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _X;
-        partial void OnXChanging(Nullable<global::System.Int32> value);
-        partial void OnXChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Y
-        {
-            get
-            {
-                return _Y;
-            }
-            set
-            {
-                OnYChanging(value);
-                ReportPropertyChanging("Y");
-                _Y = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Y");
-                OnYChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _Y;
-        partial void OnYChanging(Nullable<global::System.Int32> value);
-        partial void OnYChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__Activ__4B7734FF", "Activity")]
-        public Activity Activity
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Activity>("RailServe_dataModel.FK__RailCarCu__Activ__4B7734FF", "Activity").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Activity>("RailServe_dataModel.FK__RailCarCu__Activ__4B7734FF", "Activity").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Activity> ActivityReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Activity>("RailServe_dataModel.FK__RailCarCu__Activ__4B7734FF", "Activity");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Activity>("RailServe_dataModel.FK__RailCarCu__Activ__4B7734FF", "Activity", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__Statu__4F47C5E3", "CarLoadStatus")]
-        public CarLoadStatu CarLoadStatu
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CarLoadStatu>("RailServe_dataModel.FK__RailCarCu__Statu__4F47C5E3", "CarLoadStatus").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CarLoadStatu>("RailServe_dataModel.FK__RailCarCu__Statu__4F47C5E3", "CarLoadStatus").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<CarLoadStatu> CarLoadStatuReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CarLoadStatu>("RailServe_dataModel.FK__RailCarCu__Statu__4F47C5E3", "CarLoadStatus");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CarLoadStatu>("RailServe_dataModel.FK__RailCarCu__Statu__4F47C5E3", "CarLoadStatus", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__Commo__4D5F7D71", "Commodity")]
-        public Commodity Commodity
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Commodity>("RailServe_dataModel.FK__RailCarCu__Commo__4D5F7D71", "Commodity").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Commodity>("RailServe_dataModel.FK__RailCarCu__Commo__4D5F7D71", "Commodity").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Commodity> CommodityReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Commodity>("RailServe_dataModel.FK__RailCarCu__Commo__4D5F7D71", "Commodity");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Commodity>("RailServe_dataModel.FK__RailCarCu__Commo__4D5F7D71", "Commodity", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__Histo__4E53A1AA", "HistoryType")]
-        public HistoryType HistoryType
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HistoryType>("RailServe_dataModel.FK__RailCarCu__Histo__4E53A1AA", "HistoryType").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HistoryType>("RailServe_dataModel.FK__RailCarCu__Histo__4E53A1AA", "HistoryType").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<HistoryType> HistoryTypeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HistoryType>("RailServe_dataModel.FK__RailCarCu__Histo__4E53A1AA", "HistoryType");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<HistoryType>("RailServe_dataModel.FK__RailCarCu__Histo__4E53A1AA", "HistoryType", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__CarID__4C6B5938", "RailCar")]
-        public RailCar RailCar
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailCar>("RailServe_dataModel.FK__RailCarCu__CarID__4C6B5938", "RailCar").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailCar>("RailServe_dataModel.FK__RailCarCu__CarID__4C6B5938", "RailCar").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<RailCar> RailCarReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailCar>("RailServe_dataModel.FK__RailCarCu__CarID__4C6B5938", "RailCar");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RailCar>("RailServe_dataModel.FK__RailCarCu__CarID__4C6B5938", "RailCar", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__Track__503BEA1C", "Track")]
-        public Track Track
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Track>("RailServe_dataModel.FK__RailCarCu__Track__503BEA1C", "Track").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Track>("RailServe_dataModel.FK__RailCarCu__Track__503BEA1C", "Track").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Track> TrackReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Track>("RailServe_dataModel.FK__RailCarCu__Track__503BEA1C", "Track");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Track>("RailServe_dataModel.FK__RailCarCu__Track__503BEA1C", "Track", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__YardI__51300E55", "RailYard")]
-        public RailYard RailYard
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailYard>("RailServe_dataModel.FK__RailCarCu__YardI__51300E55", "RailYard").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailYard>("RailServe_dataModel.FK__RailCarCu__YardI__51300E55", "RailYard").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<RailYard> RailYardReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailYard>("RailServe_dataModel.FK__RailCarCu__YardI__51300E55", "RailYard");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RailYard>("RailServe_dataModel.FK__RailCarCu__YardI__51300E55", "RailYard", value);
-                }
-            }
-        }
-
-        #endregion
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RailServe_dataModel", Name="RailCarHistory")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class RailCarHistory : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new RailCarHistory object.
-        /// </summary>
-        /// <param name="historyID">Initial value of the HistoryID property.</param>
-        /// <param name="carID">Initial value of the CarID property.</param>
-        /// <param name="yardID">Initial value of the YardID property.</param>
-        /// <param name="historyTypeId">Initial value of the HistoryTypeId property.</param>
-        public static RailCarHistory CreateRailCarHistory(global::System.Int32 historyID, global::System.Int32 carID, global::System.Int32 yardID, global::System.Int32 historyTypeId)
-        {
-            RailCarHistory railCarHistory = new RailCarHistory();
-            railCarHistory.HistoryID = historyID;
-            railCarHistory.CarID = carID;
-            railCarHistory.YardID = yardID;
-            railCarHistory.HistoryTypeId = historyTypeId;
-            return railCarHistory;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 HistoryID
-        {
-            get
-            {
-                return _HistoryID;
-            }
-            set
-            {
-                if (_HistoryID != value)
-                {
-                    OnHistoryIDChanging(value);
-                    ReportPropertyChanging("HistoryID");
-                    _HistoryID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("HistoryID");
-                    OnHistoryIDChanged();
-                }
-            }
-        }
-        private global::System.Int32 _HistoryID;
-        partial void OnHistoryIDChanging(global::System.Int32 value);
-        partial void OnHistoryIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 CarID
-        {
-            get
-            {
-                return _CarID;
-            }
-            set
-            {
-                OnCarIDChanging(value);
-                ReportPropertyChanging("CarID");
-                _CarID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CarID");
-                OnCarIDChanged();
-            }
-        }
-        private global::System.Int32 _CarID;
-        partial void OnCarIDChanging(global::System.Int32 value);
-        partial void OnCarIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 YardID
-        {
-            get
-            {
-                return _YardID;
-            }
-            set
-            {
-                OnYardIDChanging(value);
-                ReportPropertyChanging("YardID");
-                _YardID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("YardID");
-                OnYardIDChanged();
-            }
-        }
-        private global::System.Int32 _YardID;
-        partial void OnYardIDChanging(global::System.Int32 value);
-        partial void OnYardIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> ActivityId
-        {
-            get
-            {
-                return _ActivityId;
-            }
-            set
-            {
-                OnActivityIdChanging(value);
-                ReportPropertyChanging("ActivityId");
-                _ActivityId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ActivityId");
-                OnActivityIdChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _ActivityId;
-        partial void OnActivityIdChanging(Nullable<global::System.Int32> value);
-        partial void OnActivityIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> TrackId
-        {
-            get
-            {
-                return _TrackId;
-            }
-            set
-            {
-                OnTrackIdChanging(value);
-                ReportPropertyChanging("TrackId");
-                _TrackId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("TrackId");
-                OnTrackIdChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _TrackId;
-        partial void OnTrackIdChanging(Nullable<global::System.Int32> value);
-        partial void OnTrackIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Spot
-        {
-            get
-            {
-                return _Spot;
-            }
-            set
-            {
-                OnSpotChanging(value);
-                ReportPropertyChanging("Spot");
-                _Spot = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Spot");
-                OnSpotChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _Spot;
-        partial void OnSpotChanging(Nullable<global::System.Int32> value);
-        partial void OnSpotChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> StatusId
-        {
-            get
-            {
-                return _StatusId;
-            }
-            set
-            {
-                OnStatusIdChanging(value);
-                ReportPropertyChanging("StatusId");
-                _StatusId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("StatusId");
-                OnStatusIdChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _StatusId;
-        partial void OnStatusIdChanging(Nullable<global::System.Int32> value);
-        partial void OnStatusIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> CommodityId
-        {
-            get
-            {
-                return _CommodityId;
-            }
-            set
-            {
-                OnCommodityIdChanging(value);
-                ReportPropertyChanging("CommodityId");
-                _CommodityId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CommodityId");
-                OnCommodityIdChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _CommodityId;
-        partial void OnCommodityIdChanging(Nullable<global::System.Int32> value);
-        partial void OnCommodityIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Comments
-        {
-            get
-            {
-                return _Comments;
-            }
-            set
-            {
-                OnCommentsChanging(value);
-                ReportPropertyChanging("Comments");
-                _Comments = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Comments");
-                OnCommentsChanged();
-            }
-        }
-        private global::System.String _Comments;
-        partial void OnCommentsChanging(global::System.String value);
-        partial void OnCommentsChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Company
-        {
-            get
-            {
-                return _Company;
-            }
-            set
-            {
-                OnCompanyChanging(value);
-                ReportPropertyChanging("Company");
-                _Company = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Company");
-                OnCompanyChanged();
-            }
-        }
-        private global::System.String _Company;
-        partial void OnCompanyChanging(global::System.String value);
-        partial void OnCompanyChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Supplier
-        {
-            get
-            {
-                return _Supplier;
-            }
-            set
-            {
-                OnSupplierChanging(value);
-                ReportPropertyChanging("Supplier");
-                _Supplier = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Supplier");
-                OnSupplierChanged();
-            }
-        }
-        private global::System.String _Supplier;
-        partial void OnSupplierChanging(global::System.String value);
-        partial void OnSupplierChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Weight
-        {
-            get
-            {
-                return _Weight;
-            }
-            set
-            {
-                OnWeightChanging(value);
-                ReportPropertyChanging("Weight");
-                _Weight = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Weight");
-                OnWeightChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _Weight;
-        partial void OnWeightChanging(Nullable<global::System.Int32> value);
-        partial void OnWeightChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> ReceiptDate
-        {
-            get
-            {
-                return _ReceiptDate;
-            }
-            set
-            {
-                OnReceiptDateChanging(value);
-                ReportPropertyChanging("ReceiptDate");
-                _ReceiptDate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ReceiptDate");
-                OnReceiptDateChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _ReceiptDate;
-        partial void OnReceiptDateChanging(Nullable<global::System.DateTime> value);
-        partial void OnReceiptDateChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> ReceiptTime
-        {
-            get
-            {
-                return _ReceiptTime;
-            }
-            set
-            {
-                OnReceiptTimeChanging(value);
-                ReportPropertyChanging("ReceiptTime");
-                _ReceiptTime = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ReceiptTime");
-                OnReceiptTimeChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _ReceiptTime;
-        partial void OnReceiptTimeChanging(Nullable<global::System.DateTime> value);
-        partial void OnReceiptTimeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> ShipDate
-        {
-            get
-            {
-                return _ShipDate;
-            }
-            set
-            {
-                OnShipDateChanging(value);
-                ReportPropertyChanging("ShipDate");
-                _ShipDate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ShipDate");
-                OnShipDateChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _ShipDate;
-        partial void OnShipDateChanging(Nullable<global::System.DateTime> value);
-        partial void OnShipDateChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> ShipTime
-        {
-            get
-            {
-                return _ShipTime;
-            }
-            set
-            {
-                OnShipTimeChanging(value);
-                ReportPropertyChanging("ShipTime");
-                _ShipTime = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ShipTime");
-                OnShipTimeChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _ShipTime;
-        partial void OnShipTimeChanging(Nullable<global::System.DateTime> value);
-        partial void OnShipTimeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String PrimaryUser
-        {
-            get
-            {
-                return _PrimaryUser;
-            }
-            set
-            {
-                OnPrimaryUserChanging(value);
-                ReportPropertyChanging("PrimaryUser");
-                _PrimaryUser = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("PrimaryUser");
-                OnPrimaryUserChanged();
-            }
-        }
-        private global::System.String _PrimaryUser;
-        partial void OnPrimaryUserChanging(global::System.String value);
-        partial void OnPrimaryUserChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String SecondaryUser
-        {
-            get
-            {
-                return _SecondaryUser;
-            }
-            set
-            {
-                OnSecondaryUserChanging(value);
-                ReportPropertyChanging("SecondaryUser");
-                _SecondaryUser = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("SecondaryUser");
-                OnSecondaryUserChanged();
-            }
-        }
-        private global::System.String _SecondaryUser;
-        partial void OnSecondaryUserChanging(global::System.String value);
-        partial void OnSecondaryUserChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 HistoryTypeId
-        {
-            get
-            {
-                return _HistoryTypeId;
-            }
-            set
-            {
-                OnHistoryTypeIdChanging(value);
-                ReportPropertyChanging("HistoryTypeId");
-                _HistoryTypeId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("HistoryTypeId");
-                OnHistoryTypeIdChanged();
-            }
-        }
-        private global::System.Int32 _HistoryTypeId;
-        partial void OnHistoryTypeIdChanging(global::System.Int32 value);
-        partial void OnHistoryTypeIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> Demurrage
-        {
-            get
-            {
-                return _Demurrage;
-            }
-            set
-            {
-                OnDemurrageChanging(value);
-                ReportPropertyChanging("Demurrage");
-                _Demurrage = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Demurrage");
-                OnDemurrageChanged();
-            }
-        }
-        private Nullable<global::System.Boolean> _Demurrage;
-        partial void OnDemurrageChanging(Nullable<global::System.Boolean> value);
-        partial void OnDemurrageChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__Activ__40F9A68C", "Activity")]
-        public Activity Activity
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Activity>("RailServe_dataModel.FK__RailCarHi__Activ__40F9A68C", "Activity").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Activity>("RailServe_dataModel.FK__RailCarHi__Activ__40F9A68C", "Activity").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Activity> ActivityReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Activity>("RailServe_dataModel.FK__RailCarHi__Activ__40F9A68C", "Activity");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Activity>("RailServe_dataModel.FK__RailCarHi__Activ__40F9A68C", "Activity", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__Statu__43D61337", "CarLoadStatus")]
-        public CarLoadStatu CarLoadStatu
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CarLoadStatu>("RailServe_dataModel.FK__RailCarHi__Statu__43D61337", "CarLoadStatus").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CarLoadStatu>("RailServe_dataModel.FK__RailCarHi__Statu__43D61337", "CarLoadStatus").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<CarLoadStatu> CarLoadStatuReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CarLoadStatu>("RailServe_dataModel.FK__RailCarHi__Statu__43D61337", "CarLoadStatus");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CarLoadStatu>("RailServe_dataModel.FK__RailCarHi__Statu__43D61337", "CarLoadStatus", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__Commo__42E1EEFE", "Commodity")]
-        public Commodity Commodity
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Commodity>("RailServe_dataModel.FK__RailCarHi__Commo__42E1EEFE", "Commodity").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Commodity>("RailServe_dataModel.FK__RailCarHi__Commo__42E1EEFE", "Commodity").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Commodity> CommodityReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Commodity>("RailServe_dataModel.FK__RailCarHi__Commo__42E1EEFE", "Commodity");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Commodity>("RailServe_dataModel.FK__RailCarHi__Commo__42E1EEFE", "Commodity", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__Histo__46B27FE2", "HistoryType")]
-        public HistoryType HistoryType
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HistoryType>("RailServe_dataModel.FK__RailCarHi__Histo__46B27FE2", "HistoryType").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HistoryType>("RailServe_dataModel.FK__RailCarHi__Histo__46B27FE2", "HistoryType").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<HistoryType> HistoryTypeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HistoryType>("RailServe_dataModel.FK__RailCarHi__Histo__46B27FE2", "HistoryType");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<HistoryType>("RailServe_dataModel.FK__RailCarHi__Histo__46B27FE2", "HistoryType", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__CarID__41EDCAC5", "RailCar")]
-        public RailCar RailCar
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailCar>("RailServe_dataModel.FK__RailCarHi__CarID__41EDCAC5", "RailCar").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailCar>("RailServe_dataModel.FK__RailCarHi__CarID__41EDCAC5", "RailCar").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<RailCar> RailCarReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailCar>("RailServe_dataModel.FK__RailCarHi__CarID__41EDCAC5", "RailCar");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RailCar>("RailServe_dataModel.FK__RailCarHi__CarID__41EDCAC5", "RailCar", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__Track__44CA3770", "Track")]
-        public Track Track
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Track>("RailServe_dataModel.FK__RailCarHi__Track__44CA3770", "Track").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Track>("RailServe_dataModel.FK__RailCarHi__Track__44CA3770", "Track").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Track> TrackReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Track>("RailServe_dataModel.FK__RailCarHi__Track__44CA3770", "Track");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Track>("RailServe_dataModel.FK__RailCarHi__Track__44CA3770", "Track", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__YardI__45BE5BA9", "RailYard")]
-        public RailYard RailYard
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailYard>("RailServe_dataModel.FK__RailCarHi__YardI__45BE5BA9", "RailYard").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailYard>("RailServe_dataModel.FK__RailCarHi__YardI__45BE5BA9", "RailYard").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<RailYard> RailYardReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailYard>("RailServe_dataModel.FK__RailCarHi__YardI__45BE5BA9", "RailYard");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RailYard>("RailServe_dataModel.FK__RailCarHi__YardI__45BE5BA9", "RailYard", value);
-                }
-            }
-        }
-
-        #endregion
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RailServe_dataModel", Name="RailCarType")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class RailCarType : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new RailCarType object.
-        /// </summary>
-        /// <param name="typeID">Initial value of the TypeID property.</param>
-        /// <param name="type">Initial value of the Type property.</param>
-        public static RailCarType CreateRailCarType(global::System.Int32 typeID, global::System.String type)
-        {
-            RailCarType railCarType = new RailCarType();
-            railCarType.TypeID = typeID;
-            railCarType.Type = type;
-            return railCarType;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 TypeID
-        {
-            get
-            {
-                return _TypeID;
-            }
-            set
-            {
-                if (_TypeID != value)
-                {
-                    OnTypeIDChanging(value);
-                    ReportPropertyChanging("TypeID");
-                    _TypeID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("TypeID");
-                    OnTypeIDChanged();
-                }
-            }
-        }
-        private global::System.Int32 _TypeID;
-        partial void OnTypeIDChanging(global::System.Int32 value);
-        partial void OnTypeIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Type
-        {
-            get
-            {
-                return _Type;
-            }
-            set
-            {
-                OnTypeChanging(value);
-                ReportPropertyChanging("Type");
-                _Type = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Type");
-                OnTypeChanged();
-            }
-        }
-        private global::System.String _Type;
-        partial void OnTypeChanging(global::System.String value);
-        partial void OnTypeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Length
-        {
-            get
-            {
-                return _Length;
-            }
-            set
-            {
-                OnLengthChanging(value);
-                ReportPropertyChanging("Length");
-                _Length = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Length");
-                OnLengthChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _Length;
-        partial void OnLengthChanging(Nullable<global::System.Int32> value);
-        partial void OnLengthChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCar__Type__7A672E12", "RailCar")]
-        public EntityCollection<RailCar> RailCars
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCar>("RailServe_dataModel.FK__RailCar__Type__7A672E12", "RailCar");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCar>("RailServe_dataModel.FK__RailCar__Type__7A672E12", "RailCar", value);
-                }
-            }
-        }
-
-        #endregion
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RailServe_dataModel", Name="RailYard")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class RailYard : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new RailYard object.
-        /// </summary>
-        /// <param name="yardID">Initial value of the YardID property.</param>
-        /// <param name="yardCode">Initial value of the YardCode property.</param>
-        /// <param name="yardName">Initial value of the YardName property.</param>
-        public static RailYard CreateRailYard(global::System.Int32 yardID, global::System.String yardCode, global::System.String yardName)
-        {
-            RailYard railYard = new RailYard();
-            railYard.YardID = yardID;
-            railYard.YardCode = yardCode;
-            railYard.YardName = yardName;
-            return railYard;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 YardID
-        {
-            get
-            {
-                return _YardID;
-            }
-            set
-            {
-                if (_YardID != value)
-                {
-                    OnYardIDChanging(value);
-                    ReportPropertyChanging("YardID");
-                    _YardID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("YardID");
-                    OnYardIDChanged();
-                }
-            }
-        }
-        private global::System.Int32 _YardID;
-        partial void OnYardIDChanging(global::System.Int32 value);
-        partial void OnYardIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String YardCode
-        {
-            get
-            {
-                return _YardCode;
-            }
-            set
-            {
-                OnYardCodeChanging(value);
-                ReportPropertyChanging("YardCode");
-                _YardCode = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("YardCode");
-                OnYardCodeChanged();
-            }
-        }
-        private global::System.String _YardCode;
-        partial void OnYardCodeChanging(global::System.String value);
-        partial void OnYardCodeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String YardName
-        {
-            get
-            {
-                return _YardName;
-            }
-            set
-            {
-                OnYardNameChanging(value);
-                ReportPropertyChanging("YardName");
-                _YardName = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("YardName");
-                OnYardNameChanged();
-            }
-        }
-        private global::System.String _YardName;
-        partial void OnYardNameChanging(global::System.String value);
-        partial void OnYardNameChanged();
+        private global::System.String _LocationName;
+        partial void OnLocationNameChanging(global::System.String value);
+        partial void OnLocationNameChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -3732,18 +1366,62 @@ namespace TrainTracker.Web.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__YardI__51300E55", "RailCarCurrentStatus")]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__Commodity__Locat__5629CD9C", "Commodity")]
+        public EntityCollection<Commodity> Commodities
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Commodity>("RailServe_dataModel.FK__Commodity__Locat__5629CD9C", "Commodity");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Commodity>("RailServe_dataModel.FK__Commodity__Locat__5629CD9C", "Commodity", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__Departmen__Locat__5812160E", "Department")]
+        public EntityCollection<Department> Departments
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Department>("RailServe_dataModel.FK__Departmen__Locat__5812160E", "Department");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Department>("RailServe_dataModel.FK__Departmen__Locat__5812160E", "Department", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__Locat__5441852A", "RailCarCurrentStatus")]
         public EntityCollection<RailCarCurrentStatu> RailCarCurrentStatus
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__YardI__51300E55", "RailCarCurrentStatus");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__Locat__5441852A", "RailCarCurrentStatus");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__YardI__51300E55", "RailCarCurrentStatus", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__Locat__5441852A", "RailCarCurrentStatus", value);
                 }
             }
         }
@@ -3754,18 +1432,18 @@ namespace TrainTracker.Web.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__YardI__45BE5BA9", "RailCarHistory")]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__Locat__5535A963", "RailCarHistory")]
         public EntityCollection<RailCarHistory> RailCarHistories
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__YardI__45BE5BA9", "RailCarHistory");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__Locat__5535A963", "RailCarHistory");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__YardI__45BE5BA9", "RailCarHistory", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__Locat__5535A963", "RailCarHistory", value);
                 }
             }
         }
@@ -3776,18 +1454,18 @@ namespace TrainTracker.Web.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailYard___YardI__2E1BDC42", "RailYard_Activities")]
-        public EntityCollection<RailYard_Activities> RailYard_Activities
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailYard__Locati__571DF1D5", "RailYard")]
+        public EntityCollection<RailYard> RailYards
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailYard_Activities>("RailServe_dataModel.FK__RailYard___YardI__2E1BDC42", "RailYard_Activities");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailYard>("RailServe_dataModel.FK__RailYard__Locati__571DF1D5", "RailYard");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailYard_Activities>("RailServe_dataModel.FK__RailYard___YardI__2E1BDC42", "RailYard_Activities", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailYard>("RailServe_dataModel.FK__RailYard__Locati__571DF1D5", "RailYard", value);
                 }
             }
         }
@@ -3798,18 +1476,18 @@ namespace TrainTracker.Web.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__Track__YardId__46E78A0C", "Track")]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__Track__LocationI__6A30C649", "Track")]
         public EntityCollection<Track> Tracks
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Track>("RailServe_dataModel.FK__Track__YardId__46E78A0C", "Track");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Track>("RailServe_dataModel.FK__Track__LocationI__6A30C649", "Track");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Track>("RailServe_dataModel.FK__Track__YardId__46E78A0C", "Track", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Track>("RailServe_dataModel.FK__Track__LocationI__6A30C649", "Track", value);
                 }
             }
         }
@@ -3820,22 +1498,24 @@ namespace TrainTracker.Web.Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RailServe_dataModel", Name="RailYard_Activities")]
+    [EdmEntityTypeAttribute(NamespaceName="RailServe_dataModel", Name="RailCar")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class RailYard_Activities : EntityObject
+    public partial class RailCar : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new RailYard_Activities object.
+        /// Create a new RailCar object.
         /// </summary>
-        /// <param name="id">Initial value of the ID property.</param>
-        public static RailYard_Activities CreateRailYard_Activities(global::System.Int32 id)
+        /// <param name="carID">Initial value of the CarID property.</param>
+        /// <param name="number">Initial value of the Number property.</param>
+        public static RailCar CreateRailCar(global::System.Int32 carID, global::System.String number)
         {
-            RailYard_Activities railYard_Activities = new RailYard_Activities();
-            railYard_Activities.ID = id;
-            return railYard_Activities;
+            RailCar railCar = new RailCar();
+            railCar.CarID = carID;
+            railCar.Number = number;
+            return railCar;
         }
 
         #endregion
@@ -3846,34 +1526,278 @@ namespace TrainTracker.Web.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 ID
+        public global::System.Int32 CarID
         {
             get
             {
-                return _ID;
+                return _CarID;
             }
             set
             {
-                if (_ID != value)
+                if (_CarID != value)
                 {
-                    OnIDChanging(value);
-                    ReportPropertyChanging("ID");
-                    _ID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ID");
-                    OnIDChanged();
+                    OnCarIDChanging(value);
+                    ReportPropertyChanging("CarID");
+                    _CarID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("CarID");
+                    OnCarIDChanged();
                 }
             }
         }
-        private global::System.Int32 _ID;
-        partial void OnIDChanging(global::System.Int32 value);
-        partial void OnIDChanged();
+        private global::System.Int32 _CarID;
+        partial void OnCarIDChanging(global::System.Int32 value);
+        partial void OnCarIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Number
+        {
+            get
+            {
+                return _Number;
+            }
+            set
+            {
+                OnNumberChanging(value);
+                ReportPropertyChanging("Number");
+                _Number = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Number");
+                OnNumberChanged();
+            }
+        }
+        private global::System.String _Number;
+        partial void OnNumberChanging(global::System.String value);
+        partial void OnNumberChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> YardID
+        public Nullable<global::System.Int32> Type
+        {
+            get
+            {
+                return _Type;
+            }
+            set
+            {
+                OnTypeChanging(value);
+                ReportPropertyChanging("Type");
+                _Type = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Type");
+                OnTypeChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Type;
+        partial void OnTypeChanging(Nullable<global::System.Int32> value);
+        partial void OnTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Owner
+        {
+            get
+            {
+                return _Owner;
+            }
+            set
+            {
+                OnOwnerChanging(value);
+                ReportPropertyChanging("Owner");
+                _Owner = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Owner");
+                OnOwnerChanged();
+            }
+        }
+        private global::System.String _Owner;
+        partial void OnOwnerChanging(global::System.String value);
+        partial void OnOwnerChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCar__Type__3A81B327", "RailCarType")]
+        public RailCarType RailCarType
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailCarType>("RailServe_dataModel.FK__RailCar__Type__3A81B327", "RailCarType").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailCarType>("RailServe_dataModel.FK__RailCar__Type__3A81B327", "RailCarType").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<RailCarType> RailCarTypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailCarType>("RailServe_dataModel.FK__RailCar__Type__3A81B327", "RailCarType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RailCarType>("RailServe_dataModel.FK__RailCar__Type__3A81B327", "RailCarType", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__CarID__3C69FB99", "RailCarCurrentStatus")]
+        public EntityCollection<RailCarCurrentStatu> RailCarCurrentStatus
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__CarID__3C69FB99", "RailCarCurrentStatus");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__CarID__3C69FB99", "RailCarCurrentStatus", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__CarID__4316F928", "RailCarHistory")]
+        public EntityCollection<RailCarHistory> RailCarHistories
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__CarID__4316F928", "RailCarHistory");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__CarID__4316F928", "RailCarHistory", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="RailServe_dataModel", Name="RailCarCurrentStatu")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class RailCarCurrentStatu : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new RailCarCurrentStatu object.
+        /// </summary>
+        /// <param name="currentStatusID">Initial value of the CurrentStatusID property.</param>
+        /// <param name="carID">Initial value of the CarID property.</param>
+        /// <param name="yardID">Initial value of the YardID property.</param>
+        /// <param name="departmentId">Initial value of the DepartmentId property.</param>
+        /// <param name="historyTypeId">Initial value of the HistoryTypeId property.</param>
+        public static RailCarCurrentStatu CreateRailCarCurrentStatu(global::System.Int32 currentStatusID, global::System.Int32 carID, global::System.Int32 yardID, global::System.Int32 departmentId, global::System.Int32 historyTypeId)
+        {
+            RailCarCurrentStatu railCarCurrentStatu = new RailCarCurrentStatu();
+            railCarCurrentStatu.CurrentStatusID = currentStatusID;
+            railCarCurrentStatu.CarID = carID;
+            railCarCurrentStatu.YardID = yardID;
+            railCarCurrentStatu.DepartmentId = departmentId;
+            railCarCurrentStatu.HistoryTypeId = historyTypeId;
+            return railCarCurrentStatu;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CurrentStatusID
+        {
+            get
+            {
+                return _CurrentStatusID;
+            }
+            set
+            {
+                if (_CurrentStatusID != value)
+                {
+                    OnCurrentStatusIDChanging(value);
+                    ReportPropertyChanging("CurrentStatusID");
+                    _CurrentStatusID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("CurrentStatusID");
+                    OnCurrentStatusIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _CurrentStatusID;
+        partial void OnCurrentStatusIDChanging(global::System.Int32 value);
+        partial void OnCurrentStatusIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CarID
+        {
+            get
+            {
+                return _CarID;
+            }
+            set
+            {
+                OnCarIDChanging(value);
+                ReportPropertyChanging("CarID");
+                _CarID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CarID");
+                OnCarIDChanged();
+            }
+        }
+        private global::System.Int32 _CarID;
+        partial void OnCarIDChanging(global::System.Int32 value);
+        partial void OnCarIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 YardID
         {
             get
             {
@@ -3888,33 +1812,489 @@ namespace TrainTracker.Web.Models
                 OnYardIDChanged();
             }
         }
-        private Nullable<global::System.Int32> _YardID;
-        partial void OnYardIDChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _YardID;
+        partial void OnYardIDChanging(global::System.Int32 value);
         partial void OnYardIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DepartmentId
+        {
+            get
+            {
+                return _DepartmentId;
+            }
+            set
+            {
+                OnDepartmentIdChanging(value);
+                ReportPropertyChanging("DepartmentId");
+                _DepartmentId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DepartmentId");
+                OnDepartmentIdChanged();
+            }
+        }
+        private global::System.Int32 _DepartmentId;
+        partial void OnDepartmentIdChanging(global::System.Int32 value);
+        partial void OnDepartmentIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> ActivityID
+        public Nullable<global::System.Int32> TrackId
         {
             get
             {
-                return _ActivityID;
+                return _TrackId;
             }
             set
             {
-                OnActivityIDChanging(value);
-                ReportPropertyChanging("ActivityID");
-                _ActivityID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ActivityID");
-                OnActivityIDChanged();
+                OnTrackIdChanging(value);
+                ReportPropertyChanging("TrackId");
+                _TrackId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TrackId");
+                OnTrackIdChanged();
             }
         }
-        private Nullable<global::System.Int32> _ActivityID;
-        partial void OnActivityIDChanging(Nullable<global::System.Int32> value);
-        partial void OnActivityIDChanged();
+        private Nullable<global::System.Int32> _TrackId;
+        partial void OnTrackIdChanging(Nullable<global::System.Int32> value);
+        partial void OnTrackIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Spot
+        {
+            get
+            {
+                return _Spot;
+            }
+            set
+            {
+                OnSpotChanging(value);
+                ReportPropertyChanging("Spot");
+                _Spot = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Spot");
+                OnSpotChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Spot;
+        partial void OnSpotChanging(Nullable<global::System.Int32> value);
+        partial void OnSpotChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> StatusId
+        {
+            get
+            {
+                return _StatusId;
+            }
+            set
+            {
+                OnStatusIdChanging(value);
+                ReportPropertyChanging("StatusId");
+                _StatusId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StatusId");
+                OnStatusIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _StatusId;
+        partial void OnStatusIdChanging(Nullable<global::System.Int32> value);
+        partial void OnStatusIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> CommodityId
+        {
+            get
+            {
+                return _CommodityId;
+            }
+            set
+            {
+                OnCommodityIdChanging(value);
+                ReportPropertyChanging("CommodityId");
+                _CommodityId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CommodityId");
+                OnCommodityIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _CommodityId;
+        partial void OnCommodityIdChanging(Nullable<global::System.Int32> value);
+        partial void OnCommodityIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Comments
+        {
+            get
+            {
+                return _Comments;
+            }
+            set
+            {
+                OnCommentsChanging(value);
+                ReportPropertyChanging("Comments");
+                _Comments = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Comments");
+                OnCommentsChanged();
+            }
+        }
+        private global::System.String _Comments;
+        partial void OnCommentsChanging(global::System.String value);
+        partial void OnCommentsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Supplier
+        {
+            get
+            {
+                return _Supplier;
+            }
+            set
+            {
+                OnSupplierChanging(value);
+                ReportPropertyChanging("Supplier");
+                _Supplier = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Supplier");
+                OnSupplierChanged();
+            }
+        }
+        private global::System.String _Supplier;
+        partial void OnSupplierChanging(global::System.String value);
+        partial void OnSupplierChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Weight
+        {
+            get
+            {
+                return _Weight;
+            }
+            set
+            {
+                OnWeightChanging(value);
+                ReportPropertyChanging("Weight");
+                _Weight = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Weight");
+                OnWeightChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Weight;
+        partial void OnWeightChanging(Nullable<global::System.Int32> value);
+        partial void OnWeightChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ReceiptDate
+        {
+            get
+            {
+                return _ReceiptDate;
+            }
+            set
+            {
+                OnReceiptDateChanging(value);
+                ReportPropertyChanging("ReceiptDate");
+                _ReceiptDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ReceiptDate");
+                OnReceiptDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ReceiptDate;
+        partial void OnReceiptDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnReceiptDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ReceiptTime
+        {
+            get
+            {
+                return _ReceiptTime;
+            }
+            set
+            {
+                OnReceiptTimeChanging(value);
+                ReportPropertyChanging("ReceiptTime");
+                _ReceiptTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ReceiptTime");
+                OnReceiptTimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ReceiptTime;
+        partial void OnReceiptTimeChanging(Nullable<global::System.DateTime> value);
+        partial void OnReceiptTimeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ShipDate
+        {
+            get
+            {
+                return _ShipDate;
+            }
+            set
+            {
+                OnShipDateChanging(value);
+                ReportPropertyChanging("ShipDate");
+                _ShipDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ShipDate");
+                OnShipDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ShipDate;
+        partial void OnShipDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnShipDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ShipTime
+        {
+            get
+            {
+                return _ShipTime;
+            }
+            set
+            {
+                OnShipTimeChanging(value);
+                ReportPropertyChanging("ShipTime");
+                _ShipTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ShipTime");
+                OnShipTimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ShipTime;
+        partial void OnShipTimeChanging(Nullable<global::System.DateTime> value);
+        partial void OnShipTimeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PrimaryUser
+        {
+            get
+            {
+                return _PrimaryUser;
+            }
+            set
+            {
+                OnPrimaryUserChanging(value);
+                ReportPropertyChanging("PrimaryUser");
+                _PrimaryUser = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PrimaryUser");
+                OnPrimaryUserChanged();
+            }
+        }
+        private global::System.String _PrimaryUser;
+        partial void OnPrimaryUserChanging(global::System.String value);
+        partial void OnPrimaryUserChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SecondaryUser
+        {
+            get
+            {
+                return _SecondaryUser;
+            }
+            set
+            {
+                OnSecondaryUserChanging(value);
+                ReportPropertyChanging("SecondaryUser");
+                _SecondaryUser = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SecondaryUser");
+                OnSecondaryUserChanged();
+            }
+        }
+        private global::System.String _SecondaryUser;
+        partial void OnSecondaryUserChanging(global::System.String value);
+        partial void OnSecondaryUserChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 HistoryTypeId
+        {
+            get
+            {
+                return _HistoryTypeId;
+            }
+            set
+            {
+                OnHistoryTypeIdChanging(value);
+                ReportPropertyChanging("HistoryTypeId");
+                _HistoryTypeId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HistoryTypeId");
+                OnHistoryTypeIdChanged();
+            }
+        }
+        private global::System.Int32 _HistoryTypeId;
+        partial void OnHistoryTypeIdChanging(global::System.Int32 value);
+        partial void OnHistoryTypeIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> Demurrage
+        {
+            get
+            {
+                return _Demurrage;
+            }
+            set
+            {
+                OnDemurrageChanging(value);
+                ReportPropertyChanging("Demurrage");
+                _Demurrage = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Demurrage");
+                OnDemurrageChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _Demurrage;
+        partial void OnDemurrageChanging(Nullable<global::System.Boolean> value);
+        partial void OnDemurrageChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> LocationID
+        {
+            get
+            {
+                return _LocationID;
+            }
+            set
+            {
+                OnLocationIDChanging(value);
+                ReportPropertyChanging("LocationID");
+                _LocationID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LocationID");
+                OnLocationIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _LocationID;
+        partial void OnLocationIDChanging(Nullable<global::System.Int32> value);
+        partial void OnLocationIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> MovementDate
+        {
+            get
+            {
+                return _MovementDate;
+            }
+            set
+            {
+                OnMovementDateChanging(value);
+                ReportPropertyChanging("MovementDate");
+                _MovementDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MovementDate");
+                OnMovementDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _MovementDate;
+        partial void OnMovementDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnMovementDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> DemurrageDays
+        {
+            get
+            {
+                return _DemurrageDays;
+            }
+            set
+            {
+                OnDemurrageDaysChanging(value);
+                ReportPropertyChanging("DemurrageDays");
+                _DemurrageDays = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DemurrageDays");
+                OnDemurrageDaysChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _DemurrageDays;
+        partial void OnDemurrageDaysChanging(Nullable<global::System.Int32> value);
+        partial void OnDemurrageDaysChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Company
+        {
+            get
+            {
+                return _Company;
+            }
+            set
+            {
+                OnCompanyChanging(value);
+                ReportPropertyChanging("Company");
+                _Company = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Company");
+                OnCompanyChanged();
+            }
+        }
+        private global::System.String _Company;
+        partial void OnCompanyChanging(global::System.String value);
+        partial void OnCompanyChanged();
 
         #endregion
     
@@ -3926,16 +2306,16 @@ namespace TrainTracker.Web.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailYard___Activ__2F10007B", "Activity")]
-        public Activity Activity
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__Statu__3F466844", "CarLoadStatus")]
+        public CarLoadStatu CarLoadStatu
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Activity>("RailServe_dataModel.FK__RailYard___Activ__2F10007B", "Activity").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CarLoadStatu>("RailServe_dataModel.FK__RailCarCu__Statu__3F466844", "CarLoadStatus").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Activity>("RailServe_dataModel.FK__RailYard___Activ__2F10007B", "Activity").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CarLoadStatu>("RailServe_dataModel.FK__RailCarCu__Statu__3F466844", "CarLoadStatus").Value = value;
             }
         }
         /// <summary>
@@ -3943,17 +2323,17 @@ namespace TrainTracker.Web.Models
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Activity> ActivityReference
+        public EntityReference<CarLoadStatu> CarLoadStatuReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Activity>("RailServe_dataModel.FK__RailYard___Activ__2F10007B", "Activity");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CarLoadStatu>("RailServe_dataModel.FK__RailCarCu__Statu__3F466844", "CarLoadStatus");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Activity>("RailServe_dataModel.FK__RailYard___Activ__2F10007B", "Activity", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CarLoadStatu>("RailServe_dataModel.FK__RailCarCu__Statu__3F466844", "CarLoadStatus", value);
                 }
             }
         }
@@ -3964,16 +2344,244 @@ namespace TrainTracker.Web.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailYard___YardI__2E1BDC42", "RailYard")]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__Commo__3D5E1FD2", "Commodity")]
+        public Commodity Commodity
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Commodity>("RailServe_dataModel.FK__RailCarCu__Commo__3D5E1FD2", "Commodity").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Commodity>("RailServe_dataModel.FK__RailCarCu__Commo__3D5E1FD2", "Commodity").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Commodity> CommodityReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Commodity>("RailServe_dataModel.FK__RailCarCu__Commo__3D5E1FD2", "Commodity");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Commodity>("RailServe_dataModel.FK__RailCarCu__Commo__3D5E1FD2", "Commodity", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__Depar__3B75D760", "Department")]
+        public Department Department
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("RailServe_dataModel.FK__RailCarCu__Depar__3B75D760", "Department").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("RailServe_dataModel.FK__RailCarCu__Depar__3B75D760", "Department").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Department> DepartmentReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("RailServe_dataModel.FK__RailCarCu__Depar__3B75D760", "Department");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Department>("RailServe_dataModel.FK__RailCarCu__Depar__3B75D760", "Department", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__Histo__3E52440B", "HistoryType")]
+        public HistoryType HistoryType
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HistoryType>("RailServe_dataModel.FK__RailCarCu__Histo__3E52440B", "HistoryType").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HistoryType>("RailServe_dataModel.FK__RailCarCu__Histo__3E52440B", "HistoryType").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<HistoryType> HistoryTypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HistoryType>("RailServe_dataModel.FK__RailCarCu__Histo__3E52440B", "HistoryType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<HistoryType>("RailServe_dataModel.FK__RailCarCu__Histo__3E52440B", "HistoryType", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__Locat__5441852A", "Location")]
+        public Location Location
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("RailServe_dataModel.FK__RailCarCu__Locat__5441852A", "Location").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("RailServe_dataModel.FK__RailCarCu__Locat__5441852A", "Location").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Location> LocationReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("RailServe_dataModel.FK__RailCarCu__Locat__5441852A", "Location");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Location>("RailServe_dataModel.FK__RailCarCu__Locat__5441852A", "Location", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__CarID__3C69FB99", "RailCar")]
+        public RailCar RailCar
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailCar>("RailServe_dataModel.FK__RailCarCu__CarID__3C69FB99", "RailCar").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailCar>("RailServe_dataModel.FK__RailCarCu__CarID__3C69FB99", "RailCar").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<RailCar> RailCarReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailCar>("RailServe_dataModel.FK__RailCarCu__CarID__3C69FB99", "RailCar");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RailCar>("RailServe_dataModel.FK__RailCarCu__CarID__3C69FB99", "RailCar", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__Track__403A8C7D", "Track")]
+        public Track Track
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Track>("RailServe_dataModel.FK__RailCarCu__Track__403A8C7D", "Track").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Track>("RailServe_dataModel.FK__RailCarCu__Track__403A8C7D", "Track").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Track> TrackReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Track>("RailServe_dataModel.FK__RailCarCu__Track__403A8C7D", "Track");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Track>("RailServe_dataModel.FK__RailCarCu__Track__403A8C7D", "Track", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__YardI__412EB0B6", "RailYard")]
         public RailYard RailYard
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailYard>("RailServe_dataModel.FK__RailYard___YardI__2E1BDC42", "RailYard").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailYard>("RailServe_dataModel.FK__RailCarCu__YardI__412EB0B6", "RailYard").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailYard>("RailServe_dataModel.FK__RailYard___YardI__2E1BDC42", "RailYard").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailYard>("RailServe_dataModel.FK__RailCarCu__YardI__412EB0B6", "RailYard").Value = value;
             }
         }
         /// <summary>
@@ -3985,13 +2593,1303 @@ namespace TrainTracker.Web.Models
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailYard>("RailServe_dataModel.FK__RailYard___YardI__2E1BDC42", "RailYard");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailYard>("RailServe_dataModel.FK__RailCarCu__YardI__412EB0B6", "RailYard");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RailYard>("RailServe_dataModel.FK__RailYard___YardI__2E1BDC42", "RailYard", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RailYard>("RailServe_dataModel.FK__RailCarCu__YardI__412EB0B6", "RailYard", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="RailServe_dataModel", Name="RailCarHistory")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class RailCarHistory : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new RailCarHistory object.
+        /// </summary>
+        /// <param name="historyID">Initial value of the HistoryID property.</param>
+        /// <param name="carID">Initial value of the CarID property.</param>
+        /// <param name="yardID">Initial value of the YardID property.</param>
+        /// <param name="departmentId">Initial value of the DepartmentId property.</param>
+        /// <param name="historyTypeId">Initial value of the HistoryTypeId property.</param>
+        public static RailCarHistory CreateRailCarHistory(global::System.Int32 historyID, global::System.Int32 carID, global::System.Int32 yardID, global::System.Int32 departmentId, global::System.Int32 historyTypeId)
+        {
+            RailCarHistory railCarHistory = new RailCarHistory();
+            railCarHistory.HistoryID = historyID;
+            railCarHistory.CarID = carID;
+            railCarHistory.YardID = yardID;
+            railCarHistory.DepartmentId = departmentId;
+            railCarHistory.HistoryTypeId = historyTypeId;
+            return railCarHistory;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 HistoryID
+        {
+            get
+            {
+                return _HistoryID;
+            }
+            set
+            {
+                if (_HistoryID != value)
+                {
+                    OnHistoryIDChanging(value);
+                    ReportPropertyChanging("HistoryID");
+                    _HistoryID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("HistoryID");
+                    OnHistoryIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _HistoryID;
+        partial void OnHistoryIDChanging(global::System.Int32 value);
+        partial void OnHistoryIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CarID
+        {
+            get
+            {
+                return _CarID;
+            }
+            set
+            {
+                OnCarIDChanging(value);
+                ReportPropertyChanging("CarID");
+                _CarID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CarID");
+                OnCarIDChanged();
+            }
+        }
+        private global::System.Int32 _CarID;
+        partial void OnCarIDChanging(global::System.Int32 value);
+        partial void OnCarIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 YardID
+        {
+            get
+            {
+                return _YardID;
+            }
+            set
+            {
+                OnYardIDChanging(value);
+                ReportPropertyChanging("YardID");
+                _YardID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("YardID");
+                OnYardIDChanged();
+            }
+        }
+        private global::System.Int32 _YardID;
+        partial void OnYardIDChanging(global::System.Int32 value);
+        partial void OnYardIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DepartmentId
+        {
+            get
+            {
+                return _DepartmentId;
+            }
+            set
+            {
+                OnDepartmentIdChanging(value);
+                ReportPropertyChanging("DepartmentId");
+                _DepartmentId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DepartmentId");
+                OnDepartmentIdChanged();
+            }
+        }
+        private global::System.Int32 _DepartmentId;
+        partial void OnDepartmentIdChanging(global::System.Int32 value);
+        partial void OnDepartmentIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> TrackId
+        {
+            get
+            {
+                return _TrackId;
+            }
+            set
+            {
+                OnTrackIdChanging(value);
+                ReportPropertyChanging("TrackId");
+                _TrackId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TrackId");
+                OnTrackIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _TrackId;
+        partial void OnTrackIdChanging(Nullable<global::System.Int32> value);
+        partial void OnTrackIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Spot
+        {
+            get
+            {
+                return _Spot;
+            }
+            set
+            {
+                OnSpotChanging(value);
+                ReportPropertyChanging("Spot");
+                _Spot = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Spot");
+                OnSpotChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Spot;
+        partial void OnSpotChanging(Nullable<global::System.Int32> value);
+        partial void OnSpotChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> StatusId
+        {
+            get
+            {
+                return _StatusId;
+            }
+            set
+            {
+                OnStatusIdChanging(value);
+                ReportPropertyChanging("StatusId");
+                _StatusId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StatusId");
+                OnStatusIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _StatusId;
+        partial void OnStatusIdChanging(Nullable<global::System.Int32> value);
+        partial void OnStatusIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> CommodityId
+        {
+            get
+            {
+                return _CommodityId;
+            }
+            set
+            {
+                OnCommodityIdChanging(value);
+                ReportPropertyChanging("CommodityId");
+                _CommodityId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CommodityId");
+                OnCommodityIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _CommodityId;
+        partial void OnCommodityIdChanging(Nullable<global::System.Int32> value);
+        partial void OnCommodityIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Comments
+        {
+            get
+            {
+                return _Comments;
+            }
+            set
+            {
+                OnCommentsChanging(value);
+                ReportPropertyChanging("Comments");
+                _Comments = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Comments");
+                OnCommentsChanged();
+            }
+        }
+        private global::System.String _Comments;
+        partial void OnCommentsChanging(global::System.String value);
+        partial void OnCommentsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Supplier
+        {
+            get
+            {
+                return _Supplier;
+            }
+            set
+            {
+                OnSupplierChanging(value);
+                ReportPropertyChanging("Supplier");
+                _Supplier = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Supplier");
+                OnSupplierChanged();
+            }
+        }
+        private global::System.String _Supplier;
+        partial void OnSupplierChanging(global::System.String value);
+        partial void OnSupplierChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Weight
+        {
+            get
+            {
+                return _Weight;
+            }
+            set
+            {
+                OnWeightChanging(value);
+                ReportPropertyChanging("Weight");
+                _Weight = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Weight");
+                OnWeightChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Weight;
+        partial void OnWeightChanging(Nullable<global::System.Int32> value);
+        partial void OnWeightChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ReceiptDate
+        {
+            get
+            {
+                return _ReceiptDate;
+            }
+            set
+            {
+                OnReceiptDateChanging(value);
+                ReportPropertyChanging("ReceiptDate");
+                _ReceiptDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ReceiptDate");
+                OnReceiptDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ReceiptDate;
+        partial void OnReceiptDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnReceiptDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ReceiptTime
+        {
+            get
+            {
+                return _ReceiptTime;
+            }
+            set
+            {
+                OnReceiptTimeChanging(value);
+                ReportPropertyChanging("ReceiptTime");
+                _ReceiptTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ReceiptTime");
+                OnReceiptTimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ReceiptTime;
+        partial void OnReceiptTimeChanging(Nullable<global::System.DateTime> value);
+        partial void OnReceiptTimeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ShipDate
+        {
+            get
+            {
+                return _ShipDate;
+            }
+            set
+            {
+                OnShipDateChanging(value);
+                ReportPropertyChanging("ShipDate");
+                _ShipDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ShipDate");
+                OnShipDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ShipDate;
+        partial void OnShipDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnShipDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ShipTime
+        {
+            get
+            {
+                return _ShipTime;
+            }
+            set
+            {
+                OnShipTimeChanging(value);
+                ReportPropertyChanging("ShipTime");
+                _ShipTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ShipTime");
+                OnShipTimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ShipTime;
+        partial void OnShipTimeChanging(Nullable<global::System.DateTime> value);
+        partial void OnShipTimeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PrimaryUser
+        {
+            get
+            {
+                return _PrimaryUser;
+            }
+            set
+            {
+                OnPrimaryUserChanging(value);
+                ReportPropertyChanging("PrimaryUser");
+                _PrimaryUser = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PrimaryUser");
+                OnPrimaryUserChanged();
+            }
+        }
+        private global::System.String _PrimaryUser;
+        partial void OnPrimaryUserChanging(global::System.String value);
+        partial void OnPrimaryUserChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SecondaryUser
+        {
+            get
+            {
+                return _SecondaryUser;
+            }
+            set
+            {
+                OnSecondaryUserChanging(value);
+                ReportPropertyChanging("SecondaryUser");
+                _SecondaryUser = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SecondaryUser");
+                OnSecondaryUserChanged();
+            }
+        }
+        private global::System.String _SecondaryUser;
+        partial void OnSecondaryUserChanging(global::System.String value);
+        partial void OnSecondaryUserChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 HistoryTypeId
+        {
+            get
+            {
+                return _HistoryTypeId;
+            }
+            set
+            {
+                OnHistoryTypeIdChanging(value);
+                ReportPropertyChanging("HistoryTypeId");
+                _HistoryTypeId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HistoryTypeId");
+                OnHistoryTypeIdChanged();
+            }
+        }
+        private global::System.Int32 _HistoryTypeId;
+        partial void OnHistoryTypeIdChanging(global::System.Int32 value);
+        partial void OnHistoryTypeIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> Demurrage
+        {
+            get
+            {
+                return _Demurrage;
+            }
+            set
+            {
+                OnDemurrageChanging(value);
+                ReportPropertyChanging("Demurrage");
+                _Demurrage = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Demurrage");
+                OnDemurrageChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _Demurrage;
+        partial void OnDemurrageChanging(Nullable<global::System.Boolean> value);
+        partial void OnDemurrageChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> LocationID
+        {
+            get
+            {
+                return _LocationID;
+            }
+            set
+            {
+                OnLocationIDChanging(value);
+                ReportPropertyChanging("LocationID");
+                _LocationID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LocationID");
+                OnLocationIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _LocationID;
+        partial void OnLocationIDChanging(Nullable<global::System.Int32> value);
+        partial void OnLocationIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> MovementDate
+        {
+            get
+            {
+                return _MovementDate;
+            }
+            set
+            {
+                OnMovementDateChanging(value);
+                ReportPropertyChanging("MovementDate");
+                _MovementDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MovementDate");
+                OnMovementDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _MovementDate;
+        partial void OnMovementDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnMovementDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> DemurrageDays
+        {
+            get
+            {
+                return _DemurrageDays;
+            }
+            set
+            {
+                OnDemurrageDaysChanging(value);
+                ReportPropertyChanging("DemurrageDays");
+                _DemurrageDays = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DemurrageDays");
+                OnDemurrageDaysChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _DemurrageDays;
+        partial void OnDemurrageDaysChanging(Nullable<global::System.Int32> value);
+        partial void OnDemurrageDaysChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Company
+        {
+            get
+            {
+                return _Company;
+            }
+            set
+            {
+                OnCompanyChanging(value);
+                ReportPropertyChanging("Company");
+                _Company = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Company");
+                OnCompanyChanged();
+            }
+        }
+        private global::System.String _Company;
+        partial void OnCompanyChanging(global::System.String value);
+        partial void OnCompanyChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__Statu__45F365D3", "CarLoadStatus")]
+        public CarLoadStatu CarLoadStatu
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CarLoadStatu>("RailServe_dataModel.FK__RailCarHi__Statu__45F365D3", "CarLoadStatus").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CarLoadStatu>("RailServe_dataModel.FK__RailCarHi__Statu__45F365D3", "CarLoadStatus").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<CarLoadStatu> CarLoadStatuReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CarLoadStatu>("RailServe_dataModel.FK__RailCarHi__Statu__45F365D3", "CarLoadStatus");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CarLoadStatu>("RailServe_dataModel.FK__RailCarHi__Statu__45F365D3", "CarLoadStatus", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__Commo__440B1D61", "Commodity")]
+        public Commodity Commodity
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Commodity>("RailServe_dataModel.FK__RailCarHi__Commo__440B1D61", "Commodity").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Commodity>("RailServe_dataModel.FK__RailCarHi__Commo__440B1D61", "Commodity").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Commodity> CommodityReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Commodity>("RailServe_dataModel.FK__RailCarHi__Commo__440B1D61", "Commodity");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Commodity>("RailServe_dataModel.FK__RailCarHi__Commo__440B1D61", "Commodity", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__Depar__4222D4EF", "Department")]
+        public Department Department
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("RailServe_dataModel.FK__RailCarHi__Depar__4222D4EF", "Department").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("RailServe_dataModel.FK__RailCarHi__Depar__4222D4EF", "Department").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Department> DepartmentReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("RailServe_dataModel.FK__RailCarHi__Depar__4222D4EF", "Department");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Department>("RailServe_dataModel.FK__RailCarHi__Depar__4222D4EF", "Department", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__Histo__44FF419A", "HistoryType")]
+        public HistoryType HistoryType
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HistoryType>("RailServe_dataModel.FK__RailCarHi__Histo__44FF419A", "HistoryType").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HistoryType>("RailServe_dataModel.FK__RailCarHi__Histo__44FF419A", "HistoryType").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<HistoryType> HistoryTypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HistoryType>("RailServe_dataModel.FK__RailCarHi__Histo__44FF419A", "HistoryType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<HistoryType>("RailServe_dataModel.FK__RailCarHi__Histo__44FF419A", "HistoryType", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__Locat__5535A963", "Location")]
+        public Location Location
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("RailServe_dataModel.FK__RailCarHi__Locat__5535A963", "Location").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("RailServe_dataModel.FK__RailCarHi__Locat__5535A963", "Location").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Location> LocationReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("RailServe_dataModel.FK__RailCarHi__Locat__5535A963", "Location");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Location>("RailServe_dataModel.FK__RailCarHi__Locat__5535A963", "Location", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__CarID__4316F928", "RailCar")]
+        public RailCar RailCar
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailCar>("RailServe_dataModel.FK__RailCarHi__CarID__4316F928", "RailCar").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailCar>("RailServe_dataModel.FK__RailCarHi__CarID__4316F928", "RailCar").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<RailCar> RailCarReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailCar>("RailServe_dataModel.FK__RailCarHi__CarID__4316F928", "RailCar");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RailCar>("RailServe_dataModel.FK__RailCarHi__CarID__4316F928", "RailCar", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__Track__46E78A0C", "Track")]
+        public Track Track
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Track>("RailServe_dataModel.FK__RailCarHi__Track__46E78A0C", "Track").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Track>("RailServe_dataModel.FK__RailCarHi__Track__46E78A0C", "Track").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Track> TrackReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Track>("RailServe_dataModel.FK__RailCarHi__Track__46E78A0C", "Track");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Track>("RailServe_dataModel.FK__RailCarHi__Track__46E78A0C", "Track", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__YardI__47DBAE45", "RailYard")]
+        public RailYard RailYard
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailYard>("RailServe_dataModel.FK__RailCarHi__YardI__47DBAE45", "RailYard").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailYard>("RailServe_dataModel.FK__RailCarHi__YardI__47DBAE45", "RailYard").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<RailYard> RailYardReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailYard>("RailServe_dataModel.FK__RailCarHi__YardI__47DBAE45", "RailYard");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RailYard>("RailServe_dataModel.FK__RailCarHi__YardI__47DBAE45", "RailYard", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="RailServe_dataModel", Name="RailCarType")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class RailCarType : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new RailCarType object.
+        /// </summary>
+        /// <param name="typeID">Initial value of the TypeID property.</param>
+        /// <param name="type">Initial value of the Type property.</param>
+        public static RailCarType CreateRailCarType(global::System.Int32 typeID, global::System.String type)
+        {
+            RailCarType railCarType = new RailCarType();
+            railCarType.TypeID = typeID;
+            railCarType.Type = type;
+            return railCarType;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 TypeID
+        {
+            get
+            {
+                return _TypeID;
+            }
+            set
+            {
+                if (_TypeID != value)
+                {
+                    OnTypeIDChanging(value);
+                    ReportPropertyChanging("TypeID");
+                    _TypeID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("TypeID");
+                    OnTypeIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _TypeID;
+        partial void OnTypeIDChanging(global::System.Int32 value);
+        partial void OnTypeIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Type
+        {
+            get
+            {
+                return _Type;
+            }
+            set
+            {
+                OnTypeChanging(value);
+                ReportPropertyChanging("Type");
+                _Type = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Type");
+                OnTypeChanged();
+            }
+        }
+        private global::System.String _Type;
+        partial void OnTypeChanging(global::System.String value);
+        partial void OnTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Length
+        {
+            get
+            {
+                return _Length;
+            }
+            set
+            {
+                OnLengthChanging(value);
+                ReportPropertyChanging("Length");
+                _Length = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Length");
+                OnLengthChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Length;
+        partial void OnLengthChanging(Nullable<global::System.Decimal> value);
+        partial void OnLengthChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String TypeCode
+        {
+            get
+            {
+                return _TypeCode;
+            }
+            set
+            {
+                OnTypeCodeChanging(value);
+                ReportPropertyChanging("TypeCode");
+                _TypeCode = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("TypeCode");
+                OnTypeCodeChanged();
+            }
+        }
+        private global::System.String _TypeCode;
+        partial void OnTypeCodeChanging(global::System.String value);
+        partial void OnTypeCodeChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCar__Type__3A81B327", "RailCar")]
+        public EntityCollection<RailCar> RailCars
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCar>("RailServe_dataModel.FK__RailCar__Type__3A81B327", "RailCar");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCar>("RailServe_dataModel.FK__RailCar__Type__3A81B327", "RailCar", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="RailServe_dataModel", Name="RailYard")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class RailYard : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new RailYard object.
+        /// </summary>
+        /// <param name="yardID">Initial value of the YardID property.</param>
+        /// <param name="yardCode">Initial value of the YardCode property.</param>
+        /// <param name="yardName">Initial value of the YardName property.</param>
+        public static RailYard CreateRailYard(global::System.Int32 yardID, global::System.String yardCode, global::System.String yardName)
+        {
+            RailYard railYard = new RailYard();
+            railYard.YardID = yardID;
+            railYard.YardCode = yardCode;
+            railYard.YardName = yardName;
+            return railYard;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 YardID
+        {
+            get
+            {
+                return _YardID;
+            }
+            set
+            {
+                if (_YardID != value)
+                {
+                    OnYardIDChanging(value);
+                    ReportPropertyChanging("YardID");
+                    _YardID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("YardID");
+                    OnYardIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _YardID;
+        partial void OnYardIDChanging(global::System.Int32 value);
+        partial void OnYardIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String YardCode
+        {
+            get
+            {
+                return _YardCode;
+            }
+            set
+            {
+                OnYardCodeChanging(value);
+                ReportPropertyChanging("YardCode");
+                _YardCode = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("YardCode");
+                OnYardCodeChanged();
+            }
+        }
+        private global::System.String _YardCode;
+        partial void OnYardCodeChanging(global::System.String value);
+        partial void OnYardCodeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String YardName
+        {
+            get
+            {
+                return _YardName;
+            }
+            set
+            {
+                OnYardNameChanging(value);
+                ReportPropertyChanging("YardName");
+                _YardName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("YardName");
+                OnYardNameChanged();
+            }
+        }
+        private global::System.String _YardName;
+        partial void OnYardNameChanging(global::System.String value);
+        partial void OnYardNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> LocationID
+        {
+            get
+            {
+                return _LocationID;
+            }
+            set
+            {
+                OnLocationIDChanging(value);
+                ReportPropertyChanging("LocationID");
+                _LocationID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LocationID");
+                OnLocationIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _LocationID;
+        partial void OnLocationIDChanging(Nullable<global::System.Int32> value);
+        partial void OnLocationIDChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailYard__Locati__571DF1D5", "Location")]
+        public Location Location
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("RailServe_dataModel.FK__RailYard__Locati__571DF1D5", "Location").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("RailServe_dataModel.FK__RailYard__Locati__571DF1D5", "Location").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Location> LocationReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("RailServe_dataModel.FK__RailYard__Locati__571DF1D5", "Location");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Location>("RailServe_dataModel.FK__RailYard__Locati__571DF1D5", "Location", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__YardI__412EB0B6", "RailCarCurrentStatus")]
+        public EntityCollection<RailCarCurrentStatu> RailCarCurrentStatus
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__YardI__412EB0B6", "RailCarCurrentStatus");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__YardI__412EB0B6", "RailCarCurrentStatus", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__YardI__47DBAE45", "RailCarHistory")]
+        public EntityCollection<RailCarHistory> RailCarHistories
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__YardI__47DBAE45", "RailCarHistory");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__YardI__47DBAE45", "RailCarHistory", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__Track__YardId__48CFD27E", "Track")]
+        public EntityCollection<Track> Tracks
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Track>("RailServe_dataModel.FK__Track__YardId__48CFD27E", "Track");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Track>("RailServe_dataModel.FK__Track__YardId__48CFD27E", "Track", value);
                 }
             }
         }
@@ -4014,11 +3912,13 @@ namespace TrainTracker.Web.Models
         /// </summary>
         /// <param name="trackID">Initial value of the TrackID property.</param>
         /// <param name="track1">Initial value of the Track1 property.</param>
-        public static Track CreateTrack(global::System.Int32 trackID, global::System.String track1)
+        /// <param name="typeID">Initial value of the TypeID property.</param>
+        public static Track CreateTrack(global::System.Int32 trackID, global::System.String track1, global::System.Int32 typeID)
         {
             Track track = new Track();
             track.TrackID = trackID;
             track.Track1 = track1;
+            track.TypeID = typeID;
             return track;
         }
 
@@ -4147,6 +4047,78 @@ namespace TrainTracker.Web.Models
         private Nullable<global::System.Int32> _Length;
         partial void OnLengthChanging(Nullable<global::System.Int32> value);
         partial void OnLengthChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 TypeID
+        {
+            get
+            {
+                return _TypeID;
+            }
+            set
+            {
+                OnTypeIDChanging(value);
+                ReportPropertyChanging("TypeID");
+                _TypeID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TypeID");
+                OnTypeIDChanged();
+            }
+        }
+        private global::System.Int32 _TypeID;
+        partial void OnTypeIDChanging(global::System.Int32 value);
+        partial void OnTypeIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String TrackCode
+        {
+            get
+            {
+                return _TrackCode;
+            }
+            set
+            {
+                OnTrackCodeChanging(value);
+                ReportPropertyChanging("TrackCode");
+                _TrackCode = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("TrackCode");
+                OnTrackCodeChanged();
+            }
+        }
+        private global::System.String _TrackCode;
+        partial void OnTrackCodeChanging(global::System.String value);
+        partial void OnTrackCodeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> LocationID
+        {
+            get
+            {
+                return _LocationID;
+            }
+            set
+            {
+                OnLocationIDChanging(value);
+                ReportPropertyChanging("LocationID");
+                _LocationID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LocationID");
+                OnLocationIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _LocationID;
+        partial void OnLocationIDChanging(Nullable<global::System.Int32> value);
+        partial void OnLocationIDChanged();
 
         #endregion
     
@@ -4158,18 +4130,18 @@ namespace TrainTracker.Web.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__Track__503BEA1C", "RailCarCurrentStatus")]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarCu__Track__403A8C7D", "RailCarCurrentStatus")]
         public EntityCollection<RailCarCurrentStatu> RailCarCurrentStatus
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__Track__503BEA1C", "RailCarCurrentStatus");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__Track__403A8C7D", "RailCarCurrentStatus");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__Track__503BEA1C", "RailCarCurrentStatus", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarCurrentStatu>("RailServe_dataModel.FK__RailCarCu__Track__403A8C7D", "RailCarCurrentStatus", value);
                 }
             }
         }
@@ -4180,18 +4152,18 @@ namespace TrainTracker.Web.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__Track__44CA3770", "RailCarHistory")]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__RailCarHi__Track__46E78A0C", "RailCarHistory")]
         public EntityCollection<RailCarHistory> RailCarHistories
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__Track__44CA3770", "RailCarHistory");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__Track__46E78A0C", "RailCarHistory");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__Track__44CA3770", "RailCarHistory", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RailCarHistory>("RailServe_dataModel.FK__RailCarHi__Track__46E78A0C", "RailCarHistory", value);
                 }
             }
         }
@@ -4202,16 +4174,16 @@ namespace TrainTracker.Web.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__Track__YardId__46E78A0C", "RailYard")]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__Track__YardId__48CFD27E", "RailYard")]
         public RailYard RailYard
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailYard>("RailServe_dataModel.FK__Track__YardId__46E78A0C", "RailYard").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailYard>("RailServe_dataModel.FK__Track__YardId__48CFD27E", "RailYard").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailYard>("RailServe_dataModel.FK__Track__YardId__46E78A0C", "RailYard").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailYard>("RailServe_dataModel.FK__Track__YardId__48CFD27E", "RailYard").Value = value;
             }
         }
         /// <summary>
@@ -4223,13 +4195,221 @@ namespace TrainTracker.Web.Models
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailYard>("RailServe_dataModel.FK__Track__YardId__46E78A0C", "RailYard");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RailYard>("RailServe_dataModel.FK__Track__YardId__48CFD27E", "RailYard");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RailYard>("RailServe_dataModel.FK__Track__YardId__46E78A0C", "RailYard", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RailYard>("RailServe_dataModel.FK__Track__YardId__48CFD27E", "RailYard", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__Track__TypeID__4AB81AF0", "TrackType")]
+        public TrackType TrackType
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TrackType>("RailServe_dataModel.FK__Track__TypeID__4AB81AF0", "TrackType").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TrackType>("RailServe_dataModel.FK__Track__TypeID__4AB81AF0", "TrackType").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<TrackType> TrackTypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TrackType>("RailServe_dataModel.FK__Track__TypeID__4AB81AF0", "TrackType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TrackType>("RailServe_dataModel.FK__Track__TypeID__4AB81AF0", "TrackType", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__Track__LocationI__6A30C649", "Location")]
+        public Location Location
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("RailServe_dataModel.FK__Track__LocationI__6A30C649", "Location").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("RailServe_dataModel.FK__Track__LocationI__6A30C649", "Location").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Location> LocationReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("RailServe_dataModel.FK__Track__LocationI__6A30C649", "Location");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Location>("RailServe_dataModel.FK__Track__LocationI__6A30C649", "Location", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="RailServe_dataModel", Name="TrackType")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class TrackType : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new TrackType object.
+        /// </summary>
+        /// <param name="typeID">Initial value of the TypeID property.</param>
+        /// <param name="typeCode">Initial value of the TypeCode property.</param>
+        /// <param name="typeName">Initial value of the TypeName property.</param>
+        public static TrackType CreateTrackType(global::System.Int32 typeID, global::System.String typeCode, global::System.String typeName)
+        {
+            TrackType trackType = new TrackType();
+            trackType.TypeID = typeID;
+            trackType.TypeCode = typeCode;
+            trackType.TypeName = typeName;
+            return trackType;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 TypeID
+        {
+            get
+            {
+                return _TypeID;
+            }
+            set
+            {
+                if (_TypeID != value)
+                {
+                    OnTypeIDChanging(value);
+                    ReportPropertyChanging("TypeID");
+                    _TypeID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("TypeID");
+                    OnTypeIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _TypeID;
+        partial void OnTypeIDChanging(global::System.Int32 value);
+        partial void OnTypeIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String TypeCode
+        {
+            get
+            {
+                return _TypeCode;
+            }
+            set
+            {
+                OnTypeCodeChanging(value);
+                ReportPropertyChanging("TypeCode");
+                _TypeCode = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("TypeCode");
+                OnTypeCodeChanged();
+            }
+        }
+        private global::System.String _TypeCode;
+        partial void OnTypeCodeChanging(global::System.String value);
+        partial void OnTypeCodeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String TypeName
+        {
+            get
+            {
+                return _TypeName;
+            }
+            set
+            {
+                OnTypeNameChanging(value);
+                ReportPropertyChanging("TypeName");
+                _TypeName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("TypeName");
+                OnTypeNameChanged();
+            }
+        }
+        private global::System.String _TypeName;
+        partial void OnTypeNameChanging(global::System.String value);
+        partial void OnTypeNameChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RailServe_dataModel", "FK__Track__TypeID__4AB81AF0", "Track")]
+        public EntityCollection<Track> Tracks
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Track>("RailServe_dataModel.FK__Track__TypeID__4AB81AF0", "Track");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Track>("RailServe_dataModel.FK__Track__TypeID__4AB81AF0", "Track", value);
                 }
             }
         }

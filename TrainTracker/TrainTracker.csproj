@@ -51,9 +51,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SilverlightControls">
-      <HintPath>..\..\..\..\..\Desktop\SilverlightColorPicker_Code\SilverlightControls\Bin\Debug\SilverlightControls.dll</HintPath>
-    </Reference>
+    <Reference Include="Microsoft.CSharp, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows" />
@@ -80,10 +78,10 @@
     <Reference Include="System.Windows.Controls.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="System.Windows.Controls.Toolkit.Internals, Version=4.0.5.0, Culture=neutral, PublicKeyToken=2c5c654d367bf4a7" />
     <Reference Include="System.Windows.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
-    <Reference Include="System.Xml" />
     <Reference Include="System.Windows.Browser" />
     <Reference Include="System.Windows.Controls" />
     <Reference Include="System.Windows.Controls.Navigation" />
+    <Reference Include="System.Xml.Linq, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\TrainTracker.Web\Resources\RegistrationDataResources.Designer.cs">
@@ -113,12 +111,9 @@
       <DependentUpon>ErrorResources.resx</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Models\AutoScroller.cs" />
-    <Compile Include="Views\Car.xaml.cs">
-      <DependentUpon>Car.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Models\LoginInfo.cs" />
     <Compile Include="Models\NavMenu.cs" />
+    <Compile Include="Models\TrackData.cs" />
     <Compile Include="Models\UserExtensions.cs" />
     <Compile Include="Models\RegistrationDataExtensions.cs" />
     <Compile Include="Controls\BusyIndicator.cs" />
@@ -154,6 +149,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\LocationStatus.xaml.cs">
+      <DependentUpon>LocationStatus.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login\LoginStatus.xaml.cs">
       <DependentUpon>LoginStatus.xaml</DependentUpon>
     </Compile>
@@ -166,8 +164,17 @@
     <Compile Include="Views\Login\RegistrationForm.xaml.cs">
       <DependentUpon>RegistrationForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NewEntry.xaml.cs">
-      <DependentUpon>NewEntry.xaml</DependentUpon>
+    <Compile Include="Views\NewCommodity.xaml.cs">
+      <DependentUpon>NewCommodity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewDepartment.xaml.cs">
+      <DependentUpon>NewDepartment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewTrack.xaml.cs">
+      <DependentUpon>NewTrack.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewYard.xaml.cs">
+      <DependentUpon>NewYard.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RailCar.xaml.cs">
       <DependentUpon>RailCar.xaml</DependentUpon>
@@ -184,17 +191,14 @@
     <Compile Include="Views\Setup.xaml.cs">
       <DependentUpon>Setup.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TrackMarker.xaml.cs">
-      <DependentUpon>TrackMarker.xaml</DependentUpon>
+    <Compile Include="Views\TrackModule.xaml.cs">
+      <DependentUpon>TrackModule.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TrackSelector.xaml.cs">
-      <DependentUpon>TrackSelector.xaml</DependentUpon>
+    <Compile Include="Views\TrackType.xaml.cs">
+      <DependentUpon>TrackType.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TrainTrackerMain.xaml.cs">
       <DependentUpon>TrainTrackerMain.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\YardLayout.xaml.cs">
-      <DependentUpon>YardLayout.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -231,10 +235,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Car.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\CarHistory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -259,6 +259,10 @@
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\LocationStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Login\LoginStatus.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
@@ -275,9 +279,21 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:MarkupCompilePass1</Generator>
     </Page>
-    <Page Include="Views\NewEntry.xaml">
+    <Page Include="Views\NewCommodity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewDepartment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewTrack.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\NewYard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RailCar.xaml">
       <SubType>Designer</SubType>
@@ -299,19 +315,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\TrackMarker.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Views\TrackModule.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\TrackSelector.xaml">
+    <Page Include="Views\TrackType.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\TrainTrackerMain.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\YardLayout.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -363,6 +375,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Resources\Images\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Cancel.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Cancel.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
