@@ -13,49 +13,14 @@ namespace TrainTracker.Web.Services
     using TrainTracker.Web.Models;
 
 
-    // Implements application logic using the RailServe_dataEntities1 context.
+    // Implements application logic using the RailServe_dataEntities3 context.
     // TODO: Add your application logic to these methods or in additional methods.
     // TODO: Wire up authentication (Windows/ASP.NET Forms) and uncomment the following to disable anonymous access
     // Also consider adding roles to restrict access as appropriate.
     // [RequiresAuthentication]
     [EnableClientAccess()]
-    public class RailServeDS : LinqToEntitiesDomainService<RailServe_dataEntities1>
+    public class RailServeDS : LinqToEntitiesDomainService<RailServe_dataEntities3>
     {
-
-        // TODO:
-        // Consider constraining the results of your query method.  If you need additional input you can
-        // add parameters to this method or create additional query methods with different names.
-        // To support paging you will need to add ordering to the 'Activities' query.
-        public IQueryable<Activity> GetActivities()
-        {
-            return this.ObjectContext.Activities;
-        }
-
-        public void InsertActivity(Activity activity)
-        {
-            if ((activity.EntityState != EntityState.Detached))
-            {
-                this.ObjectContext.ObjectStateManager.ChangeObjectState(activity, EntityState.Added);
-            }
-            else
-            {
-                this.ObjectContext.Activities.AddObject(activity);
-            }
-        }
-
-        public void UpdateActivity(Activity currentActivity)
-        {
-            this.ObjectContext.Activities.AttachAsModified(currentActivity, this.ChangeSet.GetOriginal(currentActivity));
-        }
-
-        public void DeleteActivity(Activity activity)
-        {
-            if ((activity.EntityState == EntityState.Detached))
-            {
-                this.ObjectContext.Activities.Attach(activity);
-            }
-            this.ObjectContext.Activities.DeleteObject(activity);
-        }
 
         // TODO:
         // Consider constraining the results of your query method.  If you need additional input you can
@@ -98,7 +63,11 @@ namespace TrainTracker.Web.Services
         // To support paging you will need to add ordering to the 'Commodities' query.
         public IQueryable<Commodity> GetCommodities()
         {
-            return this.ObjectContext.Commodities;
+            return this.ObjectContext.Commodities; 
+        }
+        public IQueryable<Commodity> GetCommoditiesByLocation(int location)
+        {
+            return this.ObjectContext.Commodities.Where(y => y.LocationID == location);
         }
 
         public void InsertCommodity(Commodity commodity)
@@ -125,6 +94,45 @@ namespace TrainTracker.Web.Services
                 this.ObjectContext.Commodities.Attach(commodity);
             }
             this.ObjectContext.Commodities.DeleteObject(commodity);
+        }
+
+        // TODO:
+        // Consider constraining the results of your query method.  If you need additional input you can
+        // add parameters to this method or create additional query methods with different names.
+        // To support paging you will need to add ordering to the 'Departments' query.
+        public IQueryable<Department> GetDepartments()
+        {
+            return this.ObjectContext.Departments;
+        }
+        public IQueryable<Department> GetDepartmentsByLocation(int location)
+        {
+            return this.ObjectContext.Departments.Where(y => y.LocationID == location);
+        }
+
+        public void InsertDepartment(Department department)
+        {
+            if ((department.EntityState != EntityState.Detached))
+            {
+                this.ObjectContext.ObjectStateManager.ChangeObjectState(department, EntityState.Added);
+            }
+            else
+            {
+                this.ObjectContext.Departments.AddObject(department);
+            }
+        }
+
+        public void UpdateDepartment(Department currentDepartment)
+        {
+            this.ObjectContext.Departments.AttachAsModified(currentDepartment, this.ChangeSet.GetOriginal(currentDepartment));
+        }
+
+        public void DeleteDepartment(Department department)
+        {
+            if ((department.EntityState == EntityState.Detached))
+            {
+                this.ObjectContext.Departments.Attach(department);
+            }
+            this.ObjectContext.Departments.DeleteObject(department);
         }
 
         // TODO:
@@ -165,10 +173,54 @@ namespace TrainTracker.Web.Services
         // TODO:
         // Consider constraining the results of your query method.  If you need additional input you can
         // add parameters to this method or create additional query methods with different names.
+        // To support paging you will need to add ordering to the 'Locations' query.
+        public IQueryable<Location> GetLocations()
+        {
+            return this.ObjectContext.Locations;
+        }
+
+        public void InsertLocation(Location location)
+        {
+            if ((location.EntityState != EntityState.Detached))
+            {
+                this.ObjectContext.ObjectStateManager.ChangeObjectState(location, EntityState.Added);
+            }
+            else
+            {
+                this.ObjectContext.Locations.AddObject(location);
+            }
+        }
+
+        public void UpdateLocation(Location currentLocation)
+        {
+            this.ObjectContext.Locations.AttachAsModified(currentLocation, this.ChangeSet.GetOriginal(currentLocation));
+        }
+
+        public void DeleteLocation(Location location)
+        {
+            if ((location.EntityState == EntityState.Detached))
+            {
+                this.ObjectContext.Locations.Attach(location);
+            }
+            this.ObjectContext.Locations.DeleteObject(location);
+        }
+
+        // TODO:
+        // Consider constraining the results of your query method.  If you need additional input you can
+        // add parameters to this method or create additional query methods with different names.
         // To support paging you will need to add ordering to the 'RailCars' query.
         public IQueryable<RailCar> GetRailCars()
         {
             return this.ObjectContext.RailCars.Include("RailCarType");
+        }
+
+        public RailCar GetRailCarByNumber(string number)
+        {
+            return (RailCar) this.ObjectContext.RailCars.Where(y => y.Number == number);
+        }
+        public int GetRailCarsByNumber(string number)
+        {
+            return this.ObjectContext.RailCars.Where(y => y.Number == number).Count();
         }
 
         public void InsertRailCar(RailCar railCar)
@@ -205,20 +257,29 @@ namespace TrainTracker.Web.Services
         {
             return this.ObjectContext.RailCarCurrentStatus;
         }
-        public IQueryable<RailCarCurrentStatu> GetRailCarCurrentStatusById(int yard)
+        public IQueryable<RailCarCurrentStatu> GetRailCarCurrentStatusByLocation(int location)
         {
-            return this.ObjectContext.RailCarCurrentStatus.Include("CarLoadStatu").Include("Commodity").Include("HistoryType").Include("RailCar").Include("RailYard").Include("Track").Where(y => y.YardID == yard);
+            return this.ObjectContext.RailCarCurrentStatus.Include("CarLoadStatu").Include("Commodity").Include("Location").Include("Department").Include("HistoryType").Include("RailCar").Include("RailYard").Include("Track").Include("RailCar.RailCarType").Where(y => y.LocationID == location);
         }
-        public IQueryable<RailCarCurrentStatu> GetUnassginedRailCarCurrentStatus(int yard)
+        public IQueryable<RailCarCurrentStatu> GetRailCarCurrentStatusByTrack(int track)
         {
-            return this.ObjectContext.RailCarCurrentStatus.Include("CarLoadStatu").Include("Commodity").Include("HistoryType").Include("RailCar").Include("RailYard").Include("Track").Where(y => y.YardID == yard && y.TrackId == null);
+            return this.ObjectContext.RailCarCurrentStatus.Include("CarLoadStatu").Include("Commodity").Include("Location").Include("Department").Include("HistoryType").Include("RailCar").Include("RailYard").Include("Track").Include("RailCar.RailCarType").Where(y => y.TrackId == track);
+        }
+        public IQueryable<RailCarCurrentStatu> GetRailCarCurrentStatusByLocationandTrack(int location, int track)
+        {
+            return this.ObjectContext.RailCarCurrentStatus.Where(y => y.LocationID == location && y.TrackId == track);
         }
         [Invoke]
-        public int GetRailCarCurrentStatusCountYard(int yard, int car)
+        public int GetRailCarCurrentStatusByLocationandCarCount(int location, int car)
         {
-            return this.ObjectContext.RailCarCurrentStatus.Where(y => y.YardID == yard && y.CarID ==car && y.ShipDate == null).Count();
+            return this.ObjectContext.RailCarCurrentStatus.Where(y => y.LocationID == location && y.CarID == car).Count();
         }
-
+       
+        [Invoke]
+        public int GetRailCarCurrentStatusCountLocation(int location, int car)
+        {
+            return this.ObjectContext.RailCarCurrentStatus.Where(y => y.LocationID == location && y.CarID == car && y.ShipDate == null).Count();
+        }
 
         public void InsertRailCarCurrentStatu(RailCarCurrentStatu railCarCurrentStatu)
         {
@@ -245,17 +306,6 @@ namespace TrainTracker.Web.Services
             }
             this.ObjectContext.RailCarCurrentStatus.DeleteObject(railCarCurrentStatu);
         }
-        public void currentstatus_set(RailCarCurrentStatu railCarCurrentStatu)
-        {
-            if ((railCarCurrentStatu.EntityState != EntityState.Detached))
-            {
-                this.ObjectContext.ObjectStateManager.ChangeObjectState(railCarCurrentStatu, EntityState.Added);
-            }
-            else
-            {
-                this.ObjectContext.sp_car_currentstatus_set(railCarCurrentStatu.CarID, railCarCurrentStatu.YardID, railCarCurrentStatu.HistoryTypeId, railCarCurrentStatu.ActivityId, railCarCurrentStatu.TrackId, railCarCurrentStatu.Spot, railCarCurrentStatu.StatusId, railCarCurrentStatu.CommodityId, railCarCurrentStatu.Comments, railCarCurrentStatu.Company, railCarCurrentStatu.Supplier, railCarCurrentStatu.Weight, railCarCurrentStatu.ReceiptDate, railCarCurrentStatu.ReceiptTime, railCarCurrentStatu.ShipDate, railCarCurrentStatu.ShipTime, railCarCurrentStatu.PrimaryUser, railCarCurrentStatu.SecondaryUser, railCarCurrentStatu.Demurrage);            
-            }
-             }        
 
         // TODO:
         // Consider constraining the results of your query method.  If you need additional input you can
@@ -333,9 +383,13 @@ namespace TrainTracker.Web.Services
         // To support paging you will need to add ordering to the 'RailYards' query.
         public IQueryable<RailYard> GetRailYards()
         {
-            return this.ObjectContext.RailYards;
+            return this.ObjectContext.RailYards; 
         }
-        
+        public IQueryable<RailYard> GetRailYardsByLocation(int location)
+        {
+            return this.ObjectContext.RailYards.Where(y => y.LocationID == location);
+        }
+
         public void InsertRailYard(RailYard railYard)
         {
             if ((railYard.EntityState != EntityState.Detached))
@@ -365,49 +419,23 @@ namespace TrainTracker.Web.Services
         // TODO:
         // Consider constraining the results of your query method.  If you need additional input you can
         // add parameters to this method or create additional query methods with different names.
-        // To support paging you will need to add ordering to the 'RailYard_Activities' query.
-        public IQueryable<RailYard_Activities> GetRailYard_Activities()
-        {
-            return this.ObjectContext.RailYard_Activities;
-        }
-
-        public void InsertRailYard_Activities(RailYard_Activities railYard_Activities)
-        {
-            if ((railYard_Activities.EntityState != EntityState.Detached))
-            {
-                this.ObjectContext.ObjectStateManager.ChangeObjectState(railYard_Activities, EntityState.Added);
-            }
-            else
-            {
-                this.ObjectContext.RailYard_Activities.AddObject(railYard_Activities);
-            }
-        }
-
-        public void UpdateRailYard_Activities(RailYard_Activities currentRailYard_Activities)
-        {
-            this.ObjectContext.RailYard_Activities.AttachAsModified(currentRailYard_Activities, this.ChangeSet.GetOriginal(currentRailYard_Activities));
-        }
-
-        public void DeleteRailYard_Activities(RailYard_Activities railYard_Activities)
-        {
-            if ((railYard_Activities.EntityState == EntityState.Detached))
-            {
-                this.ObjectContext.RailYard_Activities.Attach(railYard_Activities);
-            }
-            this.ObjectContext.RailYard_Activities.DeleteObject(railYard_Activities);
-        }
-
-        // TODO:
-        // Consider constraining the results of your query method.  If you need additional input you can
-        // add parameters to this method or create additional query methods with different names.
         // To support paging you will need to add ordering to the 'Tracks' query.
         public IQueryable<Track> GetTracks()
         {
-            return this.ObjectContext.Tracks.Include("RailYard");
+            return this.ObjectContext.Tracks;
         }
-        public IQueryable<Track> GetTracksByYardID(int yard)
+        public IQueryable<Track> GetTracksByLocation(int location)
         {
-            return this.ObjectContext.Tracks.Where(y => y.YardId == yard);
+            return this.ObjectContext.Tracks.Include("RailYard").Include("TrackType").Where(y => y.LocationID == location);
+        }
+        public IQueryable<Track> GetTracksByYard(int yard)
+        {
+            return this.ObjectContext.Tracks.Include("RailYard").Include("TrackType").Where(y => y.YardId == yard);
+        }
+        [Invoke]
+        public int GetTracksByNameandLocation(int location, string track)
+        {
+            return this.ObjectContext.Tracks.Where(y => y.LocationID == location && y.Track1 == track).Count();
         }
 
         public void InsertTrack(Track track)
@@ -434,6 +462,41 @@ namespace TrainTracker.Web.Services
                 this.ObjectContext.Tracks.Attach(track);
             }
             this.ObjectContext.Tracks.DeleteObject(track);
+        }
+
+        // TODO:
+        // Consider constraining the results of your query method.  If you need additional input you can
+        // add parameters to this method or create additional query methods with different names.
+        // To support paging you will need to add ordering to the 'TrackTypes' query.
+        public IQueryable<TrackType> GetTrackTypes()
+        {
+            return this.ObjectContext.TrackTypes;
+        }
+
+        public void InsertTrackType(TrackType trackType)
+        {
+            if ((trackType.EntityState != EntityState.Detached))
+            {
+                this.ObjectContext.ObjectStateManager.ChangeObjectState(trackType, EntityState.Added);
+            }
+            else
+            {
+                this.ObjectContext.TrackTypes.AddObject(trackType);
+            }
+        }
+
+        public void UpdateTrackType(TrackType currentTrackType)
+        {
+            this.ObjectContext.TrackTypes.AttachAsModified(currentTrackType, this.ChangeSet.GetOriginal(currentTrackType));
+        }
+
+        public void DeleteTrackType(TrackType trackType)
+        {
+            if ((trackType.EntityState == EntityState.Detached))
+            {
+                this.ObjectContext.TrackTypes.Attach(trackType);
+            }
+            this.ObjectContext.TrackTypes.DeleteObject(trackType);
         }
     }
 }

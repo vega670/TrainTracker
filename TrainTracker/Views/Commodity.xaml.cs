@@ -42,49 +42,37 @@ namespace TrainTracker.Views
                 e.MarkErrorAsHandled();
             }
         }
-        #region Commodity
-        private void comSearch_Click(object sender, RoutedEventArgs e)
-        {
-            this.commodityDomainDataSource.Clear();
-            this.commodityDomainDataSource.Load();
-            comSave.IsEnabled = false;
-            comNew.IsEnabled = true;
-              comCancel.IsEnabled = false;
-        }
-        private void newCom_Click(object sender, RoutedEventArgs e)
-        {
-            var temp = new TrainTracker.Web.Models.Commodity();
-            commodityDomainDataSource.DataView.Add(temp);
-            comNew.IsEnabled = false;
-            //ShowChildWindow(0);
-            comSave.IsEnabled = true;
-            comCancel.IsEnabled = true;
-        }
-        private void comSave_Click(object sender, RoutedEventArgs e)
-        {
-            if (this.commodityDomainDataSource.HasChanges)
-            {
-                this.commodityDomainDataSource.SubmitChanges();
-            }
-            comSave.IsEnabled = false;
-            comCancel.IsEnabled = false;
-            comNew.IsEnabled = true;
-            comCancel.IsEnabled = false;
-        }
-       
-        private void comCancel_Click(object sender, RoutedEventArgs e)
-        {
-            commodityDomainDataSource.RejectChanges();
-            comSave.IsEnabled = false;
-            comCancel.IsEnabled = false;
-            comNew.IsEnabled = true;
-        }        
 
-        private void commodityDataGrid_CellEditEnded(object sender, DataGridCellEditEndedEventArgs e)
+        #region Commodity
+
+        private void locationComboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            comSave.IsEnabled = true;
-            comNew.IsEnabled = false;
+            var filter = new TrainTracker.Web.Models.Location();
+            filter = locationComboBox1.SelectedItem as TrainTracker.Web.Models.Location;
+            locFilter.Text = filter.LocationID.ToString();
         }
+     
         #endregion
+
+        private void locationDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
+        {
+
+            if (e.HasError)
+            {
+                System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
+                e.MarkErrorAsHandled();
+            }
+        }
+
+        private void railCarCurrentStatuDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
+        {
+
+            if (e.HasError)
+            {
+                System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
+                e.MarkErrorAsHandled();
+            }
+        }
+     
     }
 }

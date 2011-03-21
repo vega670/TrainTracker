@@ -24,6 +24,7 @@
                 Link3.Visibility = Visibility.Collapsed;
                 Link4.Visibility = Visibility.Collapsed;
                 Link5.Visibility = Visibility.Collapsed;
+                Link6.Visibility = Visibility.Collapsed;
             };
             WebContext.Current.Authentication.LoggedIn += (se, ev) =>
             {
@@ -31,6 +32,7 @@
                 Link3.Visibility = Visibility.Visible;
                 Link4.Visibility = Visibility.Visible;
                 Link5.Visibility = Visibility.Visible;
+                Link6.Visibility = Visibility.Visible;
             };
         }
 

@@ -39,14 +39,15 @@
                 <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" Visibility="Collapsed"
                    NavigateUri="/TrainTrackerMain" TargetName="ContentFrame" Content="Train Tracker"/>
 
-                <!--Rectangle x:Name="Divider2" Style="{StaticResource DividerStyle}"/-->
-            
+
+                <HyperlinkButton x:Name="Link6" Style="{StaticResource LinkStyle}" Visibility="Collapsed"
+                   NavigateUri="/LocationStatus" TargetName="ContentFrame" Content="Location Status"/>
+
                 <HyperlinkButton x:Name="Link4" Style="{StaticResource LinkStyle}" Visibility="Collapsed"
                    NavigateUri="/Reports" TargetName="ContentFrame" Content="Reports"/>
                 
-            <HyperlinkButton x:Name="Link5" Style="{StaticResource LinkStyle}" Visibility="Collapsed"
+                    <HyperlinkButton x:Name="Link5" Style="{StaticResource LinkStyle}" Visibility="Collapsed"
                    NavigateUri="/Setup" TargetName="ContentFrame" Content="Setup"/>
-
 
                 <HyperlinkButton x:Name="Link2" Style="{StaticResource LinkStyle}" 
                                 NavigateUri="/About" TargetName="ContentFrame" Content="{Binding Path=ApplicationStrings.AboutPageTitle, Source={StaticResource ResourceWrapper}}"/>

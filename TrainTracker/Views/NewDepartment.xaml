@@ -1,0 +1,52 @@
+﻿<controls:ChildWindow x:Class="TrainTracker.Views.NewDepartment"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Width="685" Height="490" 
+           Title="NewDepartment" mc:Ignorable="d" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:my="clr-namespace:TrainTracker.Web.Models" xmlns:my1="clr-namespace:TrainTracker.Web.Services" xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" Background="{StaticResource DarkBackground}">
+    <Grid Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="44*" />
+            <RowDefinition Height="22*" />
+            <RowDefinition Height="249*" />
+            <RowDefinition Height="30*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="39*" />
+            <RowDefinition Height="34" />
+        </Grid.RowDefinitions>
+        <Button Content="Exit" Grid.Row="6" Height="28" HorizontalAlignment="Right" Margin="0,0,12,6" Name="CancelButton" Width="81" Click="CancelButton_Click" />
+        <Button Content="Save" FontSize="10" Grid.Row="5" Height="28" IsEnabled="False" Margin="568,0,12,8" Name="departmentSave" Style="{StaticResource OrangeButton}" Width="81" Click="departmentSave_Click" />
+        <Button Content="Cancel" FontSize="10" Grid.Row="5" Height="28" HorizontalAlignment="Left" IsEnabled="False" Margin="487,0,0,8" MinWidth="4" Name="departmentCancel" Width="81" Click="departmentCancel_Click" />
+        <Button Content="New" FontSize="10" Grid.Row="5" Height="28" HorizontalAlignment="Left" Margin="400,0,0,8" Name="departmentNew" Width="81" Click="departmentNew_Click" />
+        <controls:GridSplitter Grid.Row="4" Height="15" HorizontalAlignment="Stretch" IsEnabled="False" Name="gridSplitter1" VerticalAlignment="Top" />
+        <controls:GridSplitter Grid.Row="1" Height="15" HorizontalAlignment="Stretch" IsEnabled="False" Margin="0,5,0,0" Name="gridSplitter2" VerticalAlignment="Top" />
+        <TextBlock Height="22" Margin="10,14,0,4" Name="textBlock1" Text="Department:" HorizontalAlignment="Left" Width="76" />
+        <TextBox Background="DarkGray" Height="28" HorizontalAlignment="Right" Margin="0,10,457,6" Name="departmentFilter" Width="120" />
+        <sdk:DataPager Grid.Row="3" Height="26" HorizontalAlignment="Stretch" Margin="0,4,0,0" Name="dataPager2" PageSize="10" Source="{Binding Data, ElementName=departmentDomainDataSource}" VerticalAlignment="Top" />
+        <TextBlock Grid.Row="6" Height="23" HorizontalAlignment="Left" Margin="0,6,0,0" Name="locFilter" Text="" VerticalAlignment="Top" Width="38" />
+
+        <toolkit:BusyIndicator Grid.Row="2" Height="92" IsBusy="{Binding ElementName=departmentDomainDataSource, Path=DomainContext.IsLoading}" Margin="260,109,215,50" Name="busyIndicator3" Width="190" />
+        <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my:Department, CreateList=true}" Height="0" LoadedData="departmentDomainDataSource_LoadedData" Name="departmentDomainDataSource" QueryName="GetDepartmentsByLocation" Width="0" SubmittedChanges="DomainDataSource_SubmittedChanges">
+            <riaControls:DomainDataSource.DomainContext>
+                <my1:RailServeDS />
+            </riaControls:DomainDataSource.DomainContext>
+            <riaControls:DomainDataSource.QueryParameters>
+                <riaControls:Parameter ParameterName="location" Value="{Binding ElementName=locFilter, Path=Text}" />
+            </riaControls:DomainDataSource.QueryParameters>
+            <riaControls:DomainDataSource.SortDescriptors>
+                <riaControls:SortDescriptor PropertyPath="DepartmentName" Direction="Ascending" />
+            </riaControls:DomainDataSource.SortDescriptors>
+            <riaControls:DomainDataSource.FilterDescriptors>
+                <riaControls:FilterDescriptor IgnoredValue="" Operator="StartsWith" PropertyPath="DepartmentName" Value="{Binding ElementName=departmentFilter, Path=Text}" />
+            </riaControls:DomainDataSource.FilterDescriptors>
+        </riaControls:DomainDataSource>
+        <sdk:DataGrid AutoGenerateColumns="False" Grid.Row="2" Height="251" HorizontalAlignment="Left" ItemsSource="{Binding ElementName=departmentDomainDataSource, Path=Data}" Name="departmentDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" VerticalAlignment="Top" Width="665" CellEditEnded="departmentDataGrid_CellEditEnded" BindingValidationError="departmentDataGrid_BindingValidationError" BeginningEdit="departmentDataGrid_BeginningEdit">
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTextColumn x:Name="departmentIDColumn" Binding="{Binding Path=DepartmentID, Mode=OneWay}" Header="Department ID" IsReadOnly="True" Width="SizeToHeader" />
+                <sdk:DataGridTextColumn x:Name="departmentCodeColumn" Binding="{Binding Path=DepartmentCode}" Header="Department Code" Width="SizeToHeader" />
+                <sdk:DataGridTextColumn x:Name="departmentNameColumn" Binding="{Binding Path=DepartmentName}" Header="Department Name" Width="280" />
+                <sdk:DataGridTextColumn x:Name="locationIDColumn" Binding="{Binding Path=LocationID}" Header="Location ID" Width="SizeToHeader" IsReadOnly="True"/>
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+    </Grid>
+</controls:ChildWindow>
