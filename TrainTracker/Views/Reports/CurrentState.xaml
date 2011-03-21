@@ -12,7 +12,7 @@
             <ColumnDefinition Width="26*" />
             <ColumnDefinition Width="404*" />
         </Grid.ColumnDefinitions>
-        <sdk:DataGrid AutoGenerateColumns="False" Height="136" HorizontalAlignment="Left" Name="CurrentStateDataGrid" VerticalAlignment="Top" Width="619" SelectionChanged="stateGrid_SelectionChanged" IsReadOnly="True" Margin="9,8,0,0" Grid.ColumnSpan="2">
+        <sdk:DataGrid AutoGenerateColumns="False" Height="399" HorizontalAlignment="Left" Name="CurrentStateDataGrid" VerticalAlignment="Top" Width="640" SelectionChanged="stateGrid_SelectionChanged" IsReadOnly="True" Grid.ColumnSpan="2">
             <sdk:DataGrid.Columns>
                 <sdk:DataGridTextColumn Binding="{Binding Number}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Car ID" Width="Auto" />
                 <sdk:DataGridTextColumn Binding="{Binding Type}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Header="Track" Width="Auto" />
