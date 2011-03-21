@@ -1120,7 +1120,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="dataModel" ZoomLevel="66">
+      <Diagram Name="dataModel" ZoomLevel="98">
         <EntityTypeShape EntityType="RailServe_dataModel.Activity" Width="1.5" PointX="0.75" PointY="6.125" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="RailServe_dataModel.CarLoadStatu" Width="1.5" PointX="3" PointY="13.75" Height="1.9802864583333317" IsExpanded="true" />
         <EntityTypeShape EntityType="RailServe_dataModel.Commodity" Width="1.5" PointX="1.125" PointY="16.25" Height="2.172587890624996" IsExpanded="true" />

@@ -52,7 +52,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="SilverlightControls">
-      <HintPath>..\..\..\..\..\Desktop\SilverlightColorPicker_Code\SilverlightControls\Bin\Debug\SilverlightControls.dll</HintPath>
+      <HintPath>.\SilverlightControls.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Runtime.Serialization" />
@@ -140,6 +140,9 @@
     </Compile>
     <Compile Include="Views\Commodity.xaml.cs">
       <DependentUpon>Commodity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\CurrentState.xaml.cs">
+      <DependentUpon>CurrentState.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ErrorWindow.xaml.cs">
       <DependentUpon>ErrorWindow.xaml</DependentUpon>
@@ -240,6 +243,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Commodity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\CurrentState.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

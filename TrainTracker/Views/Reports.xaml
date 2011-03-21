@@ -22,25 +22,18 @@
             <navigation:Frame BorderBrush="Gray" Name="contentFrame" Width="Auto">
                 <navigation:Frame.UriMapper>
                     <sdk:UriMapper>
-                        <sdk:UriMapping MappedUri="/Views/{pageName}.xaml" Uri="/{pageName}" />
+                        <sdk:UriMapping MappedUri="/Views/Reports/{pageName}.xaml" Uri="/Reports/{pageName}" />
                     </sdk:UriMapper>
                 </navigation:Frame.UriMapper>
             </navigation:Frame>
         </ScrollViewer>
         <sdk:TreeView Grid.Row="1" HorizontalAlignment="Stretch" Margin="5,2,0,0" Name="reportsTree" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" Grid.Column="1">
             <sdk:TreeViewItem Header="Available Reports" IsExpanded="True">
-                <sdk:TreeViewItem Header="Current Location/Status">
-                    <sdk:TreeViewItem Header="Yard" />
-                    <sdk:TreeViewItem Header="Track/Spot" />
-                    <sdk:TreeViewItem Header="Car" />
-                </sdk:TreeViewItem>
-                <sdk:TreeViewItem Header="History">
-                    <sdk:TreeViewItem Header="Car" />
-                </sdk:TreeViewItem>
-                <sdk:TreeViewItem Header="Age">
-                    <sdk:TreeViewItem Header="Car" />
-                </sdk:TreeViewItem>
+                <sdk:TreeViewItem Header="Current Location/Status" Selected="CurrentState_Selected" />
+                <sdk:TreeViewItem Header="History" Selected="CarHistory_Selected" />
+                <sdk:TreeViewItem Header="Age" Selected="Age_Selected" />
             </sdk:TreeViewItem>
         </sdk:TreeView>
+        <HyperlinkButton Content="Current State" Grid.Column="1" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="11,207,0,0" Name="currentState" VerticalAlignment="Top" Width="100" TargetName="contentFrame" NavigateUri="/Reports/CurrentState" />
     </Grid>
 </navigation:Page>

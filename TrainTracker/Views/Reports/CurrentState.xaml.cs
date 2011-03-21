@@ -10,12 +10,16 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
+using TrainTracker.Web.Services;
+using System.ServiceModel.DomainServices.Client;
 
 namespace TrainTracker.Views
 {
-    public partial class Reports : Page
+    public partial class CurrentState : Page
     {
-        public Reports()
+        RailServeDS _Context = new RailServeDS();
+
+        public CurrentState()
         {
             InitializeComponent();
         }
@@ -23,19 +27,11 @@ namespace TrainTracker.Views
         // Executes when the user navigates to this page.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            CurrentStateDataGrid.ItemsSource = _Context.RailCars;
+            _Context.Load(_Context.GetRailCarsQuery());
         }
 
-        private void CurrentState_Selected(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void CarHistory_Selected(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Age_Selected(object sender, RoutedEventArgs e)
+        private void stateGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
