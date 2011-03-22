@@ -15,6 +15,7 @@ Thumbs.db
 *.sbr
 obj/
 *.xap
+*.suo
 *.config
 config
 Generated_Code/
